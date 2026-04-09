@@ -1,0 +1,337 @@
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta name="generator" content="Primo" />
+      <!-- HEAD_svelte-1sb9x12_START --><head><meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="https://primo-iota-five.vercel.app/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head><style>/* Reset & standardize default styles */
+@import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;
+
+/* Design tokens (apply to components) */
+:root {
+  /* Custom theme options */
+  --color-accent: #117471;
+  --color-accent-2: #20bfa9;
+  --color-primary: #1d263a;
+  /* Base values */
+  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+  --border-radius: 8px;
+  --border-color: #e1ecf0;
+  
+  /* Responsive breakpoints */
+  --mobile: 480px;
+  --tablet: 768px;
+  --desktop: 1024px;
+}
+
+/* Root element (use instead of `body`) */
+#page {
+  font-family: system-ui, sans-serif;
+  color: var(--color-primary);
+  line-height: 1.2;
+  font-size: 16px; /* Base font size for mobile */
+  background: white;
+}
+@media (min-width: 768px) {
+#page {
+    font-size: 1.125rem
+}
+  }
+
+/* Elements */
+.section-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+/* Smaller padding on mobile */
+@media (min-width: 768px) {
+.section-container {
+    max-width: 1200px;
+    padding: 5rem 2rem
+}
+  }
+
+a.link {
+  line-height: 1.3;
+  font-weight: 500;
+  border-bottom: 2px solid;
+  transform: translateY(-2px);
+  transition: var(--transition, 0.1s border);
+}
+
+a.link:hover {
+    border-color: transparent;
+  }
+
+.heading {
+  font-size: 1.75rem; /* Smaller heading on mobile */
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+
+.heading {
+    font-size: 2.5rem;
+    line-height: 1.1
+}
+  }
+
+.subheading {
+  font-weight: 400;
+  line-height: 1.4;
+  opacity: 90%;
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+
+.subheading {
+    line-height: 1.5;
+    font-size: 1.125rem
+}
+  }
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: white;
+  font-weight: 500;
+  background: var(--color-accent, rebeccapurple);
+  border-radius: 3rem;
+  padding: 12px 20px; /* Smaller padding on mobile */
+  width: 100%; /* Full width on mobile */
+  margin: 0.5rem 0;
+  transition: var(--transition, 0.1s box-shadow);
+  border: 0;
+}
+
+@media (min-width: 768px) {
+
+.button {
+    width: auto;
+    padding: 15px 25px;
+    margin: 0
+}
+  }
+
+.button:hover {
+    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
+  }
+
+.button.inverted {
+    background: transparent;
+    color: var(--color-accent, rebeccapurple);
+  }
+
+/* Content Section */
+.section .content {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+/* Smaller padding on mobile */
+@media (min-width: 768px) {
+.section .content {
+    max-width: 1200px;
+    padding: 5rem 2rem
+}
+  }
+.section .content p {
+    padding: 0.25rem 0;
+    line-height: 1.4;
+    font-size: 1rem;
+  }
+@media (min-width: 768px) {
+.section .content p {
+      line-height: 1.5
+  }
+    }
+.section .content img {
+    width: 100%;
+    margin: 1.5rem 0; /* Smaller margins on mobile */
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+  }
+@media (min-width: 768px) {
+.section .content img {
+      margin: 2rem 0
+  }
+    }
+.section .content h1 {
+    font-size: 2rem; /* Smaller on mobile */
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+@media (min-width: 768px) {
+.section .content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem
+  }
+    }
+.section .content h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+@media (min-width: 768px) {
+.section .content h2 {
+      font-size: 2.25rem
+  }
+    }
+.section .content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+@media (min-width: 768px) {
+.section .content h3 {
+      font-size: 1.75rem
+  }
+    }
+.section .content ul, .section .content ol {
+    padding: 0.5rem 0;
+    padding-left: 1.25rem;
+    font-size: 1rem;
+  }
+@media (min-width: 768px) {
+.section .content ul, .section .content ol {
+      font-size: 1.125rem
+  }
+    }
+.section .content ul {
+    list-style: disc;
+  }
+.section .content ol {
+    list-style: decimal;
+  }
+.section .content blockquote {
+    padding: 1.5rem; /* Smaller padding on mobile */
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+  }
+@media (min-width: 768px) {
+.section .content blockquote {
+      padding: 2rem;
+      margin: 2rem 0
+  }
+    }</style><!-- HEAD_svelte-1sb9x12_END -->
+      <style>.section-container.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--color-accent);width:100%;max-width:100%;position:relative}@media(min-width: 768px){.section-container.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{padding:1rem 2rem
+}}.logo.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{font-size:1.25rem;font-weight:600;line-height:1.2;width:auto;max-width:200px;padding:0.5rem 0}@media(min-width: 768px){.logo.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{font-size:1.7rem;width:15em;padding:1rem 0
+}}.desktop-nav.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{display:none}@media(min-width: 800px){.desktop-nav.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{display:flex;align-items:center;justify-content:space-between;width:100%;margin-left:2rem /* Space from logo */
+}.desktop-nav.svelte-kn9oip nav.svelte-kn9oip.svelte-kn9oip{display:flex;align-items:center;gap:2rem}@media(min-width: 1024px){.desktop-nav.svelte-kn9oip nav.svelte-kn9oip.svelte-kn9oip{gap:3rem /* Larger gap on wider screens */
+    }}.desktop-nav.svelte-kn9oip nav a.link.svelte-kn9oip.svelte-kn9oip{border-color:transparent;transition:border-color 0.1s;font-size:0.95rem;color:#fff;white-space:nowrap}.desktop-nav.svelte-kn9oip nav a.link.svelte-kn9oip.svelte-kn9oip:hover{border-color:initial}.desktop-nav.svelte-kn9oip nav.svelte-kn9oip .button.svelte-kn9oip{font-size:0.95rem;background-color:var(--color-primary);white-space:nowrap;padding:0.75rem 1.25rem}@media(min-width: 1024px){.desktop-nav.svelte-kn9oip nav.svelte-kn9oip .button.svelte-kn9oip{font-size:1rem;padding:0.875rem 1.5rem
+      }}}.mobile-nav.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{display:flex;align-items:center;justify-content:space-between;width:100%;font-weight:500;padding:0 0.5rem}@media(min-width: 800px){.mobile-nav.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{display:none
+}}.mobile-nav.svelte-kn9oip button.svelte-kn9oip.svelte-kn9oip{padding:0.5rem;background:transparent;border:none;color:white;cursor:pointer}.mobile-nav.svelte-kn9oip button.svelte-kn9oip.svelte-kn9oip:focus{outline:2px solid rgba(255, 255, 255, 0.5);border-radius:4px}#popup.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{font-size:1.125rem;display:grid;gap:1rem;position:fixed;text-align:center;background-color:var(--background-color, white);box-shadow:var(--box-shadow, 0px 4px 30px rgba(0, 0, 0, 0.1));border-radius:var(--border-radius);inset:0.5rem;bottom:initial;max-height:90vh;overflow-y:auto;padding:1.5rem;z-index:999}@media(min-width: 480px){#popup.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{font-size:1.25rem;padding:2rem
+}}#popup.svelte-kn9oip button#close.svelte-kn9oip.svelte-kn9oip{position:absolute;right:0.75rem;top:0.75rem;padding:0.5rem;background:transparent;border:none;cursor:pointer}#popup.svelte-kn9oip button#close.svelte-kn9oip.svelte-kn9oip:focus{outline:2px solid var(--color-accent);border-radius:4px}@media(min-width: 480px){#popup.svelte-kn9oip button#close.svelte-kn9oip.svelte-kn9oip{right:1rem;top:1rem
+  }}#popup.svelte-kn9oip nav.svelte-kn9oip a.svelte-kn9oip{padding:0.5rem;transition:opacity 0.2s}#popup.svelte-kn9oip nav.svelte-kn9oip a.svelte-kn9oip:hover{opacity:0.8}#popup.svelte-kn9oip .button.svelte-kn9oip.svelte-kn9oip{margin-top:1rem;width:100%}@media(min-width: 480px){#popup.svelte-kn9oip .button.svelte-kn9oip.svelte-kn9oip{width:auto;min-width:200px
+  }}@-webkit-keyframes svelte-kn9oip-slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}@keyframes svelte-kn9oip-slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}#popup.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{-webkit-animation:svelte-kn9oip-slideIn 0.2s ease-out;animation:svelte-kn9oip-slideIn 0.2s ease-out}
+section.svelte-1hylcc9{position:relative}.section-container.svelte-1hylcc9{padding-block:6rem}.section-container.svelte-1hylcc9:before{content:'';position:absolute;inset:0;height:100%;width:100%;background:linear-gradient(78.58deg, #FFFFFF 14.71%, rgba(255, 255, 255, 0) 47.53%);z-index:1}.main.svelte-1hylcc9{display:grid;gap:2rem;place-items:start;position:relative;z-index:1}.headline.svelte-1hylcc9{font-size:3rem;font-weight:600;line-height:1.1}.subheading.svelte-1hylcc9{line-height:1.5}.main.svelte-1hylcc9{max-width:450px}img.svelte-1hylcc9{position:absolute;inset:0;width:100%;height:100%;-o-object-fit:cover;object-fit:cover}
+.teasers.svelte-7o9z9p.svelte-7o9z9p{display:grid;gap:6rem}.teaser.svelte-7o9z9p.svelte-7o9z9p{display:grid;gap:3rem}.teaser.svelte-7o9z9p img.svelte-7o9z9p{width:100%;border-radius:var(--border-radius)}.teaser.svelte-7o9z9p .body.svelte-7o9z9p{display:grid;place-items:flex-start;gap:1.5rem;padding:0;line-height:1.5}.teaser.svelte-7o9z9p .body .title.svelte-7o9z9p{font-size:2.25rem;font-weight:500;line-height:1.25}@media(min-width: 800px){.teaser.svelte-7o9z9p.svelte-7o9z9p{grid-template-columns:1fr 1fr;place-items:center
+
+    /* switch direction for even items */
+}.teaser.svelte-7o9z9p:nth-child(even) .body.svelte-7o9z9p{grid-row:1;grid-column:2}.teaser.svelte-7o9z9p:nth-child(even) img.svelte-7o9z9p{grid-row:1;grid-column:1}}@media(min-width: 1200px){section.svelte-7o9z9p.svelte-7o9z9p{gap:6rem}.teaser.svelte-7o9z9p.svelte-7o9z9p{gap:6rem}}
+.teasers.svelte-7o9z9p.svelte-7o9z9p{display:grid;gap:6rem}.teaser.svelte-7o9z9p.svelte-7o9z9p{display:grid;gap:3rem}.teaser.svelte-7o9z9p img.svelte-7o9z9p{width:100%;border-radius:var(--border-radius)}.teaser.svelte-7o9z9p .body.svelte-7o9z9p{display:grid;place-items:flex-start;gap:1.5rem;padding:0;line-height:1.5}.teaser.svelte-7o9z9p .body .title.svelte-7o9z9p{font-size:2.25rem;font-weight:500;line-height:1.25}@media(min-width: 800px){.teaser.svelte-7o9z9p.svelte-7o9z9p{grid-template-columns:1fr 1fr;place-items:center
+
+    /* switch direction for even items */
+}.teaser.svelte-7o9z9p:nth-child(even) .body.svelte-7o9z9p{grid-row:1;grid-column:2}.teaser.svelte-7o9z9p:nth-child(even) img.svelte-7o9z9p{grid-row:1;grid-column:1}}@media(min-width: 1200px){section.svelte-7o9z9p.svelte-7o9z9p{gap:6rem}.teaser.svelte-7o9z9p.svelte-7o9z9p{gap:6rem}}
+.section-container-footer.svelte-a65hzu.svelte-a65hzu{display:grid;gap:2rem;background-color:var(--color-primary);color:#fff;width:100%;max-width:100%;margin:0 auto;padding:3rem 1.25rem}@media(min-width: 480px){.section-container-footer.svelte-a65hzu.svelte-a65hzu{padding:4rem 1.5rem;gap:2.5rem
+}}@media(min-width: 600px){.section-container-footer.svelte-a65hzu.svelte-a65hzu{grid-template-columns:1fr 2fr;gap:3rem;padding:5rem 2rem
+}}@media(min-width: 1024px){.section-container-footer.svelte-a65hzu.svelte-a65hzu{gap:100px
+}}.logo.svelte-a65hzu.svelte-a65hzu{width:100%;max-width:10rem;height:auto}@media(min-width: 480px){.logo.svelte-a65hzu.svelte-a65hzu{max-width:15rem
+}}@media(min-width: 600px){.logo.svelte-a65hzu.svelte-a65hzu{width:20rem
+}}.main.svelte-a65hzu.svelte-a65hzu{display:grid;place-content:start;gap:1.5rem}@media(min-width: 600px){.main.svelte-a65hzu.svelte-a65hzu{gap:2rem
+}}.main.svelte-a65hzu .company-description.svelte-a65hzu{font-weight:400;font-size:0.9rem;line-height:1.4;opacity:0.8}@media(min-width: 480px){.main.svelte-a65hzu .company-description.svelte-a65hzu{font-size:1rem;line-height:1.4rem
+  }}.links.svelte-a65hzu.svelte-a65hzu{display:grid;gap:2.5rem;width:100%}@media(min-width: 480px){.links.svelte-a65hzu.svelte-a65hzu{display:flex;flex-wrap:wrap;gap:3rem;justify-content:flex-start
+}}@media(min-width: 600px){.links.svelte-a65hzu.svelte-a65hzu{justify-content:flex-end;gap:5rem
+}}.links.svelte-a65hzu .item.svelte-a65hzu{display:grid;place-content:start;min-width:150px}.links.svelte-a65hzu .item .label.svelte-a65hzu{font-weight:600;font-size:1rem;line-height:1.4;opacity:0.6;margin-bottom:0.75rem}@media(min-width: 480px){.links.svelte-a65hzu .item .label.svelte-a65hzu{font-size:1.125rem;line-height:1.6rem;margin-bottom:1rem
+    }}.links.svelte-a65hzu .item nav.svelte-a65hzu{display:grid;place-items:start;gap:0.5rem}@media(min-width: 480px){.links.svelte-a65hzu .item nav.svelte-a65hzu{gap:0.75rem
+    }}nav.svelte-a65hzu .link.svelte-a65hzu{border-color:transparent;font-size:0.9rem;padding:0.25rem 0;transition:opacity 0.2s ease}@media(min-width: 480px){nav.svelte-a65hzu .link.svelte-a65hzu{font-size:1rem
+  }}nav.svelte-a65hzu .link.svelte-a65hzu:hover{border-color:initial;opacity:0.8}@media(max-width: 480px){nav.svelte-a65hzu .link.svelte-a65hzu{display:inline-block;padding:0.5rem 0
+  }}@media(min-width: 480px){}@media(min-width: 480px){}@media(max-width: 480px){}@-webkit-keyframes svelte-a65hzu-fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@keyframes svelte-a65hzu-fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.section-container-footer.svelte-a65hzu .main.svelte-a65hzu,.section-container-footer.svelte-a65hzu .links.svelte-a65hzu,.section-container-footer.svelte-a65hzu .logo.svelte-a65hzu{-webkit-animation:svelte-a65hzu-fadeIn 0.5s ease-out forwards;animation:svelte-a65hzu-fadeIn 0.5s ease-out forwards}.section-container-footer.svelte-a65hzu .links.svelte-a65hzu{-webkit-animation-delay:0.2s;animation-delay:0.2s}</style>
+    </head>
+    <body id="page">
+       
+<div class="section" id="section-0f71a4d3"><header class="section-container svelte-kn9oip"><div class="desktop-nav svelte-kn9oip"><a href="/" class="logo svelte-kn9oip"><img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/17294218340022.svg" alt=""></a>
+    <nav class="svelte-kn9oip"><a class="link svelte-kn9oip" href="/ueber_mich">Über mich</a><a class="link svelte-kn9oip" href="/team">Team</a><a class="link svelte-kn9oip" href="/statistik_mathematik">Statistik/Mathematik</a><a class="link svelte-kn9oip" href="/statistische-auswertung">Statistische Auswertung</a><a class="link svelte-kn9oip" href="/datenanalyse">Datenanalyse</a><a class="link svelte-kn9oip" href="/kontakt">Kontakt</a>
+      <a href="https://shop.cgstatistik.at" class="button svelte-kn9oip">Nachhilfe buchen
+
+</a></nav></div>
+  <div class="mobile-nav svelte-kn9oip"><a href="/" class="logo svelte-kn9oip"><img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/17294218340022.svg" alt=""></a>
+    <button id="open" aria-label="Open mobile navigation" class="svelte-kn9oip"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="30" height="30" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--eva"><!-- HTML_TAG_START --><rect width="18" height="2" x="3" y="11" fill="currentColor" rx=".95" ry=".95"/><rect width="18" height="2" x="3" y="16" fill="currentColor" rx=".95" ry=".95"/><rect width="18" height="2" x="3" y="6" fill="currentColor" rx=".95" ry=".95"/><!-- HTML_TAG_END --></svg></button>
+    </div></header></div> 
+<div class="section" id="section-d03f260e"><section class="svelte-1hylcc9"><div class="section-container svelte-1hylcc9"><div class="main svelte-1hylcc9"><h1 class="headline svelte-1hylcc9">Perfekt vorbereitet auf die Klausur</h1>
+      <h2 class="subheading svelte-1hylcc9">Egal ob du gemeinsam die Hausübung lösen oder dich auf deine Klausur/Schularbeit vorbereiten möchtest. Wir unterstützen dich gezielt und bald wird dir Statistik keine Kopfzerbrechen mehr bereiten.</h2>
+      <a href="https://shop.christoph-gross.com" class="button">Stunden buchen</a></div></div>
+  <img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/1774962260819datenvisualisierung-chart-analyse.webp" alt="Gedruckte Seite mit Balken- und Liniendiagrammen, Fokus auf Datenvisualisierung und Geschäftszahlen auf hellem Tisch." class="svelte-1hylcc9"></section></div> 
+<div class="section" id="section-83a910b7"><section class="section-container svelte-7o9z9p"><div class="teasers svelte-7o9z9p"><div class="teaser svelte-7o9z9p"><div class="body svelte-7o9z9p"><h2 class="title svelte-7o9z9p">Generelles</h2>
+          <div class="description"><!-- HTML_TAG_START --><p>Die Nachhilfe findet Online via Skype bzw. Microsoft Teams oder Google Meet statt. Du kannst also ganz ortsungebunden lernen. In der Nachhilfe wird auf deine Fragen eingegangen und es wird dir alles einfach und verständlich erklärt. Du brauchst keine Vorkenntnisse und es ist nicht wichtig ob du gut in Mathe bist/warst. Mit unserer Hilfe kriegst du das schon hin.</p><!-- HTML_TAG_END --></div>
+          <a class="link svelte-7o9z9p" href="https://shop.christoph-gross.com">Stunden buchen
+            </a></div>
+        <img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/1774517543145statistik-nachhilfe-problem-studentin.webp" alt="Gestresste Studentin mit Rucksack hält ein Buch über den Kopf; um sie Formeln, Diagramme und eine Gedankenblase mit Fragezeichen." class="svelte-7o9z9p">
+      </div><div class="teaser svelte-7o9z9p"><div class="body svelte-7o9z9p"><h2 class="title svelte-7o9z9p">Termine vereinbaren</h2>
+          <div class="description"><!-- HTML_TAG_START --><p>Termine kannst du ganz einfach selbst online buchen. Du musst nur auf den Button "Stunden buchen" klicken, im Kalender den Termin auswählen und bezahlen.&nbsp;Im Kalender sind alle verfügbaren Termine. Du kannst zwischen unterschiedlichen Tutoren wählen. Die kannst mit Kreditkarte, EPS-Banküberweisung (Österreich), Google oder Apple Pay bezahlen. Sollte keine der angeführten Optionen für dich möglich sein, schreib mir bitte eine Nachricht, ich kann dir die Termine per Hand reservieren. Eine Einheit entspricht 50 Minuten. Du kannst zwischen mehreren Tutoren wählen. Hier findest du eine Übersicht:</p><!-- HTML_TAG_END --></div>
+          <a class="link svelte-7o9z9p" href="/team">Tutoren
+            </a></div>
+        <img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/1774517718221statistik-nachhilfe-organisation-studentin.webp" alt="Studentin mit Rucksack blickt auf ein leeres Klemmbrett; daneben Symbole wie Uhr, E-Mail-Icon und Gedankenblase „Am Freitag“." class="svelte-7o9z9p">
+      </div></div></section></div> 
+<div class="section" id="section-c8acff43"><section class="section-container svelte-7o9z9p"><div class="teasers svelte-7o9z9p"><div class="teaser svelte-7o9z9p"><div class="body svelte-7o9z9p"><h2 class="title svelte-7o9z9p">Preise</h2>
+          <div class="description"><!-- HTML_TAG_START --><p>Eine Einheit von 50 Minuten Einzelnachhilfe zur Vorbereitung auf Prüfungen oder das gemeinsame Bearbeiten von Hausaufgaben entspricht 64€ (inkl. 20% USt.). Bei 2 Personen beträgt der Preis 88€. (inkl. 20% USt.). Es können online Termine für bis zu 5 Personen gebucht werden. An Terminen am Wochenende gibt es einen Aufschlag von 30%, an Feiertagen einen Aufschlag von 50%. An den entsprechenden Tagen wird direkt der erhöhte Preis angezeigt. Die Feiertage in Österreich kannst du unter folgendem Link abrufen: <a href="https://www.wien.gv.at/amtshelfer/feiertage/">https://www.wien.gv.at/amtshelfer/feiertage/</a></p><!-- HTML_TAG_END --></div>
+          <a class="link svelte-7o9z9p" href="https://shop.christoph-gross.com">Stunden buchen
+            </a></div>
+        <img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/1774969839433statistik-nachhilfe-hi-studentin.webp" alt="Studentin arbeitet am Laptop und kommuniziert online, Symbol für digitale Statistik Nachhilfe und Beratung." class="svelte-7o9z9p">
+      </div><div class="teaser svelte-7o9z9p"><div class="body svelte-7o9z9p"><h2 class="title svelte-7o9z9p">Storno</h2>
+          <div class="description"><!-- HTML_TAG_START --><p>Die gebuchten Termine können bis zu 48h vor der Stunde storniert werden. Es reicht eine Nachricht an mich zu schicken. Dafür fallen Kosten in Höhe von 10€ an. Bei kurzfristigen Stornierungen (weniger als 48h vor dem Termin) oder bei Nichterscheinen zu einem Termin wird das Geld nicht zurückerstattet. Ausnahmen hiervon sind auf Kulanz möglich ohne dass hierauf ein Anspruch besteht.</p><!-- HTML_TAG_END --></div>
+          <a class="link svelte-7o9z9p" href="https://shop.christoph-gross.com">Stunden buchen
+            </a></div>
+        <img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/1774517658974statistik-nachhilfe-erfolg-studentin.webp" alt="Studentin arbeitet am Laptop und kommuniziert online, Symbol für digitale Statistik Nachhilfe und Beratung." class="svelte-7o9z9p">
+      </div></div></section></div> 
+<div class="section" id="section-7aef5839"><footer class="section-container-footer svelte-a65hzu"><div class="main svelte-a65hzu"><a href="/" class="logo svelte-a65hzu"><img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/17294218340022.svg" alt=""></a>
+    <div class="company-description svelte-a65hzu"><!-- HTML_TAG_START --><p><strong>Impressum</strong></p>
+<p>Christoph Groß</p>
+<p>Ehrensteingasse 3, 1220 Wien</p><!-- HTML_TAG_END --></div></div>
+  <div class="links svelte-a65hzu"><div class="item svelte-a65hzu"><h4 class="label svelte-a65hzu">Kontakt</h4>
+        <nav class="svelte-a65hzu"><a class="link svelte-a65hzu" href="https://api.whatsapp.com/send?phone=4367764269042&amp;text=Hallo%2C%20ich%20brauche%20Nachhilfe%20in%20Mathe%2FStatistik.%20Kannst%20du%20mir%20bitte%20Infos%20zur%20Nachhilfe%20geben%3F">WhatsApp: +4367764269042</a><a class="link svelte-a65hzu" href="https://www.fb.me/c.gross.8">Facebook: www.fb.me/c.gross.8</a><a class="link svelte-a65hzu" href="mailto:nachhilfe@cgstatistik.at?subject=Statistik Nachhilfe&amp;body=Ich%20benötige%20Nachhilfe%20in%20...">Nachhilfe: nachhilfe@cgstatistik.at</a><a class="link svelte-a65hzu" href="https://teams.live.com/l/invite/FEAenqWtOPvpx8y2gE">Teams Kontakt: nachhilfe@cgstatistik.at</a><a class="link svelte-a65hzu" href="https://shop.christoph-gross.com">Shop</a></nav>
+      </div><div class="item svelte-a65hzu"><h4 class="label svelte-a65hzu">Leistungen</h4>
+        <nav class="svelte-a65hzu"><a class="link svelte-a65hzu" href="/statistik_mathematik">Statistik/Mathematik</a><a class="link svelte-a65hzu" href="/statistische-auswertung">Statistische Auswertung</a><a class="link svelte-a65hzu" href="/datenanalyse">Datenanalyse</a></nav>
+      </div><div class="item svelte-a65hzu"><h4 class="label svelte-a65hzu">Rechtliches</h4>
+        <nav class="svelte-a65hzu"><a class="link svelte-a65hzu" href="https://shop.christoph-gross.com/allgemeine-geschaeftsbedingungen/">AGB</a><a class="link svelte-a65hzu" href="/datenschutzerklaerung">Datenschutzerklärung</a></nav>
+      </div><div class="item svelte-a65hzu"><h4 class="label svelte-a65hzu">Über uns</h4>
+        <nav class="svelte-a65hzu"><a class="link svelte-a65hzu" href="/team">Unser Team</a><a class="link svelte-a65hzu" href="">Kontakt</a></nav>
+      </div></div></footer></div> 
+
+      <script type="module">
+      import('/_symbols/3acbe6e6-5c15-4c04-b867-cd2347e95af0.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-0f71a4d3'),
+              hydrate: true,
+              props: {"logo":{"image":{"alt":"","url":"https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/17294218340022.svg"}},"site_nav":[{"link":{"url":"/ueber_mich","label":"Über mich","active":false}},{"link":{"url":"/team","label":"Team","active":false}},{"link":{"url":"/statistik_mathematik","label":"Statistik/Mathematik"}},{"link":{"url":"/statistische-auswertung","label":"Statistische Auswertung"}},{"link":{"url":"/datenanalyse","label":"Datenanalyse","active":false}},{"link":{"url":"/kontakt","label":"Kontakt","active":false}}],"primary_cta":{"url":"https://shop.cgstatistik.at","label":"Nachhilfe buchen\n\n"}}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    
+
+      import('/_symbols/2a5b5c08-b80b-4c84-afe4-53a71482e6f4.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-7aef5839'),
+              hydrate: true,
+              props: {"logo":{"image":{"alt":"","url":"https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/17294218340022.svg"},"title":""},"footer_links":[{"label":"Kontakt","link_list":[{"link":{"url":"https://api.whatsapp.com/send?phone=4367764269042&text=Hallo%2C%20ich%20brauche%20Nachhilfe%20in%20Mathe%2FStatistik.%20Kannst%20du%20mir%20bitte%20Infos%20zur%20Nachhilfe%20geben%3F","label":"WhatsApp: +4367764269042","active":false}},{"link":{"url":"https://www.fb.me/c.gross.8","label":"Facebook: www.fb.me/c.gross.8","active":false}},{"link":{"url":"mailto:nachhilfe@cgstatistik.at?subject=Statistik Nachhilfe&body=Ich%20benötige%20Nachhilfe%20in%20...","label":"Nachhilfe: nachhilfe@cgstatistik.at","active":false}},{"link":{"url":"https://teams.live.com/l/invite/FEAenqWtOPvpx8y2gE","label":"Teams Kontakt: nachhilfe@cgstatistik.at","active":false}},{"link":{"url":"https://shop.christoph-gross.com","label":"Shop","active":false}}]},{"label":"Leistungen","link_list":[{"link":{"url":"/statistik_mathematik","label":"Statistik/Mathematik"}},{"link":{"url":"/statistische-auswertung","label":"Statistische Auswertung","active":false}},{"link":{"url":"/datenanalyse","label":"Datenanalyse","active":false}}]},{"label":"Rechtliches","link_list":[{"link":{"url":"https://shop.christoph-gross.com/allgemeine-geschaeftsbedingungen/","label":"AGB"}},{"link":{"url":"/datenschutzerklaerung","label":"Datenschutzerklärung"}}]},{"label":"Über uns","link_list":[{"link":{"url":"/team","label":"Unser Team"}},{"link":{"url":"","label":"Kontakt","active":false}}]}],"company_description":{"html":"<p><strong>Impressum</strong></p>\n<p>Christoph Groß</p>\n<p>Ehrensteingasse 3, 1220 Wien</p>","markdown":"**Impressum**\n\nChristoph Groß\n\nEhrensteingasse 3, 1220 Wien\n\n"}}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    </script>
+    </body>
+  </html>
+  

@@ -1,0 +1,510 @@
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta name="generator" content="Primo" />
+      <!-- HEAD_svelte-1sb9x12_START --><head><meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="https://primo-iota-five.vercel.app/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head><style>/* Reset & standardize default styles */
+@import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;
+
+/* Design tokens (apply to components) */
+:root {
+  /* Custom theme options */
+  --color-accent: #117471;
+  --color-accent-2: #20bfa9;
+  --color-primary: #1d263a;
+  /* Base values */
+  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+  --border-radius: 8px;
+  --border-color: #e1ecf0;
+  
+  /* Responsive breakpoints */
+  --mobile: 480px;
+  --tablet: 768px;
+  --desktop: 1024px;
+}
+
+/* Root element (use instead of `body`) */
+#page {
+  font-family: system-ui, sans-serif;
+  color: var(--color-primary);
+  line-height: 1.2;
+  font-size: 16px; /* Base font size for mobile */
+  background: white;
+}
+@media (min-width: 768px) {
+#page {
+    font-size: 1.125rem
+}
+  }
+
+/* Elements */
+.section-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+/* Smaller padding on mobile */
+@media (min-width: 768px) {
+.section-container {
+    max-width: 1200px;
+    padding: 5rem 2rem
+}
+  }
+
+a.link {
+  line-height: 1.3;
+  font-weight: 500;
+  border-bottom: 2px solid;
+  transform: translateY(-2px);
+  transition: var(--transition, 0.1s border);
+}
+
+a.link:hover {
+    border-color: transparent;
+  }
+
+.heading {
+  font-size: 1.75rem; /* Smaller heading on mobile */
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+
+.heading {
+    font-size: 2.5rem;
+    line-height: 1.1
+}
+  }
+
+.subheading {
+  font-weight: 400;
+  line-height: 1.4;
+  opacity: 90%;
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+
+.subheading {
+    line-height: 1.5;
+    font-size: 1.125rem
+}
+  }
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: white;
+  font-weight: 500;
+  background: var(--color-accent, rebeccapurple);
+  border-radius: 3rem;
+  padding: 12px 20px; /* Smaller padding on mobile */
+  width: 100%; /* Full width on mobile */
+  margin: 0.5rem 0;
+  transition: var(--transition, 0.1s box-shadow);
+  border: 0;
+}
+
+@media (min-width: 768px) {
+
+.button {
+    width: auto;
+    padding: 15px 25px;
+    margin: 0
+}
+  }
+
+.button:hover {
+    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
+  }
+
+.button.inverted {
+    background: transparent;
+    color: var(--color-accent, rebeccapurple);
+  }
+
+/* Content Section */
+.section .content {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+/* Smaller padding on mobile */
+@media (min-width: 768px) {
+.section .content {
+    max-width: 1200px;
+    padding: 5rem 2rem
+}
+  }
+.section .content p {
+    padding: 0.25rem 0;
+    line-height: 1.4;
+    font-size: 1rem;
+  }
+@media (min-width: 768px) {
+.section .content p {
+      line-height: 1.5
+  }
+    }
+.section .content img {
+    width: 100%;
+    margin: 1.5rem 0; /* Smaller margins on mobile */
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+  }
+@media (min-width: 768px) {
+.section .content img {
+      margin: 2rem 0
+  }
+    }
+.section .content h1 {
+    font-size: 2rem; /* Smaller on mobile */
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+@media (min-width: 768px) {
+.section .content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem
+  }
+    }
+.section .content h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+@media (min-width: 768px) {
+.section .content h2 {
+      font-size: 2.25rem
+  }
+    }
+.section .content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+@media (min-width: 768px) {
+.section .content h3 {
+      font-size: 1.75rem
+  }
+    }
+.section .content ul, .section .content ol {
+    padding: 0.5rem 0;
+    padding-left: 1.25rem;
+    font-size: 1rem;
+  }
+@media (min-width: 768px) {
+.section .content ul, .section .content ol {
+      font-size: 1.125rem
+  }
+    }
+.section .content ul {
+    list-style: disc;
+  }
+.section .content ol {
+    list-style: decimal;
+  }
+.section .content blockquote {
+    padding: 1.5rem; /* Smaller padding on mobile */
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+  }
+@media (min-width: 768px) {
+.section .content blockquote {
+      padding: 2rem;
+      margin: 2rem 0
+  }
+    }</style><!-- HEAD_svelte-1sb9x12_END -->
+      <style>.section-container.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--color-accent);width:100%;max-width:100%;position:relative}@media(min-width: 768px){.section-container.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{padding:1rem 2rem
+}}.logo.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{font-size:1.25rem;font-weight:600;line-height:1.2;width:auto;max-width:200px;padding:0.5rem 0}@media(min-width: 768px){.logo.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{font-size:1.7rem;width:15em;padding:1rem 0
+}}.desktop-nav.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{display:none}@media(min-width: 800px){.desktop-nav.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{display:flex;align-items:center;justify-content:space-between;width:100%;margin-left:2rem /* Space from logo */
+}.desktop-nav.svelte-kn9oip nav.svelte-kn9oip.svelte-kn9oip{display:flex;align-items:center;gap:2rem}@media(min-width: 1024px){.desktop-nav.svelte-kn9oip nav.svelte-kn9oip.svelte-kn9oip{gap:3rem /* Larger gap on wider screens */
+    }}.desktop-nav.svelte-kn9oip nav a.link.svelte-kn9oip.svelte-kn9oip{border-color:transparent;transition:border-color 0.1s;font-size:0.95rem;color:#fff;white-space:nowrap}.desktop-nav.svelte-kn9oip nav a.link.svelte-kn9oip.svelte-kn9oip:hover{border-color:initial}.desktop-nav.svelte-kn9oip nav.svelte-kn9oip .button.svelte-kn9oip{font-size:0.95rem;background-color:var(--color-primary);white-space:nowrap;padding:0.75rem 1.25rem}@media(min-width: 1024px){.desktop-nav.svelte-kn9oip nav.svelte-kn9oip .button.svelte-kn9oip{font-size:1rem;padding:0.875rem 1.5rem
+      }}}.mobile-nav.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{display:flex;align-items:center;justify-content:space-between;width:100%;font-weight:500;padding:0 0.5rem}@media(min-width: 800px){.mobile-nav.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{display:none
+}}.mobile-nav.svelte-kn9oip button.svelte-kn9oip.svelte-kn9oip{padding:0.5rem;background:transparent;border:none;color:white;cursor:pointer}.mobile-nav.svelte-kn9oip button.svelte-kn9oip.svelte-kn9oip:focus{outline:2px solid rgba(255, 255, 255, 0.5);border-radius:4px}#popup.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{font-size:1.125rem;display:grid;gap:1rem;position:fixed;text-align:center;background-color:var(--background-color, white);box-shadow:var(--box-shadow, 0px 4px 30px rgba(0, 0, 0, 0.1));border-radius:var(--border-radius);inset:0.5rem;bottom:initial;max-height:90vh;overflow-y:auto;padding:1.5rem;z-index:999}@media(min-width: 480px){#popup.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{font-size:1.25rem;padding:2rem
+}}#popup.svelte-kn9oip button#close.svelte-kn9oip.svelte-kn9oip{position:absolute;right:0.75rem;top:0.75rem;padding:0.5rem;background:transparent;border:none;cursor:pointer}#popup.svelte-kn9oip button#close.svelte-kn9oip.svelte-kn9oip:focus{outline:2px solid var(--color-accent);border-radius:4px}@media(min-width: 480px){#popup.svelte-kn9oip button#close.svelte-kn9oip.svelte-kn9oip{right:1rem;top:1rem
+  }}#popup.svelte-kn9oip nav.svelte-kn9oip a.svelte-kn9oip{padding:0.5rem;transition:opacity 0.2s}#popup.svelte-kn9oip nav.svelte-kn9oip a.svelte-kn9oip:hover{opacity:0.8}#popup.svelte-kn9oip .button.svelte-kn9oip.svelte-kn9oip{margin-top:1rem;width:100%}@media(min-width: 480px){#popup.svelte-kn9oip .button.svelte-kn9oip.svelte-kn9oip{width:auto;min-width:200px
+  }}@-webkit-keyframes svelte-kn9oip-slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}@keyframes svelte-kn9oip-slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}#popup.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{-webkit-animation:svelte-kn9oip-slideIn 0.2s ease-out;animation:svelte-kn9oip-slideIn 0.2s ease-out}
+section.svelte-1hylcc9{position:relative}.section-container.svelte-1hylcc9{padding-block:6rem}.section-container.svelte-1hylcc9:before{content:'';position:absolute;inset:0;height:100%;width:100%;background:linear-gradient(78.58deg, #FFFFFF 14.71%, rgba(255, 255, 255, 0) 47.53%);z-index:1}.main.svelte-1hylcc9{display:grid;gap:2rem;place-items:start;position:relative;z-index:1}.headline.svelte-1hylcc9{font-size:3rem;font-weight:600;line-height:1.1}.subheading.svelte-1hylcc9{line-height:1.5}.main.svelte-1hylcc9{max-width:450px}img.svelte-1hylcc9{position:absolute;inset:0;width:100%;height:100%;-o-object-fit:cover;object-fit:cover}
+.heading.svelte-1brybkt{text-align:center;margin-bottom:3rem}ul.svelte-1brybkt{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));place-content:center center;place-items:center center;gap:1.5rem}li.svelte-1brybkt{padding:1.5rem;border:1px solid var(--border-color);border-radius:var(--border-radius);display:grid;gap:1rem}@media(min-width: 600px){li.svelte-1brybkt{padding:2rem
+}}.icon.svelte-1brybkt{font-size:2rem;color:#ff794d}.title.svelte-1brybkt{font-weight:600;font-size:1.5rem;line-height:1.3}.description.svelte-1brybkt{line-height:1.75rem}.button.svelte-1brybkt{display:inline-block;justify-self:center;margin-top:0.75rem;padding:0.6rem 1.2rem;background-color:#ff794d;color:white;border-radius:var(--border-radius);text-decoration:none;font-weight:500;text-align:center;transition:all 0.2s ease}.button.svelte-1brybkt:hover{background-color:#e5673f;transform:translateY(-1px)}
+.section-container.svelte-5edp3e.svelte-5edp3e{display:grid;gap:0.5rem}.heading-group.svelte-5edp3e.svelte-5edp3e{display:grid;gap:1rem;place-content:center;text-align:center}.heading-group.svelte-5edp3e .superhead.svelte-5edp3e{font-family:var(--font-body);color:var(--color-accent);font-weight:500;font-size:.875rem;letter-spacing:1.5px;text-transform:uppercase}.heading-group.svelte-5edp3e .subheading.svelte-5edp3e{line-height:1.3;max-width:700px;font-weight:400;margin:0 auto;margin-bottom:4rem}.tiers.svelte-5edp3e.svelte-5edp3e{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));place-items:start;gap:2rem}.tiers.svelte-5edp3e .tier.svelte-5edp3e{display:grid;gap:2rem;border:1px solid var(--border-color, #eee);border-radius:var(--border-radius);padding:2.5rem 2rem;width:100%}.tiers.svelte-5edp3e .tier header.svelte-5edp3e{display:grid;gap:0.5rem}.tiers.svelte-5edp3e .tier header .price.svelte-5edp3e{font-weight:600;margin-bottom:1rem}.tiers.svelte-5edp3e .tier header .price span.numerator.svelte-5edp3e{font-size:2rem;color:var(--color-brand)}.tiers.svelte-5edp3e .tier header .price span.denominator.svelte-5edp3e{opacity:0.8}.tiers.svelte-5edp3e .tier .title.svelte-5edp3e{color:var(--color);font-size:1.25rem;border-radius:2rem;font-weight:600;justify-self:flex-start;margin-bottom:0.5rem}.tiers.svelte-5edp3e .tier hr.svelte-5edp3e{width:100%;border-color:var(--border-color, #eee)}.tiers.svelte-5edp3e .tier ul.features.svelte-5edp3e{display:grid;gap:1rem}.tiers.svelte-5edp3e .tier ul.features li.svelte-5edp3e{display:flex;align-items:center;gap:.75rem}.tiers.svelte-5edp3e .tier ul.features li .icon.svelte-5edp3e{color:var(--color-accent, rebeccapurple)}.tiers.svelte-5edp3e .tier .button.svelte-5edp3e{width:100%;text-align:center;font-size:1rem}
+.section-container.svelte-djfrq5.svelte-djfrq5{max-width:1300px;padding:3rem 1rem}@media(min-width: 800px){.section-container.svelte-djfrq5.svelte-djfrq5{padding:5rem 2rem 8rem 2rem
+}}.heading.svelte-djfrq5.svelte-djfrq5{text-align:center;margin-bottom:2rem}.slider.svelte-djfrq5.svelte-djfrq5{display:grid;grid-template-columns:auto 1fr auto;margin-bottom:3rem}@media(min-width: 800px){.slider.svelte-djfrq5.svelte-djfrq5{gap:2rem
+}.slider.svelte-djfrq5 button.svelte-djfrq5{display:block !important}}.slider.svelte-djfrq5 button.svelte-djfrq5{font-size:3rem;display:none}.slider.svelte-djfrq5 button[disabled].svelte-djfrq5{opacity:0.1;cursor:initial}.slider.svelte-djfrq5 ul.svelte-djfrq5{padding-inline:1rem}.slider.svelte-djfrq5 ul li.svelte-djfrq5{padding-inline:0.5rem}.slider.svelte-djfrq5 ul li .icon.svelte-djfrq5{display:block;font-size:2.5rem;margin-bottom:1.5rem;color:#2c8dbb}.slider.svelte-djfrq5 ul li .quote.svelte-djfrq5{margin-bottom:1rem;max-width:300px}.slider.svelte-djfrq5 ul li .name.svelte-djfrq5,.slider.svelte-djfrq5 ul li .title.svelte-djfrq5{font-size:1rem}.slider.svelte-djfrq5 ul li .name.svelte-djfrq5{font-weight:600}.dots.svelte-djfrq5.svelte-djfrq5{display:flex;justify-content:center}.dots.svelte-djfrq5 button.svelte-djfrq5{opacity:0.25;transition:0.25s}.dots.svelte-djfrq5 button.active.svelte-djfrq5{opacity:1}
+.section-container-footer.svelte-a65hzu.svelte-a65hzu{display:grid;gap:2rem;background-color:var(--color-primary);color:#fff;width:100%;max-width:100%;margin:0 auto;padding:3rem 1.25rem}@media(min-width: 480px){.section-container-footer.svelte-a65hzu.svelte-a65hzu{padding:4rem 1.5rem;gap:2.5rem
+}}@media(min-width: 600px){.section-container-footer.svelte-a65hzu.svelte-a65hzu{grid-template-columns:1fr 2fr;gap:3rem;padding:5rem 2rem
+}}@media(min-width: 1024px){.section-container-footer.svelte-a65hzu.svelte-a65hzu{gap:100px
+}}.logo.svelte-a65hzu.svelte-a65hzu{width:100%;max-width:10rem;height:auto}@media(min-width: 480px){.logo.svelte-a65hzu.svelte-a65hzu{max-width:15rem
+}}@media(min-width: 600px){.logo.svelte-a65hzu.svelte-a65hzu{width:20rem
+}}.main.svelte-a65hzu.svelte-a65hzu{display:grid;place-content:start;gap:1.5rem}@media(min-width: 600px){.main.svelte-a65hzu.svelte-a65hzu{gap:2rem
+}}.main.svelte-a65hzu .company-description.svelte-a65hzu{font-weight:400;font-size:0.9rem;line-height:1.4;opacity:0.8}@media(min-width: 480px){.main.svelte-a65hzu .company-description.svelte-a65hzu{font-size:1rem;line-height:1.4rem
+  }}.links.svelte-a65hzu.svelte-a65hzu{display:grid;gap:2.5rem;width:100%}@media(min-width: 480px){.links.svelte-a65hzu.svelte-a65hzu{display:flex;flex-wrap:wrap;gap:3rem;justify-content:flex-start
+}}@media(min-width: 600px){.links.svelte-a65hzu.svelte-a65hzu{justify-content:flex-end;gap:5rem
+}}.links.svelte-a65hzu .item.svelte-a65hzu{display:grid;place-content:start;min-width:150px}.links.svelte-a65hzu .item .label.svelte-a65hzu{font-weight:600;font-size:1rem;line-height:1.4;opacity:0.6;margin-bottom:0.75rem}@media(min-width: 480px){.links.svelte-a65hzu .item .label.svelte-a65hzu{font-size:1.125rem;line-height:1.6rem;margin-bottom:1rem
+    }}.links.svelte-a65hzu .item nav.svelte-a65hzu{display:grid;place-items:start;gap:0.5rem}@media(min-width: 480px){.links.svelte-a65hzu .item nav.svelte-a65hzu{gap:0.75rem
+    }}nav.svelte-a65hzu .link.svelte-a65hzu{border-color:transparent;font-size:0.9rem;padding:0.25rem 0;transition:opacity 0.2s ease}@media(min-width: 480px){nav.svelte-a65hzu .link.svelte-a65hzu{font-size:1rem
+  }}nav.svelte-a65hzu .link.svelte-a65hzu:hover{border-color:initial;opacity:0.8}@media(max-width: 480px){nav.svelte-a65hzu .link.svelte-a65hzu{display:inline-block;padding:0.5rem 0
+  }}@media(min-width: 480px){}@media(min-width: 480px){}@media(max-width: 480px){}@-webkit-keyframes svelte-a65hzu-fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@keyframes svelte-a65hzu-fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.section-container-footer.svelte-a65hzu .main.svelte-a65hzu,.section-container-footer.svelte-a65hzu .links.svelte-a65hzu,.section-container-footer.svelte-a65hzu .logo.svelte-a65hzu{-webkit-animation:svelte-a65hzu-fadeIn 0.5s ease-out forwards;animation:svelte-a65hzu-fadeIn 0.5s ease-out forwards}.section-container-footer.svelte-a65hzu .links.svelte-a65hzu{-webkit-animation-delay:0.2s;animation-delay:0.2s}</style>
+    </head>
+    <body id="page">
+       
+<div class="section" id="section-fce86e68"><header class="section-container svelte-kn9oip"><div class="desktop-nav svelte-kn9oip"><a href="/" class="logo svelte-kn9oip"><img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/17294218340022.svg" alt=""></a>
+    <nav class="svelte-kn9oip"><a class="link svelte-kn9oip" href="/ueber_mich">Über mich</a><a class="link svelte-kn9oip" href="/team">Team</a><a class="link svelte-kn9oip" href="/statistik_mathematik">Statistik/Mathematik</a><a class="link svelte-kn9oip" href="/statistische-auswertung">Statistische Auswertung</a><a class="link svelte-kn9oip" href="/datenanalyse">Datenanalyse</a><a class="link svelte-kn9oip" href="/kontakt">Kontakt</a>
+      <a href="https://shop.cgstatistik.at" class="button svelte-kn9oip">Nachhilfe buchen
+
+</a></nav></div>
+  <div class="mobile-nav svelte-kn9oip"><a href="/" class="logo svelte-kn9oip"><img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/17294218340022.svg" alt=""></a>
+    <button id="open" aria-label="Open mobile navigation" class="svelte-kn9oip"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="30" height="30" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--eva"><!-- HTML_TAG_START --><rect width="18" height="2" x="3" y="11" fill="currentColor" rx=".95" ry=".95"/><rect width="18" height="2" x="3" y="16" fill="currentColor" rx=".95" ry=".95"/><rect width="18" height="2" x="3" y="6" fill="currentColor" rx=".95" ry=".95"/><!-- HTML_TAG_END --></svg></button>
+    </div></header></div> 
+<div class="section" id="section-87259c11"><section class="svelte-1hylcc9"><div class="section-container svelte-1hylcc9"><div class="main svelte-1hylcc9"><h1 class="headline svelte-1hylcc9">Professionelle Statistik Beratung</h1>
+      <h2 class="subheading svelte-1hylcc9">Du suchst Hilfe bei Statistik? Ob Prüfungsvorbereitung, Datenanalysen oder wissenschaftliche Arbeiten – wir helfen dir weiter! Mit individuellen Lösungen, klaren Erklärungen und jahrelanger Erfahrung machen wir Statistik für dich verständlich und greifbar.</h2>
+      <a href="https://shop.cgstatistik.at" class="button">Online Nachhilfe buchen
+
+</a></div></div>
+  <img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/1774962660532statistik-trend-diagramm.webp" alt="Statistik Trenddiagramm mit mehreren Linien und Candlestick-Daten zur Analyse von Entwicklungen und Zusammenhängen in der Datenanalyse." class="svelte-1hylcc9"></section></div> 
+<div class="section" id="section-0935327c"><section><div class="section-container"><h2 class="heading svelte-1brybkt">Leistungen</h2>
+
+    <ul class="svelte-1brybkt"><li class="block svelte-1brybkt"><div class="icon svelte-1brybkt"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024" class="iconify iconify--ant-design"><!-- HTML_TAG_START --><path fill="currentColor" d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32M440.2 765h-50.8c-2.2 0-4.5-1.1-5.9-2.9L348 718.6l-35.5 43.5a7.38 7.38 0 0 1-5.9 2.9h-50.8c-6.6 0-10.2-7.9-5.8-13.1l62.7-76.8l-61.2-74.9c-4.3-5.2-.7-13.1 5.9-13.1h50.9c2.2 0 4.5 1.1 5.9 2.9l34 41.6l34-41.6c1.5-1.9 3.6-2.9 5.9-2.9h50.8c6.6 0 10.2 7.9 5.9 13.1L383.5 675l62.7 76.8c4.2 5.3.6 13.2-6 13.2m7.8-382c0 2.2-1.4 4-3.2 4H376v68.7c0 1.9-1.8 3.3-4 3.3h-48c-2.2 0-4-1.4-4-3.2V387h-68.8c-1.8 0-3.2-1.8-3.2-4v-48c0-2.2 1.4-4 3.2-4H320v-68.8c0-1.8 1.8-3.2 4-3.2h48c2.2 0 4 1.4 4 3.2V331h68.7c1.9 0 3.3 1.8 3.3 4zm328 369c0 2.2-1.4 4-3.2 4H579.2c-1.8 0-3.2-1.8-3.2-4v-48c0-2.2 1.4-4 3.2-4h193.5c1.9 0 3.3 1.8 3.3 4zm0-104c0 2.2-1.4 4-3.2 4H579.2c-1.8 0-3.2-1.8-3.2-4v-48c0-2.2 1.4-4 3.2-4h193.5c1.9 0 3.3 1.8 3.3 4zm0-265c0 2.2-1.4 4-3.2 4H579.2c-1.8 0-3.2-1.8-3.2-4v-48c0-2.2 1.4-4 3.2-4h193.5c1.9 0 3.3 1.8 3.3 4z"/><!-- HTML_TAG_END --></svg></div>
+
+          <h3 class="title svelte-1brybkt">Statistik, Mathematik</h3>
+
+          <div class="description svelte-1brybkt">Du hast bald eine Statistikprüfung oder brauchst Mathe-Nachhilfe? Wir sind für dich da! Gemeinsam gehen wir Schritt für Schritt deinen Stoff durch und klären alle Fragen. Mit klaren Erklärungen und praktischen Beispielen bereiten wir dich bestens vor. So meisterst du deine Prüfung sicher und erfolgreich!</div>
+
+          <a href="/statistik-beratung-fuer-studierende/statisitk-mathematik" class="button svelte-1brybkt">Mehr dazu
+            </a>
+
+        </li><li class="block svelte-1brybkt"><div class="icon svelte-1brybkt"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024" class="iconify iconify--ant-design"><!-- HTML_TAG_START --><path fill="currentColor" d="M888 792H200V168c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v688c0 4.4 3.6 8 8 8h752c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8m-616-64h536c4.4 0 8-3.6 8-8V284c0-7.2-8.7-10.7-13.7-5.7L592 488.6l-125.4-124a8.03 8.03 0 0 0-11.3 0l-189 189.6a7.87 7.87 0 0 0-2.3 5.6V720c0 4.4 3.6 8 8 8"/><!-- HTML_TAG_END --></svg></div>
+
+          <h3 class="title svelte-1brybkt">Statistische Auswertung</h3>
+
+          <div class="description svelte-1brybkt">Du willst deine Daten selbst auswerten, aber weißt nicht genau wie? Kein Problem! Wir begleiten dich Schritt für Schritt und zeigen dir alles, was du für eine erfolgreiche Analyse brauchst. Egal ob R, SPSS, JASP, PSPP, Jamovi oder STATA – mit unserer Unterstützung meisterst du jede Herausforderung!</div>
+
+          <a href="/statistik-beratung-fuer-studierende/statistische-auswertung" class="button svelte-1brybkt">Mehr dazu
+            </a>
+
+        </li><li class="block svelte-1brybkt"><div class="icon svelte-1brybkt"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024" class="iconify iconify--ant-design"><!-- HTML_TAG_START --><path fill="currentColor" d="M320 224h-66v-56c0-4.4-3.6-8-8-8h-52c-4.4 0-8 3.6-8 8v56h-66c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8h66v56c0 4.4 3.6 8 8 8h52c4.4 0 8-3.6 8-8v-56h66c4.4 0 8-3.6 8-8V232c0-4.4-3.6-8-8-8m-60 508h-80V292h80zm644-436h-66v-96c0-4.4-3.6-8-8-8h-52c-4.4 0-8 3.6-8 8v96h-66c-4.4 0-8 3.6-8 8v416c0 4.4 3.6 8 8 8h66v96c0 4.4 3.6 8 8 8h52c4.4 0 8-3.6 8-8v-96h66c4.4 0 8-3.6 8-8V304c0-4.4-3.6-8-8-8m-60 364h-80V364h80zM612 404h-66V232c0-4.4-3.6-8-8-8h-52c-4.4 0-8 3.6-8 8v172h-66c-4.4 0-8 3.6-8 8v200c0 4.4 3.6 8 8 8h66v172c0 4.4 3.6 8 8 8h52c4.4 0 8-3.6 8-8V620h66c4.4 0 8-3.6 8-8V412c0-4.4-3.6-8-8-8m-60 145a3 3 0 0 1-3 3h-74a3 3 0 0 1-3-3v-74a3 3 0 0 1 3-3h74a3 3 0 0 1 3 3z"/><!-- HTML_TAG_END --></svg></div>
+
+          <h3 class="title svelte-1brybkt">Datenanalyse</h3>
+
+          <div class="description svelte-1brybkt">Keine Zeit oder Lust, dich selbst in die Datenanalyse einzuarbeiten? Lass uns das für dich übernehmen! Wir analysieren deine Daten professionell und liefern dir die Ergebnisse mit aussagekräftigen Darstellungen. Im Anschluss besprechen wir deine Ergebnisse und erklären dir alles, was du zur Auswertung wissen musst.</div>
+
+          <a href="/statistik-beratung-fuer-studierende/datenanalyse" class="button svelte-1brybkt">Mehr dazu
+            </a>
+
+        </li></ul></div></section></div> 
+<div class="section" id="section-9dc367e4"><section class="svelte-5edp3e"><div class="section-container svelte-5edp3e"><div class="heading-group svelte-5edp3e"><span class="superhead svelte-5edp3e">Preise</span>
+      <h2 class="heading">Jedes Service wird auf deine individuellen Bedürfnisse zugeschnitten
+</h2>
+      <h3 class="subheading svelte-5edp3e">Alle Preise sind Einzelpreise inkl. 20% USt. - Gruppenpreise sind im Shop einsehbar.</h3></div>
+    <div class="tiers svelte-5edp3e"><div class="tier svelte-5edp3e"><header class="svelte-5edp3e"><div class="price svelte-5edp3e"><span class="numerator svelte-5edp3e">64€</span>
+              <span class="denominator svelte-5edp3e">/50min</span></div>
+            <h3 class="title svelte-5edp3e">Statistik, Mathematik, Statik</h3>
+            <span class="description svelte-5edp3e"><!-- HTML_TAG_START --><p>Opitmale Vorbereitung auf deine Prüfung, Test bzw. Schularbeit</p><!-- HTML_TAG_END --></span></header>
+          <hr class="svelte-5edp3e">
+          <ul class="features svelte-5edp3e"><li class="svelte-5edp3e"><span class="icon svelte-5edp3e"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START --><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"/><!-- HTML_TAG_END --></svg></span>
+                <span class="item svelte-5edp3e">Auf dich zugestimmte Nachhilfe</span>
+              </li><li class="svelte-5edp3e"><span class="icon svelte-5edp3e"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START --><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"/><!-- HTML_TAG_END --></svg></span>
+                <span class="item svelte-5edp3e">Verständliche Erklärungen</span>
+              </li><li class="svelte-5edp3e"><span class="icon svelte-5edp3e"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START --><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"/><!-- HTML_TAG_END --></svg></span>
+                <span class="item svelte-5edp3e">Prüfungsbezogene Beispiele</span>
+              </li></ul>
+          <a href="https://shop.cgstatistik.at" class="button svelte-5edp3e">Stunden buchen
+
+</a>
+        </div><div class="tier svelte-5edp3e"><header class="svelte-5edp3e"><div class="price svelte-5edp3e"><span class="numerator svelte-5edp3e">79€</span>
+              <span class="denominator svelte-5edp3e">/50min</span></div>
+            <h3 class="title svelte-5edp3e">Statistische Auswertung</h3>
+            <span class="description svelte-5edp3e"><!-- HTML_TAG_START --><p>Begleitete Auswertung deiner Bachelor-, Master-, Doktorarbeit</p><!-- HTML_TAG_END --></span></header>
+          <hr class="svelte-5edp3e">
+          <ul class="features svelte-5edp3e"><li class="svelte-5edp3e"><span class="icon svelte-5edp3e"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START --><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"/><!-- HTML_TAG_END --></svg></span>
+                <span class="item svelte-5edp3e">Hypothesen/Ziele abstimmen</span>
+              </li><li class="svelte-5edp3e"><span class="icon svelte-5edp3e"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START --><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"/><!-- HTML_TAG_END --></svg></span>
+                <span class="item svelte-5edp3e">Gemeinsames Programmieren</span>
+              </li><li class="svelte-5edp3e"><span class="icon svelte-5edp3e"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START --><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"/><!-- HTML_TAG_END --></svg></span>
+                <span class="item svelte-5edp3e">Statistische Grundlagen </span>
+              </li></ul>
+          <a href="https://shop.cgstatistik.at/produkt-kategorie/auswertung/" class="button svelte-5edp3e">Stunden buchen</a>
+        </div><div class="tier svelte-5edp3e"><header class="svelte-5edp3e"><div class="price svelte-5edp3e"><span class="numerator svelte-5edp3e">98€</span>
+              <span class="denominator svelte-5edp3e">/50min</span></div>
+            <h3 class="title svelte-5edp3e">Datenanalyse</h3>
+            <span class="description svelte-5edp3e"><!-- HTML_TAG_START --><p>Wir machen für dich die Analyse. Du musst dich um nichts kümmern.</p><!-- HTML_TAG_END --></span></header>
+          <hr class="svelte-5edp3e">
+          <ul class="features svelte-5edp3e"><li class="svelte-5edp3e"><span class="icon svelte-5edp3e"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START --><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"/><!-- HTML_TAG_END --></svg></span>
+                <span class="item svelte-5edp3e">Datenanalyse nach Maß</span>
+              </li><li class="svelte-5edp3e"><span class="icon svelte-5edp3e"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START --><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"/><!-- HTML_TAG_END --></svg></span>
+                <span class="item svelte-5edp3e">Aussagekräftige Visualisierungen </span>
+              </li><li class="svelte-5edp3e"><span class="icon svelte-5edp3e"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START --><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"/><!-- HTML_TAG_END --></svg></span>
+                <span class="item svelte-5edp3e">Ergebnisse verständlich erklärt</span>
+              </li></ul>
+          <a href="/kontakt" class="button svelte-5edp3e">Kontaktiere uns</a>
+        </div></div></div></section></div> 
+<div class="section" id="section-872ad2a5"><section class="section-container svelte-djfrq5"><div class="heading-group"><h2 class="heading svelte-djfrq5">Referenzen</h2></div>
+  <div class="slider svelte-djfrq5"><button disabled aria-label="Show previous" class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--ic"><!-- HTML_TAG_START --><path fill="currentColor" d="M14.71 6.71a.996.996 0 0 0-1.41 0L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59a.996.996 0 1 0 1.41-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41"/><!-- HTML_TAG_END --></svg></button>
+    <ul class="siema svelte-djfrq5"><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Beste Nachhilfe, habe dank ihm alle Statistik und Multivariate Prüfungen beim ersten Antritt geschafft, obwohl ich echt eine Niete in Mathe bin. Sehr empfehlenswert ☺️</p>
+          <p class="name svelte-djfrq5">Nadja S.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Super cooler Typ! Schafft es wirklich aus einem wirren Haufen von Daten 📊 eine sehr gute Struktur zu gestalten! Super lieb und kompetent dabei, am Ende sogar noch einen kurzen Extratermin zur Erklärung auf Kulanz eingeräumt. Mehr geht wirklich nicht, 5 Sterne für Engagement, Kompetenz und Umsetzung!</p>
+          <p class="name svelte-djfrq5">Elisabeth S.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Nachhilfe mit Christoph ist ein super Erlebnis - unglaublich motivierend, alle Fragen können gestellt werden und seine Art, Fragen zu beantworten und Inhalte zu erklären ist so greifbar und klar. Er steckt viel Arbeit in die Vorbereitung seiner Stunden und ist immer ansprechbar. So können sogar schwierige Projekte, Arbeiten oder Prüfungen Spaß machen und gleichzeitig lehrreich sein. Vielen Dank dir!</p>
+          <p class="name svelte-djfrq5">Jule G.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Christoph hat mich durch meine sehr chaotische Masterarbeit begleitet und hat Strukturen in meinen Daten erkannt, die sowohl meinem Betreuer als auch einem anderen Statistik Coach entgangen sind. Er stellt sich komplett auf deine Bedürfnisse ein, was den Detailgrad der Erklärungen angeht und erklärt komplexe Zusammenhänge griffig mit leicht verständlichen Beispielen und Gleichnissen. Davon abgesehen ist Christoph zuverlässig, fair und schlicht ein cooler Typ. Schade, dass er mir erst so spät im Prozess meiner MA empfohlen wurde.</p>
+          <p class="name svelte-djfrq5">Caroline R.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Ich bin absolut begeistert von meinem Erlebnis! Von Beginn an war alles nahtlos und benutzerfreundlich gestaltet, was mir sofort auffiel. Die Funktionalität und Leistung haben meine Erwartungen nicht nur erfüllt, sondern übertroffen. Was mich besonders beeindruckt hat, war die Zuverlässigkeit und die Geschwindigkeit, mit der ich meine Lernziele erreichen konnte. Schnell, effizient und immer freundlich. Es ist klar, dass viel Gedankenarbeit und Sorgfalt in die Entwicklung geflossen sind, was in jeder Hinsicht sichtbar wird. Ich würde die Nachhilfe bei CG Statistik, ohne zu zögern weiterempfehlen. Ein großes Lob an Christoph!</p>
+          <p class="name svelte-djfrq5">Clemens K.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Ich kann Christoph als Nachhilfe Lehrer sehr empfehlen! Er hat mir bei meiner Auswertung für die Masterarbeit geholfen. Er war immer super vorbereitet, war sehr effizient, kann sehr gut erklären, ist sehr geduldig und kennt sich einfach wahnsinnig gut aus. Er ist sehr professionell und gleichzeitig super nett, eine sehr angenehme Lernatmosphäre. Was ich sehr besonders fand, war, dass er sich im Notfall auch immer neben seiner eigentlichen Arbeitszeit noch zusätzlich die Arbeit gemacht hat, einem auf Fragen zu antworten, wenn es mal dringend war. Also keine Sorge, mit Christoph kriegt ihr das hin :-)</p>
+          <p class="name svelte-djfrq5">Nicole N.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Dank Christophs Unterstützung habe ich meine Prüfung mit einem guten Ergebnis bestanden, damit hätte ich vor der Nachhilfe echt nicht gerechnet. Seine Geduld und anschauliche Erklärungen sowie praxis- und klausurorientierte Beispiele haben mir geholfen, vor der Klausur nicht komplett zu panikieren!:D Ich kann ihn jedem empfehlen und das von ganzem Herzen, seine Nachhilfe ist echt jeden Cent wert!</p>
+          <p class="name svelte-djfrq5">Nadja M.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Eine sehr professionelle Nachhilfe! Christoph geht es wirklich darum, so viel wie möglich aus den gemeinsamen Stunden mit zu nehmen. Super entspannter und lieber Herr, der aber auch streng sein kann, was ich auf jeden Fall gebraucht habe! Hoffentlich brauche ich die Nachhilfe nie wieder, falls doch am liebsten wieder hier!</p>
+          <p class="name svelte-djfrq5">Mehmet C.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Schnelle, direkte und klare Kommunikation! Auch kurzfristig möglich Termine zu bekommen und flexibel zu bleiben, was und wieviel man an Unterstützung braucht. Er konnte die Dinge in einfacher Sprache erklären ohne sich in Details zu verlieren und dabei den Überblick behalten. Genau das was ich gebraucht habe und vor allem weiß ich, dass ich jederzeit mich nochmal melden kann, wenn Fragen aufkommen. Das gibt unglaublich viel Sicherheit. Eine große Empfehlung für Prüfungsvorbereitung, Bachelor oder Masterarbeitsunterstützung.</p>
+          <p class="name svelte-djfrq5">Moana G.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Vielen Dank für diese tolle Statistik-Nachhilfe! Ich kann Christoph nur weiterempfehlen, da er der erste war, der es geschafft hat Statistik nicht nur einfach zu erklären, sondern dass man auch selbst ein großes Interesse und Freude für dieses Thema entwickelt und gespannt ist auf welches Resultat man stößt bzw. welche Wege dorthin hilfreich sein können! Vielen Dank!</p>
+          <p class="name svelte-djfrq5">Anton H.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Ich studiere Psychologie und hatte Nachhilfe in Testtheorie, ein Fach das als eines der schwersten im Bachelor-Studium zählt. Christoph erklärt die Inhalte wirklich super, sodass man sie am Ende auch wirklich versteht. Er kennt sich aus worauf es ankommt und kann den Stoff super vermitteln, sodass man sich auskennt, auch wenn man keine sonderlich guten Statistik Kenntnisse hat. Ich war wirklich sehr zufrieden :)</p>
+          <p class="name svelte-djfrq5">Teresa</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Christoph ist ein wunderbarer Mathe-Coach  und hat mich derart gut auf die Matura vorbereitet, dass ich sehr gut abschliessen konnte! Seinen Onlineunterricht gestaltet er - obgleich Themen gelegentlich sehr trocken gewesen sind - locker. Danke Dir Christoph für Deine Art Mathe mit Freude zu unterrichten!!!</p>
+          <p class="name svelte-djfrq5">Amelie K.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Christoph hat mich richtig gut auf die Testtheorie Prüfung vorbereitet! Er hat mir mir alle Details durchgesprochen und ich konnte immer Fragen stellen. Er hat sich zu meiner Wünsche und Bedürfnisse angepasst. Mit seiner Hilfe habe ich den Stoff nicht nur verstanden sondern auch Interesse entwickelt! :) Ich kann ihn von ganzem Herzen zu allen empfehlen, die Unsicherheiten bei statistischen/mathematischen Themenbereichen haben und Hilfe brauchen!</p>
+          <p class="name svelte-djfrq5">Laura O.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Christoph is an excellent statistic tutor! I could not be more pleased. He is highly knowledgeable and patient when it comes to teaching statistical topics. He always takes the time to explain thoroughly and makes sure that all of my questions are answered. I was having trouble with my statistical analysis, and he was able to help me understand the concepts I was struggling with. He is an excellent resource, and I would highly recommend him to anyone looking for a statistic tutor. Thank you Christoph!</p>
+          <p class="name svelte-djfrq5">Lirit A.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li><li class="svelte-djfrq5"><span class="icon svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" fill-rule="evenodd" d="M18.853 9.116Q7.558 16.37 6.303 26.003C5 36 13.94 40.893 18.47 36.497s1.815-9.977-1.465-11.503s-5.286-.994-4.936-3.033s5.016-7.69 9.116-10.322a.75.75 0 0 0 .114-1.02L20.285 9.3c-.44-.572-.862-.55-1.432-.185m19.826.001q-11.295 7.254-12.55 16.887C24.825 36 33.765 40.893 38.295 36.497s1.815-9.977-1.466-11.503s-5.286-.994-4.936-3.033s5.017-7.69 9.117-10.322a.75.75 0 0 0 .113-1.02L40.11 9.3c-.44-.572-.862-.55-1.431-.185" clip-rule="evenodd"/><!-- HTML_TAG_END --></svg></span>
+          <p class="quote svelte-djfrq5">Ich habe sehr gute Erfahrungen mit Christoph gemacht und kann ihn wirklich mega empfehlen! Er ist stark in seinem Fachbereich, menschlich und ist auch bereit in andere Bereiche zu helfen, die mir sehr wichtig waren! Auch von der Flexibilität her ist er top und setzt sich mega ein.  Ich bin sehr zufrieden 👍</p>
+          <p class="name svelte-djfrq5">Rrezarta A.</p>
+          <p class="title svelte-djfrq5"></p>
+        </li></ul>
+    <button  aria-label="Show next" class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--ic"><!-- HTML_TAG_START --><path fill="currentColor" d="M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.7 6.7c-.38-.38-1.02-.38-1.41.01"/><!-- HTML_TAG_END --></svg></button></div>
+  <div class="dots svelte-djfrq5"><button class="svelte-djfrq5 active"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button><button class="svelte-djfrq5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" class="iconify iconify--icon-park-outline"><!-- HTML_TAG_START --><path fill="currentColor" stroke="currentColor" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/><!-- HTML_TAG_END --></svg>
+      </button></div></section></div> 
+<div class="section" id="section-82449509"><footer class="section-container-footer svelte-a65hzu"><div class="main svelte-a65hzu"><a href="/" class="logo svelte-a65hzu"><img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/17294218340022.svg" alt=""></a>
+    <div class="company-description svelte-a65hzu"><!-- HTML_TAG_START --><p><strong>Impressum</strong></p>
+<p>Christoph Groß</p>
+<p>Ehrensteingasse 3, 1220 Wien</p><!-- HTML_TAG_END --></div></div>
+  <div class="links svelte-a65hzu"><div class="item svelte-a65hzu"><h4 class="label svelte-a65hzu">Kontakt</h4>
+        <nav class="svelte-a65hzu"><a class="link svelte-a65hzu" href="https://api.whatsapp.com/send?phone=4367764269042&amp;text=Hallo%2C%20ich%20brauche%20Nachhilfe%20in%20Mathe%2FStatistik.%20Kannst%20du%20mir%20bitte%20Infos%20zur%20Nachhilfe%20geben%3F">WhatsApp: +4367764269042</a><a class="link svelte-a65hzu" href="https://www.fb.me/c.gross.8">Facebook: www.fb.me/c.gross.8</a><a class="link svelte-a65hzu" href="mailto:nachhilfe@cgstatistik.at?subject=Statistik Nachhilfe&amp;body=Ich%20benötige%20Nachhilfe%20in%20...">Nachhilfe: nachhilfe@cgstatistik.at</a><a class="link svelte-a65hzu" href="https://teams.live.com/l/invite/FEAenqWtOPvpx8y2gE">Teams Kontakt: nachhilfe@cgstatistik.at</a><a class="link svelte-a65hzu" href="https://shop.christoph-gross.com">Shop</a></nav>
+      </div><div class="item svelte-a65hzu"><h4 class="label svelte-a65hzu">Leistungen</h4>
+        <nav class="svelte-a65hzu"><a class="link svelte-a65hzu" href="/statistik_mathematik">Statistik/Mathematik</a><a class="link svelte-a65hzu" href="/statistische-auswertung">Statistische Auswertung</a><a class="link svelte-a65hzu" href="/datenanalyse">Datenanalyse</a></nav>
+      </div><div class="item svelte-a65hzu"><h4 class="label svelte-a65hzu">Rechtliches</h4>
+        <nav class="svelte-a65hzu"><a class="link svelte-a65hzu" href="https://shop.christoph-gross.com/allgemeine-geschaeftsbedingungen/">AGB</a><a class="link svelte-a65hzu" href="/datenschutzerklaerung">Datenschutzerklärung</a></nav>
+      </div><div class="item svelte-a65hzu"><h4 class="label svelte-a65hzu">Über uns</h4>
+        <nav class="svelte-a65hzu"><a class="link svelte-a65hzu" href="/team">Unser Team</a><a class="link svelte-a65hzu" href="">Kontakt</a></nav>
+      </div></div></footer></div> 
+
+      <script type="module">
+      import('/_symbols/e0fb1b5b-6333-418b-994e-4ddb661b7363.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-872ad2a5'),
+              hydrate: true,
+              props: {"heading":"Referenzen","testimonials":[{"name":"Nadja S.","quote":"Beste Nachhilfe, habe dank ihm alle Statistik und Multivariate Prüfungen beim ersten Antritt geschafft, obwohl ich echt eine Niete in Mathe bin. Sehr empfehlenswert ☺️","title":""},{"name":"Elisabeth S.","quote":"Super cooler Typ! Schafft es wirklich aus einem wirren Haufen von Daten 📊 eine sehr gute Struktur zu gestalten! Super lieb und kompetent dabei, am Ende sogar noch einen kurzen Extratermin zur Erklärung auf Kulanz eingeräumt. Mehr geht wirklich nicht, 5 Sterne für Engagement, Kompetenz und Umsetzung!","title":""},{"name":"Jule G.","quote":"Nachhilfe mit Christoph ist ein super Erlebnis - unglaublich motivierend, alle Fragen können gestellt werden und seine Art, Fragen zu beantworten und Inhalte zu erklären ist so greifbar und klar. Er steckt viel Arbeit in die Vorbereitung seiner Stunden und ist immer ansprechbar. So können sogar schwierige Projekte, Arbeiten oder Prüfungen Spaß machen und gleichzeitig lehrreich sein. Vielen Dank dir!","title":""},{"name":"Caroline R.","quote":"Christoph hat mich durch meine sehr chaotische Masterarbeit begleitet und hat Strukturen in meinen Daten erkannt, die sowohl meinem Betreuer als auch einem anderen Statistik Coach entgangen sind. Er stellt sich komplett auf deine Bedürfnisse ein, was den Detailgrad der Erklärungen angeht und erklärt komplexe Zusammenhänge griffig mit leicht verständlichen Beispielen und Gleichnissen. Davon abgesehen ist Christoph zuverlässig, fair und schlicht ein cooler Typ. Schade, dass er mir erst so spät im Prozess meiner MA empfohlen wurde.","title":""},{"name":"Clemens K.","quote":"Ich bin absolut begeistert von meinem Erlebnis! Von Beginn an war alles nahtlos und benutzerfreundlich gestaltet, was mir sofort auffiel. Die Funktionalität und Leistung haben meine Erwartungen nicht nur erfüllt, sondern übertroffen. Was mich besonders beeindruckt hat, war die Zuverlässigkeit und die Geschwindigkeit, mit der ich meine Lernziele erreichen konnte. Schnell, effizient und immer freundlich. Es ist klar, dass viel Gedankenarbeit und Sorgfalt in die Entwicklung geflossen sind, was in jeder Hinsicht sichtbar wird. Ich würde die Nachhilfe bei CG Statistik, ohne zu zögern weiterempfehlen. Ein großes Lob an Christoph!","title":""},{"name":"Nicole N.","quote":"Ich kann Christoph als Nachhilfe Lehrer sehr empfehlen! Er hat mir bei meiner Auswertung für die Masterarbeit geholfen. Er war immer super vorbereitet, war sehr effizient, kann sehr gut erklären, ist sehr geduldig und kennt sich einfach wahnsinnig gut aus. Er ist sehr professionell und gleichzeitig super nett, eine sehr angenehme Lernatmosphäre. Was ich sehr besonders fand, war, dass er sich im Notfall auch immer neben seiner eigentlichen Arbeitszeit noch zusätzlich die Arbeit gemacht hat, einem auf Fragen zu antworten, wenn es mal dringend war. Also keine Sorge, mit Christoph kriegt ihr das hin :-)","title":""},{"name":"Nadja M.","quote":"Dank Christophs Unterstützung habe ich meine Prüfung mit einem guten Ergebnis bestanden, damit hätte ich vor der Nachhilfe echt nicht gerechnet. Seine Geduld und anschauliche Erklärungen sowie praxis- und klausurorientierte Beispiele haben mir geholfen, vor der Klausur nicht komplett zu panikieren!:D Ich kann ihn jedem empfehlen und das von ganzem Herzen, seine Nachhilfe ist echt jeden Cent wert!","title":""},{"name":"Mehmet C.","quote":"Eine sehr professionelle Nachhilfe! Christoph geht es wirklich darum, so viel wie möglich aus den gemeinsamen Stunden mit zu nehmen. Super entspannter und lieber Herr, der aber auch streng sein kann, was ich auf jeden Fall gebraucht habe! Hoffentlich brauche ich die Nachhilfe nie wieder, falls doch am liebsten wieder hier!","title":""},{"name":"Moana G.","quote":"Schnelle, direkte und klare Kommunikation! Auch kurzfristig möglich Termine zu bekommen und flexibel zu bleiben, was und wieviel man an Unterstützung braucht. Er konnte die Dinge in einfacher Sprache erklären ohne sich in Details zu verlieren und dabei den Überblick behalten. Genau das was ich gebraucht habe und vor allem weiß ich, dass ich jederzeit mich nochmal melden kann, wenn Fragen aufkommen. Das gibt unglaublich viel Sicherheit. Eine große Empfehlung für Prüfungsvorbereitung, Bachelor oder Masterarbeitsunterstützung.","title":""},{"name":"Anton H.","quote":"Vielen Dank für diese tolle Statistik-Nachhilfe! Ich kann Christoph nur weiterempfehlen, da er der erste war, der es geschafft hat Statistik nicht nur einfach zu erklären, sondern dass man auch selbst ein großes Interesse und Freude für dieses Thema entwickelt und gespannt ist auf welches Resultat man stößt bzw. welche Wege dorthin hilfreich sein können! Vielen Dank!","title":""},{"name":"Teresa","quote":"Ich studiere Psychologie und hatte Nachhilfe in Testtheorie, ein Fach das als eines der schwersten im Bachelor-Studium zählt. Christoph erklärt die Inhalte wirklich super, sodass man sie am Ende auch wirklich versteht. Er kennt sich aus worauf es ankommt und kann den Stoff super vermitteln, sodass man sich auskennt, auch wenn man keine sonderlich guten Statistik Kenntnisse hat. Ich war wirklich sehr zufrieden :)","title":""},{"name":"Amelie K.","quote":"Christoph ist ein wunderbarer Mathe-Coach  und hat mich derart gut auf die Matura vorbereitet, dass ich sehr gut abschliessen konnte! Seinen Onlineunterricht gestaltet er - obgleich Themen gelegentlich sehr trocken gewesen sind - locker. Danke Dir Christoph für Deine Art Mathe mit Freude zu unterrichten!!!","title":""},{"name":"Laura O.","quote":"Christoph hat mich richtig gut auf die Testtheorie Prüfung vorbereitet! Er hat mir mir alle Details durchgesprochen und ich konnte immer Fragen stellen. Er hat sich zu meiner Wünsche und Bedürfnisse angepasst. Mit seiner Hilfe habe ich den Stoff nicht nur verstanden sondern auch Interesse entwickelt! :) Ich kann ihn von ganzem Herzen zu allen empfehlen, die Unsicherheiten bei statistischen/mathematischen Themenbereichen haben und Hilfe brauchen!","title":""},{"name":"Lirit A.","quote":"Christoph is an excellent statistic tutor! I could not be more pleased. He is highly knowledgeable and patient when it comes to teaching statistical topics. He always takes the time to explain thoroughly and makes sure that all of my questions are answered. I was having trouble with my statistical analysis, and he was able to help me understand the concepts I was struggling with. He is an excellent resource, and I would highly recommend him to anyone looking for a statistic tutor. Thank you Christoph!","title":""},{"name":"Rrezarta A.","quote":"Ich habe sehr gute Erfahrungen mit Christoph gemacht und kann ihn wirklich mega empfehlen! Er ist stark in seinem Fachbereich, menschlich und ist auch bereit in andere Bereiche zu helfen, die mir sehr wichtig waren! Auch von der Flexibilität her ist er top und setzt sich mega ein.  Ich bin sehr zufrieden 👍","title":""}]}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    
+
+      import('/_symbols/3acbe6e6-5c15-4c04-b867-cd2347e95af0.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-fce86e68'),
+              hydrate: true,
+              props: {"logo":{"image":{"alt":"","url":"https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/17294218340022.svg"}},"site_nav":[{"link":{"url":"/ueber_mich","label":"Über mich","active":false}},{"link":{"url":"/team","label":"Team","active":false}},{"link":{"url":"/statistik_mathematik","label":"Statistik/Mathematik"}},{"link":{"url":"/statistische-auswertung","label":"Statistische Auswertung"}},{"link":{"url":"/datenanalyse","label":"Datenanalyse","active":false}},{"link":{"url":"/kontakt","label":"Kontakt","active":false}}],"primary_cta":{"url":"https://shop.cgstatistik.at","label":"Nachhilfe buchen\n\n"}}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    
+
+      import('/_symbols/59179524-abc4-4e1a-b3ce-6a55a192bdcc.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-9dc367e4'),
+              hydrate: true,
+              props: {"superhead":"Preise","heading":"Jedes Service wird auf deine individuellen Bedürfnisse zugeschnitten\n","subheading":"Alle Preise sind Einzelpreise inkl. 20% USt. - Gruppenpreise sind im Shop einsehbar.","tiers":[{"link":{"url":"https://shop.cgstatistik.at","label":"Stunden buchen\n\n"},"price":{"numerator":"64€","denominator":"/50min"},"title":"Statistik, Mathematik, Statik","features":[{"icon":"mdi:check","item":"Auf dich zugestimmte Nachhilfe"},{"icon":"mdi:check","item":"Verständliche Erklärungen"},{"icon":"mdi:check","item":"Prüfungsbezogene Beispiele"}],"description":{"html":"<p>Opitmale Vorbereitung auf deine Prüfung, Test bzw. Schularbeit</p>","markdown":"Opitmale Vorbereitung auf deine Prüfung, Test bzw. Schularbeit"}},{"link":{"url":"https://shop.cgstatistik.at/produkt-kategorie/auswertung/","label":"Stunden buchen"},"price":{"numerator":"79€","denominator":"/50min"},"title":"Statistische Auswertung","features":[{"icon":"mdi:check","item":"Hypothesen/Ziele abstimmen"},{"icon":"mdi:check","item":"Gemeinsames Programmieren"},{"icon":"mdi:check","item":"Statistische Grundlagen "}],"description":{"html":"<p>Begleitete Auswertung deiner Bachelor-, Master-, Doktorarbeit</p>","markdown":"Begleitete Auswertung deiner Bachelor-, Master-, Doktorarbeit"}},{"link":{"url":"/kontakt","label":"Kontaktiere uns"},"price":{"numerator":"98€","denominator":"/50min"},"title":"Datenanalyse","features":[{"icon":"mdi:check","item":"Datenanalyse nach Maß"},{"icon":"mdi:check","item":"Aussagekräftige Visualisierungen "},{"icon":"mdi:check","item":"Ergebnisse verständlich erklärt"}],"description":{"html":"<p>Wir machen für dich die Analyse. Du musst dich um nichts kümmern.</p>","markdown":"Wir machen für dich die Analyse. Du musst dich um nichts kümmern.\n\n"}}]}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    
+
+      import('/_symbols/de44ee0f-23e1-4742-bd05-12f383593caa.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-0935327c'),
+              hydrate: true,
+              props: {"heading":"Leistungen","icon_list":[{"icon":"ant-design:calculator-filled","title":"Statistik, Mathematik","mehr_dazu":{"url":"/statistik-beratung-fuer-studierende/statisitk-mathematik","label":"Mehr dazu","active":false},"description":"Du hast bald eine Statistikprüfung oder brauchst Mathe-Nachhilfe? Wir sind für dich da! Gemeinsam gehen wir Schritt für Schritt deinen Stoff durch und klären alle Fragen. Mit klaren Erklärungen und praktischen Beispielen bereiten wir dich bestens vor. So meisterst du deine Prüfung sicher und erfolgreich!"},{"icon":"ant-design:area-chart-outlined","title":"Statistische Auswertung","mehr_dazu":{"url":"/statistik-beratung-fuer-studierende/statistische-auswertung","label":"Mehr dazu","active":false},"description":"Du willst deine Daten selbst auswerten, aber weißt nicht genau wie? Kein Problem! Wir begleiten dich Schritt für Schritt und zeigen dir alles, was du für eine erfolgreiche Analyse brauchst. Egal ob R, SPSS, JASP, PSPP, Jamovi oder STATA – mit unserer Unterstützung meisterst du jede Herausforderung!"},{"icon":"ant-design:sliders-outlined","title":"Datenanalyse","mehr_dazu":{"url":"/statistik-beratung-fuer-studierende/datenanalyse","label":"Mehr dazu","active":false},"description":"Keine Zeit oder Lust, dich selbst in die Datenanalyse einzuarbeiten? Lass uns das für dich übernehmen! Wir analysieren deine Daten professionell und liefern dir die Ergebnisse mit aussagekräftigen Darstellungen. Im Anschluss besprechen wir deine Ergebnisse und erklären dir alles, was du zur Auswertung wissen musst."}],"":""}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    
+
+      import('/_symbols/2a5b5c08-b80b-4c84-afe4-53a71482e6f4.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-82449509'),
+              hydrate: true,
+              props: {"logo":{"image":{"alt":"","url":"https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/17294218340022.svg"},"title":""},"footer_links":[{"label":"Kontakt","link_list":[{"link":{"url":"https://api.whatsapp.com/send?phone=4367764269042&text=Hallo%2C%20ich%20brauche%20Nachhilfe%20in%20Mathe%2FStatistik.%20Kannst%20du%20mir%20bitte%20Infos%20zur%20Nachhilfe%20geben%3F","label":"WhatsApp: +4367764269042","active":false}},{"link":{"url":"https://www.fb.me/c.gross.8","label":"Facebook: www.fb.me/c.gross.8","active":false}},{"link":{"url":"mailto:nachhilfe@cgstatistik.at?subject=Statistik Nachhilfe&body=Ich%20benötige%20Nachhilfe%20in%20...","label":"Nachhilfe: nachhilfe@cgstatistik.at","active":false}},{"link":{"url":"https://teams.live.com/l/invite/FEAenqWtOPvpx8y2gE","label":"Teams Kontakt: nachhilfe@cgstatistik.at","active":false}},{"link":{"url":"https://shop.christoph-gross.com","label":"Shop","active":false}}]},{"label":"Leistungen","link_list":[{"link":{"url":"/statistik_mathematik","label":"Statistik/Mathematik"}},{"link":{"url":"/statistische-auswertung","label":"Statistische Auswertung","active":false}},{"link":{"url":"/datenanalyse","label":"Datenanalyse","active":false}}]},{"label":"Rechtliches","link_list":[{"link":{"url":"https://shop.christoph-gross.com/allgemeine-geschaeftsbedingungen/","label":"AGB"}},{"link":{"url":"/datenschutzerklaerung","label":"Datenschutzerklärung"}}]},{"label":"Über uns","link_list":[{"link":{"url":"/team","label":"Unser Team"}},{"link":{"url":"","label":"Kontakt","active":false}}]}],"company_description":{"html":"<p><strong>Impressum</strong></p>\n<p>Christoph Groß</p>\n<p>Ehrensteingasse 3, 1220 Wien</p>","markdown":"**Impressum**\n\nChristoph Groß\n\nEhrensteingasse 3, 1220 Wien\n\n"}}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    </script>
+    </body>
+  </html>
+  
