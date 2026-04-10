@@ -1,4 +1,4 @@
-// Social Links - Updated April 9, 2026
+// Social Links - Updated April 10, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
@@ -2874,7 +2874,7 @@ function get_each_context(ctx, list, i) {
 function create_if_block(ctx) {
 	let ul;
 	let current;
-	let each_value = /*social*/ ctx[0];
+	let each_value = /*social*/ ctx[1];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -2921,8 +2921,8 @@ function create_if_block(ctx) {
 			current = true;
 		},
 		p(ctx, dirty) {
-			if (dirty & /*social*/ 1) {
-				each_value = /*social*/ ctx[0];
+			if (dirty & /*social*/ 2) {
+				each_value = /*social*/ ctx[1];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -3024,14 +3024,14 @@ function create_each_block(ctx) {
 		},
 		p(ctx, dirty) {
 			const icon_changes = {};
-			if (dirty & /*social*/ 1) icon_changes.icon = /*item*/ ctx[5].icon;
+			if (dirty & /*social*/ 2) icon_changes.icon = /*item*/ ctx[5].icon;
 			icon.$set(icon_changes);
 
-			if (!current || dirty & /*social*/ 1 && a_href_value !== (a_href_value = /*item*/ ctx[5]?.link?.url || "#")) {
+			if (!current || dirty & /*social*/ 2 && a_href_value !== (a_href_value = /*item*/ ctx[5]?.link?.url || "#")) {
 				attr(a, "href", a_href_value);
 			}
 
-			if (!current || dirty & /*social*/ 1 && a_aria_label_value !== (a_aria_label_value = /*item*/ ctx[5]?.link?.label || "social")) {
+			if (!current || dirty & /*social*/ 2 && a_aria_label_value !== (a_aria_label_value = /*item*/ ctx[5]?.link?.label || "social")) {
 				attr(a, "aria-label", a_aria_label_value);
 			}
 		},
@@ -3061,7 +3061,7 @@ function create_fragment(ctx) {
 	let t2;
 	let section_style_value;
 	let current;
-	let if_block = /*social*/ ctx[0] && create_if_block(ctx);
+	let if_block = /*social*/ ctx[1] && create_if_block(ctx);
 
 	return {
 		c() {
@@ -3070,7 +3070,7 @@ function create_fragment(ctx) {
 			t0 = space();
 			div1 = element("div");
 			h2 = element("h2");
-			t1 = text(/*heading*/ ctx[1]);
+			t1 = text(/*heading*/ ctx[2]);
 			t2 = space();
 			if (if_block) if_block.c();
 			this.h();
@@ -3085,7 +3085,7 @@ function create_fragment(ctx) {
 			var div1_nodes = children(div1);
 			h2 = claim_element(div1_nodes, "H2", { class: true });
 			var h2_nodes = children(h2);
-			t1 = claim_text(h2_nodes, /*heading*/ ctx[1]);
+			t1 = claim_text(h2_nodes, /*heading*/ ctx[2]);
 			h2_nodes.forEach(detach);
 			t2 = claim_space(div1_nodes);
 			if (if_block) if_block.l(div1_nodes);
@@ -3099,8 +3099,8 @@ function create_fragment(ctx) {
 			attr(div1, "class", "hero-content svelte-ek01y8");
 			attr(section, "class", "hero svelte-ek01y8");
 
-			attr(section, "style", section_style_value = (/*image*/ ctx[2]?.url)
-			? `background-image: url(${/*image*/ ctx[2].url});`
+			attr(section, "style", section_style_value = (/*image*/ ctx[0]?.url)
+			? `background-image: url(${/*image*/ ctx[0].url});`
 			: "");
 		},
 		m(target, anchor) {
@@ -3115,13 +3115,13 @@ function create_fragment(ctx) {
 			current = true;
 		},
 		p(ctx, [dirty]) {
-			if (!current || dirty & /*heading*/ 2) set_data(t1, /*heading*/ ctx[1]);
+			if (!current || dirty & /*heading*/ 4) set_data(t1, /*heading*/ ctx[2]);
 
-			if (/*social*/ ctx[0]) {
+			if (/*social*/ ctx[1]) {
 				if (if_block) {
 					if_block.p(ctx, dirty);
 
-					if (dirty & /*social*/ 1) {
+					if (dirty & /*social*/ 2) {
 						transition_in(if_block, 1);
 					}
 				} else {
@@ -3140,8 +3140,8 @@ function create_fragment(ctx) {
 				check_outros();
 			}
 
-			if (!current || dirty & /*image*/ 4 && section_style_value !== (section_style_value = (/*image*/ ctx[2]?.url)
-			? `background-image: url(${/*image*/ ctx[2].url});`
+			if (!current || dirty & /*image*/ 1 && section_style_value !== (section_style_value = (/*image*/ ctx[0]?.url)
+			? `background-image: url(${/*image*/ ctx[0].url});`
 			: "")) {
 				attr(section, "style", section_style_value);
 			}
@@ -3165,19 +3165,19 @@ function create_fragment(ctx) {
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
 	let { email } = $$props;
+	let { image } = $$props;
 	let { social } = $$props;
 	let { heading } = $$props;
-	let { image } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(3, props = $$props.props);
 		if ('email' in $$props) $$invalidate(4, email = $$props.email);
-		if ('social' in $$props) $$invalidate(0, social = $$props.social);
-		if ('heading' in $$props) $$invalidate(1, heading = $$props.heading);
-		if ('image' in $$props) $$invalidate(2, image = $$props.image);
+		if ('image' in $$props) $$invalidate(0, image = $$props.image);
+		if ('social' in $$props) $$invalidate(1, social = $$props.social);
+		if ('heading' in $$props) $$invalidate(2, heading = $$props.heading);
 	};
 
-	return [social, heading, image, props, email];
+	return [image, social, heading, props, email];
 }
 
 class Component extends SvelteComponent {
@@ -3187,9 +3187,9 @@ class Component extends SvelteComponent {
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 3,
 			email: 4,
-			social: 0,
-			heading: 1,
-			image: 2
+			image: 0,
+			social: 1,
+			heading: 2
 		});
 	}
 }
