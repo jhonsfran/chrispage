@@ -2879,7 +2879,7 @@ function create_each_block(ctx) {
 function create_fragment(ctx) {
 	let section;
 	let div1;
-	let h2;
+	let h1;
 	let t0;
 	let t1;
 	let div0;
@@ -2894,7 +2894,7 @@ function create_fragment(ctx) {
 		c() {
 			section = element("section");
 			div1 = element("div");
-			h2 = element("h2");
+			h1 = element("h1");
 			t0 = text(/*heading*/ ctx[1]);
 			t1 = space();
 			div0 = element("div");
@@ -2910,10 +2910,10 @@ function create_fragment(ctx) {
 			var section_nodes = children(section);
 			div1 = claim_element(section_nodes, "DIV", { class: true });
 			var div1_nodes = children(div1);
-			h2 = claim_element(div1_nodes, "H2", { class: true });
-			var h2_nodes = children(h2);
-			t0 = claim_text(h2_nodes, /*heading*/ ctx[1]);
-			h2_nodes.forEach(detach);
+			h1 = claim_element(div1_nodes, "H1", { class: true });
+			var h1_nodes = children(h1);
+			t0 = claim_text(h1_nodes, /*heading*/ ctx[1]);
+			h1_nodes.forEach(detach);
 			t1 = claim_space(div1_nodes);
 			div0 = claim_element(div1_nodes, "DIV", { class: true });
 			var div0_nodes = children(div0);
@@ -2928,7 +2928,7 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "heading svelte-7polpb");
+			attr(h1, "class", "heading svelte-7polpb");
 			attr(div0, "class", "cards svelte-7polpb");
 			attr(div1, "class", "section-container svelte-7polpb");
 			attr(section, "class", "svelte-7polpb");
@@ -2936,8 +2936,8 @@ function create_fragment(ctx) {
 		m(target, anchor) {
 			insert_hydration(target, section, anchor);
 			append_hydration(section, div1);
-			append_hydration(div1, h2);
-			append_hydration(h2, t0);
+			append_hydration(div1, h1);
+			append_hydration(h1, t0);
 			append_hydration(div1, t1);
 			append_hydration(div1, div0);
 
