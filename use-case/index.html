@@ -1,0 +1,358 @@
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta name="generator" content="Primo" />
+      <!-- HEAD_svelte-1sb9x12_START --><head><meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="https://primo-iota-five.vercel.app/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head><style>/* Reset & standardize default styles */
+@import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;
+
+/* Design tokens (apply to components) */
+:root {
+  /* Custom theme options */
+  --color-accent: #117471;
+  --color-accent-2: #20bfa9;
+  --color-primary: #1d263a;
+  /* Base values */
+  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+  --border-radius: 8px;
+  --border-color: #e1ecf0;
+  
+  /* Responsive breakpoints */
+  --mobile: 480px;
+  --tablet: 768px;
+  --desktop: 1024px;
+}
+
+/* Root element (use instead of `body`) */
+#page {
+  font-family: system-ui, sans-serif;
+  color: var(--color-primary);
+  line-height: 1.2;
+  font-size: 16px; /* Base font size for mobile */
+  background: white;
+}
+@media (min-width: 768px) {
+#page {
+    font-size: 1.125rem
+}
+  }
+
+/* Elements */
+.section-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+/* Smaller padding on mobile */
+@media (min-width: 768px) {
+.section-container {
+    max-width: 1200px;
+    padding: 5rem 2rem
+}
+  }
+
+a.link {
+  line-height: 1.3;
+  font-weight: 500;
+  border-bottom: 2px solid;
+  transform: translateY(-2px);
+  transition: var(--transition, 0.1s border);
+}
+
+a.link:hover {
+    border-color: transparent;
+  }
+
+.heading {
+  font-size: 1.75rem; /* Smaller heading on mobile */
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+
+.heading {
+    font-size: 2.5rem;
+    line-height: 1.1
+}
+  }
+
+.subheading {
+  font-weight: 400;
+  line-height: 1.4;
+  opacity: 90%;
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+
+.subheading {
+    line-height: 1.5;
+    font-size: 1.125rem
+}
+  }
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: white;
+  font-weight: 500;
+  background: var(--color-accent, rebeccapurple);
+  border-radius: 3rem;
+  padding: 12px 20px; /* Smaller padding on mobile */
+  width: 100%; /* Full width on mobile */
+  margin: 0.5rem 0;
+  transition: var(--transition, 0.1s box-shadow);
+  border: 0;
+}
+
+@media (min-width: 768px) {
+
+.button {
+    width: auto;
+    padding: 15px 25px;
+    margin: 0
+}
+  }
+
+.button:hover {
+    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
+  }
+
+.button.inverted {
+    background: transparent;
+    color: var(--color-accent, rebeccapurple);
+  }
+
+/* Content Section */
+.section .content {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+/* Smaller padding on mobile */
+@media (min-width: 768px) {
+.section .content {
+    max-width: 1200px;
+    padding: 5rem 2rem
+}
+  }
+.section .content p {
+    padding: 0.25rem 0;
+    line-height: 1.4;
+    font-size: 1rem;
+  }
+@media (min-width: 768px) {
+.section .content p {
+      line-height: 1.5
+  }
+    }
+.section .content img {
+    width: 100%;
+    margin: 1.5rem 0; /* Smaller margins on mobile */
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+  }
+@media (min-width: 768px) {
+.section .content img {
+      margin: 2rem 0
+  }
+    }
+.section .content h1 {
+    font-size: 2rem; /* Smaller on mobile */
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+@media (min-width: 768px) {
+.section .content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem
+  }
+    }
+.section .content h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+@media (min-width: 768px) {
+.section .content h2 {
+      font-size: 2.25rem
+  }
+    }
+.section .content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+@media (min-width: 768px) {
+.section .content h3 {
+      font-size: 1.75rem
+  }
+    }
+.section .content ul, .section .content ol {
+    padding: 0.5rem 0;
+    padding-left: 1.25rem;
+    font-size: 1rem;
+  }
+@media (min-width: 768px) {
+.section .content ul, .section .content ol {
+      font-size: 1.125rem
+  }
+    }
+.section .content ul {
+    list-style: disc;
+  }
+.section .content ol {
+    list-style: decimal;
+  }
+.section .content blockquote {
+    padding: 1.5rem; /* Smaller padding on mobile */
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+  }
+@media (min-width: 768px) {
+.section .content blockquote {
+      padding: 2rem;
+      margin: 2rem 0
+  }
+    }</style><!-- HEAD_svelte-1sb9x12_END -->
+      <style>.layout.svelte-5pz0m9.svelte-5pz0m9{display:flex;max-width:1200px;margin:0 auto}.toc.svelte-5pz0m9.svelte-5pz0m9{position:-webkit-sticky;position:sticky;top:100px;width:250px;height:-webkit-fit-content;height:-moz-fit-content;height:fit-content}.toc.svelte-5pz0m9 nav.svelte-5pz0m9{display:flex;flex-direction:column;gap:0.5rem}.toc.svelte-5pz0m9 a.svelte-5pz0m9{text-decoration:none;color:#1f2a44;padding:0.4rem 0.6rem;border-radius:6px;transition:0.2s}.toc.svelte-5pz0m9 a.svelte-5pz0m9:hover{background:#f0f2f5}.content.svelte-5pz0m9.svelte-5pz0m9{flex:1;padding-left:3rem}.content.svelte-5pz0m9 section.svelte-5pz0m9{margin-bottom:6rem}section.svelte-5pz0m9.svelte-5pz0m9{overflow:visible !important}
+section.svelte-i1jf53.svelte-i1jf53{padding:4rem 1rem;background:rgba(29, 38, 58, 0.1)}.section-container.svelte-i1jf53.svelte-i1jf53{max-width:1200px;margin:0 auto}.heading.svelte-i1jf53.svelte-i1jf53{text-align:center;font-size:2.2rem;color:#1d263a;margin-bottom:3rem}.situations-grid.svelte-i1jf53.svelte-i1jf53{display:flex;justify-content:center;align-items:flex-start;gap:8rem}.situation.svelte-i1jf53.svelte-i1jf53{position:relative;display:flex;flex-direction:column;align-items:center}.situation.svelte-i1jf53.svelte-i1jf53:not(:last-child)::after{content:"→";position:absolute;top:95px;right:-4rem;font-size:4rem;font-weight:600;color:#94a3b8}.icon-header.svelte-i1jf53.svelte-i1jf53{display:flex;flex-direction:column;align-items:flex-start;width:100%;max-width:240px;margin-bottom:1rem}.number.svelte-i1jf53.svelte-i1jf53{font-size:1.2rem;font-weight:700;color:#013257;margin-bottom:0.4rem}.icon-wrapper.svelte-i1jf53.svelte-i1jf53{width:90px;height:90px;border-radius:50%;background:rgba(1, 50, 87, 0.08);display:flex;align-items:center;justify-content:center}.icon-wrapper.svelte-i1jf53 img.svelte-i1jf53{width:80px;height:80px}.title.svelte-i1jf53.svelte-i1jf53,.text.svelte-i1jf53.svelte-i1jf53{width:100%;max-width:240px;text-align:left}.title.svelte-i1jf53.svelte-i1jf53{font-size:1.05rem;font-weight:700;color:#013257;margin-bottom:0.5rem}.text.svelte-i1jf53.svelte-i1jf53{font-size:0.9rem;color:#6b7280;line-height:1.5}.situation.svelte-i1jf53.svelte-i1jf53:hover{transform:translateY(-5px);transition:all 0.25s ease}@media(max-width: 900px){.situations-grid.svelte-i1jf53.svelte-i1jf53{flex-direction:column;gap:3rem}.situation.svelte-i1jf53.svelte-i1jf53::after{position:static;transform:rotate(90deg);margin-top:1rem}}
+section.svelte-jwo4en{padding:4.5rem 1.5rem;background:#ffffff}.section-container.svelte-jwo4en{max-width:1400px;margin:0 auto}.benefits-wrapper.svelte-jwo4en{background:rgba(1, 50, 87, 0.08);padding:1.5rem;border-radius:20px;display:grid;grid-template-columns:repeat(3, 1fr);gap:1.5rem}.benefit.svelte-jwo4en{display:flex;align-items:center;gap:1.5rem;padding:1.8rem;border-radius:16px;transition:all 0.25s ease}.highlight.svelte-jwo4en{background:white;box-shadow:0 15px 40px rgba(0,0,0,0.12)}.benefit-icon.svelte-jwo4en{width:75px;height:75px;flex-shrink:0}.benefit-content.svelte-jwo4en{display:flex;flex-direction:column}.benefit-title.svelte-jwo4en{font-size:1.4rem;font-weight:700;color:#013257;margin-bottom:0.3rem}.benefit-text.svelte-jwo4en{font-size:1.15rem;color:#4b5563;line-height:1.5}.benefit.svelte-jwo4en:hover{transform:translateY(-4px)}@media(max-width: 800px){.benefits-wrapper.svelte-jwo4en{grid-template-columns:1fr}}
+section.svelte-16p4bm5.svelte-16p4bm5{padding:4rem 1rem;background:#1d263a1a}.section-container.svelte-16p4bm5.svelte-16p4bm5{max-width:1400px;margin:0 auto}.grid.svelte-16p4bm5.svelte-16p4bm5{display:grid;grid-template-columns:1.4fr 1fr;gap:4rem;align-items:center}.left.svelte-16p4bm5.svelte-16p4bm5{max-width:600px}.heading.svelte-16p4bm5.svelte-16p4bm5{font-size:clamp(3.2rem, 5vw, 4.5rem);font-weight:700;line-height:1.1;color:#1d263a;margin-bottom:1.2rem}.highlight.svelte-16p4bm5.svelte-16p4bm5{color:#07cb9e}.subtitle.svelte-16p4bm5.svelte-16p4bm5{font-size:1.5rem;font-weight:700;color:#1d263a;margin-bottom:0.8rem;line-height:1.4}.text.svelte-16p4bm5.svelte-16p4bm5{font-size:1.05rem;color:#6b7280;margin-bottom:2.2rem;line-height:1.6}.points.svelte-16p4bm5.svelte-16p4bm5{list-style:none;padding:0;margin-bottom:2.5rem}.points.svelte-16p4bm5 li.svelte-16p4bm5{margin-bottom:0.8rem;color:#1d263a;font-weight:500;font-size:1.05rem}.button.svelte-16p4bm5.svelte-16p4bm5{background:#1d263a;color:white;padding:1.2rem 2.4rem;border-radius:999px;text-decoration:none;font-weight:600;font-size:1.05rem;transition:all 0.25s ease}.button.svelte-16p4bm5.svelte-16p4bm5:hover{background:#07cb9e;transform:translateY(-2px)}.right.svelte-16p4bm5.svelte-16p4bm5{width:100%}.compare.svelte-16p4bm5.svelte-16p4bm5{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10rem}.box.svelte-16p4bm5.svelte-16p4bm5{background:white;padding:2.2rem;border-radius:16px;min-height:460px;width:160%;box-shadow:0 15px 40px rgba(0,0,0,0.1);display:flex;flex-direction:column;align-items:center;text-align:center;transition:all 0.3s ease}.box.svelte-16p4bm5.svelte-16p4bm5:hover{transform:translateY(-6px);box-shadow:0 25px 60px rgba(0,0,0,0.15)}.box-title.svelte-16p4bm5.svelte-16p4bm5{font-weight:700;margin-bottom:0.5rem;color:#1d263a;font-size:1.3rem;line-height:1.3}.box-subtitle.svelte-16p4bm5.svelte-16p4bm5{font-size:1rem;color:#6b7280;margin-bottom:1.2rem;line-height:1.4}.box-image.svelte-16p4bm5.svelte-16p4bm5{width:100%;height:200px;-o-object-fit:contain;object-fit:contain;margin-bottom:1.4rem}.box.svelte-16p4bm5 ul.svelte-16p4bm5{list-style:none;padding:0;margin-top:auto;width:100%;text-align:left}.box.svelte-16p4bm5 li.svelte-16p4bm5{margin-bottom:0.7rem;font-size:1rem;line-height:1.5}.bad.svelte-16p4bm5 li.svelte-16p4bm5{color:#ef4444}.good.svelte-16p4bm5 li.svelte-16p4bm5{color:#16a34a}.bad.svelte-16p4bm5 .box-image.svelte-16p4bm5{filter:grayscale(100%) opacity(0.6)}.good.svelte-16p4bm5 .box-image.svelte-16p4bm5{filter:saturate(1.2)}.vs.svelte-16p4bm5.svelte-16p4bm5{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);font-weight:700;color:#ffffff;background:#1d263a;border-radius:50%;width:70px;height:70px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 25px rgba(0,0,0,0.12);z-index:2}@media(max-width: 900px){.grid.svelte-16p4bm5.svelte-16p4bm5{grid-template-columns:1fr}.compare.svelte-16p4bm5.svelte-16p4bm5{grid-template-columns:1fr;gap:2rem}.vs.svelte-16p4bm5.svelte-16p4bm5{position:static;transform:none;margin:1rem auto}.heading.svelte-16p4bm5.svelte-16p4bm5{font-size:2.2rem}}</style>
+    </head>
+    <body id="page">
+       
+<div class="section" id="section-07e67ceb"><section class="layout svelte-5pz0m9">
+  <aside class="toc svelte-5pz0m9"><nav class="svelte-5pz0m9"><a href="#kennen-sie-diese-situation" class="svelte-5pz0m9">Kennen Sie diese Situation?</a><a href="#Use Case 2" class="svelte-5pz0m9">Use case 2</a><a href="#" class="svelte-5pz0m9">Use Case 3</a></nav></aside>
+
+  
+  <div class="content svelte-5pz0m9"><section id="kennen-sie-diese-situation" class="svelte-5pz0m9"><h2>Kennen Sie diese Situation?</h2>
+        <div class="section-content"><!-- HTML_TAG_START -->Dein Text hier<!-- HTML_TAG_END --></div>
+      </section><section id="Use Case 2" class="svelte-5pz0m9"><h2>Use case 2</h2>
+        <div class="section-content"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></div>
+      </section><section id="" class="svelte-5pz0m9"><h2>Use Case 3</h2>
+        <div class="section-content"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></div>
+      </section></div></section></div> 
+<div class="section" id="section-dc3dc265"><section class="svelte-i1jf53"><div class="section-container svelte-i1jf53"><h2 class="heading svelte-i1jf53">Kennen Sie diese Situationen?</h2>
+
+    <div class="situations-grid svelte-i1jf53"><div class="situation svelte-i1jf53">
+          <div class="icon-header svelte-i1jf53"><div class="number svelte-i1jf53">1</div>
+
+            <div class="icon-wrapper svelte-i1jf53">
+            </div></div>
+
+          
+          <h3 class="title svelte-i1jf53">Kampagnen laufen, aber der Effekt ist unklar</h3>
+          <p class="text svelte-i1jf53">Es ist nicht ersichtlich, welche Maßnahmen tatsächlich Umsatz bringen.</p>
+
+        </div><div class="situation svelte-i1jf53">
+          <div class="icon-header svelte-i1jf53"><div class="number svelte-i1jf53">2</div>
+
+            <div class="icon-wrapper svelte-i1jf53">
+            </div></div>
+
+          
+          <h3 class="title svelte-i1jf53">Budget wird verteilt, ohne zu wissen, was wirklich funktioniert</h3>
+          <p class="text svelte-i1jf53">Entscheidungen basieren auf Bauchgefühl oder isolierten Kennzahlen.</p>
+
+        </div><div class="situation svelte-i1jf53">
+          <div class="icon-header svelte-i1jf53"><div class="number svelte-i1jf53">3</div>
+
+            <div class="icon-wrapper svelte-i1jf53">
+            </div></div>
+
+          
+          <h3 class="title svelte-i1jf53">Reports zeigen Zahlen, aber keine klaren Handlungsempfehlungen</h3>
+          <p class="text svelte-i1jf53">Daten werden gesammelt, aber nicht in konkrete Maßnahmen übersetzt.</p>
+
+        </div><div class="situation svelte-i1jf53">
+          <div class="icon-header svelte-i1jf53"><div class="number svelte-i1jf53">4</div>
+
+            <div class="icon-wrapper svelte-i1jf53">
+            </div></div>
+
+          
+          <h3 class="title svelte-i1jf53">Zielgruppen sind nicht klar definiert</h3>
+          <p class="text svelte-i1jf53">Streuung ist hoch, relevante Zielgruppen werden nicht ausreichend erreicht.</p>
+
+        </div></div></div></section></div> 
+<div class="section" id="section-bf24b99f"><section class="svelte-jwo4en"><div class="section-container svelte-jwo4en"><div class="benefits-wrapper svelte-jwo4en"><div class="benefit  svelte-jwo4en">
+          <img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/1776260722901icon_26.png" alt="" class="benefit-icon svelte-jwo4en">
+
+          
+          <div class="benefit-content svelte-jwo4en"><h3 class="benefit-title svelte-jwo4en">Weniger Kosten</h3>
+            <p class="benefit-text svelte-jwo4en">ReduzierenSie Streuverluste und senken Sie Ihre Kosten</p></div>
+
+        </div><div class="benefit highlight svelte-jwo4en">
+          <img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/1776260722901icon_26.png" alt="" class="benefit-icon svelte-jwo4en">
+
+          
+          <div class="benefit-content svelte-jwo4en"><h3 class="benefit-title svelte-jwo4en">Mehr Information</h3>
+            <p class="benefit-text svelte-jwo4en">Gewinnen Sie mehr Erkenntnisse aus denselben Daten</p></div>
+
+        </div><div class="benefit  svelte-jwo4en">
+          <img src="https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/1776260722877icon_24.png" alt="" class="benefit-icon svelte-jwo4en">
+
+          
+          <div class="benefit-content svelte-jwo4en"><h3 class="benefit-title svelte-jwo4en">Mehr Erfolg</h3>
+            <p class="benefit-text svelte-jwo4en">Treffen Sie bessere Entschidungen und steigernSie Ihren erfolg</p></div>
+
+        </div></div></div></section></div> 
+<div class="section" id="section-568f19bf"><section class="svelte-16p4bm5"><div class="section-container svelte-16p4bm5"><div class="grid svelte-16p4bm5">
+      <div class="left svelte-16p4bm5"><h2 class="heading svelte-16p4bm5">Mehr <span class="highlight svelte-16p4bm5">Wirkung</span> bei weniger Budget
+</h2>
+
+
+
+
+        <p class="text svelte-16p4bm5">Mehr Informationen. Niedrigere Kosten. Bessere Entscheidungen. Wir zeigen Ihnen, welche Maßnahmen wirklich Wirkung bringen – damit Sie Ihr Marketingbudget gezielt einsetzen statt es ineffizient zu verbrennen.</p>
+
+        <ul class="points svelte-16p4bm5"><li class="svelte-16p4bm5">✔ Budget effizient einsetzen statt verschwenden</li><li class="svelte-16p4bm5">✔ Mehr Erkenntnisse aus bestehenden Daten gewinnen</li><li class="svelte-16p4bm5">✔ Schneller lernen, bessere Entscheidungen treffen</li></ul>
+
+        </div>
+
+      
+      <div class="right svelte-16p4bm5"><div class="compare svelte-16p4bm5">
+          <div class="box bad svelte-16p4bm5"><div class="box-title svelte-16p4bm5"></div>
+
+            
+
+            
+
+            <ul class="svelte-16p4bm5"></ul></div>
+
+          
+          <div class="vs svelte-16p4bm5">VS.</div>
+
+          
+          <div class="box good svelte-16p4bm5"><div class="box-title svelte-16p4bm5"></div>
+
+            
+
+            
+
+            <ul class="svelte-16p4bm5"></ul></div></div></div></div></div></section></div> 
+
+      <script type="module">
+      import('/_symbols/a76e807f-f345-4419-b78b-83050a5f1710.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-07e67ceb'),
+              hydrate: true,
+              props: {"sections":[{"id":"kennen-sie-diese-situation","title":"Kennen Sie diese Situation?","content":"Dein Text hier"},{"id":"Use Case 2","title":"Use case 2","content":""},{"id":"","title":"Use Case 3","content":""}]}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    </script>
+    </body>
+  </html>
+  
