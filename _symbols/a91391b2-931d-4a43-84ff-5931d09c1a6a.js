@@ -629,7 +629,7 @@ function get_each_context_1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (215:4) {#if logo.image && logo.image.url}
+// (210:4) {#if logo.image && logo.image.url}
 function create_if_block_2(ctx) {
 	let img;
 	let img_src_value;
@@ -645,7 +645,7 @@ function create_if_block_2(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "intro-icon svelte-18qd8jw");
+			attr(img, "class", "intro-icon svelte-1fw03vk");
 			attr(img, "alt", "");
 		},
 		m(target, anchor) {
@@ -662,7 +662,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (219:4) {#if logo.title}
+// (214:4) {#if logo.title}
 function create_if_block_1(ctx) {
 	let h1;
 	let t_value = /*logo*/ ctx[0].title + "";
@@ -682,7 +682,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h1, "class", "intro-title svelte-18qd8jw");
+			attr(h1, "class", "intro-title svelte-1fw03vk");
 		},
 		m(target, anchor) {
 			insert_hydration(target, h1, anchor);
@@ -697,7 +697,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (234:6) {#each site_nav.slice(0, Math.ceil(site_nav.length / 2)) as { link }}
+// (229:6) {#each site_nav.slice(0, Math.ceil(site_nav.length / 2)) as { link }}
 function create_each_block_1(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[9].label + "";
@@ -718,7 +718,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-18qd8jw");
+			attr(a, "class", "link svelte-1fw03vk");
 			attr(a, "href", a_href_value = /*link*/ ctx[9].url);
 		},
 		m(target, anchor) {
@@ -738,7 +738,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (241:6) {#if logo.image && logo.image.url}
+// (236:6) {#if logo.image && logo.image.url}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -754,7 +754,7 @@ function create_if_block(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "nav-icon svelte-18qd8jw");
+			attr(img, "class", "nav-icon svelte-1fw03vk");
 			attr(img, "alt", "");
 			toggle_class(img, "active", /*introDone*/ ctx[3]);
 		},
@@ -776,7 +776,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (253:6) {#each site_nav.slice(Math.ceil(site_nav.length / 2)) as { link }}
+// (248:6) {#each site_nav.slice(Math.ceil(site_nav.length / 2)) as { link }}
 function create_each_block(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[9].label + "";
@@ -797,7 +797,7 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-18qd8jw");
+			attr(a, "class", "link svelte-1fw03vk");
 			attr(a, "href", a_href_value = /*link*/ ctx[9].url);
 		},
 		m(target, anchor) {
@@ -945,20 +945,20 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "intro-content svelte-18qd8jw");
-			attr(div1, "class", "intro svelte-18qd8jw");
+			attr(div0, "class", "intro-content svelte-1fw03vk");
+			attr(div1, "class", "intro svelte-1fw03vk");
 			attr(div1, "role", "button");
 			attr(div1, "tabindex", "0");
 			toggle_class(div1, "hide", /*introDone*/ ctx[3]);
-			attr(div2, "class", "nav-left svelte-18qd8jw");
-			attr(div3, "class", "nav-center svelte-18qd8jw");
+			attr(div2, "class", "nav-left svelte-1fw03vk");
+			attr(div3, "class", "nav-center svelte-1fw03vk");
 			attr(a, "href", a_href_value = /*primary_cta*/ ctx[2].url);
-			attr(a, "class", "button svelte-18qd8jw");
-			attr(div4, "class", "nav-right svelte-18qd8jw");
-			attr(div5, "class", "nav-wrapper svelte-18qd8jw");
-			attr(header, "class", "header svelte-18qd8jw");
+			attr(a, "class", "button svelte-1fw03vk");
+			attr(div4, "class", "nav-right svelte-1fw03vk");
+			attr(div5, "class", "nav-wrapper svelte-1fw03vk");
+			attr(header, "class", "header svelte-1fw03vk");
 			toggle_class(header, "active", /*introDone*/ ctx[3]);
-			attr(div6, "class", "main-content svelte-18qd8jw");
+			attr(div6, "class", "main-content svelte-1fw03vk");
 			toggle_class(div6, "visible", /*introDone*/ ctx[3]);
 		},
 		m(target, anchor) {
