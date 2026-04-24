@@ -544,7 +544,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (296:10) {#if item.image && item.image.url}
+// (302:10) {#if item.image && item.image.url}
 function create_if_block_3(ctx) {
 	let div;
 	let img;
@@ -573,8 +573,8 @@ function create_if_block_3(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[3].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item*/ ctx[3].image.alt);
-			attr(img, "class", "svelte-q5gaab");
-			attr(div, "class", "image-wrapper svelte-q5gaab");
+			attr(img, "class", "svelte-1bcvwv5");
+			attr(div, "class", "image-wrapper svelte-1bcvwv5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -611,7 +611,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (300:12) {#if item.name}
+// (306:12) {#if item.name}
 function create_if_block_4(ctx) {
 	let div;
 	let t_value = /*item*/ ctx[3].name + "";
@@ -631,7 +631,7 @@ function create_if_block_4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "overlay-name svelte-q5gaab");
+			attr(div, "class", "overlay-name svelte-1bcvwv5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -646,7 +646,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (308:10) {#if item.short_quote}
+// (314:10) {#if item.short_quote}
 function create_if_block_2(ctx) {
 	let div;
 	let t_value = /*item*/ ctx[3].short_quote + "";
@@ -666,7 +666,7 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "short-quote svelte-q5gaab");
+			attr(div, "class", "short-quote svelte-1bcvwv5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -681,7 +681,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (314:10) {#if item.long_quote && item.long_quote.html}
+// (320:10) {#if item.long_quote && item.long_quote.html}
 function create_if_block_1(ctx) {
 	let div;
 	let raw_value = /*item*/ ctx[3].long_quote.html + "";
@@ -698,7 +698,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "long-quote svelte-q5gaab");
+			attr(div, "class", "long-quote svelte-1bcvwv5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -712,7 +712,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (320:10) {#if item.link && item.link.url}
+// (326:10) {#if item.link && item.link.url}
 function create_if_block(ctx) {
 	let a;
 	let t;
@@ -733,7 +733,7 @@ function create_if_block(ctx) {
 		},
 		h() {
 			attr(a, "href", a_href_value = /*item*/ ctx[3].link.url);
-			attr(a, "class", "more-link svelte-q5gaab");
+			attr(a, "class", "more-link svelte-1bcvwv5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -750,7 +750,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (293:6) {#each items as item}
+// (299:6) {#each items as item}
 function create_each_block(ctx) {
 	let div;
 	let t0;
@@ -790,7 +790,7 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "card svelte-q5gaab");
+			attr(div, "class", "card svelte-1bcvwv5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -933,12 +933,12 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(canvas, "id", "chart-bg");
-			attr(canvas, "class", "svelte-q5gaab");
+			attr(canvas, "class", "svelte-1bcvwv5");
 			attr(div0, "class", "chart-gradient");
-			attr(h1, "class", "heading svelte-q5gaab");
-			attr(div1, "class", "cards svelte-q5gaab");
-			attr(div2, "class", "section-container svelte-q5gaab");
-			attr(section, "class", "svelte-q5gaab");
+			attr(h1, "class", "heading svelte-1bcvwv5");
+			attr(div1, "class", "cards svelte-1bcvwv5");
+			attr(div2, "class", "section-container svelte-1bcvwv5");
+			attr(section, "class", "svelte-1bcvwv5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, canvas, anchor);
@@ -1037,7 +1037,7 @@ function initChart() {
 			const influence = Math.max(0, 1 - dist / 300);
 			const targetHeight = bar.baseHeight + influence * 350;
 			bar.height += (targetHeight - bar.height) * 0.06;
-			ctx.fillStyle = "rgba(59,130,246,0.7)";
+			ctx.fillStyle = "rgba(59, 130, 246, 0.18)"; // vorher vermutlich ~0.5+
 			ctx.fillRect(bar.x, canvas.height - bar.height, 20, bar.height);
 			ctx.fillStyle = "rgba(59,130,246,0.15)";
 			ctx.fillRect(bar.x, canvas.height - bar.height - 10, 20, 10);
