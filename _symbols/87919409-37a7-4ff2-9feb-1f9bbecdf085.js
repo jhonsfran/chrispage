@@ -544,7 +544,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (254:10) {#if item.image && item.image.url}
+// (295:10) {#if item.image && item.image.url}
 function create_if_block_3(ctx) {
 	let div;
 	let img;
@@ -573,8 +573,8 @@ function create_if_block_3(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[3].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item*/ ctx[3].image.alt);
-			attr(img, "class", "svelte-mg7sag");
-			attr(div, "class", "image-wrapper svelte-mg7sag");
+			attr(img, "class", "svelte-1aoe1q8");
+			attr(div, "class", "image-wrapper svelte-1aoe1q8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -611,7 +611,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (258:12) {#if item.name}
+// (299:12) {#if item.name}
 function create_if_block_4(ctx) {
 	let div;
 	let t_value = /*item*/ ctx[3].name + "";
@@ -631,7 +631,7 @@ function create_if_block_4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "overlay-name svelte-mg7sag");
+			attr(div, "class", "overlay-name svelte-1aoe1q8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -646,7 +646,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (266:10) {#if item.short_quote}
+// (307:10) {#if item.short_quote}
 function create_if_block_2(ctx) {
 	let div;
 	let t_value = /*item*/ ctx[3].short_quote + "";
@@ -666,7 +666,7 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "short-quote svelte-mg7sag");
+			attr(div, "class", "short-quote svelte-1aoe1q8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -681,7 +681,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (272:10) {#if item.long_quote && item.long_quote.html}
+// (313:10) {#if item.long_quote && item.long_quote.html}
 function create_if_block_1(ctx) {
 	let div;
 	let raw_value = /*item*/ ctx[3].long_quote.html + "";
@@ -698,7 +698,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "long-quote svelte-mg7sag");
+			attr(div, "class", "long-quote svelte-1aoe1q8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -712,7 +712,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (278:10) {#if item.link && item.link.url}
+// (319:10) {#if item.link && item.link.url}
 function create_if_block(ctx) {
 	let a;
 	let t;
@@ -733,7 +733,7 @@ function create_if_block(ctx) {
 		},
 		h() {
 			attr(a, "href", a_href_value = /*item*/ ctx[3].link.url);
-			attr(a, "class", "more-link svelte-mg7sag");
+			attr(a, "class", "more-link svelte-1aoe1q8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -750,7 +750,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (251:6) {#each items as item}
+// (292:6) {#each items as item}
 function create_each_block(ctx) {
 	let div;
 	let t0;
@@ -790,7 +790,7 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "card svelte-mg7sag");
+			attr(div, "class", "card svelte-1aoe1q8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -869,12 +869,14 @@ function create_each_block(ctx) {
 function create_fragment(ctx) {
 	let canvas;
 	let t0;
-	let section;
-	let div1;
-	let h1;
-	let t1;
-	let t2;
 	let div0;
+	let t1;
+	let section;
+	let div2;
+	let h1;
+	let t2;
+	let t3;
+	let div1;
 	let each_value = /*items*/ ctx[0];
 	let each_blocks = [];
 
@@ -886,12 +888,14 @@ function create_fragment(ctx) {
 		c() {
 			canvas = element("canvas");
 			t0 = space();
-			section = element("section");
-			div1 = element("div");
-			h1 = element("h1");
-			t1 = text(/*heading*/ ctx[1]);
-			t2 = space();
 			div0 = element("div");
+			t1 = space();
+			section = element("section");
+			div2 = element("div");
+			h1 = element("h1");
+			t2 = text(/*heading*/ ctx[1]);
+			t3 = space();
+			div1 = element("div");
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
@@ -903,53 +907,59 @@ function create_fragment(ctx) {
 			canvas = claim_element(nodes, "CANVAS", { id: true, class: true });
 			children(canvas).forEach(detach);
 			t0 = claim_space(nodes);
+			div0 = claim_element(nodes, "DIV", { class: true });
+			children(div0).forEach(detach);
+			t1 = claim_space(nodes);
 			section = claim_element(nodes, "SECTION", { class: true });
 			var section_nodes = children(section);
-			div1 = claim_element(section_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
-			h1 = claim_element(div1_nodes, "H1", { class: true });
+			div2 = claim_element(section_nodes, "DIV", { class: true });
+			var div2_nodes = children(div2);
+			h1 = claim_element(div2_nodes, "H1", { class: true });
 			var h1_nodes = children(h1);
-			t1 = claim_text(h1_nodes, /*heading*/ ctx[1]);
+			t2 = claim_text(h1_nodes, /*heading*/ ctx[1]);
 			h1_nodes.forEach(detach);
-			t2 = claim_space(div1_nodes);
-			div0 = claim_element(div1_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
+			t3 = claim_space(div2_nodes);
+			div1 = claim_element(div2_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(div0_nodes);
+				each_blocks[i].l(div1_nodes);
 			}
 
-			div0_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
+			div2_nodes.forEach(detach);
 			section_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
 			attr(canvas, "id", "chart-bg");
-			attr(canvas, "class", "svelte-mg7sag");
-			attr(h1, "class", "heading svelte-mg7sag");
-			attr(div0, "class", "cards svelte-mg7sag");
-			attr(div1, "class", "section-container svelte-mg7sag");
-			attr(section, "class", "svelte-mg7sag");
+			attr(canvas, "class", "svelte-1aoe1q8");
+			attr(div0, "class", "chart-gradient");
+			attr(h1, "class", "heading svelte-1aoe1q8");
+			attr(div1, "class", "cards svelte-1aoe1q8");
+			attr(div2, "class", "section-container svelte-1aoe1q8");
+			attr(section, "class", "svelte-1aoe1q8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, canvas, anchor);
 			insert_hydration(target, t0, anchor);
+			insert_hydration(target, div0, anchor);
+			insert_hydration(target, t1, anchor);
 			insert_hydration(target, section, anchor);
-			append_hydration(section, div1);
-			append_hydration(div1, h1);
-			append_hydration(h1, t1);
-			append_hydration(div1, t2);
-			append_hydration(div1, div0);
+			append_hydration(section, div2);
+			append_hydration(div2, h1);
+			append_hydration(h1, t2);
+			append_hydration(div2, t3);
+			append_hydration(div2, div1);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				if (each_blocks[i]) {
-					each_blocks[i].m(div0, null);
+					each_blocks[i].m(div1, null);
 				}
 			}
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*heading*/ 2) set_data(t1, /*heading*/ ctx[1]);
+			if (dirty & /*heading*/ 2) set_data(t2, /*heading*/ ctx[1]);
 
 			if (dirty & /*items*/ 1) {
 				each_value = /*items*/ ctx[0];
@@ -963,7 +973,7 @@ function create_fragment(ctx) {
 					} else {
 						each_blocks[i] = create_each_block(child_ctx);
 						each_blocks[i].c();
-						each_blocks[i].m(div0, null);
+						each_blocks[i].m(div1, null);
 					}
 				}
 
@@ -979,6 +989,8 @@ function create_fragment(ctx) {
 		d(detaching) {
 			if (detaching) detach(canvas);
 			if (detaching) detach(t0);
+			if (detaching) detach(div0);
+			if (detaching) detach(t1);
 			if (detaching) detach(section);
 			destroy_each(each_blocks, detaching);
 		}
@@ -1005,7 +1017,7 @@ function initChart() {
 		for (let i = 0; i < count; i++) {
 			bars.push({
 				x: i * 40,
-				baseHeight: Math.random() * 200 + 50,
+				baseHeight: Math.random() * 350 + 120,
 				height: 0
 			});
 		}
@@ -1023,8 +1035,8 @@ function initChart() {
 		bars.forEach(bar => {
 			const dist = Math.abs(mouseX - bar.x);
 			const influence = Math.max(0, 1 - dist / 300);
-			const targetHeight = bar.baseHeight + influence * 200;
-			bar.height += (targetHeight - bar.height) * 0.08;
+			const targetHeight = bar.baseHeight + influence * 350;
+			bar.height += (targetHeight - bar.height) * 0.06;
 			ctx.fillStyle = "rgba(59,130,246,0.7)";
 			ctx.fillRect(bar.x, canvas.height - bar.height, 20, bar.height);
 			ctx.fillStyle = "rgba(59,130,246,0.15)";
