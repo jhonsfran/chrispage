@@ -645,7 +645,7 @@ function create_if_block_2(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "intro-icon svelte-1k176io");
+			attr(img, "class", "intro-icon svelte-udf39o");
 			attr(img, "alt", "");
 		},
 		m(target, anchor) {
@@ -682,7 +682,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h1, "class", "intro-title svelte-1k176io");
+			attr(h1, "class", "intro-title svelte-udf39o");
 		},
 		m(target, anchor) {
 			insert_hydration(target, h1, anchor);
@@ -718,7 +718,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-1k176io");
+			attr(a, "class", "link svelte-udf39o");
 			attr(a, "href", a_href_value = /*link*/ ctx[9].url);
 		},
 		m(target, anchor) {
@@ -754,7 +754,7 @@ function create_if_block(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "nav-icon svelte-1k176io");
+			attr(img, "class", "nav-icon svelte-udf39o");
 			attr(img, "alt", "");
 			toggle_class(img, "active", /*introDone*/ ctx[3]);
 		},
@@ -797,7 +797,7 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-1k176io");
+			attr(a, "class", "link svelte-udf39o");
 			attr(a, "href", a_href_value = /*link*/ ctx[9].url);
 		},
 		m(target, anchor) {
@@ -945,20 +945,20 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "intro-content svelte-1k176io");
-			attr(div1, "class", "intro svelte-1k176io");
+			attr(div0, "class", "intro-content svelte-udf39o");
+			attr(div1, "class", "intro svelte-udf39o");
 			attr(div1, "role", "button");
 			attr(div1, "tabindex", "0");
 			toggle_class(div1, "hide", /*introDone*/ ctx[3]);
-			attr(div2, "class", "nav-left svelte-1k176io");
-			attr(div3, "class", "nav-center svelte-1k176io");
+			attr(div2, "class", "nav-left svelte-udf39o");
+			attr(div3, "class", "nav-center svelte-udf39o");
 			attr(a, "href", a_href_value = /*primary_cta*/ ctx[2].url);
-			attr(a, "class", "button svelte-1k176io");
-			attr(div4, "class", "nav-right svelte-1k176io");
-			attr(div5, "class", "nav-wrapper svelte-1k176io");
-			attr(header, "class", "header svelte-1k176io");
+			attr(a, "class", "button svelte-udf39o");
+			attr(div4, "class", "nav-right svelte-udf39o");
+			attr(div5, "class", "nav-wrapper svelte-udf39o");
+			attr(header, "class", "header svelte-udf39o");
 			toggle_class(header, "active", /*introDone*/ ctx[3]);
-			attr(div6, "class", "main-content svelte-1k176io");
+			attr(div6, "class", "main-content svelte-udf39o");
 			toggle_class(div6, "visible", /*introDone*/ ctx[3]);
 		},
 		m(target, anchor) {
