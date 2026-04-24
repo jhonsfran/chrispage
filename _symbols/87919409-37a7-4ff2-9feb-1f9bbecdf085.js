@@ -1049,8 +1049,8 @@ function initChart() {
 
 	function drawLine() {
 		ctx.beginPath();
-		ctx.strokeStyle = "rgba(255,255,255,0.6)";
-		ctx.lineWidth = 2;
+		ctx.strokeStyle = "rgba(255,255,255,0.12)";
+		ctx.lineWidth = 0.9;
 
 		bars.forEach((bar, i) => {
 			const x = bar.x + 10;
