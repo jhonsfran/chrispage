@@ -573,8 +573,8 @@ function create_if_block_3(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[3].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item*/ ctx[3].image.alt);
-			attr(img, "class", "svelte-t1iv5a");
-			attr(div, "class", "image-wrapper svelte-t1iv5a");
+			attr(img, "class", "svelte-2cwvzw");
+			attr(div, "class", "image-wrapper svelte-2cwvzw");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -631,7 +631,7 @@ function create_if_block_4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "overlay-name svelte-t1iv5a");
+			attr(div, "class", "overlay-name svelte-2cwvzw");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -666,7 +666,7 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "short-quote svelte-t1iv5a");
+			attr(div, "class", "short-quote svelte-2cwvzw");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -698,7 +698,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "long-quote svelte-t1iv5a");
+			attr(div, "class", "long-quote svelte-2cwvzw");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -733,7 +733,7 @@ function create_if_block(ctx) {
 		},
 		h() {
 			attr(a, "href", a_href_value = /*item*/ ctx[3].link.url);
-			attr(a, "class", "more-link svelte-t1iv5a");
+			attr(a, "class", "more-link svelte-2cwvzw");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -790,7 +790,7 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "card svelte-t1iv5a");
+			attr(div, "class", "card svelte-2cwvzw");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -933,12 +933,12 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(canvas, "id", "chart-bg");
-			attr(canvas, "class", "svelte-t1iv5a");
+			attr(canvas, "class", "svelte-2cwvzw");
 			attr(div0, "class", "chart-gradient");
-			attr(h1, "class", "heading svelte-t1iv5a");
-			attr(div1, "class", "cards svelte-t1iv5a");
-			attr(div2, "class", "section-container svelte-t1iv5a");
-			attr(section, "class", "svelte-t1iv5a");
+			attr(h1, "class", "heading svelte-2cwvzw");
+			attr(div1, "class", "cards svelte-2cwvzw");
+			attr(div2, "class", "section-container svelte-2cwvzw");
+			attr(section, "class", "svelte-2cwvzw");
 		},
 		m(target, anchor) {
 			insert_hydration(target, canvas, anchor);
