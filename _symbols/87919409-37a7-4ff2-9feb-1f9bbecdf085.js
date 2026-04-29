@@ -544,7 +544,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (305:10) {#if item.image && item.image.url}
+// (322:10) {#if item.image && item.image.url}
 function create_if_block_3(ctx) {
 	let div;
 	let img;
@@ -573,8 +573,8 @@ function create_if_block_3(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[3].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item*/ ctx[3].image.alt);
-			attr(img, "class", "svelte-om8as5");
-			attr(div, "class", "image-wrapper svelte-om8as5");
+			attr(img, "class", "svelte-ip9leu");
+			attr(div, "class", "image-wrapper svelte-ip9leu");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -611,7 +611,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (309:12) {#if item.name}
+// (326:12) {#if item.name}
 function create_if_block_4(ctx) {
 	let div;
 	let t_value = /*item*/ ctx[3].name + "";
@@ -631,7 +631,7 @@ function create_if_block_4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "overlay-name svelte-om8as5");
+			attr(div, "class", "overlay-name svelte-ip9leu");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -646,7 +646,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (317:10) {#if item.short_quote}
+// (334:10) {#if item.short_quote}
 function create_if_block_2(ctx) {
 	let div;
 	let t_value = /*item*/ ctx[3].short_quote + "";
@@ -666,7 +666,7 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "short-quote svelte-om8as5");
+			attr(div, "class", "short-quote svelte-ip9leu");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -681,7 +681,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (323:10) {#if item.long_quote && item.long_quote.html}
+// (340:10) {#if item.long_quote && item.long_quote.html}
 function create_if_block_1(ctx) {
 	let div;
 	let raw_value = /*item*/ ctx[3].long_quote.html + "";
@@ -698,7 +698,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "long-quote svelte-om8as5");
+			attr(div, "class", "long-quote svelte-ip9leu");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -712,7 +712,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (329:10) {#if item.link && item.link.url}
+// (346:10) {#if item.link && item.link.url}
 function create_if_block(ctx) {
 	let a;
 	let t;
@@ -733,7 +733,7 @@ function create_if_block(ctx) {
 		},
 		h() {
 			attr(a, "href", a_href_value = /*item*/ ctx[3].link.url);
-			attr(a, "class", "more-link svelte-om8as5");
+			attr(a, "class", "more-link svelte-ip9leu");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -750,7 +750,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (302:6) {#each items as item}
+// (319:6) {#each items as item}
 function create_each_block(ctx) {
 	let div;
 	let t0;
@@ -790,7 +790,7 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "card svelte-om8as5");
+			attr(div, "class", "card svelte-ip9leu");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -874,8 +874,13 @@ function create_fragment(ctx) {
 	let section;
 	let div2;
 	let h1;
+	let span0;
 	let t2;
+	let br;
 	let t3;
+	let span1;
+	let t4;
+	let t5;
 	let div1;
 	let each_value = /*items*/ ctx[0];
 	let each_blocks = [];
@@ -893,8 +898,13 @@ function create_fragment(ctx) {
 			section = element("section");
 			div2 = element("div");
 			h1 = element("h1");
-			t2 = text(/*heading*/ ctx[1]);
+			span0 = element("span");
+			t2 = text("Professionelle");
+			br = element("br");
 			t3 = space();
+			span1 = element("span");
+			t4 = text("Statistik-Beratung");
+			t5 = space();
 			div1 = element("div");
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -916,9 +926,18 @@ function create_fragment(ctx) {
 			var div2_nodes = children(div2);
 			h1 = claim_element(div2_nodes, "H1", { class: true });
 			var h1_nodes = children(h1);
-			t2 = claim_text(h1_nodes, /*heading*/ ctx[1]);
+			span0 = claim_element(h1_nodes, "SPAN", { class: true });
+			var span0_nodes = children(span0);
+			t2 = claim_text(span0_nodes, "Professionelle");
+			span0_nodes.forEach(detach);
+			br = claim_element(h1_nodes, "BR", {});
+			t3 = claim_space(h1_nodes);
+			span1 = claim_element(h1_nodes, "SPAN", { class: true });
+			var span1_nodes = children(span1);
+			t4 = claim_text(span1_nodes, "Statistik-Beratung");
+			span1_nodes.forEach(detach);
 			h1_nodes.forEach(detach);
-			t3 = claim_space(div2_nodes);
+			t5 = claim_space(div2_nodes);
 			div1 = claim_element(div2_nodes, "DIV", { class: true });
 			var div1_nodes = children(div1);
 
@@ -933,12 +952,14 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(canvas, "id", "chart-bg");
-			attr(canvas, "class", "svelte-om8as5");
+			attr(canvas, "class", "svelte-ip9leu");
 			attr(div0, "class", "chart-gradient");
-			attr(h1, "class", "heading svelte-om8as5");
-			attr(div1, "class", "cards svelte-om8as5");
-			attr(div2, "class", "section-container svelte-om8as5");
-			attr(section, "class", "svelte-om8as5");
+			attr(span0, "class", "heading-top svelte-ip9leu");
+			attr(span1, "class", "heading-bottom svelte-ip9leu");
+			attr(h1, "class", "heading svelte-ip9leu");
+			attr(div1, "class", "cards svelte-ip9leu");
+			attr(div2, "class", "section-container svelte-ip9leu");
+			attr(section, "class", "svelte-ip9leu");
 		},
 		m(target, anchor) {
 			insert_hydration(target, canvas, anchor);
@@ -948,8 +969,13 @@ function create_fragment(ctx) {
 			insert_hydration(target, section, anchor);
 			append_hydration(section, div2);
 			append_hydration(div2, h1);
-			append_hydration(h1, t2);
-			append_hydration(div2, t3);
+			append_hydration(h1, span0);
+			append_hydration(span0, t2);
+			append_hydration(h1, br);
+			append_hydration(h1, t3);
+			append_hydration(h1, span1);
+			append_hydration(span1, t4);
+			append_hydration(div2, t5);
 			append_hydration(div2, div1);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -959,8 +985,6 @@ function create_fragment(ctx) {
 			}
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*heading*/ 2) set_data(t2, /*heading*/ ctx[1]);
-
 			if (dirty & /*items*/ 1) {
 				each_value = /*items*/ ctx[0];
 				let i;
@@ -1072,18 +1096,18 @@ function instance($$self, $$props, $$invalidate) {
 	setTimeout(initChart, 100);
 
 	$$self.$$set = $$props => {
-		if ('props' in $$props) $$invalidate(2, props = $$props.props);
+		if ('props' in $$props) $$invalidate(1, props = $$props.props);
 		if ('items' in $$props) $$invalidate(0, items = $$props.items);
-		if ('heading' in $$props) $$invalidate(1, heading = $$props.heading);
+		if ('heading' in $$props) $$invalidate(2, heading = $$props.heading);
 	};
 
-	return [items, heading, props];
+	return [items, props, heading];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { props: 2, items: 0, heading: 1 });
+		init(this, options, instance, create_fragment, safe_not_equal, { props: 1, items: 0, heading: 2 });
 	}
 }
 
