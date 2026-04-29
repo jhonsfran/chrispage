@@ -629,7 +629,7 @@ function get_each_context_1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (220:4) {#if logo.image && logo.image.url}
+// (231:4) {#if logo.image && logo.image.url}
 function create_if_block_2(ctx) {
 	let img;
 	let img_src_value;
@@ -662,7 +662,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (224:4) {#if logo.title}
+// (235:4) {#if logo.title}
 function create_if_block_1(ctx) {
 	let h1;
 	let t_value = /*logo*/ ctx[0].title + "";
@@ -697,7 +697,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (239:6) {#each site_nav.slice(0, Math.ceil(site_nav.length / 2)) as { link }}
+// (250:6) {#each site_nav.slice(0, Math.ceil(site_nav.length / 2)) as { link }}
 function create_each_block_1(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[9].label + "";
@@ -738,7 +738,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (246:6) {#if logo.image && logo.image.url}
+// (257:6) {#if logo.image && logo.image.url}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -776,7 +776,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (258:6) {#each site_nav.slice(Math.ceil(site_nav.length / 2)) as { link }}
+// (269:6) {#each site_nav.slice(Math.ceil(site_nav.length / 2)) as { link }}
 function create_each_block(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[9].label + "";
@@ -1170,6 +1170,20 @@ function instance($$self, $$props, $$invalidate) {
 			$$invalidate(3, introDone = true);
 		}
 	}
+
+	/* 🔥 1. Klick */
+	window.addEventListener("click", handleIntro);
+
+	/* 🔥 2. Mausbewegung */
+	window.addEventListener("mousemove", handleIntro, { once: true });
+
+	/* 🔥 3. Automatisch nach 0.8 Sekunden */
+	setTimeout(
+		() => {
+			handleIntro();
+		},
+		800
+	);
 
 	const keydown_handler = e => e.key === 'Enter' && handleIntro();
 
