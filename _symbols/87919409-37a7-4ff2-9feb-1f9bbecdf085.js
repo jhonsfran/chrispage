@@ -544,7 +544,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (322:10) {#if item.image && item.image.url}
+// (306:10) {#if item.image && item.image.url}
 function create_if_block_3(ctx) {
 	let div;
 	let img;
@@ -573,8 +573,8 @@ function create_if_block_3(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[3].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item*/ ctx[3].image.alt);
-			attr(img, "class", "svelte-ip9leu");
-			attr(div, "class", "image-wrapper svelte-ip9leu");
+			attr(img, "class", "svelte-13as5p9");
+			attr(div, "class", "image-wrapper svelte-13as5p9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -611,7 +611,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (326:12) {#if item.name}
+// (310:12) {#if item.name}
 function create_if_block_4(ctx) {
 	let div;
 	let t_value = /*item*/ ctx[3].name + "";
@@ -631,7 +631,7 @@ function create_if_block_4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "overlay-name svelte-ip9leu");
+			attr(div, "class", "overlay-name svelte-13as5p9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -646,7 +646,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (334:10) {#if item.short_quote}
+// (318:10) {#if item.short_quote}
 function create_if_block_2(ctx) {
 	let div;
 	let t_value = /*item*/ ctx[3].short_quote + "";
@@ -666,7 +666,7 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "short-quote svelte-ip9leu");
+			attr(div, "class", "short-quote svelte-13as5p9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -681,7 +681,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (340:10) {#if item.long_quote && item.long_quote.html}
+// (324:10) {#if item.long_quote && item.long_quote.html}
 function create_if_block_1(ctx) {
 	let div;
 	let raw_value = /*item*/ ctx[3].long_quote.html + "";
@@ -698,7 +698,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "long-quote svelte-ip9leu");
+			attr(div, "class", "long-quote svelte-13as5p9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -712,7 +712,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (346:10) {#if item.link && item.link.url}
+// (330:10) {#if item.link && item.link.url}
 function create_if_block(ctx) {
 	let a;
 	let t;
@@ -733,7 +733,7 @@ function create_if_block(ctx) {
 		},
 		h() {
 			attr(a, "href", a_href_value = /*item*/ ctx[3].link.url);
-			attr(a, "class", "more-link svelte-ip9leu");
+			attr(a, "class", "more-link svelte-13as5p9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -750,7 +750,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (319:6) {#each items as item}
+// (303:6) {#each items as item}
 function create_each_block(ctx) {
 	let div;
 	let t0;
@@ -790,7 +790,7 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "card svelte-ip9leu");
+			attr(div, "class", "card svelte-13as5p9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -952,14 +952,14 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(canvas, "id", "chart-bg");
-			attr(canvas, "class", "svelte-ip9leu");
+			attr(canvas, "class", "svelte-13as5p9");
 			attr(div0, "class", "chart-gradient");
-			attr(span0, "class", "heading-top svelte-ip9leu");
-			attr(span1, "class", "heading-bottom svelte-ip9leu");
-			attr(h1, "class", "heading svelte-ip9leu");
-			attr(div1, "class", "cards svelte-ip9leu");
-			attr(div2, "class", "section-container svelte-ip9leu");
-			attr(section, "class", "svelte-ip9leu");
+			attr(span0, "class", "heading-top svelte-13as5p9");
+			attr(span1, "class", "heading-bottom svelte-13as5p9");
+			attr(h1, "class", "heading svelte-13as5p9");
+			attr(div1, "class", "cards svelte-13as5p9");
+			attr(div2, "class", "section-container svelte-13as5p9");
+			attr(section, "class", "svelte-13as5p9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, canvas, anchor);
