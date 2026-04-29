@@ -1,4 +1,4 @@
-// Landing Page Block - Updated April 28, 2026
+// Landing Page Block - Updated April 29, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -544,7 +544,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (305:10) {#if item.image && item.image.url}
+// (291:10) {#if item.image && item.image.url}
 function create_if_block_3(ctx) {
 	let div;
 	let img;
@@ -573,8 +573,8 @@ function create_if_block_3(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[3].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item*/ ctx[3].image.alt);
-			attr(img, "class", "svelte-om8as5");
-			attr(div, "class", "image-wrapper svelte-om8as5");
+			attr(img, "class", "svelte-6kyaxh");
+			attr(div, "class", "image-wrapper svelte-6kyaxh");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -611,7 +611,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (309:12) {#if item.name}
+// (295:12) {#if item.name}
 function create_if_block_4(ctx) {
 	let div;
 	let t_value = /*item*/ ctx[3].name + "";
@@ -631,7 +631,7 @@ function create_if_block_4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "overlay-name svelte-om8as5");
+			attr(div, "class", "overlay-name svelte-6kyaxh");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -646,7 +646,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (317:10) {#if item.short_quote}
+// (306:12) {#if item.short_quote}
 function create_if_block_2(ctx) {
 	let div;
 	let t_value = /*item*/ ctx[3].short_quote + "";
@@ -666,7 +666,7 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "short-quote svelte-om8as5");
+			attr(div, "class", "short-quote svelte-6kyaxh");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -681,7 +681,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (323:10) {#if item.long_quote && item.long_quote.html}
+// (312:12) {#if item.long_quote && item.long_quote.html}
 function create_if_block_1(ctx) {
 	let div;
 	let raw_value = /*item*/ ctx[3].long_quote.html + "";
@@ -698,7 +698,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "long-quote svelte-om8as5");
+			attr(div, "class", "long-quote svelte-6kyaxh");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -712,7 +712,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (329:10) {#if item.link && item.link.url}
+// (318:12) {#if item.link && item.link.url}
 function create_if_block(ctx) {
 	let a;
 	let t;
@@ -733,7 +733,7 @@ function create_if_block(ctx) {
 		},
 		h() {
 			attr(a, "href", a_href_value = /*item*/ ctx[3].link.url);
-			attr(a, "class", "more-link svelte-om8as5");
+			attr(a, "class", "more-link svelte-6kyaxh");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -750,10 +750,11 @@ function create_if_block(ctx) {
 	};
 }
 
-// (302:6) {#each items as item}
+// (288:6) {#each items as item}
 function create_each_block(ctx) {
-	let div;
+	let div1;
 	let t0;
+	let div0;
 	let t1;
 	let t2;
 	let t3;
@@ -764,9 +765,10 @@ function create_each_block(ctx) {
 
 	return {
 		c() {
-			div = element("div");
+			div1 = element("div");
 			if (if_block0) if_block0.c();
 			t0 = space();
+			div0 = element("div");
 			if (if_block1) if_block1.c();
 			t1 = space();
 			if (if_block2) if_block2.c();
@@ -776,32 +778,37 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			div = claim_element(nodes, "DIV", { class: true });
-			var div_nodes = children(div);
-			if (if_block0) if_block0.l(div_nodes);
-			t0 = claim_space(div_nodes);
-			if (if_block1) if_block1.l(div_nodes);
-			t1 = claim_space(div_nodes);
-			if (if_block2) if_block2.l(div_nodes);
-			t2 = claim_space(div_nodes);
-			if (if_block3) if_block3.l(div_nodes);
-			t3 = claim_space(div_nodes);
-			div_nodes.forEach(detach);
+			div1 = claim_element(nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			if (if_block0) if_block0.l(div1_nodes);
+			t0 = claim_space(div1_nodes);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			if (if_block1) if_block1.l(div0_nodes);
+			t1 = claim_space(div0_nodes);
+			if (if_block2) if_block2.l(div0_nodes);
+			t2 = claim_space(div0_nodes);
+			if (if_block3) if_block3.l(div0_nodes);
+			div0_nodes.forEach(detach);
+			t3 = claim_space(div1_nodes);
+			div1_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(div, "class", "card svelte-om8as5");
+			attr(div0, "class", "text-content svelte-6kyaxh");
+			attr(div1, "class", "card svelte-6kyaxh");
 		},
 		m(target, anchor) {
-			insert_hydration(target, div, anchor);
-			if (if_block0) if_block0.m(div, null);
-			append_hydration(div, t0);
-			if (if_block1) if_block1.m(div, null);
-			append_hydration(div, t1);
-			if (if_block2) if_block2.m(div, null);
-			append_hydration(div, t2);
-			if (if_block3) if_block3.m(div, null);
-			append_hydration(div, t3);
+			insert_hydration(target, div1, anchor);
+			if (if_block0) if_block0.m(div1, null);
+			append_hydration(div1, t0);
+			append_hydration(div1, div0);
+			if (if_block1) if_block1.m(div0, null);
+			append_hydration(div0, t1);
+			if (if_block2) if_block2.m(div0, null);
+			append_hydration(div0, t2);
+			if (if_block3) if_block3.m(div0, null);
+			append_hydration(div1, t3);
 		},
 		p(ctx, dirty) {
 			if (/*item*/ ctx[3].image && /*item*/ ctx[3].image.url) {
@@ -810,7 +817,7 @@ function create_each_block(ctx) {
 				} else {
 					if_block0 = create_if_block_3(ctx);
 					if_block0.c();
-					if_block0.m(div, t0);
+					if_block0.m(div1, t0);
 				}
 			} else if (if_block0) {
 				if_block0.d(1);
@@ -823,7 +830,7 @@ function create_each_block(ctx) {
 				} else {
 					if_block1 = create_if_block_2(ctx);
 					if_block1.c();
-					if_block1.m(div, t1);
+					if_block1.m(div0, t1);
 				}
 			} else if (if_block1) {
 				if_block1.d(1);
@@ -836,7 +843,7 @@ function create_each_block(ctx) {
 				} else {
 					if_block2 = create_if_block_1(ctx);
 					if_block2.c();
-					if_block2.m(div, t2);
+					if_block2.m(div0, t2);
 				}
 			} else if (if_block2) {
 				if_block2.d(1);
@@ -849,7 +856,7 @@ function create_each_block(ctx) {
 				} else {
 					if_block3 = create_if_block(ctx);
 					if_block3.c();
-					if_block3.m(div, t3);
+					if_block3.m(div0, null);
 				}
 			} else if (if_block3) {
 				if_block3.d(1);
@@ -857,7 +864,7 @@ function create_each_block(ctx) {
 			}
 		},
 		d(detaching) {
-			if (detaching) detach(div);
+			if (detaching) detach(div1);
 			if (if_block0) if_block0.d();
 			if (if_block1) if_block1.d();
 			if (if_block2) if_block2.d();
@@ -933,12 +940,12 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(canvas, "id", "chart-bg");
-			attr(canvas, "class", "svelte-om8as5");
+			attr(canvas, "class", "svelte-6kyaxh");
 			attr(div0, "class", "chart-gradient");
-			attr(h1, "class", "heading svelte-om8as5");
-			attr(div1, "class", "cards svelte-om8as5");
-			attr(div2, "class", "section-container svelte-om8as5");
-			attr(section, "class", "svelte-om8as5");
+			attr(h1, "class", "heading svelte-6kyaxh");
+			attr(div1, "class", "cards svelte-6kyaxh");
+			attr(div2, "class", "section-container svelte-6kyaxh");
+			attr(section, "class", "svelte-6kyaxh");
 		},
 		m(target, anchor) {
 			insert_hydration(target, canvas, anchor);
