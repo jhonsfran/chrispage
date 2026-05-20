@@ -813,7 +813,7 @@ function create_fragment(ctx) {
 			attr(div1, "tabindex", "0");
 			toggle_class(div1, "hide", /*introDone*/ ctx[2]);
 			attr(a0, "class", "link svelte-1azzj91");
-			attr(a0, "href", "/unternehmen");
+			attr(a0, "href", "/statistische-beratung-fuer-unternehmen");
 			attr(a1, "class", "link svelte-1azzj91");
 			attr(a1, "href", "/team");
 			attr(div2, "class", "nav-left svelte-1azzj91");
@@ -821,7 +821,7 @@ function create_fragment(ctx) {
 			attr(a2, "class", "link svelte-1azzj91");
 			attr(a2, "href", "/kontakt");
 			attr(a3, "class", "link svelte-1azzj91");
-			attr(a3, "href", "/studierende");
+			attr(a3, "href", "/statistik-beratung-fuer-studierende");
 			attr(a4, "href", a4_href_value = /*primary_cta*/ ctx[1].url);
 			attr(a4, "class", "button svelte-1azzj91");
 			attr(div4, "class", "nav-right svelte-1azzj91");
