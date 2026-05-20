@@ -1,4 +1,4 @@
-// Site Navigation Homepage - Updated May 19, 2026
+// Site Navigation Homepage - Updated May 20, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
@@ -643,7 +643,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (283:6) {#if logo.image && logo.image.url}
+// (273:6) {#if logo.image && logo.image.url}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -730,17 +730,17 @@ function create_fragment(ctx) {
 			t1 = text("Für Unternehmen");
 			t2 = space();
 			a1 = element("a");
-			t3 = text("Für Studierende");
+			t3 = text("Team");
 			t4 = space();
 			div3 = element("div");
 			if (if_block1) if_block1.c();
 			t5 = space();
 			div4 = element("div");
 			a2 = element("a");
-			t6 = text("Team");
+			t6 = text("Kontakt");
 			t7 = space();
 			a3 = element("a");
-			t8 = text("Kontakt");
+			t8 = text("Für Studierende");
 			t9 = space();
 			a4 = element("a");
 			t10 = text(t10_value);
@@ -771,7 +771,7 @@ function create_fragment(ctx) {
 			t2 = claim_space(div2_nodes);
 			a1 = claim_element(div2_nodes, "A", { class: true, href: true });
 			var a1_nodes = children(a1);
-			t3 = claim_text(a1_nodes, "Für Studierende");
+			t3 = claim_text(a1_nodes, "Team");
 			a1_nodes.forEach(detach);
 			div2_nodes.forEach(detach);
 			t4 = claim_space(div5_nodes);
@@ -784,12 +784,12 @@ function create_fragment(ctx) {
 			var div4_nodes = children(div4);
 			a2 = claim_element(div4_nodes, "A", { class: true, href: true });
 			var a2_nodes = children(a2);
-			t6 = claim_text(a2_nodes, "Team");
+			t6 = claim_text(a2_nodes, "Kontakt");
 			a2_nodes.forEach(detach);
 			t7 = claim_space(div4_nodes);
 			a3 = claim_element(div4_nodes, "A", { class: true, href: true });
 			var a3_nodes = children(a3);
-			t8 = claim_text(a3_nodes, "Kontakt");
+			t8 = claim_text(a3_nodes, "Für Studierende");
 			a3_nodes.forEach(detach);
 			t9 = claim_space(div4_nodes);
 			a4 = claim_element(div4_nodes, "A", { href: true, class: true });
@@ -815,13 +815,13 @@ function create_fragment(ctx) {
 			attr(a0, "class", "link svelte-1azzj91");
 			attr(a0, "href", "/unternehmen");
 			attr(a1, "class", "link svelte-1azzj91");
-			attr(a1, "href", "/studierende");
+			attr(a1, "href", "/team");
 			attr(div2, "class", "nav-left svelte-1azzj91");
 			attr(div3, "class", "nav-center svelte-1azzj91");
 			attr(a2, "class", "link svelte-1azzj91");
-			attr(a2, "href", "/team");
+			attr(a2, "href", "/kontakt");
 			attr(a3, "class", "link svelte-1azzj91");
-			attr(a3, "href", "/kontakt");
+			attr(a3, "href", "/studierende");
 			attr(a4, "href", a4_href_value = /*primary_cta*/ ctx[1].url);
 			attr(a4, "class", "button svelte-1azzj91");
 			attr(div4, "class", "nav-right svelte-1azzj91");
