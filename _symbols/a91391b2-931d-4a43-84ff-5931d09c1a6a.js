@@ -626,7 +626,7 @@ function create_if_block_1(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "intro-icon svelte-12zb77r");
+			attr(img, "class", "intro-icon svelte-1gzetp7");
 			attr(img, "alt", "Logo");
 		},
 		m(target, anchor) {
@@ -643,7 +643,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (297:6) {#if logo.image && logo.image.url}
+// (317:6) {#if logo.image && logo.image.url}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -659,7 +659,7 @@ function create_if_block(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "nav-icon svelte-12zb77r");
+			attr(img, "class", "nav-icon svelte-1gzetp7");
 			attr(img, "alt", "Logo");
 			toggle_class(img, "active", /*introDone*/ ctx[2]);
 		},
@@ -807,28 +807,28 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "intro-content svelte-12zb77r");
-			attr(div1, "class", "intro svelte-12zb77r");
+			attr(div0, "class", "intro-content svelte-1gzetp7");
+			attr(div1, "class", "intro svelte-1gzetp7");
 			attr(div1, "role", "button");
 			attr(div1, "tabindex", "0");
 			toggle_class(div1, "hide", /*introDone*/ ctx[2]);
-			attr(a0, "class", "link svelte-12zb77r");
+			attr(a0, "class", "link svelte-1gzetp7");
 			attr(a0, "href", "/statistische-beratung-fuer-unternehmen");
-			attr(a1, "class", "link svelte-12zb77r");
+			attr(a1, "class", "link svelte-1gzetp7");
 			attr(a1, "href", "/team");
-			attr(div2, "class", "nav-left svelte-12zb77r");
-			attr(div3, "class", "nav-center svelte-12zb77r");
-			attr(a2, "class", "link svelte-12zb77r");
+			attr(div2, "class", "nav-left svelte-1gzetp7");
+			attr(div3, "class", "nav-center svelte-1gzetp7");
+			attr(a2, "class", "link svelte-1gzetp7");
 			attr(a2, "href", "/kontakt");
-			attr(a3, "class", "link svelte-12zb77r");
+			attr(a3, "class", "link svelte-1gzetp7");
 			attr(a3, "href", "/statistik-beratung-fuer-studierende");
 			attr(a4, "href", a4_href_value = /*primary_cta*/ ctx[1].url);
-			attr(a4, "class", "button svelte-12zb77r");
-			attr(div4, "class", "nav-right svelte-12zb77r");
-			attr(div5, "class", "nav-wrapper svelte-12zb77r");
-			attr(header, "class", "header svelte-12zb77r");
+			attr(a4, "class", "button svelte-1gzetp7");
+			attr(div4, "class", "nav-right svelte-1gzetp7");
+			attr(div5, "class", "nav-wrapper svelte-1gzetp7");
+			attr(header, "class", "header svelte-1gzetp7");
 			toggle_class(header, "active", /*introDone*/ ctx[2]);
-			attr(div6, "class", "main-content svelte-12zb77r");
+			attr(div6, "class", "main-content svelte-1gzetp7");
 			toggle_class(div6, "visible", /*introDone*/ ctx[2]);
 		},
 		m(target, anchor) {
