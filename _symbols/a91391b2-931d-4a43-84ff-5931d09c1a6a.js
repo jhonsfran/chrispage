@@ -626,7 +626,7 @@ function create_if_block_1(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "intro-icon svelte-1xrmo0s");
+			attr(img, "class", "intro-icon svelte-1ilwvpn");
 			attr(img, "alt", "Logo");
 		},
 		m(target, anchor) {
@@ -643,7 +643,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (323:6) {#if logo.image && logo.image.url}
+// (308:6) {#if logo.image && logo.image.url}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -659,7 +659,7 @@ function create_if_block(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "nav-icon svelte-1xrmo0s");
+			attr(img, "class", "nav-icon svelte-1ilwvpn");
 			attr(img, "alt", "Logo");
 			toggle_class(img, "active", /*introDone*/ ctx[2]);
 		},
@@ -807,28 +807,28 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "intro-content svelte-1xrmo0s");
-			attr(div1, "class", "intro svelte-1xrmo0s");
+			attr(div0, "class", "intro-content svelte-1ilwvpn");
+			attr(div1, "class", "intro svelte-1ilwvpn");
 			attr(div1, "role", "button");
 			attr(div1, "tabindex", "0");
 			toggle_class(div1, "hide", /*introDone*/ ctx[2]);
-			attr(a0, "class", "link svelte-1xrmo0s");
+			attr(a0, "class", "link svelte-1ilwvpn");
 			attr(a0, "href", "/statistische-beratung-fuer-unternehmen");
-			attr(a1, "class", "link svelte-1xrmo0s");
+			attr(a1, "class", "link svelte-1ilwvpn");
 			attr(a1, "href", "/team");
-			attr(div2, "class", "nav-left svelte-1xrmo0s");
-			attr(div3, "class", "nav-center svelte-1xrmo0s");
-			attr(a2, "class", "link svelte-1xrmo0s");
+			attr(div2, "class", "nav-left svelte-1ilwvpn");
+			attr(div3, "class", "nav-center svelte-1ilwvpn");
+			attr(a2, "class", "link svelte-1ilwvpn");
 			attr(a2, "href", "/kontakt");
-			attr(a3, "class", "link svelte-1xrmo0s");
+			attr(a3, "class", "link svelte-1ilwvpn");
 			attr(a3, "href", "/statistik-beratung-fuer-studierende");
 			attr(a4, "href", a4_href_value = /*primary_cta*/ ctx[1].url);
-			attr(a4, "class", "button svelte-1xrmo0s");
-			attr(div4, "class", "nav-right svelte-1xrmo0s");
-			attr(div5, "class", "nav-wrapper svelte-1xrmo0s");
-			attr(header, "class", "header svelte-1xrmo0s");
+			attr(a4, "class", "button svelte-1ilwvpn");
+			attr(div4, "class", "nav-right svelte-1ilwvpn");
+			attr(div5, "class", "nav-wrapper svelte-1ilwvpn");
+			attr(header, "class", "header svelte-1ilwvpn");
 			toggle_class(header, "active", /*introDone*/ ctx[2]);
-			attr(div6, "class", "main-content svelte-1xrmo0s");
+			attr(div6, "class", "main-content svelte-1ilwvpn");
 			toggle_class(div6, "visible", /*introDone*/ ctx[2]);
 		},
 		m(target, anchor) {
