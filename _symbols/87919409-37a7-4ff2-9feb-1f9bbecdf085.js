@@ -544,7 +544,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (362:10) {#if item.image && item.image.url}
+// (377:10) {#if item.image && item.image.url}
 function create_if_block(ctx) {
 	let a;
 	let div;
@@ -579,10 +579,10 @@ function create_if_block(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[3].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item*/ ctx[3].image.alt);
-			attr(img, "class", "svelte-1yd0jtm");
-			attr(div, "class", "image-wrapper svelte-1yd0jtm");
+			attr(img, "class", "svelte-3hvtst");
+			attr(div, "class", "image-wrapper svelte-3hvtst");
 			attr(a, "href", a_href_value = /*item*/ ctx[3].link?.url);
-			attr(a, "class", "card-link svelte-1yd0jtm");
+			attr(a, "class", "card-link svelte-3hvtst");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -624,7 +624,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (367:14) {#if item.name}
+// (382:14) {#if item.name}
 function create_if_block_1(ctx) {
 	let div;
 	let t_value = /*item*/ ctx[3].name + "";
@@ -644,7 +644,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "overlay-name svelte-1yd0jtm");
+			attr(div, "class", "overlay-name svelte-3hvtst");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -659,7 +659,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (359:6) {#each items as item}
+// (374:6) {#each items as item}
 function create_each_block(ctx) {
 	let div;
 	let t;
@@ -681,7 +681,7 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "card svelte-1yd0jtm");
+			attr(div, "class", "card svelte-3hvtst");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -724,6 +724,9 @@ function create_fragment(ctx) {
 	let span1;
 	let t4;
 	let t5;
+	let p;
+	let t6;
+	let t7;
 	let div1;
 	let each_value = /*items*/ ctx[0];
 	let each_blocks = [];
@@ -748,6 +751,9 @@ function create_fragment(ctx) {
 			span1 = element("span");
 			t4 = text("Statistik-Beratung");
 			t5 = space();
+			p = element("p");
+			t6 = text("Datenanalyse, die überzeugt – verständlich, präzise und auf den Punkt.");
+			t7 = space();
 			div1 = element("div");
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -781,6 +787,11 @@ function create_fragment(ctx) {
 			span1_nodes.forEach(detach);
 			h1_nodes.forEach(detach);
 			t5 = claim_space(div2_nodes);
+			p = claim_element(div2_nodes, "P", { id: true, class: true });
+			var p_nodes = children(p);
+			t6 = claim_text(p_nodes, "Datenanalyse, die überzeugt – verständlich, präzise und auf den Punkt.");
+			p_nodes.forEach(detach);
+			t7 = claim_space(div2_nodes);
 			div1 = claim_element(div2_nodes, "DIV", { class: true });
 			var div1_nodes = children(div1);
 
@@ -795,14 +806,16 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(canvas, "id", "chart-bg");
-			attr(canvas, "class", "svelte-1yd0jtm");
+			attr(canvas, "class", "svelte-3hvtst");
 			attr(div0, "class", "chart-gradient");
-			attr(span0, "class", "heading-top svelte-1yd0jtm");
-			attr(span1, "class", "heading-bottom svelte-1yd0jtm");
-			attr(h1, "class", "heading svelte-1yd0jtm");
-			attr(div1, "class", "cards svelte-1yd0jtm");
-			attr(div2, "class", "section-container svelte-1yd0jtm");
-			attr(section, "class", "svelte-1yd0jtm");
+			attr(span0, "class", "heading-top svelte-3hvtst");
+			attr(span1, "class", "heading-bottom svelte-3hvtst");
+			attr(h1, "class", "heading svelte-3hvtst");
+			attr(p, "id", "short_quote");
+			attr(p, "class", "svelte-3hvtst");
+			attr(div1, "class", "cards svelte-3hvtst");
+			attr(div2, "class", "section-container svelte-3hvtst");
+			attr(section, "class", "svelte-3hvtst");
 		},
 		m(target, anchor) {
 			insert_hydration(target, canvas, anchor);
@@ -819,6 +832,9 @@ function create_fragment(ctx) {
 			append_hydration(h1, span1);
 			append_hydration(span1, t4);
 			append_hydration(div2, t5);
+			append_hydration(div2, p);
+			append_hydration(p, t6);
+			append_hydration(div2, t7);
 			append_hydration(div2, div1);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
