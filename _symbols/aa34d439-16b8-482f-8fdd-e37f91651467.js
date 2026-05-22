@@ -891,6 +891,13 @@ function instance($$self, $$props, $$invalidate) {
 	setTimeout(initChart, 300);
 	setTimeout(initObserver, 800);
 
+	setTimeout(
+		function () {
+			console.log('animate-up elements found:', document.querySelectorAll('.animate-up').length);
+		},
+		1500
+	);
+
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(2, props = $$props.props);
 		if ('heading_top' in $$props) $$invalidate(3, heading_top = $$props.heading_top);
