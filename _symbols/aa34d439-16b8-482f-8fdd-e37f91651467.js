@@ -841,8 +841,6 @@ function initChart() {
 
 	function drawLine() {
 		ctx.beginPath();
-		ctx.fillStyle = "rgba(54,131,126,0.08)";
-		ctx.fillStyle = "rgba(54,131,126,0.04)";
 		ctx.strokeStyle = "rgba(54,131,126,0.18)";
 		ctx.lineWidth = 1.8;
 
@@ -879,7 +877,10 @@ function initObserver() {
 			rootMargin: '0px 0px -50px 0px'
 		});
 
-	elements.forEach(el => observer.observe(el));
+	elements.forEach(el => {
+		el.classList.remove('visible');
+		observer.observe(el);
+	});
 }
 
 function instance($$self, $$props, $$invalidate) {
@@ -890,13 +891,6 @@ function instance($$self, $$props, $$invalidate) {
 	let { hero_image } = $$props;
 	setTimeout(initChart, 300);
 	setTimeout(initObserver, 800);
-
-	setTimeout(
-		function () {
-			console.log('animate-up elements found:', document.querySelectorAll('.animate-up').length);
-		},
-		1500
-	);
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(2, props = $$props.props);
