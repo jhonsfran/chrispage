@@ -1,4 +1,4 @@
-// Testimonial Slider - Updated May 21, 2026
+// Testimonial Slider - Updated May 22, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
