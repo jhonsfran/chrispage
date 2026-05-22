@@ -653,81 +653,80 @@ function create_fragment(ctx) {
 	};
 }
 
-function initChart() {
-	const canvas = document.getElementById("chart-bg");
-	if (!canvas) return;
-	const ctx = canvas.getContext("2d");
-	let bars = [];
-	let mouseX = window.innerWidth / 2;
-
-	function resize() {
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
-		createBars();
-	}
-
-	function createBars() {
-		bars = [];
-		const count = Math.floor(window.innerWidth / 40);
-
-		for (let i = 0; i < count; i++) {
-			bars.push({
-				x: i * 40,
-				baseHeight: Math.random() * 350 + 120,
-				height: 0
-			});
-		}
-	}
-
-	window.addEventListener("resize", resize);
-
-	window.addEventListener("mousemove", e => {
-		mouseX = e.clientX;
-	});
-
-	function animate() {
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-		bars.forEach(bar => {
-			const dist = Math.abs(mouseX - bar.x);
-			const influence = Math.max(0, 1 - dist / 300);
-			const targetHeight = bar.baseHeight + influence * 350;
-			bar.height += (targetHeight - bar.height) * 0.06;
-			ctx.fillStyle = "rgba(54,131,126,0.15)"; // vorher vermutlich ~0.5+
-			ctx.fillRect(bar.x, canvas.height - bar.height, 20, bar.height);
-			ctx.fillStyle = "rgba(59,130,246,0.15)";
-			ctx.fillRect(bar.x, canvas.height - bar.height - 10, 20, 10);
-		});
-
-		drawLine();
-		requestAnimationFrame(animate);
-	}
-
-	function drawLine() {
-		ctx.beginPath();
-		ctx.strokeStyle = "rgba(54,131,126,0.25)";
-		ctx.lineWidth = 1.2;
-
-		bars.forEach((bar, i) => {
-			const x = bar.x + 10;
-			const y = canvas.height - bar.height;
-			if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-		});
-
-		ctx.stroke();
-	}
-
-	resize();
-	animate();
-}
-
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
 	let { heading_top } = $$props;
 	let { heading_bottom } = $$props;
 	let { short_quote } = $$props;
 	let { hero_image } = $$props;
-	setTimeout(initChart, 100);
+
+	document.addEventListener("DOMContentLoaded", function () {
+		const canvas = document.getElementById("chart-bg");
+		if (!canvas) return;
+		const ctx = canvas.getContext("2d");
+		let bars = [];
+		let mouseX = window.innerWidth / 2;
+
+		function resize() {
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+			createBars();
+		}
+
+		function createBars() {
+			bars = [];
+			const count = Math.floor(window.innerWidth / 40);
+
+			for (let i = 0; i < count; i++) {
+				bars.push({
+					x: i * 40,
+					baseHeight: Math.random() * 350 + 120,
+					height: 0
+				});
+			}
+		}
+
+		window.addEventListener("resize", resize);
+
+		window.addEventListener("mousemove", e => {
+			mouseX = e.clientX;
+		});
+
+		function animate() {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+			bars.forEach(bar => {
+				const dist = Math.abs(mouseX - bar.x);
+				const influence = Math.max(0, 1 - dist / 300);
+				const targetHeight = bar.baseHeight + influence * 350;
+				bar.height += (targetHeight - bar.height) * 0.06;
+				ctx.fillStyle = "rgba(54,131,126,0.15)";
+				ctx.fillRect(bar.x, canvas.height - bar.height, 20, bar.height);
+				ctx.fillStyle = "rgba(59,130,246,0.15)";
+				ctx.fillRect(bar.x, canvas.height - bar.height - 10, 20, 10);
+			});
+
+			drawLine();
+			requestAnimationFrame(animate);
+		}
+
+		function drawLine() {
+			ctx.beginPath();
+			ctx.strokeStyle = "rgba(54,131,126,0.25)";
+			ctx.lineWidth = 1.2;
+
+			bars.forEach((bar, i) => {
+				const x = bar.x + 10;
+				const y = canvas.height - bar.height;
+				if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+			});
+
+			ctx.stroke();
+		}
+
+		resize();
+		animate();
+	});
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(4, props = $$props.props);
