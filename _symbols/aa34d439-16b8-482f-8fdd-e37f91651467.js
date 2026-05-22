@@ -829,9 +829,9 @@ function initChart() {
 			const influence = Math.max(0, 1 - dist / 300);
 			const targetHeight = bar.baseHeight + influence * 350;
 			bar.height += (targetHeight - bar.height) * 0.06;
-			ctx.fillStyle = "rgba(54,131,126,0.45)";
+			ctx.fillStyle = "rgba(54,131,126,0.15)";
 			ctx.fillRect(bar.x, canvas.height - bar.height, 20, bar.height);
-			ctx.fillStyle = "rgba(54,131,126,0.25)";
+			ctx.fillStyle = "rgba(54,131,126,0.08)";
 			ctx.fillRect(bar.x, canvas.height - bar.height - 10, 20, 10);
 		});
 
