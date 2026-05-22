@@ -859,6 +859,29 @@ function initChart() {
 	animate();
 }
 
+function initObserver() {
+	const elements = document.querySelectorAll('.animate-up');
+
+	if (elements.length === 0) {
+		setTimeout(initObserver, 500);
+		return;
+	}
+
+	const observer = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+				}
+			});
+		},
+	{
+			threshold: 0,
+			rootMargin: '0px 0px -50px 0px'
+		});
+
+	elements.forEach(el => observer.observe(el));
+}
+
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
 	let { heading_top } = $$props;
@@ -866,25 +889,7 @@ function instance($$self, $$props, $$invalidate) {
 	let { short_quote } = $$props;
 	let { hero_image } = $$props;
 	setTimeout(initChart, 300);
-
-	setTimeout(
-		function () {
-			const observer = new IntersectionObserver(entries => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							entry.target.classList.add('visible');
-						}
-					});
-				},
-			{
-					threshold: 0,
-					rootMargin: '0px 0px -50px 0px'
-				});
-
-			document.querySelectorAll('.animate-up').forEach(el => observer.observe(el));
-		},
-		800
-	);
+	setTimeout(initObserver, 800);
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(2, props = $$props.props);
