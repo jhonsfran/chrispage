@@ -867,6 +867,22 @@ function instance($$self, $$props, $$invalidate) {
 	let { hero_image } = $$props;
 	setTimeout(initChart, 300);
 
+	setTimeout(
+		function () {
+			const observer = new IntersectionObserver(entries => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible');
+						}
+					});
+				},
+			{ threshold: 0.15 });
+
+			document.querySelectorAll('.animate-up').forEach(el => observer.observe(el));
+		},
+		400
+	);
+
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(2, props = $$props.props);
 		if ('heading_top' in $$props) $$invalidate(3, heading_top = $$props.heading_top);
