@@ -704,30 +704,30 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(canvas, "id", "chart-bg");
-			attr(canvas, "class", "svelte-rqi2fg");
-			attr(span0, "class", "heading-top svelte-rqi2fg");
-			attr(span1, "class", "heading-top svelte-rqi2fg");
-			attr(span2, "class", "heading-bottom svelte-rqi2fg");
-			attr(span3, "class", "heading-bottom svelte-rqi2fg");
-			attr(h1, "class", "heading svelte-rqi2fg");
+			attr(canvas, "class", "svelte-r5qozl");
+			attr(span0, "class", "heading-top svelte-r5qozl");
+			attr(span1, "class", "heading-top svelte-r5qozl");
+			attr(span2, "class", "heading-bottom svelte-r5qozl");
+			attr(span3, "class", "heading-bottom svelte-r5qozl");
+			attr(h1, "class", "heading svelte-r5qozl");
 			attr(p, "id", "short_quote");
-			attr(p, "class", "svelte-rqi2fg");
+			attr(p, "class", "svelte-r5qozl");
 			attr(a0, "href", "/kontakt");
-			attr(a0, "class", "btn-primary svelte-rqi2fg");
+			attr(a0, "class", "btn-primary svelte-r5qozl");
 			attr(a1, "href", "/studierende");
-			attr(a1, "class", "btn-secondary svelte-rqi2fg");
-			attr(div0, "class", "hero-buttons svelte-rqi2fg");
-			attr(span4, "class", "svelte-rqi2fg");
-			attr(span5, "class", "svelte-rqi2fg");
-			attr(span6, "class", "svelte-rqi2fg");
-			attr(div1, "class", "hero-checks svelte-rqi2fg");
-			attr(div2, "class", "hero-left svelte-rqi2fg");
-			attr(div3, "class", "hero-bg svelte-rqi2fg");
+			attr(a1, "class", "btn-secondary svelte-r5qozl");
+			attr(div0, "class", "hero-buttons svelte-r5qozl");
+			attr(span4, "class", "svelte-r5qozl");
+			attr(span5, "class", "svelte-r5qozl");
+			attr(span6, "class", "svelte-r5qozl");
+			attr(div1, "class", "hero-checks svelte-r5qozl");
+			attr(div2, "class", "hero-left svelte-r5qozl");
+			attr(div3, "class", "hero-bg svelte-r5qozl");
 			set_style(div3, "background-image", "url('" + /*hero_image*/ ctx[1].url + "')");
-			attr(div4, "class", "hero-right svelte-rqi2fg");
-			attr(div5, "class", "hero svelte-rqi2fg");
-			attr(div6, "class", "section-container svelte-rqi2fg");
-			attr(section, "class", "svelte-rqi2fg");
+			attr(div4, "class", "hero-right svelte-r5qozl");
+			attr(div5, "class", "hero svelte-r5qozl");
+			attr(div6, "class", "section-container svelte-r5qozl");
+			attr(section, "class", "svelte-r5qozl");
 		},
 		m(target, anchor) {
 			insert_hydration(target, canvas, anchor);
