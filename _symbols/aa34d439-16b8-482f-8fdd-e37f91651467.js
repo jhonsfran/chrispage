@@ -829,9 +829,9 @@ function initChart() {
 			const influence = Math.max(0, 1 - dist / 300);
 			const targetHeight = bar.baseHeight + influence * 350;
 			bar.height += (targetHeight - bar.height) * 0.06;
-			ctx.fillStyle = "rgba(54,131,126,0.15)";
-			ctx.fillRect(bar.x, canvas.height - bar.height, 20, bar.height);
 			ctx.fillStyle = "rgba(54,131,126,0.08)";
+			ctx.fillRect(bar.x, canvas.height - bar.height, 20, bar.height);
+			ctx.fillStyle = "rgba(54,131,126,0.04)";
 			ctx.fillRect(bar.x, canvas.height - bar.height - 10, 20, 10);
 		});
 
@@ -841,7 +841,9 @@ function initChart() {
 
 	function drawLine() {
 		ctx.beginPath();
-		ctx.strokeStyle = "rgba(54,131,126,0.7)";
+		ctx.fillStyle = "rgba(54,131,126,0.08)";
+		ctx.fillStyle = "rgba(54,131,126,0.04)";
+		ctx.strokeStyle = "rgba(54,131,126,0.18)";
 		ctx.lineWidth = 1.8;
 
 		bars.forEach((bar, i) => {
