@@ -876,11 +876,14 @@ function instance($$self, $$props, $$invalidate) {
 						}
 					});
 				},
-			{ threshold: 0.15 });
+			{
+					threshold: 0,
+					rootMargin: '0px 0px -50px 0px'
+				});
 
 			document.querySelectorAll('.animate-up').forEach(el => observer.observe(el));
 		},
-		400
+		800
 	);
 
 	$$self.$$set = $$props => {
