@@ -556,22 +556,17 @@ function create_fragment(ctx) {
 	let t9;
 	let t10;
 	let div0;
-	let a0;
 	let t11;
-	let t12;
-	let a1;
-	let t13;
-	let t14;
 	let div1;
 	let span4;
-	let t15;
-	let t16;
+	let t12;
+	let t13;
 	let span5;
-	let t17;
-	let t18;
+	let t14;
+	let t15;
 	let span6;
-	let t19;
-	let t20;
+	let t16;
+	let t17;
 	let div4;
 	let div3;
 
@@ -600,22 +595,17 @@ function create_fragment(ctx) {
 			t9 = text(/*short_quote*/ ctx[0]);
 			t10 = space();
 			div0 = element("div");
-			a0 = element("a");
-			t11 = text("Beratung anfragen");
-			t12 = space();
-			a1 = element("a");
-			t13 = text("Für Studierende");
-			t14 = space();
+			t11 = space();
 			div1 = element("div");
 			span4 = element("span");
-			t15 = text("✓ Verständlich aufbereitet");
-			t16 = space();
+			t12 = text("✓ Verständlich aufbereitet");
+			t13 = space();
 			span5 = element("span");
-			t17 = text("✓ Automatisierte Reports");
-			t18 = space();
+			t14 = text("✓ Automatisierte Reports");
+			t15 = space();
 			span6 = element("span");
-			t19 = text("✓ Analysen mit R, SPSS & Python");
-			t20 = space();
+			t16 = text("✓ Analysen mit R, SPSS & Python");
+			t17 = space();
 			div4 = element("div");
 			div3 = element("div");
 			this.h();
@@ -662,36 +652,27 @@ function create_fragment(ctx) {
 			t10 = claim_space(div2_nodes);
 			div0 = claim_element(div2_nodes, "DIV", { class: true });
 			var div0_nodes = children(div0);
-			a0 = claim_element(div0_nodes, "A", { href: true, class: true });
-			var a0_nodes = children(a0);
-			t11 = claim_text(a0_nodes, "Beratung anfragen");
-			a0_nodes.forEach(detach);
-			t12 = claim_space(div0_nodes);
-			a1 = claim_element(div0_nodes, "A", { href: true, class: true });
-			var a1_nodes = children(a1);
-			t13 = claim_text(a1_nodes, "Für Studierende");
-			a1_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
-			t14 = claim_space(div2_nodes);
+			t11 = claim_space(div2_nodes);
 			div1 = claim_element(div2_nodes, "DIV", { class: true });
 			var div1_nodes = children(div1);
 			span4 = claim_element(div1_nodes, "SPAN", { class: true });
 			var span4_nodes = children(span4);
-			t15 = claim_text(span4_nodes, "✓ Verständlich aufbereitet");
+			t12 = claim_text(span4_nodes, "✓ Verständlich aufbereitet");
 			span4_nodes.forEach(detach);
-			t16 = claim_space(div1_nodes);
+			t13 = claim_space(div1_nodes);
 			span5 = claim_element(div1_nodes, "SPAN", { class: true });
 			var span5_nodes = children(span5);
-			t17 = claim_text(span5_nodes, "✓ Automatisierte Reports");
+			t14 = claim_text(span5_nodes, "✓ Automatisierte Reports");
 			span5_nodes.forEach(detach);
-			t18 = claim_space(div1_nodes);
+			t15 = claim_space(div1_nodes);
 			span6 = claim_element(div1_nodes, "SPAN", { class: true });
 			var span6_nodes = children(span6);
-			t19 = claim_text(span6_nodes, "✓ Analysen mit R, SPSS & Python");
+			t16 = claim_text(span6_nodes, "✓ Analysen mit R, SPSS & Python");
 			span6_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
 			div2_nodes.forEach(detach);
-			t20 = claim_space(div5_nodes);
+			t17 = claim_space(div5_nodes);
 			div4 = claim_element(div5_nodes, "DIV", { class: true });
 			var div4_nodes = children(div4);
 			div3 = claim_element(div4_nodes, "DIV", { class: true, style: true });
@@ -712,10 +693,6 @@ function create_fragment(ctx) {
 			attr(h1, "class", "heading svelte-r5qozl");
 			attr(p, "id", "short_quote");
 			attr(p, "class", "svelte-r5qozl");
-			attr(a0, "href", "/kontakt");
-			attr(a0, "class", "btn-primary svelte-r5qozl");
-			attr(a1, "href", "/studierende");
-			attr(a1, "class", "btn-secondary svelte-r5qozl");
 			attr(div0, "class", "hero-buttons svelte-r5qozl");
 			attr(span4, "class", "svelte-r5qozl");
 			attr(span5, "class", "svelte-r5qozl");
@@ -753,22 +730,17 @@ function create_fragment(ctx) {
 			append_hydration(p, t9);
 			append_hydration(div2, t10);
 			append_hydration(div2, div0);
-			append_hydration(div0, a0);
-			append_hydration(a0, t11);
-			append_hydration(div0, t12);
-			append_hydration(div0, a1);
-			append_hydration(a1, t13);
-			append_hydration(div2, t14);
+			append_hydration(div2, t11);
 			append_hydration(div2, div1);
 			append_hydration(div1, span4);
-			append_hydration(span4, t15);
-			append_hydration(div1, t16);
+			append_hydration(span4, t12);
+			append_hydration(div1, t13);
 			append_hydration(div1, span5);
-			append_hydration(span5, t17);
-			append_hydration(div1, t18);
+			append_hydration(span5, t14);
+			append_hydration(div1, t15);
 			append_hydration(div1, span6);
-			append_hydration(span6, t19);
-			append_hydration(div5, t20);
+			append_hydration(span6, t16);
+			append_hydration(div5, t17);
 			append_hydration(div5, div4);
 			append_hydration(div4, div3);
 		},
@@ -857,32 +829,6 @@ function initChart() {
 	animate();
 }
 
-function initObserver() {
-	const elements = document.querySelectorAll('.animate-up');
-
-	if (elements.length === 0) {
-		setTimeout(initObserver, 500);
-		return;
-	}
-
-	const observer = new IntersectionObserver(entries => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('visible');
-				}
-			});
-		},
-	{
-			threshold: 0,
-			rootMargin: '0px 0px -50px 0px'
-		});
-
-	elements.forEach(el => {
-		el.classList.remove('visible');
-		observer.observe(el);
-	});
-}
-
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
 	let { heading_top } = $$props;
@@ -890,7 +836,6 @@ function instance($$self, $$props, $$invalidate) {
 	let { short_quote } = $$props;
 	let { hero_image } = $$props;
 	setTimeout(initChart, 300);
-	setTimeout(initObserver, 800);
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(2, props = $$props.props);
