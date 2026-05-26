@@ -537,7 +537,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (189:6) {#each faqs as faq, i}
+// (191:6) {#each faqs as faq, i}
 function create_each_block(ctx) {
 	let div1;
 	let button;
@@ -781,20 +781,25 @@ function instance($$self, $$props, $$invalidate) {
 	let { subheader } = $$props;
 	let { badge_text } = $$props;
 
-	document.addEventListener('click', function (e) {
-		const btn = e.target.closest('.faq-question');
-		if (!btn) return;
-		const item = btn.closest('.faq-item');
-		const isOpen = item.classList.contains('open');
+	setTimeout(
+		function () {
+			document.addEventListener('click', function (e) {
+				const btn = e.target.closest('.faq-question');
+				if (!btn) return;
+				const item = btn.closest('.faq-item');
+				const isOpen = item.classList.contains('open');
 
-		document.querySelectorAll('.faq-item').forEach(el => {
-			el.classList.remove('open');
-		});
+				document.querySelectorAll('.faq-item').forEach(el => {
+					el.classList.remove('open');
+				});
 
-		if (!isOpen) {
-			item.classList.add('open');
-		}
-	});
+				if (!isOpen) {
+					item.classList.add('open');
+				}
+			});
+		},
+		500
+	);
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(4, props = $$props.props);
