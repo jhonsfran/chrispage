@@ -537,7 +537,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (187:6) {#each faqs as faq, i}
+// (189:6) {#each faqs as faq, i}
 function create_each_block(ctx) {
 	let div1;
 	let button;
@@ -573,20 +573,20 @@ function create_each_block(ctx) {
 		l(nodes) {
 			div1 = claim_element(nodes, "DIV", { class: true, id: true });
 			var div1_nodes = children(div1);
-			button = claim_element(div1_nodes, "BUTTON", { class: true, onclick: true });
+			button = claim_element(div1_nodes, "BUTTON", { class: true });
 			var button_nodes = children(button);
 			span0 = claim_element(button_nodes, "SPAN", {});
 			var span0_nodes = children(span0);
 			t0 = claim_text(span0_nodes, t0_value);
 			span0_nodes.forEach(detach);
 			t1 = claim_space(button_nodes);
-			span1 = claim_element(button_nodes, "SPAN", { class: true, id: true });
+			span1 = claim_element(button_nodes, "SPAN", { class: true });
 			var span1_nodes = children(span1);
 			t2 = claim_text(span1_nodes, "+");
 			span1_nodes.forEach(detach);
 			button_nodes.forEach(detach);
 			t3 = claim_space(div1_nodes);
-			div0 = claim_element(div1_nodes, "DIV", { class: true, id: true });
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
 			var div0_nodes = children(div0);
 			p = claim_element(div0_nodes, "P", { class: true });
 			var p_nodes = children(p);
@@ -599,12 +599,9 @@ function create_each_block(ctx) {
 		},
 		h() {
 			attr(span1, "class", "faq-icon svelte-1yin4el");
-			attr(span1, "id", "faq-icon-" + /*i*/ ctx[7]);
 			attr(button, "class", "faq-question svelte-1yin4el");
-			attr(button, "onclick", "toggleFaq(" + /*i*/ ctx[7] + ")");
 			attr(p, "class", "svelte-1yin4el");
 			attr(div0, "class", "faq-answer svelte-1yin4el");
-			attr(div0, "id", "faq-answer-" + /*i*/ ctx[7]);
 			attr(div1, "class", "faq-item svelte-1yin4el");
 			attr(div1, "id", "faq-" + /*i*/ ctx[7]);
 		},
@@ -783,6 +780,21 @@ function instance($$self, $$props, $$invalidate) {
 	let { heading } = $$props;
 	let { subheader } = $$props;
 	let { badge_text } = $$props;
+
+	document.addEventListener('click', function (e) {
+		const btn = e.target.closest('.faq-question');
+		if (!btn) return;
+		const item = btn.closest('.faq-item');
+		const isOpen = item.classList.contains('open');
+
+		document.querySelectorAll('.faq-item').forEach(el => {
+			el.classList.remove('open');
+		});
+
+		if (!isOpen) {
+			item.classList.add('open');
+		}
+	});
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(4, props = $$props.props);
