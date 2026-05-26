@@ -537,7 +537,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (191:6) {#each faqs as faq, i}
+// (192:6) {#each faqs as faq, i}
 function create_each_block(ctx) {
 	let div1;
 	let button;
@@ -598,11 +598,11 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span1, "class", "faq-icon svelte-1yin4el");
-			attr(button, "class", "faq-question svelte-1yin4el");
-			attr(p, "class", "svelte-1yin4el");
-			attr(div0, "class", "faq-answer svelte-1yin4el");
-			attr(div1, "class", "faq-item svelte-1yin4el");
+			attr(span1, "class", "faq-icon svelte-1g56gp7");
+			attr(button, "class", "faq-question svelte-1g56gp7");
+			attr(p, "class", "svelte-1g56gp7");
+			attr(div0, "class", "faq-answer svelte-1g56gp7");
+			attr(div1, "class", "faq-item svelte-1g56gp7");
 			attr(div1, "id", "faq-" + /*i*/ ctx[7]);
 		},
 		m(target, anchor) {
@@ -708,13 +708,13 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "faq-badge svelte-1yin4el");
-			attr(h2, "class", "faq-heading svelte-1yin4el");
-			attr(p, "class", "faq-subheader svelte-1yin4el");
-			attr(div0, "class", "faq-header svelte-1yin4el");
-			attr(div1, "class", "faq-list svelte-1yin4el");
-			attr(div2, "class", "section-container svelte-1yin4el");
-			attr(section, "class", "svelte-1yin4el");
+			attr(span, "class", "faq-badge svelte-1g56gp7");
+			attr(h2, "class", "faq-heading svelte-1g56gp7");
+			attr(p, "class", "faq-subheader svelte-1g56gp7");
+			attr(div0, "class", "faq-header svelte-1g56gp7");
+			attr(div1, "class", "faq-list svelte-1g56gp7");
+			attr(div2, "class", "section-container svelte-1g56gp7");
+			attr(section, "class", "svelte-1g56gp7");
 		},
 		m(target, anchor) {
 			insert_hydration(target, section, anchor);
