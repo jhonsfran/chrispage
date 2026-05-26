@@ -533,11 +533,10 @@ class SvelteComponent {
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
 	child_ctx[5] = list[i];
-	child_ctx[7] = i;
 	return child_ctx;
 }
 
-// (192:6) {#each faqs as faq, i}
+// (182:6) {#each faqs as faq}
 function create_each_block(ctx) {
 	let div1;
 	let button;
@@ -571,7 +570,7 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			div1 = claim_element(nodes, "DIV", { class: true, id: true });
+			div1 = claim_element(nodes, "DIV", { class: true });
 			var div1_nodes = children(div1);
 			button = claim_element(div1_nodes, "BUTTON", { class: true });
 			var button_nodes = children(button);
@@ -598,12 +597,11 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span1, "class", "faq-icon svelte-1g56gp7");
-			attr(button, "class", "faq-question svelte-1g56gp7");
-			attr(p, "class", "svelte-1g56gp7");
-			attr(div0, "class", "faq-answer svelte-1g56gp7");
-			attr(div1, "class", "faq-item svelte-1g56gp7");
-			attr(div1, "id", "faq-" + /*i*/ ctx[7]);
+			attr(span1, "class", "faq-icon svelte-7a1fp5");
+			attr(button, "class", "faq-question svelte-7a1fp5");
+			attr(p, "class", "svelte-7a1fp5");
+			attr(div0, "class", "faq-answer svelte-7a1fp5");
+			attr(div1, "class", "faq-item svelte-7a1fp5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -708,13 +706,13 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "faq-badge svelte-1g56gp7");
-			attr(h2, "class", "faq-heading svelte-1g56gp7");
-			attr(p, "class", "faq-subheader svelte-1g56gp7");
-			attr(div0, "class", "faq-header svelte-1g56gp7");
-			attr(div1, "class", "faq-list svelte-1g56gp7");
-			attr(div2, "class", "section-container svelte-1g56gp7");
-			attr(section, "class", "svelte-1g56gp7");
+			attr(span, "class", "faq-badge svelte-7a1fp5");
+			attr(h2, "class", "faq-heading svelte-7a1fp5");
+			attr(p, "class", "faq-subheader svelte-7a1fp5");
+			attr(div0, "class", "faq-header svelte-7a1fp5");
+			attr(div1, "class", "faq-list svelte-7a1fp5");
+			attr(div2, "class", "section-container svelte-7a1fp5");
+			attr(section, "class", "svelte-7a1fp5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, section, anchor);
@@ -783,19 +781,17 @@ function instance($$self, $$props, $$invalidate) {
 
 	setTimeout(
 		function () {
-			document.addEventListener('click', function (e) {
-				const btn = e.target.closest('.faq-question');
-				if (!btn) return;
-				const item = btn.closest('.faq-item');
-				const isOpen = item.classList.contains('open');
+			document.querySelectorAll('.faq-question').forEach(function (btn) {
+				btn.addEventListener('click', function () {
+					var item = this.closest('.faq-item');
+					var isOpen = item.classList.contains('open');
 
-				document.querySelectorAll('.faq-item').forEach(el => {
-					el.classList.remove('open');
+					document.querySelectorAll('.faq-item').forEach(function (el) {
+						el.classList.remove('open');
+					});
+
+					if (!isOpen) item.classList.add('open');
 				});
-
-				if (!isOpen) {
-					item.classList.add('open');
-				}
 			});
 		},
 		500
