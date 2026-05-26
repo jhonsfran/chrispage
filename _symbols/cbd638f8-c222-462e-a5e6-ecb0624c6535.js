@@ -1,4 +1,4 @@
-// Landing Page Studis und Unternehmen - Updated May 22, 2026
+// Landing Page Studis und Unternehmen - Updated May 26, 2026
 function noop() { }
 function run(fn) {
     return fn();

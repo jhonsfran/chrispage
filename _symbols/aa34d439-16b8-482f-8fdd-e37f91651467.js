@@ -1,4 +1,4 @@
-// New Hero block - Updated May 22, 2026
+// New Hero block - Updated May 26, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -592,7 +592,7 @@ function create_fragment(ctx) {
 			t7 = text("Vorsprung sichern.");
 			t8 = space();
 			p = element("p");
-			t9 = text(/*short_quote*/ ctx[0]);
+			t9 = text(/*short_quote*/ ctx[1]);
 			t10 = space();
 			div0 = element("div");
 			t11 = space();
@@ -647,7 +647,7 @@ function create_fragment(ctx) {
 			t8 = claim_space(div2_nodes);
 			p = claim_element(div2_nodes, "P", { id: true, class: true });
 			var p_nodes = children(p);
-			t9 = claim_text(p_nodes, /*short_quote*/ ctx[0]);
+			t9 = claim_text(p_nodes, /*short_quote*/ ctx[1]);
 			p_nodes.forEach(detach);
 			t10 = claim_space(div2_nodes);
 			div0 = claim_element(div2_nodes, "DIV", { class: true });
@@ -685,26 +685,26 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(canvas, "id", "chart-bg");
-			attr(canvas, "class", "svelte-r5qozl");
-			attr(span0, "class", "heading-top svelte-r5qozl");
-			attr(span1, "class", "heading-top svelte-r5qozl");
-			attr(span2, "class", "heading-bottom svelte-r5qozl");
-			attr(span3, "class", "heading-bottom svelte-r5qozl");
-			attr(h1, "class", "heading svelte-r5qozl");
+			attr(canvas, "class", "svelte-encpnh");
+			attr(span0, "class", "heading-top svelte-encpnh");
+			attr(span1, "class", "heading-top svelte-encpnh");
+			attr(span2, "class", "heading-bottom svelte-encpnh");
+			attr(span3, "class", "heading-bottom svelte-encpnh");
+			attr(h1, "class", "heading svelte-encpnh");
 			attr(p, "id", "short_quote");
-			attr(p, "class", "svelte-r5qozl");
-			attr(div0, "class", "hero-buttons svelte-r5qozl");
-			attr(span4, "class", "svelte-r5qozl");
-			attr(span5, "class", "svelte-r5qozl");
-			attr(span6, "class", "svelte-r5qozl");
-			attr(div1, "class", "hero-checks svelte-r5qozl");
-			attr(div2, "class", "hero-left svelte-r5qozl");
-			attr(div3, "class", "hero-bg svelte-r5qozl");
-			set_style(div3, "background-image", "url('" + /*hero_image*/ ctx[1].url + "')");
-			attr(div4, "class", "hero-right svelte-r5qozl");
-			attr(div5, "class", "hero svelte-r5qozl");
-			attr(div6, "class", "section-container svelte-r5qozl");
-			attr(section, "class", "svelte-r5qozl");
+			attr(p, "class", "svelte-encpnh");
+			attr(div0, "class", "hero-buttons svelte-encpnh");
+			attr(span4, "class", "svelte-encpnh");
+			attr(span5, "class", "svelte-encpnh");
+			attr(span6, "class", "svelte-encpnh");
+			attr(div1, "class", "hero-checks svelte-encpnh");
+			attr(div2, "class", "hero-left svelte-encpnh");
+			attr(div3, "class", "hero-bg svelte-encpnh");
+			set_style(div3, "background-image", "url('" + /*hero_image*/ ctx[0].url + "')");
+			attr(div4, "class", "hero-right svelte-encpnh");
+			attr(div5, "class", "hero svelte-encpnh");
+			attr(div6, "class", "section-container svelte-encpnh");
+			attr(section, "class", "svelte-encpnh");
 		},
 		m(target, anchor) {
 			insert_hydration(target, canvas, anchor);
@@ -745,10 +745,10 @@ function create_fragment(ctx) {
 			append_hydration(div4, div3);
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*short_quote*/ 1) set_data(t9, /*short_quote*/ ctx[0]);
+			if (dirty & /*short_quote*/ 2) set_data(t9, /*short_quote*/ ctx[1]);
 
-			if (dirty & /*hero_image*/ 2) {
-				set_style(div3, "background-image", "url('" + /*hero_image*/ ctx[1].url + "')");
+			if (dirty & /*hero_image*/ 1) {
+				set_style(div3, "background-image", "url('" + /*hero_image*/ ctx[0].url + "')");
 			}
 		},
 		i: noop,
@@ -831,21 +831,21 @@ function initChart() {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
-	let { heading_top } = $$props;
-	let { heading_bottom } = $$props;
-	let { short_quote } = $$props;
 	let { hero_image } = $$props;
+	let { heading_top } = $$props;
+	let { short_quote } = $$props;
+	let { heading_bottom } = $$props;
 	setTimeout(initChart, 300);
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(2, props = $$props.props);
+		if ('hero_image' in $$props) $$invalidate(0, hero_image = $$props.hero_image);
 		if ('heading_top' in $$props) $$invalidate(3, heading_top = $$props.heading_top);
+		if ('short_quote' in $$props) $$invalidate(1, short_quote = $$props.short_quote);
 		if ('heading_bottom' in $$props) $$invalidate(4, heading_bottom = $$props.heading_bottom);
-		if ('short_quote' in $$props) $$invalidate(0, short_quote = $$props.short_quote);
-		if ('hero_image' in $$props) $$invalidate(1, hero_image = $$props.hero_image);
 	};
 
-	return [short_quote, hero_image, props, heading_top, heading_bottom];
+	return [hero_image, short_quote, props, heading_top, heading_bottom];
 }
 
 class Component extends SvelteComponent {
@@ -854,10 +854,10 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 2,
+			hero_image: 0,
 			heading_top: 3,
-			heading_bottom: 4,
-			short_quote: 0,
-			hero_image: 1
+			short_quote: 1,
+			heading_bottom: 4
 		});
 	}
 }
