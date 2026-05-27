@@ -1,4 +1,4 @@
-// New Hero block - Updated May 26, 2026
+// New Hero block - Updated May 27, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -688,27 +688,27 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(canvas, "id", "chart-bg");
-			attr(canvas, "class", "svelte-amtes7");
-			attr(span0, "class", "heading-top svelte-amtes7");
-			attr(span1, "class", "heading-top svelte-amtes7");
-			attr(span2, "class", "heading-bottom svelte-amtes7");
-			attr(span3, "class", "heading-bottom svelte-amtes7");
-			attr(h1, "class", "heading svelte-amtes7");
+			attr(canvas, "class", "svelte-dxlq2h");
+			attr(span0, "class", "heading-top svelte-dxlq2h");
+			attr(span1, "class", "heading-top svelte-dxlq2h");
+			attr(span2, "class", "heading-bottom svelte-dxlq2h");
+			attr(span3, "class", "heading-bottom svelte-dxlq2h");
+			attr(h1, "class", "heading svelte-dxlq2h");
 			attr(p, "id", "short_quote");
-			attr(p, "class", "svelte-amtes7");
-			attr(span4, "class", "svelte-amtes7");
-			attr(span5, "class", "svelte-amtes7");
-			attr(span6, "class", "svelte-amtes7");
-			attr(div0, "class", "hero-checks svelte-amtes7");
+			attr(p, "class", "svelte-dxlq2h");
+			attr(span4, "class", "svelte-dxlq2h");
+			attr(span5, "class", "svelte-dxlq2h");
+			attr(span6, "class", "svelte-dxlq2h");
+			attr(div0, "class", "hero-checks svelte-dxlq2h");
 			attr(a, "href", "https://www.cgstatistik.at/kontakt");
-			attr(a, "class", "btn-erstgespraech svelte-amtes7");
-			attr(div1, "class", "hero-left svelte-amtes7");
-			attr(div2, "class", "hero-bg svelte-amtes7");
+			attr(a, "class", "btn-erstgespraech svelte-dxlq2h");
+			attr(div1, "class", "hero-left svelte-dxlq2h");
+			attr(div2, "class", "hero-bg svelte-dxlq2h");
 			set_style(div2, "background-image", "url('" + /*hero_image*/ ctx[0].url + "')");
-			attr(div3, "class", "hero-right svelte-amtes7");
-			attr(div4, "class", "hero svelte-amtes7");
-			attr(div5, "class", "section-container svelte-amtes7");
-			attr(section, "class", "svelte-amtes7");
+			attr(div3, "class", "hero-right svelte-dxlq2h");
+			attr(div4, "class", "hero svelte-dxlq2h");
+			attr(div5, "class", "section-container svelte-dxlq2h");
+			attr(section, "class", "svelte-dxlq2h");
 		},
 		m(target, anchor) {
 			insert_hydration(target, canvas, anchor);
