@@ -626,7 +626,7 @@ function create_if_block_2(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "intro-icon svelte-1m64su2");
+			attr(img, "class", "intro-icon svelte-1o9wf7");
 			attr(img, "alt", "Logo");
 		},
 		m(target, anchor) {
@@ -643,28 +643,36 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (349:6) {#if logo.image && logo.image.url}
+// (371:6) {#if logo.image && logo.image.url}
 function create_if_block_1(ctx) {
+	let a;
 	let img;
 	let img_src_value;
 
 	return {
 		c() {
+			a = element("a");
 			img = element("img");
 			this.h();
 		},
 		l(nodes) {
-			img = claim_element(nodes, "IMG", { src: true, class: true, alt: true });
+			a = claim_element(nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			img = claim_element(a_nodes, "IMG", { src: true, class: true, alt: true });
+			a_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "nav-icon svelte-1m64su2");
+			attr(img, "class", "nav-icon svelte-1o9wf7");
 			attr(img, "alt", "Logo");
 			toggle_class(img, "active", /*introDone*/ ctx[2]);
+			attr(a, "href", "/");
+			attr(a, "class", "svelte-1o9wf7");
 		},
 		m(target, anchor) {
-			insert_hydration(target, img, anchor);
+			insert_hydration(target, a, anchor);
+			append_hydration(a, img);
 		},
 		p(ctx, dirty) {
 			if (dirty & /*logo*/ 1 && !src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) {
@@ -676,12 +684,12 @@ function create_if_block_1(ctx) {
 			}
 		},
 		d(detaching) {
-			if (detaching) detach(img);
+			if (detaching) detach(a);
 		}
 	};
 }
 
-// (368:2) {#if menuOpen}
+// (393:2) {#if menuOpen}
 function create_if_block(ctx) {
 	let div;
 	let a0;
@@ -753,17 +761,17 @@ function create_if_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a0, "class", "mobile-link svelte-1m64su2");
+			attr(a0, "class", "mobile-link svelte-1o9wf7");
 			attr(a0, "href", "/statistische-beratung-fuer-unternehmen");
-			attr(a1, "class", "mobile-link svelte-1m64su2");
+			attr(a1, "class", "mobile-link svelte-1o9wf7");
 			attr(a1, "href", "/team");
-			attr(a2, "class", "mobile-link svelte-1m64su2");
+			attr(a2, "class", "mobile-link svelte-1o9wf7");
 			attr(a2, "href", "/kontakt");
-			attr(a3, "class", "mobile-link svelte-1m64su2");
+			attr(a3, "class", "mobile-link svelte-1o9wf7");
 			attr(a3, "href", "/statistik-beratung-fuer-studierende");
 			attr(a4, "href", a4_href_value = /*primary_cta*/ ctx[1].url);
-			attr(a4, "class", "mobile-button svelte-1m64su2");
-			attr(div, "class", "mobile-menu svelte-1m64su2");
+			attr(a4, "class", "mobile-button svelte-1o9wf7");
+			attr(div, "class", "mobile-menu svelte-1o9wf7");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -814,21 +822,22 @@ function create_fragment(ctx) {
 	let div0;
 	let t0;
 	let header;
-	let div5;
-	let div2;
+	let div6;
+	let div3;
 	let a0;
 	let img;
 	let img_src_value;
 	let t1;
+	let div2;
 	let a1;
 	let t2;
 	let t3;
 	let a2;
 	let t4;
 	let t5;
-	let div3;
-	let t6;
 	let div4;
+	let t6;
+	let div5;
 	let a3;
 	let t7;
 	let t8;
@@ -848,7 +857,7 @@ function create_fragment(ctx) {
 	let span2;
 	let t15;
 	let t16;
-	let div6;
+	let div7;
 	let current;
 	let mounted;
 	let dispose;
@@ -865,21 +874,22 @@ function create_fragment(ctx) {
 			if (if_block0) if_block0.c();
 			t0 = space();
 			header = element("header");
-			div5 = element("div");
-			div2 = element("div");
+			div6 = element("div");
+			div3 = element("div");
 			a0 = element("a");
 			img = element("img");
 			t1 = space();
+			div2 = element("div");
 			a1 = element("a");
 			t2 = text("Für Unternehmen");
 			t3 = space();
 			a2 = element("a");
 			t4 = text("Team");
 			t5 = space();
-			div3 = element("div");
+			div4 = element("div");
 			if (if_block1) if_block1.c();
 			t6 = space();
-			div4 = element("div");
+			div5 = element("div");
 			a3 = element("a");
 			t7 = text("Kontakt");
 			t8 = space();
@@ -898,7 +908,7 @@ function create_fragment(ctx) {
 			t15 = space();
 			if (if_block2) if_block2.c();
 			t16 = space();
-			div6 = element("div");
+			div7 = element("div");
 			if (default_slot) default_slot.c();
 			this.h();
 		},
@@ -913,15 +923,17 @@ function create_fragment(ctx) {
 			t0 = claim_space(nodes);
 			header = claim_element(nodes, "HEADER", { class: true });
 			var header_nodes = children(header);
-			div5 = claim_element(header_nodes, "DIV", { class: true });
-			var div5_nodes = children(div5);
-			div2 = claim_element(div5_nodes, "DIV", { class: true });
-			var div2_nodes = children(div2);
-			a0 = claim_element(div2_nodes, "A", { href: true, class: true });
+			div6 = claim_element(header_nodes, "DIV", { class: true });
+			var div6_nodes = children(div6);
+			div3 = claim_element(div6_nodes, "DIV", { class: true });
+			var div3_nodes = children(div3);
+			a0 = claim_element(div3_nodes, "A", { href: true, class: true });
 			var a0_nodes = children(a0);
 			img = claim_element(a0_nodes, "IMG", { src: true, class: true, alt: true });
 			a0_nodes.forEach(detach);
-			t1 = claim_space(div2_nodes);
+			t1 = claim_space(div3_nodes);
+			div2 = claim_element(div3_nodes, "DIV", { class: true });
+			var div2_nodes = children(div2);
 			a1 = claim_element(div2_nodes, "A", { class: true, href: true });
 			var a1_nodes = children(a1);
 			t2 = claim_text(a1_nodes, "Für Unternehmen");
@@ -932,31 +944,32 @@ function create_fragment(ctx) {
 			t4 = claim_text(a2_nodes, "Team");
 			a2_nodes.forEach(detach);
 			div2_nodes.forEach(detach);
-			t5 = claim_space(div5_nodes);
-			div3 = claim_element(div5_nodes, "DIV", { class: true });
-			var div3_nodes = children(div3);
-			if (if_block1) if_block1.l(div3_nodes);
 			div3_nodes.forEach(detach);
-			t6 = claim_space(div5_nodes);
-			div4 = claim_element(div5_nodes, "DIV", { class: true });
+			t5 = claim_space(div6_nodes);
+			div4 = claim_element(div6_nodes, "DIV", { class: true });
 			var div4_nodes = children(div4);
-			a3 = claim_element(div4_nodes, "A", { class: true, href: true });
+			if (if_block1) if_block1.l(div4_nodes);
+			div4_nodes.forEach(detach);
+			t6 = claim_space(div6_nodes);
+			div5 = claim_element(div6_nodes, "DIV", { class: true });
+			var div5_nodes = children(div5);
+			a3 = claim_element(div5_nodes, "A", { class: true, href: true });
 			var a3_nodes = children(a3);
 			t7 = claim_text(a3_nodes, "Kontakt");
 			a3_nodes.forEach(detach);
-			t8 = claim_space(div4_nodes);
-			a4 = claim_element(div4_nodes, "A", { class: true, href: true });
+			t8 = claim_space(div5_nodes);
+			a4 = claim_element(div5_nodes, "A", { class: true, href: true });
 			var a4_nodes = children(a4);
 			t9 = claim_text(a4_nodes, "Für Studierende");
 			a4_nodes.forEach(detach);
-			t10 = claim_space(div4_nodes);
-			a5 = claim_element(div4_nodes, "A", { href: true, class: true });
+			t10 = claim_space(div5_nodes);
+			a5 = claim_element(div5_nodes, "A", { href: true, class: true });
 			var a5_nodes = children(a5);
 			t11 = claim_text(a5_nodes, t11_value);
 			a5_nodes.forEach(detach);
-			div4_nodes.forEach(detach);
-			t12 = claim_space(div5_nodes);
-			button = claim_element(div5_nodes, "BUTTON", { class: true });
+			div5_nodes.forEach(detach);
+			t12 = claim_space(div6_nodes);
+			button = claim_element(div6_nodes, "BUTTON", { class: true });
 			var button_nodes = children(button);
 			span0 = claim_element(button_nodes, "SPAN", { class: true });
 			children(span0).forEach(detach);
@@ -967,53 +980,54 @@ function create_fragment(ctx) {
 			span2 = claim_element(button_nodes, "SPAN", { class: true });
 			children(span2).forEach(detach);
 			button_nodes.forEach(detach);
-			div5_nodes.forEach(detach);
+			div6_nodes.forEach(detach);
 			t15 = claim_space(header_nodes);
 			if (if_block2) if_block2.l(header_nodes);
 			header_nodes.forEach(detach);
 			t16 = claim_space(nodes);
-			div6 = claim_element(nodes, "DIV", { class: true });
-			var div6_nodes = children(div6);
-			if (default_slot) default_slot.l(div6_nodes);
-			div6_nodes.forEach(detach);
+			div7 = claim_element(nodes, "DIV", { class: true });
+			var div7_nodes = children(div7);
+			if (default_slot) default_slot.l(div7_nodes);
+			div7_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "intro-content svelte-1m64su2");
-			attr(div1, "class", "intro svelte-1m64su2");
+			attr(div0, "class", "intro-content svelte-1o9wf7");
+			attr(div1, "class", "intro svelte-1o9wf7");
 			attr(div1, "role", "button");
 			attr(div1, "tabindex", "0");
 			toggle_class(div1, "hide", /*introDone*/ ctx[2]);
 			if (!src_url_equal(img.src, img_src_value = "https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/1767266774000Logos%20Christoph_NEW2026_white.svg")) attr(img, "src", img_src_value);
-			attr(img, "class", "nav-left-logo svelte-1m64su2");
+			attr(img, "class", "nav-left-logo svelte-1o9wf7");
 			attr(img, "alt", "Christoph Gross Logo");
 			attr(a0, "href", "/");
-			attr(a0, "class", "nav-left-logo-link svelte-1m64su2");
-			attr(a1, "class", "link svelte-1m64su2");
+			attr(a0, "class", "nav-left-logo-link svelte-1o9wf7");
+			attr(a1, "class", "link svelte-1o9wf7");
 			attr(a1, "href", "/statistische-beratung-fuer-unternehmen");
-			attr(a2, "class", "link svelte-1m64su2");
+			attr(a2, "class", "link svelte-1o9wf7");
 			attr(a2, "href", "/team");
-			attr(div2, "class", "nav-left");
-			attr(div3, "class", "nav-center svelte-1m64su2");
-			attr(a3, "class", "link svelte-1m64su2");
+			attr(div2, "class", "nav-left svelte-1o9wf7");
+			attr(div3, "class", "nav-left-group svelte-1o9wf7");
+			attr(div4, "class", "nav-center svelte-1o9wf7");
+			attr(a3, "class", "link svelte-1o9wf7");
 			attr(a3, "href", "/kontakt");
-			attr(a4, "class", "link svelte-1m64su2");
+			attr(a4, "class", "link svelte-1o9wf7");
 			attr(a4, "href", "/statistik-beratung-fuer-studierende");
 			attr(a5, "href", a5_href_value = /*primary_cta*/ ctx[1].url);
-			attr(a5, "class", "button svelte-1m64su2");
-			attr(div4, "class", "nav-right svelte-1m64su2");
-			attr(span0, "class", "svelte-1m64su2");
+			attr(a5, "class", "button svelte-1o9wf7");
+			attr(div5, "class", "nav-right svelte-1o9wf7");
+			attr(span0, "class", "svelte-1o9wf7");
 			toggle_class(span0, "open", /*menuOpen*/ ctx[3]);
-			attr(span1, "class", "svelte-1m64su2");
+			attr(span1, "class", "svelte-1o9wf7");
 			toggle_class(span1, "open", /*menuOpen*/ ctx[3]);
-			attr(span2, "class", "svelte-1m64su2");
+			attr(span2, "class", "svelte-1o9wf7");
 			toggle_class(span2, "open", /*menuOpen*/ ctx[3]);
-			attr(button, "class", "hamburger svelte-1m64su2");
-			attr(div5, "class", "nav-wrapper svelte-1m64su2");
-			attr(header, "class", "header svelte-1m64su2");
+			attr(button, "class", "hamburger svelte-1o9wf7");
+			attr(div6, "class", "nav-wrapper svelte-1o9wf7");
+			attr(header, "class", "header svelte-1o9wf7");
 			toggle_class(header, "active", /*introDone*/ ctx[2]);
-			attr(div6, "class", "main-content svelte-1m64su2");
-			toggle_class(div6, "visible", /*introDone*/ ctx[2]);
+			attr(div7, "class", "main-content svelte-1o9wf7");
+			toggle_class(div7, "visible", /*introDone*/ ctx[2]);
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -1021,31 +1035,32 @@ function create_fragment(ctx) {
 			if (if_block0) if_block0.m(div0, null);
 			insert_hydration(target, t0, anchor);
 			insert_hydration(target, header, anchor);
-			append_hydration(header, div5);
-			append_hydration(div5, div2);
-			append_hydration(div2, a0);
+			append_hydration(header, div6);
+			append_hydration(div6, div3);
+			append_hydration(div3, a0);
 			append_hydration(a0, img);
-			append_hydration(div2, t1);
+			append_hydration(div3, t1);
+			append_hydration(div3, div2);
 			append_hydration(div2, a1);
 			append_hydration(a1, t2);
 			append_hydration(div2, t3);
 			append_hydration(div2, a2);
 			append_hydration(a2, t4);
-			append_hydration(div5, t5);
-			append_hydration(div5, div3);
-			if (if_block1) if_block1.m(div3, null);
-			append_hydration(div5, t6);
-			append_hydration(div5, div4);
-			append_hydration(div4, a3);
+			append_hydration(div6, t5);
+			append_hydration(div6, div4);
+			if (if_block1) if_block1.m(div4, null);
+			append_hydration(div6, t6);
+			append_hydration(div6, div5);
+			append_hydration(div5, a3);
 			append_hydration(a3, t7);
-			append_hydration(div4, t8);
-			append_hydration(div4, a4);
+			append_hydration(div5, t8);
+			append_hydration(div5, a4);
 			append_hydration(a4, t9);
-			append_hydration(div4, t10);
-			append_hydration(div4, a5);
+			append_hydration(div5, t10);
+			append_hydration(div5, a5);
 			append_hydration(a5, t11);
-			append_hydration(div5, t12);
-			append_hydration(div5, button);
+			append_hydration(div6, t12);
+			append_hydration(div6, button);
 			append_hydration(button, span0);
 			append_hydration(button, t13);
 			append_hydration(button, span1);
@@ -1054,10 +1069,10 @@ function create_fragment(ctx) {
 			append_hydration(header, t15);
 			if (if_block2) if_block2.m(header, null);
 			insert_hydration(target, t16, anchor);
-			insert_hydration(target, div6, anchor);
+			insert_hydration(target, div7, anchor);
 
 			if (default_slot) {
-				default_slot.m(div6, null);
+				default_slot.m(div7, null);
 			}
 
 			current = true;
@@ -1096,7 +1111,7 @@ function create_fragment(ctx) {
 				} else {
 					if_block1 = create_if_block_1(ctx);
 					if_block1.c();
-					if_block1.m(div3, null);
+					if_block1.m(div4, null);
 				}
 			} else if (if_block1) {
 				if_block1.d(1);
@@ -1154,7 +1169,7 @@ function create_fragment(ctx) {
 			}
 
 			if (!current || dirty & /*introDone*/ 4) {
-				toggle_class(div6, "visible", /*introDone*/ ctx[2]);
+				toggle_class(div7, "visible", /*introDone*/ ctx[2]);
 			}
 		},
 		i(local) {
@@ -1174,7 +1189,7 @@ function create_fragment(ctx) {
 			if (if_block1) if_block1.d();
 			if (if_block2) if_block2.d();
 			if (detaching) detach(t16);
-			if (detaching) detach(div6);
+			if (detaching) detach(div7);
 			if (default_slot) default_slot.d(detaching);
 			mounted = false;
 			run_all(dispose);
