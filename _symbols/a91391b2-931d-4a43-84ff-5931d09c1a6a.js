@@ -626,7 +626,7 @@ function create_if_block_4(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "intro-icon svelte-11kclbp");
+			attr(img, "class", "intro-icon svelte-10nr4zk");
 			attr(img, "alt", "Logo");
 		},
 		m(target, anchor) {
@@ -730,19 +730,19 @@ function create_if_block_3(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/statistische-beratung-fuer-unternehmen");
-			attr(a0, "class", "dropdown-item dropdown-overview svelte-11kclbp");
-			attr(div0, "class", "dropdown-divider svelte-11kclbp");
+			attr(a0, "class", "dropdown-item dropdown-overview svelte-10nr4zk");
+			attr(div0, "class", "dropdown-divider svelte-10nr4zk");
 			attr(a1, "href", "/statistische-beratung-fuer-unternehmen/marketing-optimieren");
-			attr(a1, "class", "dropdown-item svelte-11kclbp");
+			attr(a1, "class", "dropdown-item svelte-10nr4zk");
 			attr(a2, "href", "/statistische-beratung-fuer-unternehmen/prozesse-optimieren");
-			attr(a2, "class", "dropdown-item svelte-11kclbp");
+			attr(a2, "class", "dropdown-item svelte-10nr4zk");
 			attr(a3, "href", "/statistische-beratung-fuer-unternehmen/erkenntnisse-aus-umfragen");
-			attr(a3, "class", "dropdown-item svelte-11kclbp");
+			attr(a3, "class", "dropdown-item svelte-10nr4zk");
 			attr(a4, "href", "/statistische-beratung-fuer-unternehmen/reporting");
-			attr(a4, "class", "dropdown-item svelte-11kclbp");
+			attr(a4, "class", "dropdown-item svelte-10nr4zk");
 			attr(a5, "href", "/statistische-beratung-fuer-unternehmen/forecasts-und-prognosen");
-			attr(a5, "class", "dropdown-item svelte-11kclbp");
-			attr(div1, "class", "dropdown-panel svelte-11kclbp");
+			attr(a5, "class", "dropdown-item svelte-10nr4zk");
+			attr(div1, "class", "dropdown-panel svelte-10nr4zk");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -793,11 +793,11 @@ function create_if_block_2(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "nav-icon svelte-11kclbp");
+			attr(img, "class", "nav-icon svelte-10nr4zk");
 			attr(img, "alt", "Logo");
 			toggle_class(img, "active", /*introDone*/ ctx[2]);
 			attr(a, "href", "/");
-			attr(a, "class", "svelte-11kclbp");
+			attr(a, "class", "svelte-10nr4zk");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -883,15 +883,15 @@ function create_if_block_1(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/statistik-beratung-fuer-studierende");
-			attr(a0, "class", "dropdown-item dropdown-overview svelte-11kclbp");
-			attr(div0, "class", "dropdown-divider svelte-11kclbp");
+			attr(a0, "class", "dropdown-item dropdown-overview svelte-10nr4zk");
+			attr(div0, "class", "dropdown-divider svelte-10nr4zk");
 			attr(a1, "href", "/statistik_mathematik");
-			attr(a1, "class", "dropdown-item svelte-11kclbp");
+			attr(a1, "class", "dropdown-item svelte-10nr4zk");
 			attr(a2, "href", "/statistische-auswertung");
-			attr(a2, "class", "dropdown-item svelte-11kclbp");
+			attr(a2, "class", "dropdown-item svelte-10nr4zk");
 			attr(a3, "href", "/datenanalyse");
-			attr(a3, "class", "dropdown-item svelte-11kclbp");
-			attr(div1, "class", "dropdown-panel svelte-11kclbp");
+			attr(a3, "class", "dropdown-item svelte-10nr4zk");
+			attr(div1, "class", "dropdown-panel svelte-10nr4zk");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -987,17 +987,17 @@ function create_if_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a0, "class", "mobile-link svelte-11kclbp");
+			attr(a0, "class", "mobile-link svelte-10nr4zk");
 			attr(a0, "href", "/statistische-beratung-fuer-unternehmen");
-			attr(a1, "class", "mobile-link svelte-11kclbp");
+			attr(a1, "class", "mobile-link svelte-10nr4zk");
 			attr(a1, "href", "/team");
-			attr(a2, "class", "mobile-link svelte-11kclbp");
+			attr(a2, "class", "mobile-link svelte-10nr4zk");
 			attr(a2, "href", "/kontakt");
-			attr(a3, "class", "mobile-link svelte-11kclbp");
+			attr(a3, "class", "mobile-link svelte-10nr4zk");
 			attr(a3, "href", "/statistik-beratung-fuer-studierende");
 			attr(a4, "href", a4_href_value = /*primary_cta*/ ctx[1].url);
-			attr(a4, "class", "mobile-button svelte-11kclbp");
-			attr(div, "class", "mobile-menu svelte-11kclbp");
+			attr(a4, "class", "mobile-button svelte-10nr4zk");
+			attr(div, "class", "mobile-menu svelte-10nr4zk");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -1256,47 +1256,47 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "intro-content svelte-11kclbp");
-			attr(div1, "class", "intro svelte-11kclbp");
+			attr(div0, "class", "intro-content svelte-10nr4zk");
+			attr(div1, "class", "intro svelte-10nr4zk");
 			attr(div1, "role", "button");
 			attr(div1, "tabindex", "0");
 			toggle_class(div1, "hide", /*introDone*/ ctx[2]);
 			if (!src_url_equal(img.src, img_src_value = "https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/1767266774000Logos%20Christoph_NEW2026_white.svg")) attr(img, "src", img_src_value);
-			attr(img, "class", "nav-left-logo svelte-11kclbp");
+			attr(img, "class", "nav-left-logo svelte-10nr4zk");
 			attr(img, "alt", "Christoph Gross Logo");
 			attr(a0, "href", "/");
-			attr(a0, "class", "nav-left-logo-link svelte-11kclbp");
-			attr(span0, "class", "arrow svelte-11kclbp");
+			attr(a0, "class", "nav-left-logo-link svelte-10nr4zk");
+			attr(span0, "class", "arrow svelte-10nr4zk");
 			toggle_class(span0, "open", /*unternehmensOpen*/ ctx[4]);
-			attr(a1, "class", "link dropdown-trigger svelte-11kclbp");
+			attr(a1, "class", "link dropdown-trigger svelte-10nr4zk");
 			attr(a1, "href", "/statistische-beratung-fuer-unternehmen");
-			attr(div2, "class", "dropdown-wrapper svelte-11kclbp");
-			attr(a2, "class", "link svelte-11kclbp");
+			attr(div2, "class", "dropdown-wrapper svelte-10nr4zk");
+			attr(a2, "class", "link svelte-10nr4zk");
 			attr(a2, "href", "/team");
-			attr(div3, "class", "nav-left svelte-11kclbp");
-			attr(div4, "class", "nav-left-group svelte-11kclbp");
-			attr(div5, "class", "nav-center svelte-11kclbp");
-			attr(a3, "class", "link svelte-11kclbp");
+			attr(div3, "class", "nav-left svelte-10nr4zk");
+			attr(div4, "class", "nav-left-group svelte-10nr4zk");
+			attr(div5, "class", "nav-center svelte-10nr4zk");
+			attr(a3, "class", "link svelte-10nr4zk");
 			attr(a3, "href", "/kontakt");
-			attr(span1, "class", "arrow svelte-11kclbp");
+			attr(span1, "class", "arrow svelte-10nr4zk");
 			toggle_class(span1, "open", /*studierendeOpen*/ ctx[5]);
-			attr(a4, "class", "link dropdown-trigger svelte-11kclbp");
+			attr(a4, "class", "link dropdown-trigger svelte-10nr4zk");
 			attr(a4, "href", "/statistik-beratung-fuer-studierende");
-			attr(div6, "class", "dropdown-wrapper svelte-11kclbp");
+			attr(div6, "class", "dropdown-wrapper svelte-10nr4zk");
 			attr(a5, "href", a5_href_value = /*primary_cta*/ ctx[1].url);
-			attr(a5, "class", "button svelte-11kclbp");
-			attr(div7, "class", "nav-right svelte-11kclbp");
-			attr(span2, "class", "svelte-11kclbp");
+			attr(a5, "class", "button svelte-10nr4zk");
+			attr(div7, "class", "nav-right svelte-10nr4zk");
+			attr(span2, "class", "svelte-10nr4zk");
 			toggle_class(span2, "open", /*menuOpen*/ ctx[3]);
-			attr(span3, "class", "svelte-11kclbp");
+			attr(span3, "class", "svelte-10nr4zk");
 			toggle_class(span3, "open", /*menuOpen*/ ctx[3]);
-			attr(span4, "class", "svelte-11kclbp");
+			attr(span4, "class", "svelte-10nr4zk");
 			toggle_class(span4, "open", /*menuOpen*/ ctx[3]);
-			attr(button, "class", "hamburger svelte-11kclbp");
-			attr(div8, "class", "nav-wrapper svelte-11kclbp");
-			attr(header, "class", "header svelte-11kclbp");
+			attr(button, "class", "hamburger svelte-10nr4zk");
+			attr(div8, "class", "nav-wrapper svelte-10nr4zk");
+			attr(header, "class", "header svelte-10nr4zk");
 			toggle_class(header, "active", /*introDone*/ ctx[2]);
-			attr(div9, "class", "main-content svelte-11kclbp");
+			attr(div9, "class", "main-content svelte-10nr4zk");
 			toggle_class(div9, "visible", /*introDone*/ ctx[2]);
 		},
 		m(target, anchor) {
