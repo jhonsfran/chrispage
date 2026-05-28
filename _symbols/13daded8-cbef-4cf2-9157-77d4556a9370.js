@@ -1,4 +1,4 @@
-// Site Navigation Homepage - Updated May 28, 2026
+// Site Navigation not Homepage 2.0 - Updated May 28, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
@@ -229,6 +229,13 @@ function space() {
 function listen(node, event, handler, options) {
     node.addEventListener(event, handler, options);
     return () => node.removeEventListener(event, handler, options);
+}
+function stop_propagation(fn) {
+    return function (event) {
+        event.stopPropagation();
+        // @ts-ignore
+        return fn.call(this, event);
+    };
 }
 function attr(node, attribute, value) {
     if (value == null)
@@ -643,7 +650,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (452:10) {#if unternehmensOpen}
+// (449:10) {#if unternehmensOpen}
 function create_if_block_3(ctx) {
 	let div1;
 	let a0;
@@ -772,7 +779,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (470:6) {#if logo.image && logo.image.url}
+// (467:6) {#if logo.image && logo.image.url}
 function create_if_block_2(ctx) {
 	let a;
 	let img;
@@ -818,7 +825,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (489:8) {#if studierendeOpen}
+// (483:8) {#if studierendeOpen}
 function create_if_block_1(ctx) {
 	let div1;
 	let a0;
@@ -915,7 +922,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (511:2) {#if menuOpen}
+// (505:2) {#if menuOpen}
 function create_if_block(ctx) {
 	let div;
 	let a0;
@@ -1018,11 +1025,11 @@ function create_if_block(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(a0, "click", /*click_handler_1*/ ctx[17]),
-					listen(a1, "click", /*click_handler_2*/ ctx[18]),
-					listen(a2, "click", /*click_handler_3*/ ctx[19]),
-					listen(a3, "click", /*click_handler_4*/ ctx[20]),
-					listen(a4, "click", /*click_handler_5*/ ctx[21])
+					listen(a0, "click", /*click_handler_3*/ ctx[15]),
+					listen(a1, "click", /*click_handler_4*/ ctx[16]),
+					listen(a2, "click", /*click_handler_5*/ ctx[17]),
+					listen(a3, "click", /*click_handler_6*/ ctx[18]),
+					listen(a4, "click", /*click_handler_7*/ ctx[19])
 				];
 
 				mounted = true;
@@ -1056,34 +1063,34 @@ function create_fragment(ctx) {
 	let t1;
 	let div3;
 	let div2;
-	let a1;
+	let button0;
 	let t2;
 	let span0;
 	let t3;
 	let t4;
 	let t5;
-	let a2;
+	let a1;
 	let t6;
 	let t7;
 	let div5;
 	let t8;
 	let div7;
-	let a3;
+	let a2;
 	let t9;
 	let t10;
 	let div6;
-	let a4;
+	let button1;
 	let t11;
 	let span1;
 	let t12;
 	let t13;
 	let t14;
-	let a5;
+	let a3;
 	let t15_value = /*primary_cta*/ ctx[1].label + "";
 	let t15;
-	let a5_href_value;
+	let a3_href_value;
 	let t16;
-	let button;
+	let button2;
 	let span2;
 	let t17;
 	let span3;
@@ -1117,35 +1124,35 @@ function create_fragment(ctx) {
 			t1 = space();
 			div3 = element("div");
 			div2 = element("div");
-			a1 = element("a");
+			button0 = element("button");
 			t2 = text("Für Unternehmen\n            ");
 			span0 = element("span");
 			t3 = text("▾");
 			t4 = space();
 			if (if_block1) if_block1.c();
 			t5 = space();
-			a2 = element("a");
+			a1 = element("a");
 			t6 = text("Team");
 			t7 = space();
 			div5 = element("div");
 			if (if_block2) if_block2.c();
 			t8 = space();
 			div7 = element("div");
-			a3 = element("a");
+			a2 = element("a");
 			t9 = text("Kontakt");
 			t10 = space();
 			div6 = element("div");
-			a4 = element("a");
+			button1 = element("button");
 			t11 = text("Für Studierende\n          ");
 			span1 = element("span");
 			t12 = text("▾");
 			t13 = space();
 			if (if_block3) if_block3.c();
 			t14 = space();
-			a5 = element("a");
+			a3 = element("a");
 			t15 = text(t15_value);
 			t16 = space();
-			button = element("button");
+			button2 = element("button");
 			span2 = element("span");
 			t17 = space();
 			span3 = element("span");
@@ -1182,22 +1189,22 @@ function create_fragment(ctx) {
 			var div3_nodes = children(div3);
 			div2 = claim_element(div3_nodes, "DIV", { class: true });
 			var div2_nodes = children(div2);
-			a1 = claim_element(div2_nodes, "A", { class: true, href: true });
-			var a1_nodes = children(a1);
-			t2 = claim_text(a1_nodes, "Für Unternehmen\n            ");
-			span0 = claim_element(a1_nodes, "SPAN", { class: true });
+			button0 = claim_element(div2_nodes, "BUTTON", { class: true });
+			var button0_nodes = children(button0);
+			t2 = claim_text(button0_nodes, "Für Unternehmen\n            ");
+			span0 = claim_element(button0_nodes, "SPAN", { class: true });
 			var span0_nodes = children(span0);
 			t3 = claim_text(span0_nodes, "▾");
 			span0_nodes.forEach(detach);
-			a1_nodes.forEach(detach);
+			button0_nodes.forEach(detach);
 			t4 = claim_space(div2_nodes);
 			if (if_block1) if_block1.l(div2_nodes);
 			div2_nodes.forEach(detach);
 			t5 = claim_space(div3_nodes);
-			a2 = claim_element(div3_nodes, "A", { class: true, href: true });
-			var a2_nodes = children(a2);
-			t6 = claim_text(a2_nodes, "Team");
-			a2_nodes.forEach(detach);
+			a1 = claim_element(div3_nodes, "A", { class: true, href: true });
+			var a1_nodes = children(a1);
+			t6 = claim_text(a1_nodes, "Team");
+			a1_nodes.forEach(detach);
 			div3_nodes.forEach(detach);
 			div4_nodes.forEach(detach);
 			t7 = claim_space(div8_nodes);
@@ -1208,42 +1215,42 @@ function create_fragment(ctx) {
 			t8 = claim_space(div8_nodes);
 			div7 = claim_element(div8_nodes, "DIV", { class: true });
 			var div7_nodes = children(div7);
-			a3 = claim_element(div7_nodes, "A", { class: true, href: true });
-			var a3_nodes = children(a3);
-			t9 = claim_text(a3_nodes, "Kontakt");
-			a3_nodes.forEach(detach);
+			a2 = claim_element(div7_nodes, "A", { class: true, href: true });
+			var a2_nodes = children(a2);
+			t9 = claim_text(a2_nodes, "Kontakt");
+			a2_nodes.forEach(detach);
 			t10 = claim_space(div7_nodes);
 			div6 = claim_element(div7_nodes, "DIV", { class: true });
 			var div6_nodes = children(div6);
-			a4 = claim_element(div6_nodes, "A", { class: true, href: true });
-			var a4_nodes = children(a4);
-			t11 = claim_text(a4_nodes, "Für Studierende\n          ");
-			span1 = claim_element(a4_nodes, "SPAN", { class: true });
+			button1 = claim_element(div6_nodes, "BUTTON", { class: true });
+			var button1_nodes = children(button1);
+			t11 = claim_text(button1_nodes, "Für Studierende\n          ");
+			span1 = claim_element(button1_nodes, "SPAN", { class: true });
 			var span1_nodes = children(span1);
 			t12 = claim_text(span1_nodes, "▾");
 			span1_nodes.forEach(detach);
-			a4_nodes.forEach(detach);
+			button1_nodes.forEach(detach);
 			t13 = claim_space(div6_nodes);
 			if (if_block3) if_block3.l(div6_nodes);
 			div6_nodes.forEach(detach);
 			t14 = claim_space(div7_nodes);
-			a5 = claim_element(div7_nodes, "A", { href: true, class: true });
-			var a5_nodes = children(a5);
-			t15 = claim_text(a5_nodes, t15_value);
-			a5_nodes.forEach(detach);
+			a3 = claim_element(div7_nodes, "A", { href: true, class: true });
+			var a3_nodes = children(a3);
+			t15 = claim_text(a3_nodes, t15_value);
+			a3_nodes.forEach(detach);
 			div7_nodes.forEach(detach);
 			t16 = claim_space(div8_nodes);
-			button = claim_element(div8_nodes, "BUTTON", { class: true });
-			var button_nodes = children(button);
-			span2 = claim_element(button_nodes, "SPAN", { class: true });
+			button2 = claim_element(div8_nodes, "BUTTON", { class: true });
+			var button2_nodes = children(button2);
+			span2 = claim_element(button2_nodes, "SPAN", { class: true });
 			children(span2).forEach(detach);
-			t17 = claim_space(button_nodes);
-			span3 = claim_element(button_nodes, "SPAN", { class: true });
+			t17 = claim_space(button2_nodes);
+			span3 = claim_element(button2_nodes, "SPAN", { class: true });
 			children(span3).forEach(detach);
-			t18 = claim_space(button_nodes);
-			span4 = claim_element(button_nodes, "SPAN", { class: true });
+			t18 = claim_space(button2_nodes);
+			span4 = claim_element(button2_nodes, "SPAN", { class: true });
 			children(span4).forEach(detach);
-			button_nodes.forEach(detach);
+			button2_nodes.forEach(detach);
 			div8_nodes.forEach(detach);
 			t19 = claim_space(header_nodes);
 			if (if_block4) if_block4.l(header_nodes);
@@ -1268,23 +1275,21 @@ function create_fragment(ctx) {
 			attr(a0, "class", "nav-left-logo-link svelte-11kclbp");
 			attr(span0, "class", "arrow svelte-11kclbp");
 			toggle_class(span0, "open", /*unternehmensOpen*/ ctx[4]);
-			attr(a1, "class", "link dropdown-trigger svelte-11kclbp");
-			attr(a1, "href", "/statistische-beratung-fuer-unternehmen");
+			attr(button0, "class", "link dropdown-trigger svelte-11kclbp");
 			attr(div2, "class", "dropdown-wrapper svelte-11kclbp");
-			attr(a2, "class", "link svelte-11kclbp");
-			attr(a2, "href", "/team");
+			attr(a1, "class", "link svelte-11kclbp");
+			attr(a1, "href", "/team");
 			attr(div3, "class", "nav-left svelte-11kclbp");
 			attr(div4, "class", "nav-left-group svelte-11kclbp");
 			attr(div5, "class", "nav-center svelte-11kclbp");
-			attr(a3, "class", "link svelte-11kclbp");
-			attr(a3, "href", "/kontakt");
+			attr(a2, "class", "link svelte-11kclbp");
+			attr(a2, "href", "/kontakt");
 			attr(span1, "class", "arrow svelte-11kclbp");
 			toggle_class(span1, "open", /*studierendeOpen*/ ctx[5]);
-			attr(a4, "class", "link dropdown-trigger svelte-11kclbp");
-			attr(a4, "href", "/statistik-beratung-fuer-studierende");
+			attr(button1, "class", "link dropdown-trigger svelte-11kclbp");
 			attr(div6, "class", "dropdown-wrapper svelte-11kclbp");
-			attr(a5, "href", a5_href_value = /*primary_cta*/ ctx[1].url);
-			attr(a5, "class", "button svelte-11kclbp");
+			attr(a3, "href", a3_href_value = /*primary_cta*/ ctx[1].url);
+			attr(a3, "class", "button svelte-11kclbp");
 			attr(div7, "class", "nav-right svelte-11kclbp");
 			attr(span2, "class", "svelte-11kclbp");
 			toggle_class(span2, "open", /*menuOpen*/ ctx[3]);
@@ -1292,7 +1297,7 @@ function create_fragment(ctx) {
 			toggle_class(span3, "open", /*menuOpen*/ ctx[3]);
 			attr(span4, "class", "svelte-11kclbp");
 			toggle_class(span4, "open", /*menuOpen*/ ctx[3]);
-			attr(button, "class", "hamburger svelte-11kclbp");
+			attr(button2, "class", "hamburger svelte-11kclbp");
 			attr(div8, "class", "nav-wrapper svelte-11kclbp");
 			attr(header, "class", "header svelte-11kclbp");
 			toggle_class(header, "active", /*introDone*/ ctx[2]);
@@ -1312,40 +1317,40 @@ function create_fragment(ctx) {
 			append_hydration(div4, t1);
 			append_hydration(div4, div3);
 			append_hydration(div3, div2);
-			append_hydration(div2, a1);
-			append_hydration(a1, t2);
-			append_hydration(a1, span0);
+			append_hydration(div2, button0);
+			append_hydration(button0, t2);
+			append_hydration(button0, span0);
 			append_hydration(span0, t3);
 			append_hydration(div2, t4);
 			if (if_block1) if_block1.m(div2, null);
 			append_hydration(div3, t5);
-			append_hydration(div3, a2);
-			append_hydration(a2, t6);
+			append_hydration(div3, a1);
+			append_hydration(a1, t6);
 			append_hydration(div8, t7);
 			append_hydration(div8, div5);
 			if (if_block2) if_block2.m(div5, null);
 			append_hydration(div8, t8);
 			append_hydration(div8, div7);
-			append_hydration(div7, a3);
-			append_hydration(a3, t9);
+			append_hydration(div7, a2);
+			append_hydration(a2, t9);
 			append_hydration(div7, t10);
 			append_hydration(div7, div6);
-			append_hydration(div6, a4);
-			append_hydration(a4, t11);
-			append_hydration(a4, span1);
+			append_hydration(div6, button1);
+			append_hydration(button1, t11);
+			append_hydration(button1, span1);
 			append_hydration(span1, t12);
 			append_hydration(div6, t13);
 			if (if_block3) if_block3.m(div6, null);
 			append_hydration(div7, t14);
-			append_hydration(div7, a5);
-			append_hydration(a5, t15);
+			append_hydration(div7, a3);
+			append_hydration(a3, t15);
 			append_hydration(div8, t16);
-			append_hydration(div8, button);
-			append_hydration(button, span2);
-			append_hydration(button, t17);
-			append_hydration(button, span3);
-			append_hydration(button, t18);
-			append_hydration(button, span4);
+			append_hydration(div8, button2);
+			append_hydration(button2, span2);
+			append_hydration(button2, t17);
+			append_hydration(button2, span3);
+			append_hydration(button2, t18);
+			append_hydration(button2, span4);
 			append_hydration(header, t19);
 			if (if_block4) if_block4.m(header, null);
 			insert_hydration(target, t20, anchor);
@@ -1361,11 +1366,9 @@ function create_fragment(ctx) {
 				dispose = [
 					listen(div1, "click", /*handleIntro*/ ctx[6]),
 					listen(div1, "keydown", /*keydown_handler*/ ctx[11]),
-					listen(div2, "mouseenter", /*mouseenter_handler*/ ctx[12]),
-					listen(div2, "mouseleave", /*mouseleave_handler*/ ctx[13]),
-					listen(div6, "mouseenter", /*mouseenter_handler_1*/ ctx[14]),
-					listen(div6, "mouseleave", /*mouseleave_handler_1*/ ctx[15]),
-					listen(button, "click", /*click_handler*/ ctx[16])
+					listen(button0, "click", stop_propagation(/*click_handler*/ ctx[12])),
+					listen(button1, "click", stop_propagation(/*click_handler_1*/ ctx[13])),
+					listen(button2, "click", /*click_handler_2*/ ctx[14])
 				];
 
 				mounted = true;
@@ -1434,8 +1437,8 @@ function create_fragment(ctx) {
 
 			if ((!current || dirty & /*primary_cta*/ 2) && t15_value !== (t15_value = /*primary_cta*/ ctx[1].label + "")) set_data(t15, t15_value);
 
-			if (!current || dirty & /*primary_cta*/ 2 && a5_href_value !== (a5_href_value = /*primary_cta*/ ctx[1].url)) {
-				attr(a5, "href", a5_href_value);
+			if (!current || dirty & /*primary_cta*/ 2 && a3_href_value !== (a3_href_value = /*primary_cta*/ ctx[1].url)) {
+				attr(a3, "href", a3_href_value);
 			}
 
 			if (!current || dirty & /*menuOpen*/ 8) {
@@ -1550,25 +1553,22 @@ function instance($$self, $$props, $$invalidate) {
 
 	const keydown_handler = e => e.key === 'Enter' && handleIntro();
 
-	const mouseenter_handler = () => {
-		$$invalidate(4, unternehmensOpen = true);
+	const click_handler = () => {
+		$$invalidate(4, unternehmensOpen = !unternehmensOpen);
 		$$invalidate(5, studierendeOpen = false);
 	};
 
-	const mouseleave_handler = () => $$invalidate(4, unternehmensOpen = false);
-
-	const mouseenter_handler_1 = () => {
-		$$invalidate(5, studierendeOpen = true);
+	const click_handler_1 = () => {
+		$$invalidate(5, studierendeOpen = !studierendeOpen);
 		$$invalidate(4, unternehmensOpen = false);
 	};
 
-	const mouseleave_handler_1 = () => $$invalidate(5, studierendeOpen = false);
-	const click_handler = () => $$invalidate(3, menuOpen = !menuOpen);
-	const click_handler_1 = () => $$invalidate(3, menuOpen = false);
-	const click_handler_2 = () => $$invalidate(3, menuOpen = false);
+	const click_handler_2 = () => $$invalidate(3, menuOpen = !menuOpen);
 	const click_handler_3 = () => $$invalidate(3, menuOpen = false);
 	const click_handler_4 = () => $$invalidate(3, menuOpen = false);
 	const click_handler_5 = () => $$invalidate(3, menuOpen = false);
+	const click_handler_6 = () => $$invalidate(3, menuOpen = false);
+	const click_handler_7 = () => $$invalidate(3, menuOpen = false);
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(7, props = $$props.props);
@@ -1591,16 +1591,14 @@ function instance($$self, $$props, $$invalidate) {
 		$$scope,
 		slots,
 		keydown_handler,
-		mouseenter_handler,
-		mouseleave_handler,
-		mouseenter_handler_1,
-		mouseleave_handler_1,
 		click_handler,
 		click_handler_1,
 		click_handler_2,
 		click_handler_3,
 		click_handler_4,
-		click_handler_5
+		click_handler_5,
+		click_handler_6,
+		click_handler_7
 	];
 }
 
