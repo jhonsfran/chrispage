@@ -1,4 +1,4 @@
-// Icon List - Updated May 29, 2026
+// Icon List - Updated June 1, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore

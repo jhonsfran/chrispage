@@ -1,4 +1,4 @@
-// Menü Left - Updated May 29, 2026
+// Menü Left - Updated June 1, 2026
 function noop() { }
 function run(fn) {
     return fn();

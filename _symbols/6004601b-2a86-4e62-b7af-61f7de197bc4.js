@@ -1,4 +1,4 @@
-// Site Footer Für Unternehmen  - Updated May 29, 2026
+// Site Footer Für Unternehmen  - Updated June 1, 2026
 function noop() { }
 function run(fn) {
     return fn();
