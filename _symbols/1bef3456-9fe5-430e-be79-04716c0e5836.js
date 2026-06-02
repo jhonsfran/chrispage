@@ -1,4 +1,4 @@
-// Site Navigation not Homepage - Updated June 1, 2026
+// Site Navigation not Homepage - Updated June 2, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
