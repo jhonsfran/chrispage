@@ -543,8 +543,8 @@ function get_each_context_1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (139:4) {#if subtext}
-function create_if_block_1(ctx) {
+// (141:4) {#if subtext}
+function create_if_block(ctx) {
 	let p;
 	let t;
 
@@ -562,7 +562,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(p, "class", "subtext svelte-xn5cv");
+			attr(p, "class", "subtext svelte-1jzhkcb");
 		},
 		m(target, anchor) {
 			insert_hydration(target, p, anchor);
@@ -600,7 +600,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(li, "class", "svelte-xn5cv");
+			attr(li, "class", "svelte-1jzhkcb");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -616,60 +616,21 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (158:10) {#if caseLinks[i]}
-function create_if_block(ctx) {
-	let a;
-	let t0;
-	let t1_value = /*item*/ ctx[7].title + "";
-	let t1;
-	let t2;
-
-	return {
-		c() {
-			a = element("a");
-			t0 = text("Use Cases ");
-			t1 = text(t1_value);
-			t2 = text(" →");
-			this.h();
-		},
-		l(nodes) {
-			a = claim_element(nodes, "A", { href: true, class: true });
-			var a_nodes = children(a);
-			t0 = claim_text(a_nodes, "Use Cases ");
-			t1 = claim_text(a_nodes, t1_value);
-			t2 = claim_text(a_nodes, " →");
-			a_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(a, "href", /*caseLinks*/ ctx[4][/*i*/ ctx[9]]);
-			attr(a, "class", "case-link svelte-xn5cv");
-		},
-		m(target, anchor) {
-			insert_hydration(target, a, anchor);
-			append_hydration(a, t0);
-			append_hydration(a, t1);
-			append_hydration(a, t2);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*cases*/ 1 && t1_value !== (t1_value = /*item*/ ctx[7].title + "")) set_data(t1, t1_value);
-		},
-		d(detaching) {
-			if (detaching) detach(a);
-		}
-	};
-}
-
-// (146:6) {#each cases as item, i}
+// (147:6) {#each cases as item, i}
 function create_each_block(ctx) {
-	let div;
+	let a;
 	let h3;
 	let t0_value = /*item*/ ctx[7].title + "";
 	let t0;
 	let t1;
 	let ul;
 	let t2;
+	let span;
 	let t3;
+	let t4_value = /*item*/ ctx[7].title + "";
+	let t4;
+	let t5;
+	let t6;
 	let each_value_1 = /*item*/ ctx[7].points.split('|');
 	let each_blocks = [];
 
@@ -677,11 +638,9 @@ function create_each_block(ctx) {
 		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
 	}
 
-	let if_block = /*caseLinks*/ ctx[4][/*i*/ ctx[9]] && create_if_block(ctx);
-
 	return {
 		c() {
-			div = element("div");
+			a = element("a");
 			h3 = element("h3");
 			t0 = text(t0_value);
 			t1 = space();
@@ -692,19 +651,22 @@ function create_each_block(ctx) {
 			}
 
 			t2 = space();
-			if (if_block) if_block.c();
-			t3 = space();
+			span = element("span");
+			t3 = text("Use Cases ");
+			t4 = text(t4_value);
+			t5 = text(" →");
+			t6 = space();
 			this.h();
 		},
 		l(nodes) {
-			div = claim_element(nodes, "DIV", { class: true });
-			var div_nodes = children(div);
-			h3 = claim_element(div_nodes, "H3", { class: true });
+			a = claim_element(nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			h3 = claim_element(a_nodes, "H3", { class: true });
 			var h3_nodes = children(h3);
 			t0 = claim_text(h3_nodes, t0_value);
 			h3_nodes.forEach(detach);
-			t1 = claim_space(div_nodes);
-			ul = claim_element(div_nodes, "UL", { class: true });
+			t1 = claim_space(a_nodes);
+			ul = claim_element(a_nodes, "UL", { class: true });
 			var ul_nodes = children(ul);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -712,23 +674,30 @@ function create_each_block(ctx) {
 			}
 
 			ul_nodes.forEach(detach);
-			t2 = claim_space(div_nodes);
-			if (if_block) if_block.l(div_nodes);
-			t3 = claim_space(div_nodes);
-			div_nodes.forEach(detach);
+			t2 = claim_space(a_nodes);
+			span = claim_element(a_nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t3 = claim_text(span_nodes, "Use Cases ");
+			t4 = claim_text(span_nodes, t4_value);
+			t5 = claim_text(span_nodes, " →");
+			span_nodes.forEach(detach);
+			t6 = claim_space(a_nodes);
+			a_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "case-title svelte-xn5cv");
-			attr(ul, "class", "case-list svelte-xn5cv");
-			attr(div, "class", "case-card svelte-xn5cv");
+			attr(h3, "class", "case-title svelte-1jzhkcb");
+			attr(ul, "class", "case-list svelte-1jzhkcb");
+			attr(span, "class", "case-link svelte-1jzhkcb");
+			attr(a, "href", /*caseLinks*/ ctx[4][/*i*/ ctx[9]]);
+			attr(a, "class", "case-card svelte-1jzhkcb");
 		},
 		m(target, anchor) {
-			insert_hydration(target, div, anchor);
-			append_hydration(div, h3);
+			insert_hydration(target, a, anchor);
+			append_hydration(a, h3);
 			append_hydration(h3, t0);
-			append_hydration(div, t1);
-			append_hydration(div, ul);
+			append_hydration(a, t1);
+			append_hydration(a, ul);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				if (each_blocks[i]) {
@@ -736,9 +705,12 @@ function create_each_block(ctx) {
 				}
 			}
 
-			append_hydration(div, t2);
-			if (if_block) if_block.m(div, null);
-			append_hydration(div, t3);
+			append_hydration(a, t2);
+			append_hydration(a, span);
+			append_hydration(span, t3);
+			append_hydration(span, t4);
+			append_hydration(span, t5);
+			append_hydration(a, t6);
 		},
 		p(ctx, dirty) {
 			if (dirty & /*cases*/ 1 && t0_value !== (t0_value = /*item*/ ctx[7].title + "")) set_data(t0, t0_value);
@@ -766,12 +738,11 @@ function create_each_block(ctx) {
 				each_blocks.length = each_value_1.length;
 			}
 
-			if (/*caseLinks*/ ctx[4][/*i*/ ctx[9]]) if_block.p(ctx, dirty);
+			if (dirty & /*cases*/ 1 && t4_value !== (t4_value = /*item*/ ctx[7].title + "")) set_data(t4, t4_value);
 		},
 		d(detaching) {
-			if (detaching) detach(div);
+			if (detaching) detach(a);
 			destroy_each(each_blocks, detaching);
-			if (if_block) if_block.d();
 		}
 	};
 }
@@ -788,7 +759,7 @@ function create_fragment(ctx) {
 	let a;
 	let t4_value = (/*button_text*/ ctx[3] || "Alle Use Cases ansehen") + "";
 	let t4;
-	let if_block = /*subtext*/ ctx[2] && create_if_block_1(ctx);
+	let if_block = /*subtext*/ ctx[2] && create_if_block(ctx);
 	let each_value = /*cases*/ ctx[0];
 	let each_blocks = [];
 
@@ -846,12 +817,12 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "heading svelte-xn5cv");
-			attr(div0, "class", "cases-grid svelte-xn5cv");
+			attr(h2, "class", "heading svelte-1jzhkcb");
+			attr(div0, "class", "cases-grid svelte-1jzhkcb");
 			attr(a, "href", "https://www.cgstatistik.at/use-case");
-			attr(a, "class", "main-button svelte-xn5cv");
-			attr(div1, "class", "section-container svelte-xn5cv");
-			attr(section, "class", "svelte-xn5cv");
+			attr(a, "class", "main-button svelte-1jzhkcb");
+			attr(div1, "class", "section-container svelte-1jzhkcb");
+			attr(section, "class", "svelte-1jzhkcb");
 		},
 		m(target, anchor) {
 			insert_hydration(target, section, anchor);
@@ -880,7 +851,7 @@ function create_fragment(ctx) {
 				if (if_block) {
 					if_block.p(ctx, dirty);
 				} else {
-					if_block = create_if_block_1(ctx);
+					if_block = create_if_block(ctx);
 					if_block.c();
 					if_block.m(div1, t2);
 				}
