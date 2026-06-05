@@ -1,4 +1,4 @@
-// Social Links - Updated June 3, 2026
+// Social Links - Updated June 5, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
