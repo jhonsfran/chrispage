@@ -952,9 +952,9 @@ function create_if_block(ctx) {
 			attr(a0, "class", "mobile-link svelte-10kuw3u");
 			attr(a0, "href", "/statistische-beratung-fuer-unternehmen");
 			attr(a1, "class", "mobile-link svelte-10kuw3u");
-			attr(a1, "href", "/team");
+			attr(a1, "href", "/team-unternehmen");
 			attr(a2, "class", "mobile-link svelte-10kuw3u");
-			attr(a2, "href", "/kontakt");
+			attr(a2, "href", "/kontakt-unternehmen");
 			attr(a3, "class", "mobile-link svelte-10kuw3u");
 			attr(a3, "href", "/statistik-beratung-fuer-studierende");
 			attr(a4, "href", a4_href_value = /*primary_cta*/ ctx[1].url);
@@ -1213,12 +1213,12 @@ function create_fragment(ctx) {
 			attr(a1, "href", "/statistische-beratung-fuer-unternehmen");
 			attr(div0, "class", "dropdown-wrapper svelte-10kuw3u");
 			attr(a2, "class", "link svelte-10kuw3u");
-			attr(a2, "href", "/team");
+			attr(a2, "href", "/team-unternehmen");
 			attr(div1, "class", "nav-left svelte-10kuw3u");
 			attr(div2, "class", "nav-left-group svelte-10kuw3u");
 			attr(div3, "class", "nav-center svelte-10kuw3u");
 			attr(a3, "class", "link svelte-10kuw3u");
-			attr(a3, "href", "/kontakt");
+			attr(a3, "href", "/kontakt-unternehmen");
 			attr(span1, "class", "arrow svelte-10kuw3u");
 			toggle_class(span1, "open", /*studierendeOpen*/ ctx[4]);
 			attr(a4, "class", "link dropdown-trigger svelte-10kuw3u");
