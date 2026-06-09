@@ -2,7 +2,7 @@
   <html lang="de">
     <head>
       <meta name="generator" content="Primo" />
-      <!-- HEAD_svelte-146e8mi_START --><head><meta charset="UTF-8">
+      <!-- HEAD_svelte-1jkyl4a_START --><head><meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   
@@ -60,36 +60,54 @@
 </head><style>/* Reset & standardize default styles */
 @import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;
 
-/* Design tokens (apply to components) */
+/* Design tokens */
 :root {
-  /* Custom theme options */
   --color-accent: #117471;
   --color-accent-2: #20bfa9;
   --color-primary: #1d263a;
-  /* Base values */
   --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   --border-radius: 8px;
   --border-color: #e1ecf0;
-  
-  /* Responsive breakpoints */
   --mobile: 480px;
   --tablet: 768px;
   --desktop: 1024px;
 }
 
-/* Root element (use instead of `body`) */
+/* Root element */
 #page {
   font-family: system-ui, sans-serif;
   color: var(--color-primary);
   line-height: 1.2;
-  font-size: 16px; /* Base font size for mobile */
+  font-size: 16px;
   background: white;
 }
-@media (min-width: 768px) {
-#page {
-    font-size: 1.125rem
+
+/* ── Globales Responsive via Zoom ── */
+@media (max-width: 1200px) {
+  #page { zoom: 0.95; }
 }
-  }
+
+@media (max-width: 900px) {
+  #page { zoom: 0.88; }
+}
+
+@media (max-width: 600px) {
+  #page { zoom: 0.78; }
+}
+
+/* ── Globale Basis ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden;
+}
 
 /* Elements */
 .section-container {
@@ -97,7 +115,6 @@
   margin: 0 auto;
   padding: 2rem 1rem;
 }
-/* Smaller padding on mobile */
 @media (min-width: 768px) {
 .section-container {
     max-width: 1200px;
@@ -118,7 +135,7 @@ a.link:hover {
   }
 
 .heading {
-  font-size: 1.75rem; /* Smaller heading on mobile */
+  font-size: 1.75rem;
   line-height: 1.2;
   font-weight: 600;
 }
@@ -155,8 +172,8 @@ a.link:hover {
   font-weight: 500;
   background: var(--color-accent, rebeccapurple);
   border-radius: 3rem;
-  padding: 12px 20px; /* Smaller padding on mobile */
-  width: 100%; /* Full width on mobile */
+  padding: 12px 20px;
+  width: 100%;
   margin: 0.5rem 0;
   transition: var(--transition, 0.1s box-shadow);
   border: 0;
@@ -186,7 +203,6 @@ a.link:hover {
   margin: 0 auto;
   padding: 2rem 1rem;
 }
-/* Smaller padding on mobile */
 @media (min-width: 768px) {
 .section .content {
     max-width: 1200px;
@@ -205,7 +221,7 @@ a.link:hover {
     }
 .section .content img {
     width: 100%;
-    margin: 1.5rem 0; /* Smaller margins on mobile */
+    margin: 1.5rem 0;
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
   }
@@ -215,7 +231,7 @@ a.link:hover {
   }
     }
 .section .content h1 {
-    font-size: 2rem; /* Smaller on mobile */
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
   }
@@ -255,14 +271,10 @@ a.link:hover {
       font-size: 1.125rem
   }
     }
-.section .content ul {
-    list-style: disc;
-  }
-.section .content ol {
-    list-style: decimal;
-  }
+.section .content ul { list-style: disc; }
+.section .content ol { list-style: decimal; }
 .section .content blockquote {
-    padding: 1.5rem; /* Smaller padding on mobile */
+    padding: 1.5rem;
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
     margin: 1rem 0;
@@ -272,7 +284,7 @@ a.link:hover {
       padding: 2rem;
       margin: 2rem 0
   }
-    }</style><!-- HEAD_svelte-146e8mi_END -->
+    }</style><!-- HEAD_svelte-1jkyl4a_END -->
       <style>.section-container.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--color-accent);width:100%;max-width:100%;position:relative}@media(min-width: 768px){.section-container.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{padding:1rem 2rem
 }}.logo.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{font-size:1.25rem;font-weight:600;line-height:1.2;width:auto;max-width:200px;padding:0.5rem 0}@media(min-width: 768px){.logo.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{font-size:1.7rem;width:15em;padding:1rem 0
 }}.desktop-nav.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{display:none}@media(min-width: 800px){.desktop-nav.svelte-kn9oip.svelte-kn9oip.svelte-kn9oip{display:flex;align-items:center;justify-content:space-between;width:100%;margin-left:2rem /* Space from logo */
