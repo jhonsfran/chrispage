@@ -1,4 +1,4 @@
-// New Hero block - Updated June 8, 2026
+// New Hero block - Updated June 9, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -597,13 +597,13 @@ function create_fragment(ctx) {
 			t10 = space();
 			div0 = element("div");
 			span4 = element("span");
-			t11 = text("✓ Muster und Potenziale erkennen");
+			t11 = text("✓ Muster und Potenziale erkennen.");
 			t12 = space();
 			span5 = element("span");
-			t13 = text("✓ Automatisierte Reports & Dashboards");
+			t13 = text("✓ Automatisierte Reports & Dashboards.");
 			t14 = space();
 			span6 = element("span");
-			t15 = text("✓ Konkrete Handlungsempfehlungen");
+			t15 = text("✓ Konkrete Handlungsempfehlungen.");
 			t16 = space();
 			a = element("a");
 			t17 = text("Erstgespräch vereinbaren");
@@ -656,17 +656,17 @@ function create_fragment(ctx) {
 			var div0_nodes = children(div0);
 			span4 = claim_element(div0_nodes, "SPAN", { class: true });
 			var span4_nodes = children(span4);
-			t11 = claim_text(span4_nodes, "✓ Muster und Potenziale erkennen");
+			t11 = claim_text(span4_nodes, "✓ Muster und Potenziale erkennen.");
 			span4_nodes.forEach(detach);
 			t12 = claim_space(div0_nodes);
 			span5 = claim_element(div0_nodes, "SPAN", { class: true });
 			var span5_nodes = children(span5);
-			t13 = claim_text(span5_nodes, "✓ Automatisierte Reports & Dashboards");
+			t13 = claim_text(span5_nodes, "✓ Automatisierte Reports & Dashboards.");
 			span5_nodes.forEach(detach);
 			t14 = claim_space(div0_nodes);
 			span6 = claim_element(div0_nodes, "SPAN", { class: true });
 			var span6_nodes = children(span6);
-			t15 = claim_text(span6_nodes, "✓ Konkrete Handlungsempfehlungen");
+			t15 = claim_text(span6_nodes, "✓ Konkrete Handlungsempfehlungen.");
 			span6_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
 			t16 = claim_space(div1_nodes);

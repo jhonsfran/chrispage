@@ -1,4 +1,4 @@
-// Use Cases - Updated June 8, 2026
+// Use Cases - Updated June 9, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -562,7 +562,7 @@ function create_if_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(p, "class", "subtext svelte-1y9qnhz");
+			attr(p, "class", "subtext svelte-1tpsw4j");
 		},
 		m(target, anchor) {
 			insert_hydration(target, p, anchor);
@@ -600,7 +600,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(li, "class", "svelte-1y9qnhz");
+			attr(li, "class", "svelte-1tpsw4j");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -686,11 +686,11 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "case-title svelte-1y9qnhz");
-			attr(ul, "class", "case-list svelte-1y9qnhz");
-			attr(span, "class", "case-link svelte-1y9qnhz");
+			attr(h3, "class", "case-title svelte-1tpsw4j");
+			attr(ul, "class", "case-list svelte-1tpsw4j");
+			attr(span, "class", "case-link svelte-1tpsw4j");
 			attr(a, "href", /*caseLinks*/ ctx[4][/*i*/ ctx[9]]);
-			attr(a, "class", "case-card svelte-1y9qnhz");
+			attr(a, "class", "case-card svelte-1tpsw4j");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -817,12 +817,12 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "heading svelte-1y9qnhz");
-			attr(div0, "class", "cases-grid svelte-1y9qnhz");
+			attr(h2, "class", "heading svelte-1tpsw4j");
+			attr(div0, "class", "cases-grid svelte-1tpsw4j");
 			attr(a, "href", "https://www.cgstatistik.at/use-case");
-			attr(a, "class", "main-button svelte-1y9qnhz");
-			attr(div1, "class", "section-container svelte-1y9qnhz");
-			attr(section, "class", "svelte-1y9qnhz");
+			attr(a, "class", "main-button svelte-1tpsw4j");
+			attr(div1, "class", "section-container svelte-1tpsw4j");
+			attr(section, "class", "svelte-1tpsw4j");
 		},
 		m(target, anchor) {
 			insert_hydration(target, section, anchor);
