@@ -643,7 +643,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (452:10) {#if unternehmensOpen}
+// (453:10) {#if unternehmensOpen}
 function create_if_block_3(ctx) {
 	let div1;
 	let a0;
@@ -772,7 +772,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (470:6) {#if logo.image && logo.image.url}
+// (471:6) {#if logo.image && logo.image.url}
 function create_if_block_2(ctx) {
 	let a;
 	let img;
@@ -818,7 +818,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (489:8) {#if studierendeOpen}
+// (490:8) {#if studierendeOpen}
 function create_if_block_1(ctx) {
 	let div1;
 	let a0;
@@ -915,7 +915,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (511:2) {#if menuOpen}
+// (512:2) {#if menuOpen}
 function create_if_block(ctx) {
 	let div;
 	let a0;
@@ -1018,11 +1018,11 @@ function create_if_block(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(a0, "click", /*click_handler_1*/ ctx[17]),
-					listen(a1, "click", /*click_handler_2*/ ctx[18]),
-					listen(a2, "click", /*click_handler_3*/ ctx[19]),
-					listen(a3, "click", /*click_handler_4*/ ctx[20]),
-					listen(a4, "click", /*click_handler_5*/ ctx[21])
+					listen(a0, "click", /*click_handler_1*/ ctx[18]),
+					listen(a1, "click", /*click_handler_2*/ ctx[19]),
+					listen(a2, "click", /*click_handler_3*/ ctx[20]),
+					listen(a3, "click", /*click_handler_4*/ ctx[21]),
+					listen(a4, "click", /*click_handler_5*/ ctx[22])
 				];
 
 				mounted = true;
@@ -1100,8 +1100,8 @@ function create_fragment(ctx) {
 	let if_block2 = /*logo*/ ctx[0].image && /*logo*/ ctx[0].image.url && create_if_block_2(ctx);
 	let if_block3 = /*studierendeOpen*/ ctx[5] && create_if_block_1();
 	let if_block4 = /*menuOpen*/ ctx[3] && create_if_block(ctx);
-	const default_slot_template = /*#slots*/ ctx[10].default;
-	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[9], null);
+	const default_slot_template = /*#slots*/ ctx[11].default;
+	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[10], null);
 
 	return {
 		c() {
@@ -1360,12 +1360,12 @@ function create_fragment(ctx) {
 			if (!mounted) {
 				dispose = [
 					listen(div1, "click", /*handleIntro*/ ctx[6]),
-					listen(div1, "keydown", /*keydown_handler*/ ctx[11]),
-					listen(div2, "mouseenter", /*mouseenter_handler*/ ctx[12]),
-					listen(div2, "mouseleave", /*mouseleave_handler*/ ctx[13]),
-					listen(div6, "mouseenter", /*mouseenter_handler_1*/ ctx[14]),
-					listen(div6, "mouseleave", /*mouseleave_handler_1*/ ctx[15]),
-					listen(button, "click", /*click_handler*/ ctx[16])
+					listen(div1, "keydown", /*keydown_handler*/ ctx[12]),
+					listen(div2, "mouseenter", /*mouseenter_handler*/ ctx[13]),
+					listen(div2, "mouseleave", /*mouseleave_handler*/ ctx[14]),
+					listen(div6, "mouseenter", /*mouseenter_handler_1*/ ctx[15]),
+					listen(div6, "mouseleave", /*mouseleave_handler_1*/ ctx[16]),
+					listen(button, "click", /*click_handler*/ ctx[17])
 				];
 
 				mounted = true;
@@ -1468,15 +1468,15 @@ function create_fragment(ctx) {
 			}
 
 			if (default_slot) {
-				if (default_slot.p && (!current || dirty & /*$$scope*/ 512)) {
+				if (default_slot.p && (!current || dirty & /*$$scope*/ 1024)) {
 					update_slot_base(
 						default_slot,
 						default_slot_template,
 						ctx,
-						/*$$scope*/ ctx[9],
+						/*$$scope*/ ctx[10],
 						!current
-						? get_all_dirty_from_scope(/*$$scope*/ ctx[9])
-						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[9], dirty, null),
+						? get_all_dirty_from_scope(/*$$scope*/ ctx[10])
+						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[10], dirty, null),
 						null
 					);
 				}
@@ -1519,6 +1519,7 @@ function instance($$self, $$props, $$invalidate) {
 	let { logo } = $$props;
 	let { site_nav } = $$props;
 	let { primary_cta } = $$props;
+	let { leftlogo } = $$props;
 	let introDone = false;
 	let menuOpen = false;
 	let unternehmensOpen = false;
@@ -1575,7 +1576,8 @@ function instance($$self, $$props, $$invalidate) {
 		if ('logo' in $$props) $$invalidate(0, logo = $$props.logo);
 		if ('site_nav' in $$props) $$invalidate(8, site_nav = $$props.site_nav);
 		if ('primary_cta' in $$props) $$invalidate(1, primary_cta = $$props.primary_cta);
-		if ('$$scope' in $$props) $$invalidate(9, $$scope = $$props.$$scope);
+		if ('leftlogo' in $$props) $$invalidate(9, leftlogo = $$props.leftlogo);
+		if ('$$scope' in $$props) $$invalidate(10, $$scope = $$props.$$scope);
 	};
 
 	return [
@@ -1588,6 +1590,7 @@ function instance($$self, $$props, $$invalidate) {
 		handleIntro,
 		props,
 		site_nav,
+		leftlogo,
 		$$scope,
 		slots,
 		keydown_handler,
@@ -1612,7 +1615,8 @@ class Component extends SvelteComponent {
 			props: 7,
 			logo: 0,
 			site_nav: 8,
-			primary_cta: 1
+			primary_cta: 1,
+			leftlogo: 9
 		});
 	}
 }
