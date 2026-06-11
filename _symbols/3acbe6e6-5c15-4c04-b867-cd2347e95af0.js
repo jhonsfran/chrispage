@@ -3224,7 +3224,12 @@ function create_each_block_1(ctx) {
 		},
 		h() {
 			attr(a, "class", "link svelte-kn9oip");
-			attr(a, "href", a_href_value = /*link*/ ctx[8].url);
+
+			attr(a, "href", a_href_value = /*link*/ ctx[8].label === 'Team'
+			? '/team-nachhilfe'
+			: /*link*/ ctx[8].label === 'Kontakt'
+				? '/kontakt-nachhilfe'
+				: /*link*/ ctx[8].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -3233,7 +3238,11 @@ function create_each_block_1(ctx) {
 		p(ctx, dirty) {
 			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[8].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[8].url)) {
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[8].label === 'Team'
+			? '/team-nachhilfe'
+			: /*link*/ ctx[8].label === 'Kontakt'
+				? '/kontakt-nachhilfe'
+				: /*link*/ ctx[8].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3482,7 +3491,12 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*link*/ ctx[8].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[8].label === 'Team'
+			? '/team-nachhilfe'
+			: /*link*/ ctx[8].label === 'Kontakt'
+				? '/kontakt-nachhilfe'
+				: /*link*/ ctx[8].url);
+
 			attr(a, "class", "svelte-kn9oip");
 		},
 		m(target, anchor) {
@@ -3492,7 +3506,11 @@ function create_each_block(ctx) {
 		p(ctx, dirty) {
 			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[8].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[8].url)) {
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[8].label === 'Team'
+			? '/team-nachhilfe'
+			: /*link*/ ctx[8].label === 'Kontakt'
+				? '/kontakt-nachhilfe'
+				: /*link*/ ctx[8].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
