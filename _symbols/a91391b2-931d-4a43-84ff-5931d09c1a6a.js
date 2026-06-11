@@ -1,4 +1,4 @@
-// Site Navigation Homepage - Updated June 9, 2026
+// Site Navigation Homepage - Updated June 11, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
@@ -1517,9 +1517,9 @@ function instance($$self, $$props, $$invalidate) {
 	let { $$slots: slots = {}, $$scope } = $$props;
 	let { props } = $$props;
 	let { logo } = $$props;
+	let { leftlogo } = $$props;
 	let { site_nav } = $$props;
 	let { primary_cta } = $$props;
-	let { leftlogo } = $$props;
 	let introDone = false;
 	let menuOpen = false;
 	let unternehmensOpen = false;
@@ -1574,9 +1574,9 @@ function instance($$self, $$props, $$invalidate) {
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(7, props = $$props.props);
 		if ('logo' in $$props) $$invalidate(0, logo = $$props.logo);
-		if ('site_nav' in $$props) $$invalidate(8, site_nav = $$props.site_nav);
+		if ('leftlogo' in $$props) $$invalidate(8, leftlogo = $$props.leftlogo);
+		if ('site_nav' in $$props) $$invalidate(9, site_nav = $$props.site_nav);
 		if ('primary_cta' in $$props) $$invalidate(1, primary_cta = $$props.primary_cta);
-		if ('leftlogo' in $$props) $$invalidate(9, leftlogo = $$props.leftlogo);
 		if ('$$scope' in $$props) $$invalidate(10, $$scope = $$props.$$scope);
 	};
 
@@ -1589,8 +1589,8 @@ function instance($$self, $$props, $$invalidate) {
 		studierendeOpen,
 		handleIntro,
 		props,
-		site_nav,
 		leftlogo,
+		site_nav,
 		$$scope,
 		slots,
 		keydown_handler,
@@ -1614,9 +1614,9 @@ class Component extends SvelteComponent {
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 7,
 			logo: 0,
-			site_nav: 8,
-			primary_cta: 1,
-			leftlogo: 9
+			leftlogo: 8,
+			site_nav: 9,
+			primary_cta: 1
 		});
 	}
 }
