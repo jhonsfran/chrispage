@@ -895,7 +895,6 @@ function create_if_block(ctx) {
 	let a4;
 	let t8_value = /*primary_cta*/ ctx[1].label + "";
 	let t8;
-	let a4_href_value;
 	let mounted;
 	let dispose;
 
@@ -957,7 +956,7 @@ function create_if_block(ctx) {
 			attr(a2, "href", "/kontakt");
 			attr(a3, "class", "mobile-link svelte-10kuw3u");
 			attr(a3, "href", "/statistik-beratung-fuer-studierende");
-			attr(a4, "href", a4_href_value = /*primary_cta*/ ctx[1].url);
+			attr(a4, "href", "/kontakt");
 			attr(a4, "class", "mobile-button svelte-10kuw3u");
 			attr(div, "class", "mobile-menu svelte-10kuw3u");
 		},
@@ -992,10 +991,6 @@ function create_if_block(ctx) {
 		},
 		p(ctx, dirty) {
 			if (dirty & /*primary_cta*/ 2 && t8_value !== (t8_value = /*primary_cta*/ ctx[1].label + "")) set_data(t8, t8_value);
-
-			if (dirty & /*primary_cta*/ 2 && a4_href_value !== (a4_href_value = /*primary_cta*/ ctx[1].url)) {
-				attr(a4, "href", a4_href_value);
-			}
 		},
 		d(detaching) {
 			if (detaching) detach(div);
@@ -1040,7 +1035,6 @@ function create_fragment(ctx) {
 	let a5;
 	let t14_value = /*primary_cta*/ ctx[1].label + "";
 	let t14;
-	let a5_href_value;
 	let t15;
 	let button;
 	let span2;
@@ -1224,7 +1218,7 @@ function create_fragment(ctx) {
 			attr(a4, "class", "link dropdown-trigger svelte-10kuw3u");
 			attr(a4, "href", "/statistik-beratung-fuer-studierende");
 			attr(div4, "class", "dropdown-wrapper svelte-10kuw3u");
-			attr(a5, "href", a5_href_value = /*primary_cta*/ ctx[1].url);
+			attr(a5, "href", "/kontakt");
 			attr(a5, "class", "button svelte-10kuw3u");
 			attr(div5, "class", "nav-right svelte-10kuw3u");
 			attr(span2, "class", "svelte-10kuw3u");
@@ -1349,10 +1343,6 @@ function create_fragment(ctx) {
 			}
 
 			if ((!current || dirty & /*primary_cta*/ 2) && t14_value !== (t14_value = /*primary_cta*/ ctx[1].label + "")) set_data(t14, t14_value);
-
-			if (!current || dirty & /*primary_cta*/ 2 && a5_href_value !== (a5_href_value = /*primary_cta*/ ctx[1].url)) {
-				attr(a5, "href", a5_href_value);
-			}
 
 			if (!current || dirty & /*menuOpen*/ 4) {
 				toggle_class(span2, "open", /*menuOpen*/ ctx[2]);
