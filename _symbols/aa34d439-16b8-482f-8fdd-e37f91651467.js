@@ -700,7 +700,7 @@ function create_fragment(ctx) {
 			attr(span5, "class", "svelte-dxlq2h");
 			attr(span6, "class", "svelte-dxlq2h");
 			attr(div0, "class", "hero-checks svelte-dxlq2h");
-			attr(a, "href", "/kontakt-unternehmen");
+			attr(a, "href", "/kontakt");
 			attr(a, "class", "btn-erstgespraech svelte-dxlq2h");
 			attr(div1, "class", "hero-left svelte-dxlq2h");
 			attr(div2, "class", "hero-bg svelte-dxlq2h");
