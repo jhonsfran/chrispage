@@ -1,4 +1,4 @@
-// Site Navigation not Homepage 2.0 - Updated June 12, 2026
+// Site Navigation not Homepage 2.0 - Updated June 16, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
@@ -642,19 +642,19 @@ function create_if_block_3(ctx) {
 			div0 = element("div");
 			t2 = space();
 			a1 = element("a");
-			t3 = text("Marketing-Analysen");
+			t3 = text("Marketing optimieren");
 			t4 = space();
 			a2 = element("a");
-			t5 = text("Prozessoptimierung");
+			t5 = text("Prozesse verbessern");
 			t6 = space();
 			a3 = element("a");
-			t7 = text("Erkenntnisse aus Umfragen");
+			t7 = text("Umfragen analysieren");
 			t8 = space();
 			a4 = element("a");
-			t9 = text("Reporting");
+			t9 = text("Reporting automatisieren");
 			t10 = space();
 			a5 = element("a");
-			t11 = text("Forecasts & Prognosen");
+			t11 = text("Forecasting & Prognosen");
 			this.h();
 		},
 		l(nodes) {
@@ -670,27 +670,27 @@ function create_if_block_3(ctx) {
 			t2 = claim_space(div1_nodes);
 			a1 = claim_element(div1_nodes, "A", { href: true, class: true });
 			var a1_nodes = children(a1);
-			t3 = claim_text(a1_nodes, "Marketing-Analysen");
+			t3 = claim_text(a1_nodes, "Marketing optimieren");
 			a1_nodes.forEach(detach);
 			t4 = claim_space(div1_nodes);
 			a2 = claim_element(div1_nodes, "A", { href: true, class: true });
 			var a2_nodes = children(a2);
-			t5 = claim_text(a2_nodes, "Prozessoptimierung");
+			t5 = claim_text(a2_nodes, "Prozesse verbessern");
 			a2_nodes.forEach(detach);
 			t6 = claim_space(div1_nodes);
 			a3 = claim_element(div1_nodes, "A", { href: true, class: true });
 			var a3_nodes = children(a3);
-			t7 = claim_text(a3_nodes, "Erkenntnisse aus Umfragen");
+			t7 = claim_text(a3_nodes, "Umfragen analysieren");
 			a3_nodes.forEach(detach);
 			t8 = claim_space(div1_nodes);
 			a4 = claim_element(div1_nodes, "A", { href: true, class: true });
 			var a4_nodes = children(a4);
-			t9 = claim_text(a4_nodes, "Reporting");
+			t9 = claim_text(a4_nodes, "Reporting automatisieren");
 			a4_nodes.forEach(detach);
 			t10 = claim_space(div1_nodes);
 			a5 = claim_element(div1_nodes, "A", { href: true, class: true });
 			var a5_nodes = children(a5);
-			t11 = claim_text(a5_nodes, "Forecasts & Prognosen");
+			t11 = claim_text(a5_nodes, "Forecasting & Prognosen");
 			a5_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
 			this.h();
