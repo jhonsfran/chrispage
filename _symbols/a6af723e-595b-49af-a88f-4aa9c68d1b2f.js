@@ -1,4 +1,4 @@
-// Icon Cards - Updated June 30, 2026
+// Icon Cards - Updated July 3, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore

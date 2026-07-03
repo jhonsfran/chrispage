@@ -1,4 +1,4 @@
-// Site Footer Für Unternehmen  - Updated June 30, 2026
+// Site Footer Für Unternehmen  - Updated July 3, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -2644,7 +2644,12 @@ function create_each_block_1(ctx) {
 		},
 		h() {
 			attr(a, "class", "link svelte-a65hzu");
-			attr(a, "href", a_href_value = /*link*/ ctx[8].url);
+
+			attr(a, "href", a_href_value = /*link*/ ctx[8].label === 'Unser Team'
+			? '/team'
+			: /*link*/ ctx[8].label === 'Kontakt'
+				? '/kontakt'
+				: /*link*/ ctx[8].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -2653,7 +2658,11 @@ function create_each_block_1(ctx) {
 		p(ctx, dirty) {
 			if (dirty & /*footer_links*/ 2 && t_value !== (t_value = /*link*/ ctx[8].label + "")) set_data(t, t_value);
 
-			if (dirty & /*footer_links*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[8].url)) {
+			if (dirty & /*footer_links*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[8].label === 'Unser Team'
+			? '/team'
+			: /*link*/ ctx[8].label === 'Kontakt'
+				? '/kontakt'
+				: /*link*/ ctx[8].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
