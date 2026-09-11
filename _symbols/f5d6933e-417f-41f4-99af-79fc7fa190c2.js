@@ -1,4 +1,4 @@
-// Filter und Blogbeiträge - Updated September 10, 2026
+// Filter und Blogbeiträge - Updated September 11, 2026
 function noop() { }
 const identity = x => x;
 function run(fn) {
@@ -958,13 +958,13 @@ function create_each_block_1(ctx) {
 		},
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
-			if (dirty & /*categories*/ 8 && t0_value !== (t0_value = /*category*/ ctx[21].label + "")) set_data(t0, t0_value);
+			if (dirty & /*categories*/ 2 && t0_value !== (t0_value = /*category*/ ctx[21].label + "")) set_data(t0, t0_value);
 
-			if (dirty & /*activeCategory, categories*/ 24 && button_aria_pressed_value !== (button_aria_pressed_value = /*activeCategory*/ ctx[4] === /*category*/ ctx[21].label)) {
+			if (dirty & /*activeCategory, categories*/ 18 && button_aria_pressed_value !== (button_aria_pressed_value = /*activeCategory*/ ctx[4] === /*category*/ ctx[21].label)) {
 				attr(button, "aria-pressed", button_aria_pressed_value);
 			}
 
-			if (dirty & /*activeCategory, categories*/ 24) {
+			if (dirty & /*activeCategory, categories*/ 18) {
 				toggle_class(button, "active", /*activeCategory*/ ctx[4] === /*category*/ ctx[21].label);
 			}
 		},
@@ -1626,7 +1626,7 @@ function create_fragment(ctx) {
 	let current;
 	let mounted;
 	let dispose;
-	let each_value_1 = /*categories*/ ctx[3];
+	let each_value_1 = /*categories*/ ctx[1];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_1.length; i += 1) {
@@ -1747,7 +1747,7 @@ function create_fragment(ctx) {
 			attr(svg, "class", "svelte-1cb6l9x");
 			attr(span, "class", "cg-visually-hidden svelte-1cb6l9x");
 			attr(input, "type", "search");
-			attr(input, "placeholder", /*search_placeholder*/ ctx[1]);
+			attr(input, "placeholder", /*search_placeholder*/ ctx[3]);
 			attr(input, "class", "svelte-1cb6l9x");
 			attr(label, "class", "cg-blog-search svelte-1cb6l9x");
 			attr(div1, "class", "cg-blog-toolbar svelte-1cb6l9x");
@@ -1799,8 +1799,8 @@ function create_fragment(ctx) {
 		p(ctx, [dirty]) {
 			if (!current || dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
 
-			if (dirty & /*activeCategory, categories, selectCategory*/ 280) {
-				each_value_1 = /*categories*/ ctx[3];
+			if (dirty & /*activeCategory, categories, selectCategory*/ 274) {
+				each_value_1 = /*categories*/ ctx[1];
 				let i;
 
 				for (i = 0; i < each_value_1.length; i += 1) {
@@ -1822,8 +1822,8 @@ function create_fragment(ctx) {
 				each_blocks.length = each_value_1.length;
 			}
 
-			if (!current || dirty & /*search_placeholder*/ 2) {
-				attr(input, "placeholder", /*search_placeholder*/ ctx[1]);
+			if (!current || dirty & /*search_placeholder*/ 8) {
+				attr(input, "placeholder", /*search_placeholder*/ ctx[3]);
 			}
 
 			if (dirty & /*searchTerm*/ 32 && input.value !== /*searchTerm*/ ctx[5]) {
@@ -1983,11 +1983,11 @@ function renderPostContent(content) {
 function instance($$self, $$props, $$invalidate) {
 	let filteredPosts;
 	let { props } = $$props;
-	let { heading } = $$props;
-	let { search_placeholder } = $$props;
-	let { empty_message } = $$props;
-	let { categories } = $$props;
 	let { posts } = $$props;
+	let { heading } = $$props;
+	let { categories } = $$props;
+	let { empty_message } = $$props;
+	let { search_placeholder } = $$props;
 	let activeCategory = "Alle Beiträge";
 	let searchTerm = "";
 	let selectedPost = null;
@@ -2045,11 +2045,11 @@ function instance($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(12, props = $$props.props);
-		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
-		if ('search_placeholder' in $$props) $$invalidate(1, search_placeholder = $$props.search_placeholder);
-		if ('empty_message' in $$props) $$invalidate(2, empty_message = $$props.empty_message);
-		if ('categories' in $$props) $$invalidate(3, categories = $$props.categories);
 		if ('posts' in $$props) $$invalidate(13, posts = $$props.posts);
+		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
+		if ('categories' in $$props) $$invalidate(1, categories = $$props.categories);
+		if ('empty_message' in $$props) $$invalidate(2, empty_message = $$props.empty_message);
+		if ('search_placeholder' in $$props) $$invalidate(3, search_placeholder = $$props.search_placeholder);
 	};
 
 	$$self.$$.update = () => {
@@ -2065,9 +2065,9 @@ function instance($$self, $$props, $$invalidate) {
 
 	return [
 		heading,
-		search_placeholder,
-		empty_message,
 		categories,
+		empty_message,
+		search_placeholder,
 		activeCategory,
 		searchTerm,
 		selectedPost,
@@ -2090,11 +2090,11 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 12,
+			posts: 13,
 			heading: 0,
-			search_placeholder: 1,
+			categories: 1,
 			empty_message: 2,
-			categories: 3,
-			posts: 13
+			search_placeholder: 3
 		});
 	}
 }
