@@ -896,20 +896,27 @@ function fly(node, { delay = 0, duration = 400, easing = cubicOut, x = 0, y = 0,
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[18] = list[i];
+	child_ctx[26] = list[i];
+	child_ctx[28] = i;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[21] = list[i];
+	child_ctx[29] = list[i];
 	return child_ctx;
 }
 
-// (879:8) {#each categories as category}
-function create_each_block_1(ctx) {
+function get_each_context_2(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[32] = list[i];
+	return child_ctx;
+}
+
+// (1121:8) {#each categories as category}
+function create_each_block_2(ctx) {
 	let button;
-	let t0_value = /*category*/ ctx[21].label + "";
+	let t0_value = /*category*/ ctx[32].label + "";
 	let t0;
 	let t1;
 	let button_aria_pressed_value;
@@ -917,7 +924,7 @@ function create_each_block_1(ctx) {
 	let dispose;
 
 	function click_handler() {
-		return /*click_handler*/ ctx[14](/*category*/ ctx[21]);
+		return /*click_handler*/ ctx[20](/*category*/ ctx[32]);
 	}
 
 	return {
@@ -942,9 +949,9 @@ function create_each_block_1(ctx) {
 		},
 		h() {
 			attr(button, "type", "button");
-			attr(button, "aria-pressed", button_aria_pressed_value = /*activeCategory*/ ctx[4] === /*category*/ ctx[21].label);
-			attr(button, "class", "svelte-wmkoih");
-			toggle_class(button, "active", /*activeCategory*/ ctx[4] === /*category*/ ctx[21].label);
+			attr(button, "aria-pressed", button_aria_pressed_value = /*activeCategory*/ ctx[4] === /*category*/ ctx[32].label);
+			attr(button, "class", "svelte-f909za");
+			toggle_class(button, "active", /*activeCategory*/ ctx[4] === /*category*/ ctx[32].label);
 		},
 		m(target, anchor) {
 			insert_hydration(target, button, anchor);
@@ -958,14 +965,14 @@ function create_each_block_1(ctx) {
 		},
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
-			if (dirty & /*categories*/ 2 && t0_value !== (t0_value = /*category*/ ctx[21].label + "")) set_data(t0, t0_value);
+			if (dirty[0] & /*categories*/ 2 && t0_value !== (t0_value = /*category*/ ctx[32].label + "")) set_data(t0, t0_value);
 
-			if (dirty & /*activeCategory, categories*/ 18 && button_aria_pressed_value !== (button_aria_pressed_value = /*activeCategory*/ ctx[4] === /*category*/ ctx[21].label)) {
+			if (dirty[0] & /*activeCategory, categories*/ 18 && button_aria_pressed_value !== (button_aria_pressed_value = /*activeCategory*/ ctx[4] === /*category*/ ctx[32].label)) {
 				attr(button, "aria-pressed", button_aria_pressed_value);
 			}
 
-			if (dirty & /*activeCategory, categories*/ 18) {
-				toggle_class(button, "active", /*activeCategory*/ ctx[4] === /*category*/ ctx[21].label);
+			if (dirty[0] & /*activeCategory, categories*/ 18) {
+				toggle_class(button, "active", /*activeCategory*/ ctx[4] === /*category*/ ctx[32].label);
 			}
 		},
 		d(detaching) {
@@ -976,7 +983,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (953:4) {:else}
+// (1207:4) {:else}
 function create_else_block(ctx) {
 	let div;
 	let p;
@@ -1000,8 +1007,8 @@ function create_else_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(p, "class", "svelte-wmkoih");
-			attr(div, "class", "cg-blog-empty svelte-wmkoih");
+			attr(p, "class", "svelte-f909za");
+			attr(div, "class", "cg-blog-empty svelte-f909za");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -1009,7 +1016,7 @@ function create_else_block(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*empty_message*/ 4) set_data(t, /*empty_message*/ ctx[2]);
+			if (dirty[0] & /*empty_message*/ 4) set_data(t, /*empty_message*/ ctx[2]);
 		},
 		d(detaching) {
 			if (detaching) detach(div);
@@ -1017,14 +1024,14 @@ function create_else_block(ctx) {
 	};
 }
 
-// (910:4) {#if filteredPosts.length > 0}
-function create_if_block_1(ctx) {
+// (1152:4) {#if filteredPosts.length > 0}
+function create_if_block_6(ctx) {
 	let div;
-	let each_value = /*filteredPosts*/ ctx[7];
+	let each_value_1 = /*filteredPosts*/ ctx[9];
 	let each_blocks = [];
 
-	for (let i = 0; i < each_value.length; i += 1) {
-		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+	for (let i = 0; i < each_value_1.length; i += 1) {
+		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
 	}
 
 	return {
@@ -1049,7 +1056,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "cg-blog-grid svelte-wmkoih");
+			attr(div, "class", "cg-blog-grid svelte-f909za");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -1061,17 +1068,17 @@ function create_if_block_1(ctx) {
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty & /*openArticle, filteredPosts*/ 1152) {
-				each_value = /*filteredPosts*/ ctx[7];
+			if (dirty[0] & /*openArticle, filteredPosts*/ 8704) {
+				each_value_1 = /*filteredPosts*/ ctx[9];
 				let i;
 
-				for (i = 0; i < each_value.length; i += 1) {
-					const child_ctx = get_each_context(ctx, each_value, i);
+				for (i = 0; i < each_value_1.length; i += 1) {
+					const child_ctx = get_each_context_1(ctx, each_value_1, i);
 
 					if (each_blocks[i]) {
 						each_blocks[i].p(child_ctx, dirty);
 					} else {
-						each_blocks[i] = create_each_block(child_ctx);
+						each_blocks[i] = create_each_block_1(child_ctx);
 						each_blocks[i].c();
 						each_blocks[i].m(div, null);
 					}
@@ -1081,7 +1088,7 @@ function create_if_block_1(ctx) {
 					each_blocks[i].d(1);
 				}
 
-				each_blocks.length = each_value.length;
+				each_blocks.length = each_value_1.length;
 			}
 		},
 		d(detaching) {
@@ -1091,123 +1098,145 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (912:8) {#each filteredPosts as post}
-function create_each_block(ctx) {
+// (1154:8) {#each filteredPosts as post}
+function create_each_block_1(ctx) {
 	let article;
-	let div0;
+	let button0;
 	let img;
 	let img_src_value;
 	let img_alt_value;
 	let t0;
-	let div2;
-	let div1;
-	let span;
-	let t1_value = /*post*/ ctx[18].category + "";
+	let span0;
 	let t1;
+	let button0_aria_label_value;
 	let t2;
-	let time;
-	let t3_value = /*post*/ ctx[18].date_label + "";
+	let div1;
+	let div0;
+	let span1;
+	let t3_value = /*post*/ ctx[29].category + "";
 	let t3;
-	let time_datetime_value;
 	let t4;
-	let h3;
-	let t5_value = /*post*/ ctx[18].title + "";
+	let time;
+	let t5_value = /*post*/ ctx[29].date_label + "";
 	let t5;
+	let time_datetime_value;
 	let t6;
-	let p;
-	let t7_value = /*post*/ ctx[18].teaser + "";
+	let h3;
+	let t7_value = /*post*/ ctx[29].title + "";
 	let t7;
 	let t8;
-	let button;
+	let p;
+	let t9_value = /*post*/ ctx[29].teaser + "";
 	let t9;
+	let t10;
+	let button1;
+	let t11;
 	let svg;
 	let path;
-	let t10;
+	let t12;
 	let mounted;
 	let dispose;
 
 	function click_handler_1() {
-		return /*click_handler_1*/ ctx[16](/*post*/ ctx[18]);
+		return /*click_handler_1*/ ctx[22](/*post*/ ctx[29]);
+	}
+
+	function click_handler_2() {
+		return /*click_handler_2*/ ctx[23](/*post*/ ctx[29]);
 	}
 
 	return {
 		c() {
 			article = element("article");
-			div0 = element("div");
+			button0 = element("button");
 			img = element("img");
 			t0 = space();
-			div2 = element("div");
-			div1 = element("div");
-			span = element("span");
-			t1 = text(t1_value);
+			span0 = element("span");
+			t1 = text("Beitrag öffnen");
 			t2 = space();
-			time = element("time");
+			div1 = element("div");
+			div0 = element("div");
+			span1 = element("span");
 			t3 = text(t3_value);
 			t4 = space();
-			h3 = element("h3");
+			time = element("time");
 			t5 = text(t5_value);
 			t6 = space();
-			p = element("p");
+			h3 = element("h3");
 			t7 = text(t7_value);
 			t8 = space();
-			button = element("button");
-			t9 = text("Mehr anzeigen\n\n                ");
+			p = element("p");
+			t9 = text(t9_value);
+			t10 = space();
+			button1 = element("button");
+			t11 = text("Mehr anzeigen\n\n                ");
 			svg = svg_element("svg");
 			path = svg_element("path");
-			t10 = space();
+			t12 = space();
 			this.h();
 		},
 		l(nodes) {
 			article = claim_element(nodes, "ARTICLE", { class: true });
 			var article_nodes = children(article);
-			div0 = claim_element(article_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
 
-			img = claim_element(div0_nodes, "IMG", {
+			button0 = claim_element(article_nodes, "BUTTON", {
+				type: true,
+				class: true,
+				"aria-label": true
+			});
+
+			var button0_nodes = children(button0);
+
+			img = claim_element(button0_nodes, "IMG", {
 				src: true,
 				alt: true,
 				loading: true,
 				class: true
 			});
 
-			div0_nodes.forEach(detach);
-			t0 = claim_space(article_nodes);
-			div2 = claim_element(article_nodes, "DIV", { class: true });
-			var div2_nodes = children(div2);
-			div1 = claim_element(div2_nodes, "DIV", { class: true });
+			t0 = claim_space(button0_nodes);
+			span0 = claim_element(button0_nodes, "SPAN", { class: true, "aria-hidden": true });
+			var span0_nodes = children(span0);
+			t1 = claim_text(span0_nodes, "Beitrag öffnen");
+			span0_nodes.forEach(detach);
+			button0_nodes.forEach(detach);
+			t2 = claim_space(article_nodes);
+			div1 = claim_element(article_nodes, "DIV", { class: true });
 			var div1_nodes = children(div1);
-			span = claim_element(div1_nodes, "SPAN", { class: true });
-			var span_nodes = children(span);
-			t1 = claim_text(span_nodes, t1_value);
-			span_nodes.forEach(detach);
-			t2 = claim_space(div1_nodes);
-			time = claim_element(div1_nodes, "TIME", { datetime: true, class: true });
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			span1 = claim_element(div0_nodes, "SPAN", { class: true });
+			var span1_nodes = children(span1);
+			t3 = claim_text(span1_nodes, t3_value);
+			span1_nodes.forEach(detach);
+			t4 = claim_space(div0_nodes);
+			time = claim_element(div0_nodes, "TIME", { datetime: true, class: true });
 			var time_nodes = children(time);
-			t3 = claim_text(time_nodes, t3_value);
+			t5 = claim_text(time_nodes, t5_value);
 			time_nodes.forEach(detach);
-			div1_nodes.forEach(detach);
-			t4 = claim_space(div2_nodes);
-			h3 = claim_element(div2_nodes, "H3", { class: true });
+			div0_nodes.forEach(detach);
+			t6 = claim_space(div1_nodes);
+			h3 = claim_element(div1_nodes, "H3", { class: true });
 			var h3_nodes = children(h3);
-			t5 = claim_text(h3_nodes, t5_value);
+			t7 = claim_text(h3_nodes, t7_value);
 			h3_nodes.forEach(detach);
-			t6 = claim_space(div2_nodes);
-			p = claim_element(div2_nodes, "P", { class: true });
+			t8 = claim_space(div1_nodes);
+			p = claim_element(div1_nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t7 = claim_text(p_nodes, t7_value);
+			t9 = claim_text(p_nodes, t9_value);
 			p_nodes.forEach(detach);
-			t8 = claim_space(div2_nodes);
+			t10 = claim_space(div1_nodes);
 
-			button = claim_element(div2_nodes, "BUTTON", {
+			button1 = claim_element(div1_nodes, "BUTTON", {
 				type: true,
 				class: true,
 				"aria-haspopup": true
 			});
 
-			var button_nodes = children(button);
-			t9 = claim_text(button_nodes, "Mehr anzeigen\n\n                ");
+			var button1_nodes = children(button1);
+			t11 = claim_text(button1_nodes, "Mehr anzeigen\n\n                ");
 
-			svg = claim_svg_element(button_nodes, "svg", {
+			svg = claim_svg_element(button1_nodes, "svg", {
 				viewBox: true,
 				"aria-hidden": true,
 				class: true
@@ -1217,95 +1246,110 @@ function create_each_block(ctx) {
 			path = claim_svg_element(svg_nodes, "path", { d: true, class: true });
 			children(path).forEach(detach);
 			svg_nodes.forEach(detach);
-			button_nodes.forEach(detach);
-			div2_nodes.forEach(detach);
-			t10 = claim_space(article_nodes);
+			button1_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			t12 = claim_space(article_nodes);
 			article_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			if (!src_url_equal(img.src, img_src_value = /*post*/ ctx[18].image.url)) attr(img, "src", img_src_value);
-			attr(img, "alt", img_alt_value = /*post*/ ctx[18].image.alt);
+			if (!src_url_equal(img.src, img_src_value = /*post*/ ctx[29].image.url)) attr(img, "src", img_src_value);
+			attr(img, "alt", img_alt_value = /*post*/ ctx[29].image.alt);
 			attr(img, "loading", "lazy");
-			attr(img, "class", "svelte-wmkoih");
-			attr(div0, "class", "cg-blog-card__image svelte-wmkoih");
-			attr(span, "class", "svelte-wmkoih");
-			attr(time, "datetime", time_datetime_value = /*post*/ ctx[18].date_iso);
-			attr(time, "class", "svelte-wmkoih");
-			attr(div1, "class", "cg-blog-card__meta svelte-wmkoih");
-			attr(h3, "class", "svelte-wmkoih");
-			attr(p, "class", "cg-blog-card__teaser svelte-wmkoih");
+			attr(img, "class", "svelte-f909za");
+			attr(span0, "class", "cg-blog-card__image-overlay svelte-f909za");
+			attr(span0, "aria-hidden", "true");
+			attr(button0, "type", "button");
+			attr(button0, "class", "cg-blog-card__image svelte-f909za");
+			attr(button0, "aria-label", button0_aria_label_value = "Beitrag öffnen: " + /*post*/ ctx[29].title);
+			attr(span1, "class", "svelte-f909za");
+			attr(time, "datetime", time_datetime_value = /*post*/ ctx[29].date_iso);
+			attr(time, "class", "svelte-f909za");
+			attr(div0, "class", "cg-blog-card__meta svelte-f909za");
+			attr(h3, "class", "svelte-f909za");
+			attr(p, "class", "cg-blog-card__teaser svelte-f909za");
 			attr(path, "d", "m8 10 4 4 4-4");
-			attr(path, "class", "svelte-wmkoih");
+			attr(path, "class", "svelte-f909za");
 			attr(svg, "viewBox", "0 0 24 24");
 			attr(svg, "aria-hidden", "true");
-			attr(svg, "class", "svelte-wmkoih");
-			attr(button, "type", "button");
-			attr(button, "class", "cg-blog-card__button svelte-wmkoih");
-			attr(button, "aria-haspopup", "dialog");
-			attr(div2, "class", "cg-blog-card__body svelte-wmkoih");
-			attr(article, "class", "cg-blog-card svelte-wmkoih");
+			attr(svg, "class", "svelte-f909za");
+			attr(button1, "type", "button");
+			attr(button1, "class", "cg-blog-card__button svelte-f909za");
+			attr(button1, "aria-haspopup", "dialog");
+			attr(div1, "class", "cg-blog-card__body svelte-f909za");
+			attr(article, "class", "cg-blog-card svelte-f909za");
 		},
 		m(target, anchor) {
 			insert_hydration(target, article, anchor);
-			append_hydration(article, div0);
-			append_hydration(div0, img);
-			append_hydration(article, t0);
-			append_hydration(article, div2);
-			append_hydration(div2, div1);
-			append_hydration(div1, span);
-			append_hydration(span, t1);
-			append_hydration(div1, t2);
-			append_hydration(div1, time);
-			append_hydration(time, t3);
-			append_hydration(div2, t4);
-			append_hydration(div2, h3);
-			append_hydration(h3, t5);
-			append_hydration(div2, t6);
-			append_hydration(div2, p);
-			append_hydration(p, t7);
-			append_hydration(div2, t8);
-			append_hydration(div2, button);
-			append_hydration(button, t9);
-			append_hydration(button, svg);
+			append_hydration(article, button0);
+			append_hydration(button0, img);
+			append_hydration(button0, t0);
+			append_hydration(button0, span0);
+			append_hydration(span0, t1);
+			append_hydration(article, t2);
+			append_hydration(article, div1);
+			append_hydration(div1, div0);
+			append_hydration(div0, span1);
+			append_hydration(span1, t3);
+			append_hydration(div0, t4);
+			append_hydration(div0, time);
+			append_hydration(time, t5);
+			append_hydration(div1, t6);
+			append_hydration(div1, h3);
+			append_hydration(h3, t7);
+			append_hydration(div1, t8);
+			append_hydration(div1, p);
+			append_hydration(p, t9);
+			append_hydration(div1, t10);
+			append_hydration(div1, button1);
+			append_hydration(button1, t11);
+			append_hydration(button1, svg);
 			append_hydration(svg, path);
-			append_hydration(article, t10);
+			append_hydration(article, t12);
 
 			if (!mounted) {
-				dispose = listen(button, "click", click_handler_1);
+				dispose = [
+					listen(button0, "click", click_handler_1),
+					listen(button1, "click", click_handler_2)
+				];
+
 				mounted = true;
 			}
 		},
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
 
-			if (dirty & /*filteredPosts*/ 128 && !src_url_equal(img.src, img_src_value = /*post*/ ctx[18].image.url)) {
+			if (dirty[0] & /*filteredPosts*/ 512 && !src_url_equal(img.src, img_src_value = /*post*/ ctx[29].image.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty & /*filteredPosts*/ 128 && img_alt_value !== (img_alt_value = /*post*/ ctx[18].image.alt)) {
+			if (dirty[0] & /*filteredPosts*/ 512 && img_alt_value !== (img_alt_value = /*post*/ ctx[29].image.alt)) {
 				attr(img, "alt", img_alt_value);
 			}
 
-			if (dirty & /*filteredPosts*/ 128 && t1_value !== (t1_value = /*post*/ ctx[18].category + "")) set_data(t1, t1_value);
-			if (dirty & /*filteredPosts*/ 128 && t3_value !== (t3_value = /*post*/ ctx[18].date_label + "")) set_data(t3, t3_value);
+			if (dirty[0] & /*filteredPosts*/ 512 && button0_aria_label_value !== (button0_aria_label_value = "Beitrag öffnen: " + /*post*/ ctx[29].title)) {
+				attr(button0, "aria-label", button0_aria_label_value);
+			}
 
-			if (dirty & /*filteredPosts*/ 128 && time_datetime_value !== (time_datetime_value = /*post*/ ctx[18].date_iso)) {
+			if (dirty[0] & /*filteredPosts*/ 512 && t3_value !== (t3_value = /*post*/ ctx[29].category + "")) set_data(t3, t3_value);
+			if (dirty[0] & /*filteredPosts*/ 512 && t5_value !== (t5_value = /*post*/ ctx[29].date_label + "")) set_data(t5, t5_value);
+
+			if (dirty[0] & /*filteredPosts*/ 512 && time_datetime_value !== (time_datetime_value = /*post*/ ctx[29].date_iso)) {
 				attr(time, "datetime", time_datetime_value);
 			}
 
-			if (dirty & /*filteredPosts*/ 128 && t5_value !== (t5_value = /*post*/ ctx[18].title + "")) set_data(t5, t5_value);
-			if (dirty & /*filteredPosts*/ 128 && t7_value !== (t7_value = /*post*/ ctx[18].teaser + "")) set_data(t7, t7_value);
+			if (dirty[0] & /*filteredPosts*/ 512 && t7_value !== (t7_value = /*post*/ ctx[29].title + "")) set_data(t7, t7_value);
+			if (dirty[0] & /*filteredPosts*/ 512 && t9_value !== (t9_value = /*post*/ ctx[29].teaser + "")) set_data(t9, t9_value);
 		},
 		d(detaching) {
 			if (detaching) detach(article);
 			mounted = false;
-			dispose();
+			run_all(dispose);
 		}
 	};
 }
 
-// (960:2) {#if selectedPost}
+// (1214:2) {#if selectedPost}
 function create_if_block(ctx) {
 	let div4;
 	let article;
@@ -1341,16 +1385,18 @@ function create_if_block(ctx) {
 	let div2;
 	let raw_value = renderPostContent(/*selectedPost*/ ctx[6].content) + "";
 	let t10;
-	let button1;
 	let t11;
-	let span1;
+	let button1;
 	let t12;
+	let span1;
+	let t13;
 	let article_aria_labelledby_value;
 	let article_transition;
 	let div4_transition;
 	let current;
 	let mounted;
 	let dispose;
+	let if_block = /*galleryItems*/ ctx[8].length > 0 && /*currentGalleryImage*/ ctx[10] && create_if_block_1(ctx);
 
 	return {
 		c() {
@@ -1379,10 +1425,12 @@ function create_if_block(ctx) {
 			t9 = space();
 			div2 = element("div");
 			t10 = space();
+			if (if_block) if_block.c();
+			t11 = space();
 			button1 = element("button");
-			t11 = text("Weniger anzeigen\n            ");
+			t12 = text("Weniger anzeigen\n            ");
 			span1 = element("span");
-			t12 = text("↑");
+			t13 = text("↑");
 			this.h();
 		},
 		l(nodes) {
@@ -1452,12 +1500,14 @@ function create_if_block(ctx) {
 			var div2_nodes = children(div2);
 			div2_nodes.forEach(detach);
 			t10 = claim_space(div3_nodes);
+			if (if_block) if_block.l(div3_nodes);
+			t11 = claim_space(div3_nodes);
 			button1 = claim_element(div3_nodes, "BUTTON", { type: true, class: true });
 			var button1_nodes = children(button1);
-			t11 = claim_text(button1_nodes, "Weniger anzeigen\n            ");
+			t12 = claim_text(button1_nodes, "Weniger anzeigen\n            ");
 			span1 = claim_element(button1_nodes, "SPAN", { "aria-hidden": true, class: true });
 			var span1_nodes = children(span1);
-			t12 = claim_text(span1_nodes, "↑");
+			t13 = claim_text(span1_nodes, "↑");
 			span1_nodes.forEach(detach);
 			button1_nodes.forEach(detach);
 			div3_nodes.forEach(detach);
@@ -1467,35 +1517,35 @@ function create_if_block(ctx) {
 		},
 		h() {
 			attr(path, "d", "M6 6l12 12M18 6 6 18");
-			attr(path, "class", "svelte-wmkoih");
+			attr(path, "class", "svelte-f909za");
 			attr(svg, "viewBox", "0 0 24 24");
 			attr(svg, "aria-hidden", "true");
-			attr(svg, "class", "svelte-wmkoih");
+			attr(svg, "class", "svelte-f909za");
 			attr(button0, "type", "button");
-			attr(button0, "class", "cg-blog-modal__close svelte-wmkoih");
+			attr(button0, "class", "cg-blog-modal__close svelte-f909za");
 			attr(button0, "aria-label", "Beitrag schließen");
 			if (!src_url_equal(img.src, img_src_value = /*selectedPost*/ ctx[6].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*selectedPost*/ ctx[6].image.alt);
-			attr(img, "class", "svelte-wmkoih");
-			attr(div0, "class", "cg-blog-modal__image svelte-wmkoih");
-			attr(span0, "class", "svelte-wmkoih");
+			attr(img, "class", "svelte-f909za");
+			attr(div0, "class", "cg-blog-modal__image svelte-f909za");
+			attr(span0, "class", "svelte-f909za");
 			attr(time, "datetime", time_datetime_value = /*selectedPost*/ ctx[6].date_iso);
-			attr(time, "class", "svelte-wmkoih");
-			attr(div1, "class", "cg-blog-modal__meta svelte-wmkoih");
+			attr(time, "class", "svelte-f909za");
+			attr(div1, "class", "cg-blog-modal__meta svelte-f909za");
 			attr(h2, "id", h2_id_value = "cg-modal-title-" + /*selectedPost*/ ctx[6].id);
-			attr(h2, "class", "svelte-wmkoih");
-			attr(p, "class", "cg-blog-modal__teaser svelte-wmkoih");
-			attr(div2, "class", "cg-blog-modal__content svelte-wmkoih");
+			attr(h2, "class", "svelte-f909za");
+			attr(p, "class", "cg-blog-modal__teaser svelte-f909za");
+			attr(div2, "class", "cg-blog-modal__content svelte-f909za");
 			attr(span1, "aria-hidden", "true");
-			attr(span1, "class", "svelte-wmkoih");
+			attr(span1, "class", "svelte-f909za");
 			attr(button1, "type", "button");
-			attr(button1, "class", "cg-blog-modal__bottom-close svelte-wmkoih");
-			attr(div3, "class", "cg-blog-modal__body svelte-wmkoih");
-			attr(article, "class", "cg-blog-modal svelte-wmkoih");
+			attr(button1, "class", "cg-blog-modal__bottom-close svelte-f909za");
+			attr(div3, "class", "cg-blog-modal__body svelte-f909za");
+			attr(article, "class", "cg-blog-modal svelte-f909za");
 			attr(article, "role", "dialog");
 			attr(article, "aria-modal", "true");
 			attr(article, "aria-labelledby", article_aria_labelledby_value = "cg-modal-title-" + /*selectedPost*/ ctx[6].id);
-			attr(div4, "class", "cg-blog-overlay svelte-wmkoih");
+			attr(div4, "class", "cg-blog-overlay svelte-f909za");
 			attr(div4, "role", "presentation");
 		},
 		m(target, anchor) {
@@ -1525,52 +1575,78 @@ function create_if_block(ctx) {
 			append_hydration(div3, div2);
 			div2.innerHTML = raw_value;
 			append_hydration(div3, t10);
+			if (if_block) if_block.m(div3, null);
+			append_hydration(div3, t11);
 			append_hydration(div3, button1);
-			append_hydration(button1, t11);
+			append_hydration(button1, t12);
 			append_hydration(button1, span1);
-			append_hydration(span1, t12);
+			append_hydration(span1, t13);
 			current = true;
 
 			if (!mounted) {
 				dispose = [
-					listen(button0, "click", /*closeArticle*/ ctx[11]),
-					listen(button1, "click", /*closeArticle*/ ctx[11]),
-					listen(div4, "click", self(/*closeArticle*/ ctx[11]))
+					listen(button0, "click", /*closeArticle*/ ctx[14]),
+					listen(button1, "click", /*closeArticle*/ ctx[14]),
+					listen(div4, "click", self(/*closeArticle*/ ctx[14]))
 				];
 
 				mounted = true;
 			}
 		},
 		p(ctx, dirty) {
-			if (!current || dirty & /*selectedPost*/ 64 && !src_url_equal(img.src, img_src_value = /*selectedPost*/ ctx[6].image.url)) {
+			if (!current || dirty[0] & /*selectedPost*/ 64 && !src_url_equal(img.src, img_src_value = /*selectedPost*/ ctx[6].image.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (!current || dirty & /*selectedPost*/ 64 && img_alt_value !== (img_alt_value = /*selectedPost*/ ctx[6].image.alt)) {
+			if (!current || dirty[0] & /*selectedPost*/ 64 && img_alt_value !== (img_alt_value = /*selectedPost*/ ctx[6].image.alt)) {
 				attr(img, "alt", img_alt_value);
 			}
 
-			if ((!current || dirty & /*selectedPost*/ 64) && t2_value !== (t2_value = /*selectedPost*/ ctx[6].category + "")) set_data(t2, t2_value);
-			if ((!current || dirty & /*selectedPost*/ 64) && t4_value !== (t4_value = /*selectedPost*/ ctx[6].date_label + "")) set_data(t4, t4_value);
+			if ((!current || dirty[0] & /*selectedPost*/ 64) && t2_value !== (t2_value = /*selectedPost*/ ctx[6].category + "")) set_data(t2, t2_value);
+			if ((!current || dirty[0] & /*selectedPost*/ 64) && t4_value !== (t4_value = /*selectedPost*/ ctx[6].date_label + "")) set_data(t4, t4_value);
 
-			if (!current || dirty & /*selectedPost*/ 64 && time_datetime_value !== (time_datetime_value = /*selectedPost*/ ctx[6].date_iso)) {
+			if (!current || dirty[0] & /*selectedPost*/ 64 && time_datetime_value !== (time_datetime_value = /*selectedPost*/ ctx[6].date_iso)) {
 				attr(time, "datetime", time_datetime_value);
 			}
 
-			if ((!current || dirty & /*selectedPost*/ 64) && t6_value !== (t6_value = /*selectedPost*/ ctx[6].title + "")) set_data(t6, t6_value);
+			if ((!current || dirty[0] & /*selectedPost*/ 64) && t6_value !== (t6_value = /*selectedPost*/ ctx[6].title + "")) set_data(t6, t6_value);
 
-			if (!current || dirty & /*selectedPost*/ 64 && h2_id_value !== (h2_id_value = "cg-modal-title-" + /*selectedPost*/ ctx[6].id)) {
+			if (!current || dirty[0] & /*selectedPost*/ 64 && h2_id_value !== (h2_id_value = "cg-modal-title-" + /*selectedPost*/ ctx[6].id)) {
 				attr(h2, "id", h2_id_value);
 			}
 
-			if ((!current || dirty & /*selectedPost*/ 64) && t8_value !== (t8_value = /*selectedPost*/ ctx[6].teaser + "")) set_data(t8, t8_value);
-			if ((!current || dirty & /*selectedPost*/ 64) && raw_value !== (raw_value = renderPostContent(/*selectedPost*/ ctx[6].content) + "")) div2.innerHTML = raw_value;
-			if (!current || dirty & /*selectedPost*/ 64 && article_aria_labelledby_value !== (article_aria_labelledby_value = "cg-modal-title-" + /*selectedPost*/ ctx[6].id)) {
+			if ((!current || dirty[0] & /*selectedPost*/ 64) && t8_value !== (t8_value = /*selectedPost*/ ctx[6].teaser + "")) set_data(t8, t8_value);
+			if ((!current || dirty[0] & /*selectedPost*/ 64) && raw_value !== (raw_value = renderPostContent(/*selectedPost*/ ctx[6].content) + "")) div2.innerHTML = raw_value;
+			if (/*galleryItems*/ ctx[8].length > 0 && /*currentGalleryImage*/ ctx[10]) {
+				if (if_block) {
+					if_block.p(ctx, dirty);
+
+					if (dirty[0] & /*galleryItems, currentGalleryImage*/ 1280) {
+						transition_in(if_block, 1);
+					}
+				} else {
+					if_block = create_if_block_1(ctx);
+					if_block.c();
+					transition_in(if_block, 1);
+					if_block.m(div3, t11);
+				}
+			} else if (if_block) {
+				group_outros();
+
+				transition_out(if_block, 1, 1, () => {
+					if_block = null;
+				});
+
+				check_outros();
+			}
+
+			if (!current || dirty[0] & /*selectedPost*/ 64 && article_aria_labelledby_value !== (article_aria_labelledby_value = "cg-modal-title-" + /*selectedPost*/ ctx[6].id)) {
 				attr(article, "aria-labelledby", article_aria_labelledby_value);
 			}
 		},
 		i(local) {
 			if (current) return;
+			transition_in(if_block);
 
 			add_render_callback(() => {
 				if (!current) return;
@@ -1587,6 +1663,7 @@ function create_if_block(ctx) {
 			current = true;
 		},
 		o(local) {
+			transition_out(if_block);
 			if (!article_transition) article_transition = create_bidirectional_transition(article, fly, { y: 28, duration: 340 }, false);
 			article_transition.run(0);
 			if (!div4_transition) div4_transition = create_bidirectional_transition(div4, fade, { duration: 220 }, false);
@@ -1595,10 +1672,608 @@ function create_if_block(ctx) {
 		},
 		d(detaching) {
 			if (detaching) detach(div4);
+			if (if_block) if_block.d();
 			if (detaching && article_transition) article_transition.end();
 			if (detaching && div4_transition) div4_transition.end();
 			mounted = false;
 			run_all(dispose);
+		}
+	};
+}
+
+// (1270:10) {#if galleryItems.length > 0 && currentGalleryImage}
+function create_if_block_1(ctx) {
+	let section;
+	let div0;
+	let h3;
+	let t0;
+	let t1;
+	let t2;
+	let div1;
+	let previous_key = /*currentGalleryImage*/ ctx[10].image.url;
+	let t3;
+	let t4;
+	let t5;
+	let section_aria_label_value;
+	let current;
+	let if_block0 = /*galleryItems*/ ctx[8].length > 1 && create_if_block_5(ctx);
+	let key_block = create_key_block(ctx);
+	let if_block1 = /*galleryItems*/ ctx[8].length > 1 && create_if_block_4(ctx);
+	let if_block2 = /*currentGalleryImage*/ ctx[10].caption && create_if_block_3(ctx);
+	let if_block3 = /*galleryItems*/ ctx[8].length > 1 && create_if_block_2(ctx);
+
+	return {
+		c() {
+			section = element("section");
+			div0 = element("div");
+			h3 = element("h3");
+			t0 = text("Bildergalerie");
+			t1 = space();
+			if (if_block0) if_block0.c();
+			t2 = space();
+			div1 = element("div");
+			key_block.c();
+			t3 = space();
+			if (if_block1) if_block1.c();
+			t4 = space();
+			if (if_block2) if_block2.c();
+			t5 = space();
+			if (if_block3) if_block3.c();
+			this.h();
+		},
+		l(nodes) {
+			section = claim_element(nodes, "SECTION", { class: true, "aria-label": true });
+			var section_nodes = children(section);
+			div0 = claim_element(section_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			h3 = claim_element(div0_nodes, "H3", { class: true });
+			var h3_nodes = children(h3);
+			t0 = claim_text(h3_nodes, "Bildergalerie");
+			h3_nodes.forEach(detach);
+			t1 = claim_space(div0_nodes);
+			if (if_block0) if_block0.l(div0_nodes);
+			div0_nodes.forEach(detach);
+			t2 = claim_space(section_nodes);
+			div1 = claim_element(section_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			key_block.l(div1_nodes);
+			t3 = claim_space(div1_nodes);
+			if (if_block1) if_block1.l(div1_nodes);
+			div1_nodes.forEach(detach);
+			t4 = claim_space(section_nodes);
+			if (if_block2) if_block2.l(section_nodes);
+			t5 = claim_space(section_nodes);
+			if (if_block3) if_block3.l(section_nodes);
+			section_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(h3, "class", "svelte-f909za");
+			attr(div0, "class", "cg-blog-gallery__heading svelte-f909za");
+			attr(div1, "class", "cg-blog-gallery__stage svelte-f909za");
+			attr(section, "class", "cg-blog-gallery svelte-f909za");
+			attr(section, "aria-label", section_aria_label_value = "Bildergalerie: " + /*selectedPost*/ ctx[6].title);
+		},
+		m(target, anchor) {
+			insert_hydration(target, section, anchor);
+			append_hydration(section, div0);
+			append_hydration(div0, h3);
+			append_hydration(h3, t0);
+			append_hydration(div0, t1);
+			if (if_block0) if_block0.m(div0, null);
+			append_hydration(section, t2);
+			append_hydration(section, div1);
+			key_block.m(div1, null);
+			append_hydration(div1, t3);
+			if (if_block1) if_block1.m(div1, null);
+			append_hydration(section, t4);
+			if (if_block2) if_block2.m(section, null);
+			append_hydration(section, t5);
+			if (if_block3) if_block3.m(section, null);
+			current = true;
+		},
+		p(ctx, dirty) {
+			if (/*galleryItems*/ ctx[8].length > 1) {
+				if (if_block0) {
+					if_block0.p(ctx, dirty);
+				} else {
+					if_block0 = create_if_block_5(ctx);
+					if_block0.c();
+					if_block0.m(div0, null);
+				}
+			} else if (if_block0) {
+				if_block0.d(1);
+				if_block0 = null;
+			}
+
+			if (dirty[0] & /*currentGalleryImage*/ 1024 && safe_not_equal(previous_key, previous_key = /*currentGalleryImage*/ ctx[10].image.url)) {
+				group_outros();
+				transition_out(key_block, 1, 1, noop);
+				check_outros();
+				key_block = create_key_block(ctx);
+				key_block.c();
+				transition_in(key_block, 1);
+				key_block.m(div1, t3);
+			} else {
+				key_block.p(ctx, dirty);
+			}
+
+			if (/*galleryItems*/ ctx[8].length > 1) {
+				if (if_block1) {
+					if_block1.p(ctx, dirty);
+				} else {
+					if_block1 = create_if_block_4(ctx);
+					if_block1.c();
+					if_block1.m(div1, null);
+				}
+			} else if (if_block1) {
+				if_block1.d(1);
+				if_block1 = null;
+			}
+
+			if (/*currentGalleryImage*/ ctx[10].caption) {
+				if (if_block2) {
+					if_block2.p(ctx, dirty);
+				} else {
+					if_block2 = create_if_block_3(ctx);
+					if_block2.c();
+					if_block2.m(section, t5);
+				}
+			} else if (if_block2) {
+				if_block2.d(1);
+				if_block2 = null;
+			}
+
+			if (/*galleryItems*/ ctx[8].length > 1) {
+				if (if_block3) {
+					if_block3.p(ctx, dirty);
+				} else {
+					if_block3 = create_if_block_2(ctx);
+					if_block3.c();
+					if_block3.m(section, null);
+				}
+			} else if (if_block3) {
+				if_block3.d(1);
+				if_block3 = null;
+			}
+
+			if (!current || dirty[0] & /*selectedPost*/ 64 && section_aria_label_value !== (section_aria_label_value = "Bildergalerie: " + /*selectedPost*/ ctx[6].title)) {
+				attr(section, "aria-label", section_aria_label_value);
+			}
+		},
+		i(local) {
+			if (current) return;
+			transition_in(key_block);
+			current = true;
+		},
+		o(local) {
+			transition_out(key_block);
+			current = false;
+		},
+		d(detaching) {
+			if (detaching) detach(section);
+			if (if_block0) if_block0.d();
+			key_block.d(detaching);
+			if (if_block1) if_block1.d();
+			if (if_block2) if_block2.d();
+			if (if_block3) if_block3.d();
+		}
+	};
+}
+
+// (1278:16) {#if galleryItems.length > 1}
+function create_if_block_5(ctx) {
+	let span;
+	let t0_value = /*galleryIndex*/ ctx[7] + 1 + "";
+	let t0;
+	let t1;
+	let t2_value = /*galleryItems*/ ctx[8].length + "";
+	let t2;
+
+	return {
+		c() {
+			span = element("span");
+			t0 = text(t0_value);
+			t1 = text(" / ");
+			t2 = text(t2_value);
+			this.h();
+		},
+		l(nodes) {
+			span = claim_element(nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t0 = claim_text(span_nodes, t0_value);
+			t1 = claim_text(span_nodes, " / ");
+			t2 = claim_text(span_nodes, t2_value);
+			span_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(span, "class", "svelte-f909za");
+		},
+		m(target, anchor) {
+			insert_hydration(target, span, anchor);
+			append_hydration(span, t0);
+			append_hydration(span, t1);
+			append_hydration(span, t2);
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*galleryIndex*/ 128 && t0_value !== (t0_value = /*galleryIndex*/ ctx[7] + 1 + "")) set_data(t0, t0_value);
+			if (dirty[0] & /*galleryItems*/ 256 && t2_value !== (t2_value = /*galleryItems*/ ctx[8].length + "")) set_data(t2, t2_value);
+		},
+		d(detaching) {
+			if (detaching) detach(span);
+		}
+	};
+}
+
+// (1286:16) {#key currentGalleryImage.image.url}
+function create_key_block(ctx) {
+	let img;
+	let img_src_value;
+	let img_alt_value;
+	let img_transition;
+	let current;
+
+	return {
+		c() {
+			img = element("img");
+			this.h();
+		},
+		l(nodes) {
+			img = claim_element(nodes, "IMG", { src: true, alt: true, class: true });
+			this.h();
+		},
+		h() {
+			if (!src_url_equal(img.src, img_src_value = /*currentGalleryImage*/ ctx[10].image.url)) attr(img, "src", img_src_value);
+			attr(img, "alt", img_alt_value = /*currentGalleryImage*/ ctx[10].image.alt || /*currentGalleryImage*/ ctx[10].caption || /*selectedPost*/ ctx[6].title);
+			attr(img, "class", "svelte-f909za");
+		},
+		m(target, anchor) {
+			insert_hydration(target, img, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			if (!current || dirty[0] & /*currentGalleryImage*/ 1024 && !src_url_equal(img.src, img_src_value = /*currentGalleryImage*/ ctx[10].image.url)) {
+				attr(img, "src", img_src_value);
+			}
+
+			if (!current || dirty[0] & /*currentGalleryImage, selectedPost*/ 1088 && img_alt_value !== (img_alt_value = /*currentGalleryImage*/ ctx[10].image.alt || /*currentGalleryImage*/ ctx[10].caption || /*selectedPost*/ ctx[6].title)) {
+				attr(img, "alt", img_alt_value);
+			}
+		},
+		i(local) {
+			if (current) return;
+
+			add_render_callback(() => {
+				if (!current) return;
+				if (!img_transition) img_transition = create_bidirectional_transition(img, fade, { duration: 180 }, true);
+				img_transition.run(1);
+			});
+
+			current = true;
+		},
+		o(local) {
+			if (!img_transition) img_transition = create_bidirectional_transition(img, fade, { duration: 180 }, false);
+			img_transition.run(0);
+			current = false;
+		},
+		d(detaching) {
+			if (detaching) detach(img);
+			if (detaching && img_transition) img_transition.end();
+		}
+	};
+}
+
+// (1294:16) {#if galleryItems.length > 1}
+function create_if_block_4(ctx) {
+	let button0;
+	let svg0;
+	let path0;
+	let t;
+	let button1;
+	let svg1;
+	let path1;
+	let mounted;
+	let dispose;
+
+	return {
+		c() {
+			button0 = element("button");
+			svg0 = svg_element("svg");
+			path0 = svg_element("path");
+			t = space();
+			button1 = element("button");
+			svg1 = svg_element("svg");
+			path1 = svg_element("path");
+			this.h();
+		},
+		l(nodes) {
+			button0 = claim_element(nodes, "BUTTON", {
+				type: true,
+				class: true,
+				"aria-label": true
+			});
+
+			var button0_nodes = children(button0);
+
+			svg0 = claim_svg_element(button0_nodes, "svg", {
+				viewBox: true,
+				"aria-hidden": true,
+				class: true
+			});
+
+			var svg0_nodes = children(svg0);
+			path0 = claim_svg_element(svg0_nodes, "path", { d: true, class: true });
+			children(path0).forEach(detach);
+			svg0_nodes.forEach(detach);
+			button0_nodes.forEach(detach);
+			t = claim_space(nodes);
+
+			button1 = claim_element(nodes, "BUTTON", {
+				type: true,
+				class: true,
+				"aria-label": true
+			});
+
+			var button1_nodes = children(button1);
+
+			svg1 = claim_svg_element(button1_nodes, "svg", {
+				viewBox: true,
+				"aria-hidden": true,
+				class: true
+			});
+
+			var svg1_nodes = children(svg1);
+			path1 = claim_svg_element(svg1_nodes, "path", { d: true, class: true });
+			children(path1).forEach(detach);
+			svg1_nodes.forEach(detach);
+			button1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(path0, "d", "m15 18-6-6 6-6");
+			attr(path0, "class", "svelte-f909za");
+			attr(svg0, "viewBox", "0 0 24 24");
+			attr(svg0, "aria-hidden", "true");
+			attr(svg0, "class", "svelte-f909za");
+			attr(button0, "type", "button");
+			attr(button0, "class", "cg-blog-gallery__arrow cg-blog-gallery__arrow--previous svelte-f909za");
+			attr(button0, "aria-label", "Vorheriges Bild");
+			attr(path1, "d", "m9 6 6 6-6 6");
+			attr(path1, "class", "svelte-f909za");
+			attr(svg1, "viewBox", "0 0 24 24");
+			attr(svg1, "aria-hidden", "true");
+			attr(svg1, "class", "svelte-f909za");
+			attr(button1, "type", "button");
+			attr(button1, "class", "cg-blog-gallery__arrow cg-blog-gallery__arrow--next svelte-f909za");
+			attr(button1, "aria-label", "Nächstes Bild");
+		},
+		m(target, anchor) {
+			insert_hydration(target, button0, anchor);
+			append_hydration(button0, svg0);
+			append_hydration(svg0, path0);
+			insert_hydration(target, t, anchor);
+			insert_hydration(target, button1, anchor);
+			append_hydration(button1, svg1);
+			append_hydration(svg1, path1);
+
+			if (!mounted) {
+				dispose = [
+					listen(button0, "click", /*previousGalleryImage*/ ctx[15]),
+					listen(button1, "click", /*nextGalleryImage*/ ctx[16])
+				];
+
+				mounted = true;
+			}
+		},
+		p: noop,
+		d(detaching) {
+			if (detaching) detach(button0);
+			if (detaching) detach(t);
+			if (detaching) detach(button1);
+			mounted = false;
+			run_all(dispose);
+		}
+	};
+}
+
+// (1319:14) {#if currentGalleryImage.caption}
+function create_if_block_3(ctx) {
+	let p;
+	let t_value = /*currentGalleryImage*/ ctx[10].caption + "";
+	let t;
+
+	return {
+		c() {
+			p = element("p");
+			t = text(t_value);
+			this.h();
+		},
+		l(nodes) {
+			p = claim_element(nodes, "P", { class: true });
+			var p_nodes = children(p);
+			t = claim_text(p_nodes, t_value);
+			p_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(p, "class", "cg-blog-gallery__caption svelte-f909za");
+		},
+		m(target, anchor) {
+			insert_hydration(target, p, anchor);
+			append_hydration(p, t);
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*currentGalleryImage*/ 1024 && t_value !== (t_value = /*currentGalleryImage*/ ctx[10].caption + "")) set_data(t, t_value);
+		},
+		d(detaching) {
+			if (detaching) detach(p);
+		}
+	};
+}
+
+// (1325:14) {#if galleryItems.length > 1}
+function create_if_block_2(ctx) {
+	let div;
+	let each_value = /*galleryItems*/ ctx[8];
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value.length; i += 1) {
+		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+	}
+
+	return {
+		c() {
+			div = element("div");
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			this.h();
+		},
+		l(nodes) {
+			div = claim_element(nodes, "DIV", { class: true });
+			var div_nodes = children(div);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(div_nodes);
+			}
+
+			div_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(div, "class", "cg-blog-gallery__thumbnails svelte-f909za");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div, anchor);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				if (each_blocks[i]) {
+					each_blocks[i].m(div, null);
+				}
+			}
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*galleryIndex, selectGalleryImage, galleryItems*/ 131456) {
+				each_value = /*galleryItems*/ ctx[8];
+				let i;
+
+				for (i = 0; i < each_value.length; i += 1) {
+					const child_ctx = get_each_context(ctx, each_value, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+					} else {
+						each_blocks[i] = create_each_block(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(div, null);
+					}
+				}
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value.length;
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(div);
+			destroy_each(each_blocks, detaching);
+		}
+	};
+}
+
+// (1327:18) {#each galleryItems as galleryImage, index}
+function create_each_block(ctx) {
+	let button;
+	let img;
+	let img_src_value;
+	let t;
+	let button_aria_current_value;
+	let mounted;
+	let dispose;
+
+	function click_handler_3() {
+		return /*click_handler_3*/ ctx[24](/*index*/ ctx[28]);
+	}
+
+	return {
+		c() {
+			button = element("button");
+			img = element("img");
+			t = space();
+			this.h();
+		},
+		l(nodes) {
+			button = claim_element(nodes, "BUTTON", {
+				type: true,
+				"aria-label": true,
+				"aria-current": true,
+				class: true
+			});
+
+			var button_nodes = children(button);
+
+			img = claim_element(button_nodes, "IMG", {
+				src: true,
+				alt: true,
+				loading: true,
+				class: true
+			});
+
+			t = claim_space(button_nodes);
+			button_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			if (!src_url_equal(img.src, img_src_value = /*galleryImage*/ ctx[26].image.url)) attr(img, "src", img_src_value);
+			attr(img, "alt", "");
+			attr(img, "loading", "lazy");
+			attr(img, "class", "svelte-f909za");
+			attr(button, "type", "button");
+			attr(button, "aria-label", "Bild " + (/*index*/ ctx[28] + 1) + " anzeigen");
+
+			attr(button, "aria-current", button_aria_current_value = /*galleryIndex*/ ctx[7] === /*index*/ ctx[28]
+			? "true"
+			: undefined);
+
+			attr(button, "class", "svelte-f909za");
+			toggle_class(button, "active", /*galleryIndex*/ ctx[7] === /*index*/ ctx[28]);
+		},
+		m(target, anchor) {
+			insert_hydration(target, button, anchor);
+			append_hydration(button, img);
+			append_hydration(button, t);
+
+			if (!mounted) {
+				dispose = listen(button, "click", click_handler_3);
+				mounted = true;
+			}
+		},
+		p(new_ctx, dirty) {
+			ctx = new_ctx;
+
+			if (dirty[0] & /*galleryItems*/ 256 && !src_url_equal(img.src, img_src_value = /*galleryImage*/ ctx[26].image.url)) {
+				attr(img, "src", img_src_value);
+			}
+
+			if (dirty[0] & /*galleryIndex*/ 128 && button_aria_current_value !== (button_aria_current_value = /*galleryIndex*/ ctx[7] === /*index*/ ctx[28]
+			? "true"
+			: undefined)) {
+				attr(button, "aria-current", button_aria_current_value);
+			}
+
+			if (dirty[0] & /*galleryIndex*/ 128) {
+				toggle_class(button, "active", /*galleryIndex*/ ctx[7] === /*index*/ ctx[28]);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(button);
+			mounted = false;
+			dispose();
 		}
 	};
 }
@@ -1626,15 +2301,15 @@ function create_fragment(ctx) {
 	let current;
 	let mounted;
 	let dispose;
-	let each_value_1 = /*categories*/ ctx[1];
+	let each_value_2 = /*categories*/ ctx[1];
 	let each_blocks = [];
 
-	for (let i = 0; i < each_value_1.length; i += 1) {
-		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+	for (let i = 0; i < each_value_2.length; i += 1) {
+		each_blocks[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
 	}
 
 	function select_block_type(ctx, dirty) {
-		if (/*filteredPosts*/ ctx[7].length > 0) return create_if_block_1;
+		if (/*filteredPosts*/ ctx[9].length > 0) return create_if_block_6;
 		return create_else_block;
 	}
 
@@ -1733,26 +2408,26 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(h2, "id", "cg-posts-heading");
-			attr(h2, "class", "cg-visually-hidden svelte-wmkoih");
-			attr(div0, "class", "cg-blog-filters svelte-wmkoih");
+			attr(h2, "class", "cg-visually-hidden svelte-f909za");
+			attr(div0, "class", "cg-blog-filters svelte-f909za");
 			attr(div0, "aria-label", "Beiträge nach Kategorie filtern");
 			attr(circle, "cx", "11");
 			attr(circle, "cy", "11");
 			attr(circle, "r", "7");
-			attr(circle, "class", "svelte-wmkoih");
+			attr(circle, "class", "svelte-f909za");
 			attr(path, "d", "m16 16 4 4");
-			attr(path, "class", "svelte-wmkoih");
+			attr(path, "class", "svelte-f909za");
 			attr(svg, "viewBox", "0 0 24 24");
 			attr(svg, "aria-hidden", "true");
-			attr(svg, "class", "svelte-wmkoih");
-			attr(span, "class", "cg-visually-hidden svelte-wmkoih");
+			attr(svg, "class", "svelte-f909za");
+			attr(span, "class", "cg-visually-hidden svelte-f909za");
 			attr(input, "type", "search");
 			attr(input, "placeholder", /*search_placeholder*/ ctx[3]);
-			attr(input, "class", "svelte-wmkoih");
-			attr(label, "class", "cg-blog-search svelte-wmkoih");
-			attr(div1, "class", "cg-blog-toolbar svelte-wmkoih");
-			attr(div2, "class", "cg-blog-posts__inner svelte-wmkoih");
-			attr(section, "class", "cg-blog-posts svelte-wmkoih");
+			attr(input, "class", "svelte-f909za");
+			attr(label, "class", "cg-blog-search svelte-f909za");
+			attr(div1, "class", "cg-blog-toolbar svelte-f909za");
+			attr(div2, "class", "cg-blog-posts__inner svelte-f909za");
+			attr(section, "class", "cg-blog-posts svelte-f909za");
 			attr(section, "aria-labelledby", "cg-posts-heading");
 		},
 		m(target, anchor) {
@@ -1789,27 +2464,27 @@ function create_fragment(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(input, "input", /*input_input_handler*/ ctx[15]),
-					listen(input, "input", /*handleSearch*/ ctx[9])
+					listen(input, "input", /*input_input_handler*/ ctx[21]),
+					listen(input, "input", /*handleSearch*/ ctx[12])
 				];
 
 				mounted = true;
 			}
 		},
-		p(ctx, [dirty]) {
-			if (!current || dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
+		p(ctx, dirty) {
+			if (!current || dirty[0] & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
 
-			if (dirty & /*activeCategory, categories, selectCategory*/ 274) {
-				each_value_1 = /*categories*/ ctx[1];
+			if (dirty[0] & /*activeCategory, categories, selectCategory*/ 2066) {
+				each_value_2 = /*categories*/ ctx[1];
 				let i;
 
-				for (i = 0; i < each_value_1.length; i += 1) {
-					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+				for (i = 0; i < each_value_2.length; i += 1) {
+					const child_ctx = get_each_context_2(ctx, each_value_2, i);
 
 					if (each_blocks[i]) {
 						each_blocks[i].p(child_ctx, dirty);
 					} else {
-						each_blocks[i] = create_each_block_1(child_ctx);
+						each_blocks[i] = create_each_block_2(child_ctx);
 						each_blocks[i].c();
 						each_blocks[i].m(div0, null);
 					}
@@ -1819,14 +2494,14 @@ function create_fragment(ctx) {
 					each_blocks[i].d(1);
 				}
 
-				each_blocks.length = each_value_1.length;
+				each_blocks.length = each_value_2.length;
 			}
 
-			if (!current || dirty & /*search_placeholder*/ 8) {
+			if (!current || dirty[0] & /*search_placeholder*/ 8) {
 				attr(input, "placeholder", /*search_placeholder*/ ctx[3]);
 			}
 
-			if (dirty & /*searchTerm*/ 32 && input.value !== /*searchTerm*/ ctx[5]) {
+			if (dirty[0] & /*searchTerm*/ 32 && input.value !== /*searchTerm*/ ctx[5]) {
 				set_input_value(input, /*searchTerm*/ ctx[5]);
 			}
 
@@ -1846,7 +2521,7 @@ function create_fragment(ctx) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 
-					if (dirty & /*selectedPost*/ 64) {
+					if (dirty[0] & /*selectedPost*/ 64) {
 						transition_in(if_block1, 1);
 					}
 				} else {
@@ -1981,6 +2656,8 @@ function renderPostContent(content) {
 }
 
 function instance($$self, $$props, $$invalidate) {
+	let galleryItems;
+	let currentGalleryImage;
 	let filteredPosts;
 	let { props } = $$props;
 	let { posts } = $$props;
@@ -1991,6 +2668,7 @@ function instance($$self, $$props, $$invalidate) {
 	let activeCategory = "Alle Beiträge";
 	let searchTerm = "";
 	let selectedPost = null;
+	let galleryIndex = 0;
 	let previousBodyOverflow = "";
 
 	function selectCategory(category) {
@@ -2004,6 +2682,7 @@ function instance($$self, $$props, $$invalidate) {
 
 	function openArticle(post) {
 		$$invalidate(6, selectedPost = post);
+		$$invalidate(7, galleryIndex = 0);
 
 		if (typeof document !== "undefined") {
 			previousBodyOverflow = document.body.style.overflow;
@@ -2019,10 +2698,40 @@ function instance($$self, $$props, $$invalidate) {
 		}
 	}
 
+	function previousGalleryImage() {
+		if (galleryItems.length < 2) return;
+
+		$$invalidate(7, galleryIndex = galleryIndex === 0
+		? galleryItems.length - 1
+		: galleryIndex - 1);
+	}
+
+	function nextGalleryImage() {
+		if (galleryItems.length < 2) return;
+
+		$$invalidate(7, galleryIndex = galleryIndex === galleryItems.length - 1
+		? 0
+		: galleryIndex + 1);
+	}
+
+	function selectGalleryImage(index) {
+		$$invalidate(7, galleryIndex = index);
+	}
+
 	onMount(() => {
 		function handleKeydown(event) {
-			if (event.key === "Escape" && selectedPost) {
+			if (!selectedPost) return;
+
+			if (event.key === "Escape") {
 				closeArticle();
+			}
+
+			if (event.key === "ArrowLeft") {
+				previousGalleryImage();
+			}
+
+			if (event.key === "ArrowRight") {
+				nextGalleryImage();
 			}
 		}
 
@@ -2042,10 +2751,12 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	const click_handler_1 = post => openArticle(post);
+	const click_handler_2 = post => openArticle(post);
+	const click_handler_3 = index => selectGalleryImage(index);
 
 	$$self.$$set = $$props => {
-		if ('props' in $$props) $$invalidate(12, props = $$props.props);
-		if ('posts' in $$props) $$invalidate(13, posts = $$props.posts);
+		if ('props' in $$props) $$invalidate(18, props = $$props.props);
+		if ('posts' in $$props) $$invalidate(19, posts = $$props.posts);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('categories' in $$props) $$invalidate(1, categories = $$props.categories);
 		if ('empty_message' in $$props) $$invalidate(2, empty_message = $$props.empty_message);
@@ -2053,8 +2764,16 @@ function instance($$self, $$props, $$invalidate) {
 	};
 
 	$$self.$$.update = () => {
-		if ($$self.$$.dirty & /*posts, activeCategory, searchTerm*/ 8240) {
-			$$invalidate(7, filteredPosts = (posts || []).filter(post => {
+		if ($$self.$$.dirty[0] & /*selectedPost*/ 64) {
+			$$invalidate(8, galleryItems = selectedPost?.gallery || []);
+		}
+
+		if ($$self.$$.dirty[0] & /*galleryItems, galleryIndex*/ 384) {
+			$$invalidate(10, currentGalleryImage = galleryItems[galleryIndex] || null);
+		}
+
+		if ($$self.$$.dirty[0] & /*posts, activeCategory, searchTerm*/ 524336) {
+			$$invalidate(9, filteredPosts = (posts || []).filter(post => {
 				const matchesCategory = activeCategory === "Alle Beiträge" || post.category === activeCategory;
 				const term = searchTerm.trim().toLocaleLowerCase("de");
 				const searchableText = [post.title, post.teaser, post.category].filter(Boolean).join(" ").toLocaleLowerCase("de");
@@ -2071,16 +2790,24 @@ function instance($$self, $$props, $$invalidate) {
 		activeCategory,
 		searchTerm,
 		selectedPost,
+		galleryIndex,
+		galleryItems,
 		filteredPosts,
+		currentGalleryImage,
 		selectCategory,
 		handleSearch,
 		openArticle,
 		closeArticle,
+		previousGalleryImage,
+		nextGalleryImage,
+		selectGalleryImage,
 		props,
 		posts,
 		click_handler,
 		input_input_handler,
-		click_handler_1
+		click_handler_1,
+		click_handler_2,
+		click_handler_3
 	];
 }
 
@@ -2088,14 +2815,23 @@ class Component extends SvelteComponent {
 	constructor(options) {
 		super();
 
-		init(this, options, instance, create_fragment, safe_not_equal, {
-			props: 12,
-			posts: 13,
-			heading: 0,
-			categories: 1,
-			empty_message: 2,
-			search_placeholder: 3
-		});
+		init(
+			this,
+			options,
+			instance,
+			create_fragment,
+			safe_not_equal,
+			{
+				props: 18,
+				posts: 19,
+				heading: 0,
+				categories: 1,
+				empty_message: 2,
+				search_placeholder: 3
+			},
+			null,
+			[-1, -1]
+		);
 	}
 }
 
