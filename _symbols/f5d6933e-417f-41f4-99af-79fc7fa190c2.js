@@ -244,6 +244,9 @@ function text(data) {
 function space() {
     return text(' ');
 }
+function empty() {
+    return text('');
+}
 function listen(node, event, handler, options) {
     node.addEventListener(event, handler, options);
     return () => node.removeEventListener(event, handler, options);
@@ -896,27 +899,34 @@ function fly(node, { delay = 0, duration = 400, easing = cubicOut, x = 0, y = 0,
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[28] = list[i];
-	child_ctx[30] = i;
+	child_ctx[41] = list[i];
+	child_ctx[43] = i;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[31] = list[i];
+	child_ctx[44] = list[i];
+	child_ctx[43] = i;
 	return child_ctx;
 }
 
 function get_each_context_2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[34] = list[i];
+	child_ctx[46] = list[i];
 	return child_ctx;
 }
 
-// (1208:8) {#each categories as category}
-function create_each_block_2(ctx) {
+function get_each_context_3(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[49] = list[i];
+	return child_ctx;
+}
+
+// (1411:8) {#each availableCategories as category}
+function create_each_block_3(ctx) {
 	let button;
-	let t0_value = /*category*/ ctx[34].label + "";
+	let t0_value = /*category*/ ctx[49] + "";
 	let t0;
 	let t1;
 	let button_aria_pressed_value;
@@ -924,7 +934,7 @@ function create_each_block_2(ctx) {
 	let dispose;
 
 	function click_handler() {
-		return /*click_handler*/ ctx[22](/*category*/ ctx[34]);
+		return /*click_handler*/ ctx[31](/*category*/ ctx[49]);
 	}
 
 	return {
@@ -937,8 +947,8 @@ function create_each_block_2(ctx) {
 		l(nodes) {
 			button = claim_element(nodes, "BUTTON", {
 				type: true,
-				"aria-pressed": true,
-				class: true
+				class: true,
+				"aria-pressed": true
 			});
 
 			var button_nodes = children(button);
@@ -949,9 +959,9 @@ function create_each_block_2(ctx) {
 		},
 		h() {
 			attr(button, "type", "button");
-			attr(button, "aria-pressed", button_aria_pressed_value = /*activeCategory*/ ctx[4] === /*category*/ ctx[34].label);
-			attr(button, "class", "svelte-f909za");
-			toggle_class(button, "active", /*activeCategory*/ ctx[4] === /*category*/ ctx[34].label);
+			attr(button, "class", "cg-blog__category svelte-1ax38ay");
+			attr(button, "aria-pressed", button_aria_pressed_value = /*activeCategory*/ ctx[0] === /*category*/ ctx[49]);
+			toggle_class(button, "active", /*activeCategory*/ ctx[0] === /*category*/ ctx[49]);
 		},
 		m(target, anchor) {
 			insert_hydration(target, button, anchor);
@@ -965,14 +975,14 @@ function create_each_block_2(ctx) {
 		},
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
-			if (dirty[0] & /*categories*/ 2 && t0_value !== (t0_value = /*category*/ ctx[34].label + "")) set_data(t0, t0_value);
+			if (dirty[0] & /*availableCategories*/ 1024 && t0_value !== (t0_value = /*category*/ ctx[49] + "")) set_data(t0, t0_value);
 
-			if (dirty[0] & /*activeCategory, categories*/ 18 && button_aria_pressed_value !== (button_aria_pressed_value = /*activeCategory*/ ctx[4] === /*category*/ ctx[34].label)) {
+			if (dirty[0] & /*activeCategory, availableCategories*/ 1025 && button_aria_pressed_value !== (button_aria_pressed_value = /*activeCategory*/ ctx[0] === /*category*/ ctx[49])) {
 				attr(button, "aria-pressed", button_aria_pressed_value);
 			}
 
-			if (dirty[0] & /*activeCategory, categories*/ 18) {
-				toggle_class(button, "active", /*activeCategory*/ ctx[4] === /*category*/ ctx[34].label);
+			if (dirty[0] & /*activeCategory, availableCategories*/ 1025) {
+				toggle_class(button, "active", /*activeCategory*/ ctx[0] === /*category*/ ctx[49]);
 			}
 		},
 		d(detaching) {
@@ -983,56 +993,133 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (1294:4) {:else}
-function create_else_block(ctx) {
+// (1586:4) {:else}
+function create_else_block_1(ctx) {
 	let div;
+	let svg;
+	let circle;
+	let path;
+	let t0;
+	let h3;
+	let t1;
+	let t2;
 	let p;
-	let t;
+	let t3;
+	let t4;
+	let button;
+	let t5;
+	let mounted;
+	let dispose;
 
 	return {
 		c() {
 			div = element("div");
+			svg = svg_element("svg");
+			circle = svg_element("circle");
+			path = svg_element("path");
+			t0 = space();
+			h3 = element("h3");
+			t1 = text("Keine Beiträge gefunden");
+			t2 = space();
 			p = element("p");
-			t = text(/*empty_message*/ ctx[2]);
+			t3 = text("Probiere einen anderen Suchbegriff oder wähle eine andere Kategorie.");
+			t4 = space();
+			button = element("button");
+			t5 = text("Alle Beiträge anzeigen");
 			this.h();
 		},
 		l(nodes) {
 			div = claim_element(nodes, "DIV", { class: true });
 			var div_nodes = children(div);
+
+			svg = claim_svg_element(div_nodes, "svg", {
+				viewBox: true,
+				"aria-hidden": true,
+				class: true
+			});
+
+			var svg_nodes = children(svg);
+			circle = claim_svg_element(svg_nodes, "circle", { cx: true, cy: true, r: true, class: true });
+			children(circle).forEach(detach);
+			path = claim_svg_element(svg_nodes, "path", { d: true, class: true });
+			children(path).forEach(detach);
+			svg_nodes.forEach(detach);
+			t0 = claim_space(div_nodes);
+			h3 = claim_element(div_nodes, "H3", { class: true });
+			var h3_nodes = children(h3);
+			t1 = claim_text(h3_nodes, "Keine Beiträge gefunden");
+			h3_nodes.forEach(detach);
+			t2 = claim_space(div_nodes);
 			p = claim_element(div_nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, /*empty_message*/ ctx[2]);
+			t3 = claim_text(p_nodes, "Probiere einen anderen Suchbegriff oder wähle eine andere Kategorie.");
 			p_nodes.forEach(detach);
+			t4 = claim_space(div_nodes);
+			button = claim_element(div_nodes, "BUTTON", { type: true, class: true });
+			var button_nodes = children(button);
+			t5 = claim_text(button_nodes, "Alle Beiträge anzeigen");
+			button_nodes.forEach(detach);
 			div_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(p, "class", "svelte-f909za");
-			attr(div, "class", "cg-blog-empty svelte-f909za");
+			attr(circle, "cx", "10.5");
+			attr(circle, "cy", "10.5");
+			attr(circle, "r", "6.5");
+			attr(circle, "class", "svelte-1ax38ay");
+			attr(path, "d", "m15.5 15.5 5 5");
+			attr(path, "class", "svelte-1ax38ay");
+			attr(svg, "viewBox", "0 0 24 24");
+			attr(svg, "aria-hidden", "true");
+			attr(svg, "class", "svelte-1ax38ay");
+			attr(h3, "class", "svelte-1ax38ay");
+			attr(p, "class", "svelte-1ax38ay");
+			attr(button, "type", "button");
+			attr(button, "class", "svelte-1ax38ay");
+			attr(div, "class", "cg-blog__empty svelte-1ax38ay");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
+			append_hydration(div, svg);
+			append_hydration(svg, circle);
+			append_hydration(svg, path);
+			append_hydration(div, t0);
+			append_hydration(div, h3);
+			append_hydration(h3, t1);
+			append_hydration(div, t2);
 			append_hydration(div, p);
-			append_hydration(p, t);
+			append_hydration(p, t3);
+			append_hydration(div, t4);
+			append_hydration(div, button);
+			append_hydration(button, t5);
+
+			if (!mounted) {
+				dispose = listen(button, "click", /*resetFilters*/ ctx[13]);
+				mounted = true;
+			}
 		},
-		p(ctx, dirty) {
-			if (dirty[0] & /*empty_message*/ 4) set_data(t, /*empty_message*/ ctx[2]);
-		},
+		p: noop,
 		d(detaching) {
 			if (detaching) detach(div);
+			mounted = false;
+			dispose();
 		}
 	};
 }
 
-// (1239:4) {#if filteredPosts.length > 0}
-function create_if_block_6(ctx) {
+// (1456:4) {#if paginatedPosts.length > 0}
+function create_if_block_10(ctx) {
 	let div;
-	let each_value_1 = /*filteredPosts*/ ctx[9];
+	let t;
+	let if_block_anchor;
+	let each_value_2 = /*paginatedPosts*/ ctx[8];
 	let each_blocks = [];
 
-	for (let i = 0; i < each_value_1.length; i += 1) {
-		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+	for (let i = 0; i < each_value_2.length; i += 1) {
+		each_blocks[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
 	}
+
+	let if_block = /*totalPages*/ ctx[6] > 1 && create_if_block_11(ctx);
 
 	return {
 		c() {
@@ -1042,10 +1129,13 @@ function create_if_block_6(ctx) {
 				each_blocks[i].c();
 			}
 
+			t = space();
+			if (if_block) if_block.c();
+			if_block_anchor = empty();
 			this.h();
 		},
 		l(nodes) {
-			div = claim_element(nodes, "DIV", { class: true });
+			div = claim_element(nodes, "DIV", { id: true, class: true });
 			var div_nodes = children(div);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -1053,10 +1143,14 @@ function create_if_block_6(ctx) {
 			}
 
 			div_nodes.forEach(detach);
+			t = claim_space(nodes);
+			if (if_block) if_block.l(nodes);
+			if_block_anchor = empty();
 			this.h();
 		},
 		h() {
-			attr(div, "class", "cg-blog-grid svelte-f909za");
+			attr(div, "id", "cg-blog-results");
+			attr(div, "class", "cg-blog__grid svelte-1ax38ay");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -1066,10 +1160,702 @@ function create_if_block_6(ctx) {
 					each_blocks[i].m(div, null);
 				}
 			}
+
+			insert_hydration(target, t, anchor);
+			if (if_block) if_block.m(target, anchor);
+			insert_hydration(target, if_block_anchor, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*openArticle, filteredPosts*/ 8704) {
-				each_value_1 = /*filteredPosts*/ ctx[9];
+			if (dirty[0] & /*openArticle, paginatedPosts*/ 33024) {
+				each_value_2 = /*paginatedPosts*/ ctx[8];
+				let i;
+
+				for (i = 0; i < each_value_2.length; i += 1) {
+					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+					} else {
+						each_blocks[i] = create_each_block_2(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(div, null);
+					}
+				}
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value_2.length;
+			}
+
+			if (/*totalPages*/ ctx[6] > 1) {
+				if (if_block) {
+					if_block.p(ctx, dirty);
+				} else {
+					if_block = create_if_block_11(ctx);
+					if_block.c();
+					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+				}
+			} else if (if_block) {
+				if_block.d(1);
+				if_block = null;
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(div);
+			destroy_each(each_blocks, detaching);
+			if (detaching) detach(t);
+			if (if_block) if_block.d(detaching);
+			if (detaching) detach(if_block_anchor);
+		}
+	};
+}
+
+// (1475:14) {:else}
+function create_else_block(ctx) {
+	let span;
+	let t;
+
+	return {
+		c() {
+			span = element("span");
+			t = text("Titelbild");
+			this.h();
+		},
+		l(nodes) {
+			span = claim_element(nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t = claim_text(span_nodes, "Titelbild");
+			span_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(span, "class", "cg-blog-card__image-placeholder svelte-1ax38ay");
+		},
+		m(target, anchor) {
+			insert_hydration(target, span, anchor);
+			append_hydration(span, t);
+		},
+		p: noop,
+		d(detaching) {
+			if (detaching) detach(span);
+		}
+	};
+}
+
+// (1469:14) {#if post.image && post.image.url}
+function create_if_block_15(ctx) {
+	let img;
+	let img_src_value;
+	let img_alt_value;
+
+	return {
+		c() {
+			img = element("img");
+			this.h();
+		},
+		l(nodes) {
+			img = claim_element(nodes, "IMG", {
+				src: true,
+				alt: true,
+				loading: true,
+				class: true
+			});
+
+			this.h();
+		},
+		h() {
+			if (!src_url_equal(img.src, img_src_value = /*post*/ ctx[46].image.url)) attr(img, "src", img_src_value);
+			attr(img, "alt", img_alt_value = /*post*/ ctx[46].image.alt || /*post*/ ctx[46].title);
+			attr(img, "loading", "lazy");
+			attr(img, "class", "svelte-1ax38ay");
+		},
+		m(target, anchor) {
+			insert_hydration(target, img, anchor);
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*paginatedPosts*/ 256 && !src_url_equal(img.src, img_src_value = /*post*/ ctx[46].image.url)) {
+				attr(img, "src", img_src_value);
+			}
+
+			if (dirty[0] & /*paginatedPosts*/ 256 && img_alt_value !== (img_alt_value = /*post*/ ctx[46].image.alt || /*post*/ ctx[46].title)) {
+				attr(img, "alt", img_alt_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(img);
+		}
+	};
+}
+
+// (1484:16) {#if post.category}
+function create_if_block_14(ctx) {
+	let span;
+	let t_value = /*post*/ ctx[46].category + "";
+	let t;
+
+	return {
+		c() {
+			span = element("span");
+			t = text(t_value);
+			this.h();
+		},
+		l(nodes) {
+			span = claim_element(nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t = claim_text(span_nodes, t_value);
+			span_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(span, "class", "cg-blog-card__category svelte-1ax38ay");
+		},
+		m(target, anchor) {
+			insert_hydration(target, span, anchor);
+			append_hydration(span, t);
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*paginatedPosts*/ 256 && t_value !== (t_value = /*post*/ ctx[46].category + "")) set_data(t, t_value);
+		},
+		d(detaching) {
+			if (detaching) detach(span);
+		}
+	};
+}
+
+// (1490:16) {#if post.date}
+function create_if_block_13(ctx) {
+	let time;
+	let t_value = /*post*/ ctx[46].date + "";
+	let t;
+	let time_datetime_value;
+
+	return {
+		c() {
+			time = element("time");
+			t = text(t_value);
+			this.h();
+		},
+		l(nodes) {
+			time = claim_element(nodes, "TIME", { class: true, datetime: true });
+			var time_nodes = children(time);
+			t = claim_text(time_nodes, t_value);
+			time_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(time, "class", "cg-blog-card__date svelte-1ax38ay");
+			attr(time, "datetime", time_datetime_value = /*post*/ ctx[46].date_iso || /*post*/ ctx[46].sort_date);
+		},
+		m(target, anchor) {
+			insert_hydration(target, time, anchor);
+			append_hydration(time, t);
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*paginatedPosts*/ 256 && t_value !== (t_value = /*post*/ ctx[46].date + "")) set_data(t, t_value);
+
+			if (dirty[0] & /*paginatedPosts*/ 256 && time_datetime_value !== (time_datetime_value = /*post*/ ctx[46].date_iso || /*post*/ ctx[46].sort_date)) {
+				attr(time, "datetime", time_datetime_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(time);
+		}
+	};
+}
+
+// (1508:14) {#if post.teaser}
+function create_if_block_12(ctx) {
+	let p;
+	let t_value = /*post*/ ctx[46].teaser + "";
+	let t;
+
+	return {
+		c() {
+			p = element("p");
+			t = text(t_value);
+			this.h();
+		},
+		l(nodes) {
+			p = claim_element(nodes, "P", { class: true });
+			var p_nodes = children(p);
+			t = claim_text(p_nodes, t_value);
+			p_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(p, "class", "cg-blog-card__teaser svelte-1ax38ay");
+		},
+		m(target, anchor) {
+			insert_hydration(target, p, anchor);
+			append_hydration(p, t);
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*paginatedPosts*/ 256 && t_value !== (t_value = /*post*/ ctx[46].teaser + "")) set_data(t, t_value);
+		},
+		d(detaching) {
+			if (detaching) detach(p);
+		}
+	};
+}
+
+// (1461:8) {#each paginatedPosts as post}
+function create_each_block_2(ctx) {
+	let article;
+	let button0;
+	let button0_aria_label_value;
+	let t0;
+	let div1;
+	let div0;
+	let t1;
+	let t2;
+	let button1;
+	let t3_value = /*post*/ ctx[46].title + "";
+	let t3;
+	let t4;
+	let t5;
+	let button2;
+	let t6;
+	let svg;
+	let path;
+	let t7;
+	let mounted;
+	let dispose;
+
+	function select_block_type_1(ctx, dirty) {
+		if (/*post*/ ctx[46].image && /*post*/ ctx[46].image.url) return create_if_block_15;
+		return create_else_block;
+	}
+
+	let current_block_type = select_block_type_1(ctx);
+	let if_block0 = current_block_type(ctx);
+
+	function click_handler_1() {
+		return /*click_handler_1*/ ctx[33](/*post*/ ctx[46]);
+	}
+
+	let if_block1 = /*post*/ ctx[46].category && create_if_block_14(ctx);
+	let if_block2 = /*post*/ ctx[46].date && create_if_block_13(ctx);
+
+	function click_handler_2() {
+		return /*click_handler_2*/ ctx[34](/*post*/ ctx[46]);
+	}
+
+	let if_block3 = /*post*/ ctx[46].teaser && create_if_block_12(ctx);
+
+	function click_handler_3() {
+		return /*click_handler_3*/ ctx[35](/*post*/ ctx[46]);
+	}
+
+	return {
+		c() {
+			article = element("article");
+			button0 = element("button");
+			if_block0.c();
+			t0 = space();
+			div1 = element("div");
+			div0 = element("div");
+			if (if_block1) if_block1.c();
+			t1 = space();
+			if (if_block2) if_block2.c();
+			t2 = space();
+			button1 = element("button");
+			t3 = text(t3_value);
+			t4 = space();
+			if (if_block3) if_block3.c();
+			t5 = space();
+			button2 = element("button");
+			t6 = text("Mehr anzeigen\n\n                ");
+			svg = svg_element("svg");
+			path = svg_element("path");
+			t7 = space();
+			this.h();
+		},
+		l(nodes) {
+			article = claim_element(nodes, "ARTICLE", { class: true });
+			var article_nodes = children(article);
+
+			button0 = claim_element(article_nodes, "BUTTON", {
+				type: true,
+				class: true,
+				"aria-label": true
+			});
+
+			var button0_nodes = children(button0);
+			if_block0.l(button0_nodes);
+			button0_nodes.forEach(detach);
+			t0 = claim_space(article_nodes);
+			div1 = claim_element(article_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			if (if_block1) if_block1.l(div0_nodes);
+			t1 = claim_space(div0_nodes);
+			if (if_block2) if_block2.l(div0_nodes);
+			div0_nodes.forEach(detach);
+			t2 = claim_space(div1_nodes);
+			button1 = claim_element(div1_nodes, "BUTTON", { type: true, class: true });
+			var button1_nodes = children(button1);
+			t3 = claim_text(button1_nodes, t3_value);
+			button1_nodes.forEach(detach);
+			t4 = claim_space(div1_nodes);
+			if (if_block3) if_block3.l(div1_nodes);
+			t5 = claim_space(div1_nodes);
+			button2 = claim_element(div1_nodes, "BUTTON", { type: true, class: true });
+			var button2_nodes = children(button2);
+			t6 = claim_text(button2_nodes, "Mehr anzeigen\n\n                ");
+
+			svg = claim_svg_element(button2_nodes, "svg", {
+				viewBox: true,
+				"aria-hidden": true,
+				class: true
+			});
+
+			var svg_nodes = children(svg);
+			path = claim_svg_element(svg_nodes, "path", { d: true, class: true });
+			children(path).forEach(detach);
+			svg_nodes.forEach(detach);
+			button2_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			t7 = claim_space(article_nodes);
+			article_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(button0, "type", "button");
+			attr(button0, "class", "cg-blog-card__image-button svelte-1ax38ay");
+			attr(button0, "aria-label", button0_aria_label_value = "Beitrag öffnen: " + /*post*/ ctx[46].title);
+			attr(div0, "class", "cg-blog-card__meta svelte-1ax38ay");
+			attr(button1, "type", "button");
+			attr(button1, "class", "cg-blog-card__title svelte-1ax38ay");
+			attr(path, "d", "m6 9 6 6 6-6");
+			attr(path, "class", "svelte-1ax38ay");
+			attr(svg, "viewBox", "0 0 24 24");
+			attr(svg, "aria-hidden", "true");
+			attr(svg, "class", "svelte-1ax38ay");
+			attr(button2, "type", "button");
+			attr(button2, "class", "cg-blog-card__more svelte-1ax38ay");
+			attr(div1, "class", "cg-blog-card__body svelte-1ax38ay");
+			attr(article, "class", "cg-blog-card svelte-1ax38ay");
+		},
+		m(target, anchor) {
+			insert_hydration(target, article, anchor);
+			append_hydration(article, button0);
+			if_block0.m(button0, null);
+			append_hydration(article, t0);
+			append_hydration(article, div1);
+			append_hydration(div1, div0);
+			if (if_block1) if_block1.m(div0, null);
+			append_hydration(div0, t1);
+			if (if_block2) if_block2.m(div0, null);
+			append_hydration(div1, t2);
+			append_hydration(div1, button1);
+			append_hydration(button1, t3);
+			append_hydration(div1, t4);
+			if (if_block3) if_block3.m(div1, null);
+			append_hydration(div1, t5);
+			append_hydration(div1, button2);
+			append_hydration(button2, t6);
+			append_hydration(button2, svg);
+			append_hydration(svg, path);
+			append_hydration(article, t7);
+
+			if (!mounted) {
+				dispose = [
+					listen(button0, "click", click_handler_1),
+					listen(button1, "click", click_handler_2),
+					listen(button2, "click", click_handler_3)
+				];
+
+				mounted = true;
+			}
+		},
+		p(new_ctx, dirty) {
+			ctx = new_ctx;
+
+			if (current_block_type === (current_block_type = select_block_type_1(ctx)) && if_block0) {
+				if_block0.p(ctx, dirty);
+			} else {
+				if_block0.d(1);
+				if_block0 = current_block_type(ctx);
+
+				if (if_block0) {
+					if_block0.c();
+					if_block0.m(button0, null);
+				}
+			}
+
+			if (dirty[0] & /*paginatedPosts*/ 256 && button0_aria_label_value !== (button0_aria_label_value = "Beitrag öffnen: " + /*post*/ ctx[46].title)) {
+				attr(button0, "aria-label", button0_aria_label_value);
+			}
+
+			if (/*post*/ ctx[46].category) {
+				if (if_block1) {
+					if_block1.p(ctx, dirty);
+				} else {
+					if_block1 = create_if_block_14(ctx);
+					if_block1.c();
+					if_block1.m(div0, t1);
+				}
+			} else if (if_block1) {
+				if_block1.d(1);
+				if_block1 = null;
+			}
+
+			if (/*post*/ ctx[46].date) {
+				if (if_block2) {
+					if_block2.p(ctx, dirty);
+				} else {
+					if_block2 = create_if_block_13(ctx);
+					if_block2.c();
+					if_block2.m(div0, null);
+				}
+			} else if (if_block2) {
+				if_block2.d(1);
+				if_block2 = null;
+			}
+
+			if (dirty[0] & /*paginatedPosts*/ 256 && t3_value !== (t3_value = /*post*/ ctx[46].title + "")) set_data(t3, t3_value);
+
+			if (/*post*/ ctx[46].teaser) {
+				if (if_block3) {
+					if_block3.p(ctx, dirty);
+				} else {
+					if_block3 = create_if_block_12(ctx);
+					if_block3.c();
+					if_block3.m(div1, t5);
+				}
+			} else if (if_block3) {
+				if_block3.d(1);
+				if_block3 = null;
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(article);
+			if_block0.d();
+			if (if_block1) if_block1.d();
+			if (if_block2) if_block2.d();
+			if (if_block3) if_block3.d();
+			mounted = false;
+			run_all(dispose);
+		}
+	};
+}
+
+// (1530:6) {#if totalPages > 1}
+function create_if_block_11(ctx) {
+	let nav;
+	let button0;
+	let svg0;
+	let path0;
+	let t0;
+	let span0;
+	let t1;
+	let button0_disabled_value;
+	let t2;
+	let div;
+	let t3;
+	let button1;
+	let span1;
+	let t4;
+	let t5;
+	let svg1;
+	let path1;
+	let button1_disabled_value;
+	let t6;
+	let p;
+	let t7;
+	let t8;
+	let t9;
+	let t10;
+	let mounted;
+	let dispose;
+	let each_value_1 = Array(/*totalPages*/ ctx[6]);
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value_1.length; i += 1) {
+		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+	}
+
+	return {
+		c() {
+			nav = element("nav");
+			button0 = element("button");
+			svg0 = svg_element("svg");
+			path0 = svg_element("path");
+			t0 = space();
+			span0 = element("span");
+			t1 = text("Zurück");
+			t2 = space();
+			div = element("div");
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			t3 = space();
+			button1 = element("button");
+			span1 = element("span");
+			t4 = text("Weiter");
+			t5 = space();
+			svg1 = svg_element("svg");
+			path1 = svg_element("path");
+			t6 = space();
+			p = element("p");
+			t7 = text("Seite ");
+			t8 = text(/*currentPage*/ ctx[4]);
+			t9 = text(" von ");
+			t10 = text(/*totalPages*/ ctx[6]);
+			this.h();
+		},
+		l(nodes) {
+			nav = claim_element(nodes, "NAV", { class: true, "aria-label": true });
+			var nav_nodes = children(nav);
+
+			button0 = claim_element(nav_nodes, "BUTTON", {
+				type: true,
+				class: true,
+				"aria-label": true
+			});
+
+			var button0_nodes = children(button0);
+
+			svg0 = claim_svg_element(button0_nodes, "svg", {
+				viewBox: true,
+				"aria-hidden": true,
+				class: true
+			});
+
+			var svg0_nodes = children(svg0);
+			path0 = claim_svg_element(svg0_nodes, "path", { d: true, class: true });
+			children(path0).forEach(detach);
+			svg0_nodes.forEach(detach);
+			t0 = claim_space(button0_nodes);
+			span0 = claim_element(button0_nodes, "SPAN", { class: true });
+			var span0_nodes = children(span0);
+			t1 = claim_text(span0_nodes, "Zurück");
+			span0_nodes.forEach(detach);
+			button0_nodes.forEach(detach);
+			t2 = claim_space(nav_nodes);
+			div = claim_element(nav_nodes, "DIV", { class: true });
+			var div_nodes = children(div);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(div_nodes);
+			}
+
+			div_nodes.forEach(detach);
+			t3 = claim_space(nav_nodes);
+
+			button1 = claim_element(nav_nodes, "BUTTON", {
+				type: true,
+				class: true,
+				"aria-label": true
+			});
+
+			var button1_nodes = children(button1);
+			span1 = claim_element(button1_nodes, "SPAN", { class: true });
+			var span1_nodes = children(span1);
+			t4 = claim_text(span1_nodes, "Weiter");
+			span1_nodes.forEach(detach);
+			t5 = claim_space(button1_nodes);
+
+			svg1 = claim_svg_element(button1_nodes, "svg", {
+				viewBox: true,
+				"aria-hidden": true,
+				class: true
+			});
+
+			var svg1_nodes = children(svg1);
+			path1 = claim_svg_element(svg1_nodes, "path", { d: true, class: true });
+			children(path1).forEach(detach);
+			svg1_nodes.forEach(detach);
+			button1_nodes.forEach(detach);
+			nav_nodes.forEach(detach);
+			t6 = claim_space(nodes);
+			p = claim_element(nodes, "P", { class: true });
+			var p_nodes = children(p);
+			t7 = claim_text(p_nodes, "Seite ");
+			t8 = claim_text(p_nodes, /*currentPage*/ ctx[4]);
+			t9 = claim_text(p_nodes, " von ");
+			t10 = claim_text(p_nodes, /*totalPages*/ ctx[6]);
+			p_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(path0, "d", "m15 18-6-6 6-6");
+			attr(path0, "class", "svelte-1ax38ay");
+			attr(svg0, "viewBox", "0 0 24 24");
+			attr(svg0, "aria-hidden", "true");
+			attr(svg0, "class", "svelte-1ax38ay");
+			attr(span0, "class", "svelte-1ax38ay");
+			attr(button0, "type", "button");
+			attr(button0, "class", "cg-blog-pagination__arrow svelte-1ax38ay");
+			button0.disabled = button0_disabled_value = /*currentPage*/ ctx[4] === 1;
+			attr(button0, "aria-label", "Vorherige Seite");
+			attr(div, "class", "cg-blog-pagination__pages svelte-1ax38ay");
+			attr(span1, "class", "svelte-1ax38ay");
+			attr(path1, "d", "m9 6 6 6-6 6");
+			attr(path1, "class", "svelte-1ax38ay");
+			attr(svg1, "viewBox", "0 0 24 24");
+			attr(svg1, "aria-hidden", "true");
+			attr(svg1, "class", "svelte-1ax38ay");
+			attr(button1, "type", "button");
+			attr(button1, "class", "cg-blog-pagination__arrow svelte-1ax38ay");
+			button1.disabled = button1_disabled_value = /*currentPage*/ ctx[4] === /*totalPages*/ ctx[6];
+			attr(button1, "aria-label", "Nächste Seite");
+			attr(nav, "class", "cg-blog-pagination svelte-1ax38ay");
+			attr(nav, "aria-label", "Seitennavigation der Blogbeiträge");
+			attr(p, "class", "cg-blog-pagination__status svelte-1ax38ay");
+		},
+		m(target, anchor) {
+			insert_hydration(target, nav, anchor);
+			append_hydration(nav, button0);
+			append_hydration(button0, svg0);
+			append_hydration(svg0, path0);
+			append_hydration(button0, t0);
+			append_hydration(button0, span0);
+			append_hydration(span0, t1);
+			append_hydration(nav, t2);
+			append_hydration(nav, div);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				if (each_blocks[i]) {
+					each_blocks[i].m(div, null);
+				}
+			}
+
+			append_hydration(nav, t3);
+			append_hydration(nav, button1);
+			append_hydration(button1, span1);
+			append_hydration(span1, t4);
+			append_hydration(button1, t5);
+			append_hydration(button1, svg1);
+			append_hydration(svg1, path1);
+			insert_hydration(target, t6, anchor);
+			insert_hydration(target, p, anchor);
+			append_hydration(p, t7);
+			append_hydration(p, t8);
+			append_hydration(p, t9);
+			append_hydration(p, t10);
+
+			if (!mounted) {
+				dispose = [
+					listen(button0, "click", /*click_handler_4*/ ctx[36]),
+					listen(button1, "click", /*click_handler_6*/ ctx[38])
+				];
+
+				mounted = true;
+			}
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*currentPage*/ 16 && button0_disabled_value !== (button0_disabled_value = /*currentPage*/ ctx[4] === 1)) {
+				button0.disabled = button0_disabled_value;
+			}
+
+			if (dirty[0] & /*currentPage, goToPage, totalPages*/ 16464) {
+				each_value_1 = Array(/*totalPages*/ ctx[6]);
 				let i;
 
 				for (i = 0; i < each_value_1.length; i += 1) {
@@ -1090,347 +1876,170 @@ function create_if_block_6(ctx) {
 
 				each_blocks.length = each_value_1.length;
 			}
+
+			if (dirty[0] & /*currentPage, totalPages*/ 80 && button1_disabled_value !== (button1_disabled_value = /*currentPage*/ ctx[4] === /*totalPages*/ ctx[6])) {
+				button1.disabled = button1_disabled_value;
+			}
+
+			if (dirty[0] & /*currentPage*/ 16) set_data(t8, /*currentPage*/ ctx[4]);
+			if (dirty[0] & /*totalPages*/ 64) set_data(t10, /*totalPages*/ ctx[6]);
 		},
 		d(detaching) {
-			if (detaching) detach(div);
+			if (detaching) detach(nav);
 			destroy_each(each_blocks, detaching);
-		}
-	};
-}
-
-// (1241:8) {#each filteredPosts as post}
-function create_each_block_1(ctx) {
-	let article;
-	let button0;
-	let img;
-	let img_src_value;
-	let img_alt_value;
-	let t0;
-	let span0;
-	let t1;
-	let button0_aria_label_value;
-	let t2;
-	let div1;
-	let div0;
-	let span1;
-	let t3_value = /*post*/ ctx[31].category + "";
-	let t3;
-	let t4;
-	let time;
-	let t5_value = /*post*/ ctx[31].date_label + "";
-	let t5;
-	let time_datetime_value;
-	let t6;
-	let h3;
-	let t7_value = /*post*/ ctx[31].title + "";
-	let t7;
-	let t8;
-	let p;
-	let t9_value = /*post*/ ctx[31].teaser + "";
-	let t9;
-	let t10;
-	let button1;
-	let t11;
-	let svg;
-	let path;
-	let t12;
-	let mounted;
-	let dispose;
-
-	function click_handler_1() {
-		return /*click_handler_1*/ ctx[24](/*post*/ ctx[31]);
-	}
-
-	function click_handler_2() {
-		return /*click_handler_2*/ ctx[25](/*post*/ ctx[31]);
-	}
-
-	return {
-		c() {
-			article = element("article");
-			button0 = element("button");
-			img = element("img");
-			t0 = space();
-			span0 = element("span");
-			t1 = text("Beitrag öffnen");
-			t2 = space();
-			div1 = element("div");
-			div0 = element("div");
-			span1 = element("span");
-			t3 = text(t3_value);
-			t4 = space();
-			time = element("time");
-			t5 = text(t5_value);
-			t6 = space();
-			h3 = element("h3");
-			t7 = text(t7_value);
-			t8 = space();
-			p = element("p");
-			t9 = text(t9_value);
-			t10 = space();
-			button1 = element("button");
-			t11 = text("Mehr anzeigen\n\n                ");
-			svg = svg_element("svg");
-			path = svg_element("path");
-			t12 = space();
-			this.h();
-		},
-		l(nodes) {
-			article = claim_element(nodes, "ARTICLE", { class: true });
-			var article_nodes = children(article);
-
-			button0 = claim_element(article_nodes, "BUTTON", {
-				type: true,
-				class: true,
-				"aria-label": true
-			});
-
-			var button0_nodes = children(button0);
-
-			img = claim_element(button0_nodes, "IMG", {
-				src: true,
-				alt: true,
-				loading: true,
-				class: true
-			});
-
-			t0 = claim_space(button0_nodes);
-			span0 = claim_element(button0_nodes, "SPAN", { class: true, "aria-hidden": true });
-			var span0_nodes = children(span0);
-			t1 = claim_text(span0_nodes, "Beitrag öffnen");
-			span0_nodes.forEach(detach);
-			button0_nodes.forEach(detach);
-			t2 = claim_space(article_nodes);
-			div1 = claim_element(article_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
-			div0 = claim_element(div1_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
-			span1 = claim_element(div0_nodes, "SPAN", { class: true });
-			var span1_nodes = children(span1);
-			t3 = claim_text(span1_nodes, t3_value);
-			span1_nodes.forEach(detach);
-			t4 = claim_space(div0_nodes);
-			time = claim_element(div0_nodes, "TIME", { datetime: true, class: true });
-			var time_nodes = children(time);
-			t5 = claim_text(time_nodes, t5_value);
-			time_nodes.forEach(detach);
-			div0_nodes.forEach(detach);
-			t6 = claim_space(div1_nodes);
-			h3 = claim_element(div1_nodes, "H3", { class: true });
-			var h3_nodes = children(h3);
-			t7 = claim_text(h3_nodes, t7_value);
-			h3_nodes.forEach(detach);
-			t8 = claim_space(div1_nodes);
-			p = claim_element(div1_nodes, "P", { class: true });
-			var p_nodes = children(p);
-			t9 = claim_text(p_nodes, t9_value);
-			p_nodes.forEach(detach);
-			t10 = claim_space(div1_nodes);
-
-			button1 = claim_element(div1_nodes, "BUTTON", {
-				type: true,
-				class: true,
-				"aria-haspopup": true
-			});
-
-			var button1_nodes = children(button1);
-			t11 = claim_text(button1_nodes, "Mehr anzeigen\n\n                ");
-
-			svg = claim_svg_element(button1_nodes, "svg", {
-				viewBox: true,
-				"aria-hidden": true,
-				class: true
-			});
-
-			var svg_nodes = children(svg);
-			path = claim_svg_element(svg_nodes, "path", { d: true, class: true });
-			children(path).forEach(detach);
-			svg_nodes.forEach(detach);
-			button1_nodes.forEach(detach);
-			div1_nodes.forEach(detach);
-			t12 = claim_space(article_nodes);
-			article_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			if (!src_url_equal(img.src, img_src_value = /*post*/ ctx[31].image.url)) attr(img, "src", img_src_value);
-			attr(img, "alt", img_alt_value = /*post*/ ctx[31].image.alt);
-			attr(img, "loading", "lazy");
-			attr(img, "class", "svelte-f909za");
-			attr(span0, "class", "cg-blog-card__image-overlay svelte-f909za");
-			attr(span0, "aria-hidden", "true");
-			attr(button0, "type", "button");
-			attr(button0, "class", "cg-blog-card__image svelte-f909za");
-			attr(button0, "aria-label", button0_aria_label_value = "Beitrag öffnen: " + /*post*/ ctx[31].title);
-			attr(span1, "class", "svelte-f909za");
-			attr(time, "datetime", time_datetime_value = /*post*/ ctx[31].date_iso);
-			attr(time, "class", "svelte-f909za");
-			attr(div0, "class", "cg-blog-card__meta svelte-f909za");
-			attr(h3, "class", "svelte-f909za");
-			attr(p, "class", "cg-blog-card__teaser svelte-f909za");
-			attr(path, "d", "m8 10 4 4 4-4");
-			attr(path, "class", "svelte-f909za");
-			attr(svg, "viewBox", "0 0 24 24");
-			attr(svg, "aria-hidden", "true");
-			attr(svg, "class", "svelte-f909za");
-			attr(button1, "type", "button");
-			attr(button1, "class", "cg-blog-card__button svelte-f909za");
-			attr(button1, "aria-haspopup", "dialog");
-			attr(div1, "class", "cg-blog-card__body svelte-f909za");
-			attr(article, "class", "cg-blog-card svelte-f909za");
-		},
-		m(target, anchor) {
-			insert_hydration(target, article, anchor);
-			append_hydration(article, button0);
-			append_hydration(button0, img);
-			append_hydration(button0, t0);
-			append_hydration(button0, span0);
-			append_hydration(span0, t1);
-			append_hydration(article, t2);
-			append_hydration(article, div1);
-			append_hydration(div1, div0);
-			append_hydration(div0, span1);
-			append_hydration(span1, t3);
-			append_hydration(div0, t4);
-			append_hydration(div0, time);
-			append_hydration(time, t5);
-			append_hydration(div1, t6);
-			append_hydration(div1, h3);
-			append_hydration(h3, t7);
-			append_hydration(div1, t8);
-			append_hydration(div1, p);
-			append_hydration(p, t9);
-			append_hydration(div1, t10);
-			append_hydration(div1, button1);
-			append_hydration(button1, t11);
-			append_hydration(button1, svg);
-			append_hydration(svg, path);
-			append_hydration(article, t12);
-
-			if (!mounted) {
-				dispose = [
-					listen(button0, "click", click_handler_1),
-					listen(button1, "click", click_handler_2)
-				];
-
-				mounted = true;
-			}
-		},
-		p(new_ctx, dirty) {
-			ctx = new_ctx;
-
-			if (dirty[0] & /*filteredPosts*/ 512 && !src_url_equal(img.src, img_src_value = /*post*/ ctx[31].image.url)) {
-				attr(img, "src", img_src_value);
-			}
-
-			if (dirty[0] & /*filteredPosts*/ 512 && img_alt_value !== (img_alt_value = /*post*/ ctx[31].image.alt)) {
-				attr(img, "alt", img_alt_value);
-			}
-
-			if (dirty[0] & /*filteredPosts*/ 512 && button0_aria_label_value !== (button0_aria_label_value = "Beitrag öffnen: " + /*post*/ ctx[31].title)) {
-				attr(button0, "aria-label", button0_aria_label_value);
-			}
-
-			if (dirty[0] & /*filteredPosts*/ 512 && t3_value !== (t3_value = /*post*/ ctx[31].category + "")) set_data(t3, t3_value);
-			if (dirty[0] & /*filteredPosts*/ 512 && t5_value !== (t5_value = /*post*/ ctx[31].date_label + "")) set_data(t5, t5_value);
-
-			if (dirty[0] & /*filteredPosts*/ 512 && time_datetime_value !== (time_datetime_value = /*post*/ ctx[31].date_iso)) {
-				attr(time, "datetime", time_datetime_value);
-			}
-
-			if (dirty[0] & /*filteredPosts*/ 512 && t7_value !== (t7_value = /*post*/ ctx[31].title + "")) set_data(t7, t7_value);
-			if (dirty[0] & /*filteredPosts*/ 512 && t9_value !== (t9_value = /*post*/ ctx[31].teaser + "")) set_data(t9, t9_value);
-		},
-		d(detaching) {
-			if (detaching) detach(article);
+			if (detaching) detach(t6);
+			if (detaching) detach(p);
 			mounted = false;
 			run_all(dispose);
 		}
 	};
 }
 
-// (1301:2) {#if selectedPost}
+// (1550:12) {#each Array(totalPages) as _, index}
+function create_each_block_1(ctx) {
+	let button;
+	let t0_value = /*index*/ ctx[43] + 1 + "";
+	let t0;
+	let t1;
+	let button_aria_current_value;
+	let mounted;
+	let dispose;
+
+	function click_handler_5() {
+		return /*click_handler_5*/ ctx[37](/*index*/ ctx[43]);
+	}
+
+	return {
+		c() {
+			button = element("button");
+			t0 = text(t0_value);
+			t1 = space();
+			this.h();
+		},
+		l(nodes) {
+			button = claim_element(nodes, "BUTTON", {
+				type: true,
+				class: true,
+				"aria-label": true,
+				"aria-current": true
+			});
+
+			var button_nodes = children(button);
+			t0 = claim_text(button_nodes, t0_value);
+			t1 = claim_space(button_nodes);
+			button_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(button, "type", "button");
+			attr(button, "class", "cg-blog-pagination__page svelte-1ax38ay");
+			attr(button, "aria-label", "Seite " + (/*index*/ ctx[43] + 1) + " anzeigen");
+
+			attr(button, "aria-current", button_aria_current_value = /*currentPage*/ ctx[4] === /*index*/ ctx[43] + 1
+			? "page"
+			: undefined);
+
+			toggle_class(button, "active", /*currentPage*/ ctx[4] === /*index*/ ctx[43] + 1);
+		},
+		m(target, anchor) {
+			insert_hydration(target, button, anchor);
+			append_hydration(button, t0);
+			append_hydration(button, t1);
+
+			if (!mounted) {
+				dispose = listen(button, "click", click_handler_5);
+				mounted = true;
+			}
+		},
+		p(new_ctx, dirty) {
+			ctx = new_ctx;
+
+			if (dirty[0] & /*currentPage*/ 16 && button_aria_current_value !== (button_aria_current_value = /*currentPage*/ ctx[4] === /*index*/ ctx[43] + 1
+			? "page"
+			: undefined)) {
+				attr(button, "aria-current", button_aria_current_value);
+			}
+
+			if (dirty[0] & /*currentPage*/ 16) {
+				toggle_class(button, "active", /*currentPage*/ ctx[4] === /*index*/ ctx[43] + 1);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(button);
+			mounted = false;
+			dispose();
+		}
+	};
+}
+
+// (1610:0) {#if selectedPost}
 function create_if_block(ctx) {
 	let div4;
 	let article;
 	let button0;
-	let svg;
-	let path;
+	let svg0;
+	let path0;
 	let t0;
-	let div0;
-	let img;
-	let img_src_value;
-	let img_alt_value;
+	let div2;
 	let t1;
-	let div3;
 	let div1;
-	let span0;
-	let t2_value = /*selectedPost*/ ctx[6].category + "";
+	let div0;
 	let t2;
 	let t3;
-	let time;
-	let t4_value = /*selectedPost*/ ctx[6].date_label + "";
-	let t4;
-	let time_datetime_value;
-	let t5;
 	let h2;
-	let t6_value = /*selectedPost*/ ctx[6].title + "";
+	let t4_value = /*selectedPost*/ ctx[2].title + "";
+	let t4;
+	let t5;
 	let t6;
-	let h2_id_value;
+	let div3;
+	let raw_value = renderPostContent(/*selectedPost*/ ctx[2].content) + "";
 	let t7;
-	let p;
-	let t8_value = /*selectedPost*/ ctx[6].teaser + "";
 	let t8;
-	let t9;
-	let div2;
-	let raw_value = renderPostContent(/*selectedPost*/ ctx[6].content) + "";
-	let t10;
-	let t11;
 	let button1;
-	let t12;
-	let span1;
-	let t13;
-	let article_aria_labelledby_value;
+	let t9;
+	let svg1;
+	let path1;
 	let article_transition;
 	let div4_transition;
 	let current;
 	let mounted;
 	let dispose;
-	let if_block = /*galleryItems*/ ctx[8].length > 0 && /*currentGalleryImage*/ ctx[10] && create_if_block_1(ctx);
+	let if_block0 = /*selectedPost*/ ctx[2].image && /*selectedPost*/ ctx[2].image.url && create_if_block_9(ctx);
+	let if_block1 = /*selectedPost*/ ctx[2].category && create_if_block_8(ctx);
+	let if_block2 = /*selectedPost*/ ctx[2].date && create_if_block_7(ctx);
+	let if_block3 = /*selectedPost*/ ctx[2].teaser && create_if_block_6(ctx);
+	let if_block4 = /*galleryItems*/ ctx[5].length > 0 && /*currentGalleryImage*/ ctx[9] && create_if_block_1(ctx);
 
 	return {
 		c() {
 			div4 = element("div");
 			article = element("article");
 			button0 = element("button");
-			svg = svg_element("svg");
-			path = svg_element("path");
+			svg0 = svg_element("svg");
+			path0 = svg_element("path");
 			t0 = space();
-			div0 = element("div");
-			img = element("img");
+			div2 = element("div");
+			if (if_block0) if_block0.c();
 			t1 = space();
-			div3 = element("div");
 			div1 = element("div");
-			span0 = element("span");
-			t2 = text(t2_value);
+			div0 = element("div");
+			if (if_block1) if_block1.c();
+			t2 = space();
+			if (if_block2) if_block2.c();
 			t3 = space();
-			time = element("time");
+			h2 = element("h2");
 			t4 = text(t4_value);
 			t5 = space();
-			h2 = element("h2");
-			t6 = text(t6_value);
+			if (if_block3) if_block3.c();
+			t6 = space();
+			div3 = element("div");
 			t7 = space();
-			p = element("p");
-			t8 = text(t8_value);
-			t9 = space();
-			div2 = element("div");
-			t10 = space();
-			if (if_block) if_block.c();
-			t11 = space();
+			if (if_block4) if_block4.c();
+			t8 = space();
 			button1 = element("button");
-			t12 = text("Weniger anzeigen\n            ");
-			span1 = element("span");
-			t13 = text("↑");
+			t9 = text("Weniger anzeigen\n\n        ");
+			svg1 = svg_element("svg");
+			path1 = svg_element("path");
 			this.h();
 		},
 		l(nodes) {
@@ -1454,225 +2063,248 @@ function create_if_block(ctx) {
 
 			var button0_nodes = children(button0);
 
-			svg = claim_svg_element(button0_nodes, "svg", {
+			svg0 = claim_svg_element(button0_nodes, "svg", {
 				viewBox: true,
 				"aria-hidden": true,
 				class: true
 			});
 
-			var svg_nodes = children(svg);
-			path = claim_svg_element(svg_nodes, "path", { d: true, class: true });
-			children(path).forEach(detach);
-			svg_nodes.forEach(detach);
+			var svg0_nodes = children(svg0);
+			path0 = claim_svg_element(svg0_nodes, "path", { d: true, class: true });
+			children(path0).forEach(detach);
+			svg0_nodes.forEach(detach);
 			button0_nodes.forEach(detach);
 			t0 = claim_space(article_nodes);
-			div0 = claim_element(article_nodes, "DIV", { class: true });
+			div2 = claim_element(article_nodes, "DIV", { class: true });
+			var div2_nodes = children(div2);
+			if (if_block0) if_block0.l(div2_nodes);
+			t1 = claim_space(div2_nodes);
+			div1 = claim_element(div2_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
 			var div0_nodes = children(div0);
-			img = claim_element(div0_nodes, "IMG", { src: true, alt: true, class: true });
+			if (if_block1) if_block1.l(div0_nodes);
+			t2 = claim_space(div0_nodes);
+			if (if_block2) if_block2.l(div0_nodes);
 			div0_nodes.forEach(detach);
-			t1 = claim_space(article_nodes);
+			t3 = claim_space(div1_nodes);
+			h2 = claim_element(div1_nodes, "H2", { id: true, class: true });
+			var h2_nodes = children(h2);
+			t4 = claim_text(h2_nodes, t4_value);
+			h2_nodes.forEach(detach);
+			t5 = claim_space(div1_nodes);
+			if (if_block3) if_block3.l(div1_nodes);
+			div1_nodes.forEach(detach);
+			div2_nodes.forEach(detach);
+			t6 = claim_space(article_nodes);
 			div3 = claim_element(article_nodes, "DIV", { class: true });
 			var div3_nodes = children(div3);
-			div1 = claim_element(div3_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
-			span0 = claim_element(div1_nodes, "SPAN", { class: true });
-			var span0_nodes = children(span0);
-			t2 = claim_text(span0_nodes, t2_value);
-			span0_nodes.forEach(detach);
-			t3 = claim_space(div1_nodes);
-			time = claim_element(div1_nodes, "TIME", { datetime: true, class: true });
-			var time_nodes = children(time);
-			t4 = claim_text(time_nodes, t4_value);
-			time_nodes.forEach(detach);
-			div1_nodes.forEach(detach);
-			t5 = claim_space(div3_nodes);
-			h2 = claim_element(div3_nodes, "H2", { id: true, class: true });
-			var h2_nodes = children(h2);
-			t6 = claim_text(h2_nodes, t6_value);
-			h2_nodes.forEach(detach);
-			t7 = claim_space(div3_nodes);
-			p = claim_element(div3_nodes, "P", { class: true });
-			var p_nodes = children(p);
-			t8 = claim_text(p_nodes, t8_value);
-			p_nodes.forEach(detach);
-			t9 = claim_space(div3_nodes);
-			div2 = claim_element(div3_nodes, "DIV", { class: true });
-			var div2_nodes = children(div2);
-			div2_nodes.forEach(detach);
-			t10 = claim_space(div3_nodes);
-			if (if_block) if_block.l(div3_nodes);
-			t11 = claim_space(div3_nodes);
-			button1 = claim_element(div3_nodes, "BUTTON", { type: true, class: true });
-			var button1_nodes = children(button1);
-			t12 = claim_text(button1_nodes, "Weniger anzeigen\n            ");
-			span1 = claim_element(button1_nodes, "SPAN", { "aria-hidden": true, class: true });
-			var span1_nodes = children(span1);
-			t13 = claim_text(span1_nodes, "↑");
-			span1_nodes.forEach(detach);
-			button1_nodes.forEach(detach);
 			div3_nodes.forEach(detach);
+			t7 = claim_space(article_nodes);
+			if (if_block4) if_block4.l(article_nodes);
+			t8 = claim_space(article_nodes);
+			button1 = claim_element(article_nodes, "BUTTON", { type: true, class: true });
+			var button1_nodes = children(button1);
+			t9 = claim_text(button1_nodes, "Weniger anzeigen\n\n        ");
+
+			svg1 = claim_svg_element(button1_nodes, "svg", {
+				viewBox: true,
+				"aria-hidden": true,
+				class: true
+			});
+
+			var svg1_nodes = children(svg1);
+			path1 = claim_svg_element(svg1_nodes, "path", { d: true, class: true });
+			children(path1).forEach(detach);
+			svg1_nodes.forEach(detach);
+			button1_nodes.forEach(detach);
 			article_nodes.forEach(detach);
 			div4_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(path, "d", "M6 6l12 12M18 6 6 18");
-			attr(path, "class", "svelte-f909za");
-			attr(svg, "viewBox", "0 0 24 24");
-			attr(svg, "aria-hidden", "true");
-			attr(svg, "class", "svelte-f909za");
+			attr(path0, "d", "M6 6l12 12M18 6 6 18");
+			attr(path0, "class", "svelte-1ax38ay");
+			attr(svg0, "viewBox", "0 0 24 24");
+			attr(svg0, "aria-hidden", "true");
+			attr(svg0, "class", "svelte-1ax38ay");
 			attr(button0, "type", "button");
-			attr(button0, "class", "cg-blog-modal__close svelte-f909za");
+			attr(button0, "class", "cg-blog-modal__close svelte-1ax38ay");
 			attr(button0, "aria-label", "Beitrag schließen");
-			if (!src_url_equal(img.src, img_src_value = /*selectedPost*/ ctx[6].image.url)) attr(img, "src", img_src_value);
-			attr(img, "alt", img_alt_value = /*selectedPost*/ ctx[6].image.alt);
-			attr(img, "class", "svelte-f909za");
-			attr(div0, "class", "cg-blog-modal__image svelte-f909za");
-			attr(span0, "class", "svelte-f909za");
-			attr(time, "datetime", time_datetime_value = /*selectedPost*/ ctx[6].date_iso);
-			attr(time, "class", "svelte-f909za");
-			attr(div1, "class", "cg-blog-modal__meta svelte-f909za");
-			attr(h2, "id", h2_id_value = "cg-modal-title-" + /*selectedPost*/ ctx[6].id);
-			attr(h2, "class", "svelte-f909za");
-			attr(p, "class", "cg-blog-modal__teaser svelte-f909za");
-			attr(div2, "class", "cg-blog-modal__content svelte-f909za");
-			attr(span1, "aria-hidden", "true");
-			attr(span1, "class", "svelte-f909za");
+			attr(div0, "class", "cg-blog-modal__meta svelte-1ax38ay");
+			attr(h2, "id", "cg-blog-modal-title");
+			attr(h2, "class", "svelte-1ax38ay");
+			attr(div1, "class", "cg-blog-modal__intro svelte-1ax38ay");
+			attr(div2, "class", "cg-blog-modal__header svelte-1ax38ay");
+			attr(div3, "class", "cg-blog-modal__content svelte-1ax38ay");
+			attr(path1, "d", "m6 15 6-6 6 6");
+			attr(path1, "class", "svelte-1ax38ay");
+			attr(svg1, "viewBox", "0 0 24 24");
+			attr(svg1, "aria-hidden", "true");
+			attr(svg1, "class", "svelte-1ax38ay");
 			attr(button1, "type", "button");
-			attr(button1, "class", "cg-blog-modal__bottom-close svelte-f909za");
-			attr(div3, "class", "cg-blog-modal__body svelte-f909za");
-			attr(article, "class", "cg-blog-modal svelte-f909za");
+			attr(button1, "class", "cg-blog-modal__bottom-close svelte-1ax38ay");
+			attr(article, "class", "cg-blog-modal svelte-1ax38ay");
 			attr(article, "role", "dialog");
 			attr(article, "aria-modal", "true");
-			attr(article, "aria-labelledby", article_aria_labelledby_value = "cg-modal-title-" + /*selectedPost*/ ctx[6].id);
-			attr(div4, "class", "cg-blog-overlay svelte-f909za");
+			attr(article, "aria-labelledby", "cg-blog-modal-title");
+			attr(div4, "class", "cg-blog-modal__overlay svelte-1ax38ay");
 			attr(div4, "role", "presentation");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div4, anchor);
 			append_hydration(div4, article);
 			append_hydration(article, button0);
-			append_hydration(button0, svg);
-			append_hydration(svg, path);
+			append_hydration(button0, svg0);
+			append_hydration(svg0, path0);
 			append_hydration(article, t0);
-			append_hydration(article, div0);
-			append_hydration(div0, img);
-			append_hydration(article, t1);
-			append_hydration(article, div3);
-			append_hydration(div3, div1);
-			append_hydration(div1, span0);
-			append_hydration(span0, t2);
+			append_hydration(article, div2);
+			if (if_block0) if_block0.m(div2, null);
+			append_hydration(div2, t1);
+			append_hydration(div2, div1);
+			append_hydration(div1, div0);
+			if (if_block1) if_block1.m(div0, null);
+			append_hydration(div0, t2);
+			if (if_block2) if_block2.m(div0, null);
 			append_hydration(div1, t3);
-			append_hydration(div1, time);
-			append_hydration(time, t4);
-			append_hydration(div3, t5);
-			append_hydration(div3, h2);
-			append_hydration(h2, t6);
-			append_hydration(div3, t7);
-			append_hydration(div3, p);
-			append_hydration(p, t8);
-			append_hydration(div3, t9);
-			append_hydration(div3, div2);
-			div2.innerHTML = raw_value;
-			append_hydration(div3, t10);
-			if (if_block) if_block.m(div3, null);
-			append_hydration(div3, t11);
-			append_hydration(div3, button1);
-			append_hydration(button1, t12);
-			append_hydration(button1, span1);
-			append_hydration(span1, t13);
+			append_hydration(div1, h2);
+			append_hydration(h2, t4);
+			append_hydration(div1, t5);
+			if (if_block3) if_block3.m(div1, null);
+			append_hydration(article, t6);
+			append_hydration(article, div3);
+			div3.innerHTML = raw_value;
+			append_hydration(article, t7);
+			if (if_block4) if_block4.m(article, null);
+			append_hydration(article, t8);
+			append_hydration(article, button1);
+			append_hydration(button1, t9);
+			append_hydration(button1, svg1);
+			append_hydration(svg1, path1);
 			current = true;
 
 			if (!mounted) {
 				dispose = [
-					listen(button0, "click", /*closeArticle*/ ctx[14]),
-					listen(button1, "click", /*closeArticle*/ ctx[14]),
-					listen(div4, "click", self(/*closeArticle*/ ctx[14]))
+					listen(button0, "click", /*closeArticle*/ ctx[16]),
+					listen(button1, "click", /*closeArticle*/ ctx[16]),
+					listen(div4, "click", self(/*closeArticle*/ ctx[16]))
 				];
 
 				mounted = true;
 			}
 		},
 		p(ctx, dirty) {
-			if (!current || dirty[0] & /*selectedPost*/ 64 && !src_url_equal(img.src, img_src_value = /*selectedPost*/ ctx[6].image.url)) {
-				attr(img, "src", img_src_value);
+			if (/*selectedPost*/ ctx[2].image && /*selectedPost*/ ctx[2].image.url) {
+				if (if_block0) {
+					if_block0.p(ctx, dirty);
+				} else {
+					if_block0 = create_if_block_9(ctx);
+					if_block0.c();
+					if_block0.m(div2, t1);
+				}
+			} else if (if_block0) {
+				if_block0.d(1);
+				if_block0 = null;
 			}
 
-			if (!current || dirty[0] & /*selectedPost*/ 64 && img_alt_value !== (img_alt_value = /*selectedPost*/ ctx[6].image.alt)) {
-				attr(img, "alt", img_alt_value);
+			if (/*selectedPost*/ ctx[2].category) {
+				if (if_block1) {
+					if_block1.p(ctx, dirty);
+				} else {
+					if_block1 = create_if_block_8(ctx);
+					if_block1.c();
+					if_block1.m(div0, t2);
+				}
+			} else if (if_block1) {
+				if_block1.d(1);
+				if_block1 = null;
 			}
 
-			if ((!current || dirty[0] & /*selectedPost*/ 64) && t2_value !== (t2_value = /*selectedPost*/ ctx[6].category + "")) set_data(t2, t2_value);
-			if ((!current || dirty[0] & /*selectedPost*/ 64) && t4_value !== (t4_value = /*selectedPost*/ ctx[6].date_label + "")) set_data(t4, t4_value);
-
-			if (!current || dirty[0] & /*selectedPost*/ 64 && time_datetime_value !== (time_datetime_value = /*selectedPost*/ ctx[6].date_iso)) {
-				attr(time, "datetime", time_datetime_value);
+			if (/*selectedPost*/ ctx[2].date) {
+				if (if_block2) {
+					if_block2.p(ctx, dirty);
+				} else {
+					if_block2 = create_if_block_7(ctx);
+					if_block2.c();
+					if_block2.m(div0, null);
+				}
+			} else if (if_block2) {
+				if_block2.d(1);
+				if_block2 = null;
 			}
 
-			if ((!current || dirty[0] & /*selectedPost*/ 64) && t6_value !== (t6_value = /*selectedPost*/ ctx[6].title + "")) set_data(t6, t6_value);
+			if ((!current || dirty[0] & /*selectedPost*/ 4) && t4_value !== (t4_value = /*selectedPost*/ ctx[2].title + "")) set_data(t4, t4_value);
 
-			if (!current || dirty[0] & /*selectedPost*/ 64 && h2_id_value !== (h2_id_value = "cg-modal-title-" + /*selectedPost*/ ctx[6].id)) {
-				attr(h2, "id", h2_id_value);
+			if (/*selectedPost*/ ctx[2].teaser) {
+				if (if_block3) {
+					if_block3.p(ctx, dirty);
+				} else {
+					if_block3 = create_if_block_6(ctx);
+					if_block3.c();
+					if_block3.m(div1, null);
+				}
+			} else if (if_block3) {
+				if_block3.d(1);
+				if_block3 = null;
 			}
 
-			if ((!current || dirty[0] & /*selectedPost*/ 64) && t8_value !== (t8_value = /*selectedPost*/ ctx[6].teaser + "")) set_data(t8, t8_value);
-			if ((!current || dirty[0] & /*selectedPost*/ 64) && raw_value !== (raw_value = renderPostContent(/*selectedPost*/ ctx[6].content) + "")) div2.innerHTML = raw_value;
-			if (/*galleryItems*/ ctx[8].length > 0 && /*currentGalleryImage*/ ctx[10]) {
-				if (if_block) {
-					if_block.p(ctx, dirty);
+			if ((!current || dirty[0] & /*selectedPost*/ 4) && raw_value !== (raw_value = renderPostContent(/*selectedPost*/ ctx[2].content) + "")) div3.innerHTML = raw_value;
+			if (/*galleryItems*/ ctx[5].length > 0 && /*currentGalleryImage*/ ctx[9]) {
+				if (if_block4) {
+					if_block4.p(ctx, dirty);
 
-					if (dirty[0] & /*galleryItems, currentGalleryImage*/ 1280) {
-						transition_in(if_block, 1);
+					if (dirty[0] & /*galleryItems, currentGalleryImage*/ 544) {
+						transition_in(if_block4, 1);
 					}
 				} else {
-					if_block = create_if_block_1(ctx);
-					if_block.c();
-					transition_in(if_block, 1);
-					if_block.m(div3, t11);
+					if_block4 = create_if_block_1(ctx);
+					if_block4.c();
+					transition_in(if_block4, 1);
+					if_block4.m(article, t8);
 				}
-			} else if (if_block) {
+			} else if (if_block4) {
 				group_outros();
 
-				transition_out(if_block, 1, 1, () => {
-					if_block = null;
+				transition_out(if_block4, 1, 1, () => {
+					if_block4 = null;
 				});
 
 				check_outros();
 			}
-
-			if (!current || dirty[0] & /*selectedPost*/ 64 && article_aria_labelledby_value !== (article_aria_labelledby_value = "cg-modal-title-" + /*selectedPost*/ ctx[6].id)) {
-				attr(article, "aria-labelledby", article_aria_labelledby_value);
-			}
 		},
 		i(local) {
 			if (current) return;
-			transition_in(if_block);
+			transition_in(if_block4);
 
 			add_render_callback(() => {
 				if (!current) return;
-				if (!article_transition) article_transition = create_bidirectional_transition(article, fly, { y: 28, duration: 340 }, true);
+				if (!article_transition) article_transition = create_bidirectional_transition(article, fly, { y: 25, duration: 240 }, true);
 				article_transition.run(1);
 			});
 
 			add_render_callback(() => {
 				if (!current) return;
-				if (!div4_transition) div4_transition = create_bidirectional_transition(div4, fade, { duration: 220 }, true);
+				if (!div4_transition) div4_transition = create_bidirectional_transition(div4, fade, { duration: 180 }, true);
 				div4_transition.run(1);
 			});
 
 			current = true;
 		},
 		o(local) {
-			transition_out(if_block);
-			if (!article_transition) article_transition = create_bidirectional_transition(article, fly, { y: 28, duration: 340 }, false);
+			transition_out(if_block4);
+			if (!article_transition) article_transition = create_bidirectional_transition(article, fly, { y: 25, duration: 240 }, false);
 			article_transition.run(0);
-			if (!div4_transition) div4_transition = create_bidirectional_transition(div4, fade, { duration: 220 }, false);
+			if (!div4_transition) div4_transition = create_bidirectional_transition(div4, fade, { duration: 180 }, false);
 			div4_transition.run(0);
 			current = false;
 		},
 		d(detaching) {
 			if (detaching) detach(div4);
-			if (if_block) if_block.d();
+			if (if_block0) if_block0.d();
+			if (if_block1) if_block1.d();
+			if (if_block2) if_block2.d();
+			if (if_block3) if_block3.d();
+			if (if_block4) if_block4.d();
 			if (detaching && article_transition) article_transition.end();
 			if (detaching && div4_transition) div4_transition.end();
 			mounted = false;
@@ -1681,7 +2313,163 @@ function create_if_block(ctx) {
 	};
 }
 
-// (1357:10) {#if galleryItems.length > 0 && currentGalleryImage}
+// (1636:8) {#if selectedPost.image && selectedPost.image.url}
+function create_if_block_9(ctx) {
+	let div;
+	let img;
+	let img_src_value;
+	let img_alt_value;
+
+	return {
+		c() {
+			div = element("div");
+			img = element("img");
+			this.h();
+		},
+		l(nodes) {
+			div = claim_element(nodes, "DIV", { class: true });
+			var div_nodes = children(div);
+			img = claim_element(div_nodes, "IMG", { src: true, alt: true, class: true });
+			div_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			if (!src_url_equal(img.src, img_src_value = /*selectedPost*/ ctx[2].image.url)) attr(img, "src", img_src_value);
+			attr(img, "alt", img_alt_value = /*selectedPost*/ ctx[2].image.alt || /*selectedPost*/ ctx[2].title);
+			attr(img, "class", "svelte-1ax38ay");
+			attr(div, "class", "cg-blog-modal__image svelte-1ax38ay");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div, anchor);
+			append_hydration(div, img);
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*selectedPost*/ 4 && !src_url_equal(img.src, img_src_value = /*selectedPost*/ ctx[2].image.url)) {
+				attr(img, "src", img_src_value);
+			}
+
+			if (dirty[0] & /*selectedPost*/ 4 && img_alt_value !== (img_alt_value = /*selectedPost*/ ctx[2].image.alt || /*selectedPost*/ ctx[2].title)) {
+				attr(img, "alt", img_alt_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(div);
+		}
+	};
+}
+
+// (1647:12) {#if selectedPost.category}
+function create_if_block_8(ctx) {
+	let span;
+	let t_value = /*selectedPost*/ ctx[2].category + "";
+	let t;
+
+	return {
+		c() {
+			span = element("span");
+			t = text(t_value);
+			this.h();
+		},
+		l(nodes) {
+			span = claim_element(nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t = claim_text(span_nodes, t_value);
+			span_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(span, "class", "cg-blog-modal__category svelte-1ax38ay");
+		},
+		m(target, anchor) {
+			insert_hydration(target, span, anchor);
+			append_hydration(span, t);
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*selectedPost*/ 4 && t_value !== (t_value = /*selectedPost*/ ctx[2].category + "")) set_data(t, t_value);
+		},
+		d(detaching) {
+			if (detaching) detach(span);
+		}
+	};
+}
+
+// (1653:12) {#if selectedPost.date}
+function create_if_block_7(ctx) {
+	let time;
+	let t_value = /*selectedPost*/ ctx[2].date + "";
+	let t;
+	let time_datetime_value;
+
+	return {
+		c() {
+			time = element("time");
+			t = text(t_value);
+			this.h();
+		},
+		l(nodes) {
+			time = claim_element(nodes, "TIME", { class: true, datetime: true });
+			var time_nodes = children(time);
+			t = claim_text(time_nodes, t_value);
+			time_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(time, "class", "cg-blog-modal__date svelte-1ax38ay");
+			attr(time, "datetime", time_datetime_value = /*selectedPost*/ ctx[2].date_iso || /*selectedPost*/ ctx[2].sort_date);
+		},
+		m(target, anchor) {
+			insert_hydration(target, time, anchor);
+			append_hydration(time, t);
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*selectedPost*/ 4 && t_value !== (t_value = /*selectedPost*/ ctx[2].date + "")) set_data(t, t_value);
+
+			if (dirty[0] & /*selectedPost*/ 4 && time_datetime_value !== (time_datetime_value = /*selectedPost*/ ctx[2].date_iso || /*selectedPost*/ ctx[2].sort_date)) {
+				attr(time, "datetime", time_datetime_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(time);
+		}
+	};
+}
+
+// (1667:10) {#if selectedPost.teaser}
+function create_if_block_6(ctx) {
+	let p;
+	let t_value = /*selectedPost*/ ctx[2].teaser + "";
+	let t;
+
+	return {
+		c() {
+			p = element("p");
+			t = text(t_value);
+			this.h();
+		},
+		l(nodes) {
+			p = claim_element(nodes, "P", { class: true });
+			var p_nodes = children(p);
+			t = claim_text(p_nodes, t_value);
+			p_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(p, "class", "cg-blog-modal__teaser svelte-1ax38ay");
+		},
+		m(target, anchor) {
+			insert_hydration(target, p, anchor);
+			append_hydration(p, t);
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*selectedPost*/ 4 && t_value !== (t_value = /*selectedPost*/ ctx[2].teaser + "")) set_data(t, t_value);
+		},
+		d(detaching) {
+			if (detaching) detach(p);
+		}
+	};
+}
+
+// (1679:6) {#if galleryItems.length > 0 && currentGalleryImage}
 function create_if_block_1(ctx) {
 	let section;
 	let div0;
@@ -1690,17 +2478,17 @@ function create_if_block_1(ctx) {
 	let t1;
 	let t2;
 	let div1;
-	let previous_key = /*currentGalleryImage*/ ctx[10].image.url;
+	let previous_key = /*currentGalleryImage*/ ctx[9].image.url;
 	let t3;
 	let t4;
 	let t5;
 	let section_aria_label_value;
 	let current;
-	let if_block0 = /*galleryItems*/ ctx[8].length > 1 && create_if_block_5(ctx);
+	let if_block0 = /*galleryItems*/ ctx[5].length > 1 && create_if_block_5(ctx);
 	let key_block = create_key_block(ctx);
-	let if_block1 = /*galleryItems*/ ctx[8].length > 1 && create_if_block_4(ctx);
-	let if_block2 = /*currentGalleryImage*/ ctx[10].caption && create_if_block_3(ctx);
-	let if_block3 = /*galleryItems*/ ctx[8].length > 1 && create_if_block_2(ctx);
+	let if_block1 = /*galleryItems*/ ctx[5].length > 1 && create_if_block_4(ctx);
+	let if_block2 = /*currentGalleryImage*/ ctx[9].caption && create_if_block_3(ctx);
+	let if_block3 = /*galleryItems*/ ctx[5].length > 1 && create_if_block_2(ctx);
 
 	return {
 		c() {
@@ -1748,11 +2536,11 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "svelte-f909za");
-			attr(div0, "class", "cg-blog-gallery__heading svelte-f909za");
-			attr(div1, "class", "cg-blog-gallery__stage svelte-f909za");
-			attr(section, "class", "cg-blog-gallery svelte-f909za");
-			attr(section, "aria-label", section_aria_label_value = "Bildergalerie: " + /*selectedPost*/ ctx[6].title);
+			attr(h3, "class", "svelte-1ax38ay");
+			attr(div0, "class", "cg-blog-gallery__heading svelte-1ax38ay");
+			attr(div1, "class", "cg-blog-gallery__stage svelte-1ax38ay");
+			attr(section, "class", "cg-blog-gallery svelte-1ax38ay");
+			attr(section, "aria-label", section_aria_label_value = "Bildergalerie: " + /*selectedPost*/ ctx[2].title);
 		},
 		m(target, anchor) {
 			insert_hydration(target, section, anchor);
@@ -1773,7 +2561,7 @@ function create_if_block_1(ctx) {
 			current = true;
 		},
 		p(ctx, dirty) {
-			if (/*galleryItems*/ ctx[8].length > 1) {
+			if (/*galleryItems*/ ctx[5].length > 1) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
@@ -1786,7 +2574,7 @@ function create_if_block_1(ctx) {
 				if_block0 = null;
 			}
 
-			if (dirty[0] & /*currentGalleryImage*/ 1024 && safe_not_equal(previous_key, previous_key = /*currentGalleryImage*/ ctx[10].image.url)) {
+			if (dirty[0] & /*currentGalleryImage*/ 512 && safe_not_equal(previous_key, previous_key = /*currentGalleryImage*/ ctx[9].image.url)) {
 				group_outros();
 				transition_out(key_block, 1, 1, noop);
 				check_outros();
@@ -1798,7 +2586,7 @@ function create_if_block_1(ctx) {
 				key_block.p(ctx, dirty);
 			}
 
-			if (/*galleryItems*/ ctx[8].length > 1) {
+			if (/*galleryItems*/ ctx[5].length > 1) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
@@ -1811,7 +2599,7 @@ function create_if_block_1(ctx) {
 				if_block1 = null;
 			}
 
-			if (/*currentGalleryImage*/ ctx[10].caption) {
+			if (/*currentGalleryImage*/ ctx[9].caption) {
 				if (if_block2) {
 					if_block2.p(ctx, dirty);
 				} else {
@@ -1824,7 +2612,7 @@ function create_if_block_1(ctx) {
 				if_block2 = null;
 			}
 
-			if (/*galleryItems*/ ctx[8].length > 1) {
+			if (/*galleryItems*/ ctx[5].length > 1) {
 				if (if_block3) {
 					if_block3.p(ctx, dirty);
 				} else {
@@ -1837,7 +2625,7 @@ function create_if_block_1(ctx) {
 				if_block3 = null;
 			}
 
-			if (!current || dirty[0] & /*selectedPost*/ 64 && section_aria_label_value !== (section_aria_label_value = "Bildergalerie: " + /*selectedPost*/ ctx[6].title)) {
+			if (!current || dirty[0] & /*selectedPost*/ 4 && section_aria_label_value !== (section_aria_label_value = "Bildergalerie: " + /*selectedPost*/ ctx[2].title)) {
 				attr(section, "aria-label", section_aria_label_value);
 			}
 		},
@@ -1861,13 +2649,13 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (1365:16) {#if galleryItems.length > 1}
+// (1687:12) {#if galleryItems.length > 1}
 function create_if_block_5(ctx) {
 	let span;
-	let t0_value = /*galleryIndex*/ ctx[7] + 1 + "";
+	let t0_value = /*galleryIndex*/ ctx[3] + 1 + "";
 	let t0;
 	let t1;
-	let t2_value = /*galleryItems*/ ctx[8].length + "";
+	let t2_value = /*galleryItems*/ ctx[5].length + "";
 	let t2;
 
 	return {
@@ -1888,7 +2676,7 @@ function create_if_block_5(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "svelte-f909za");
+			attr(span, "class", "svelte-1ax38ay");
 		},
 		m(target, anchor) {
 			insert_hydration(target, span, anchor);
@@ -1897,8 +2685,8 @@ function create_if_block_5(ctx) {
 			append_hydration(span, t2);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*galleryIndex*/ 128 && t0_value !== (t0_value = /*galleryIndex*/ ctx[7] + 1 + "")) set_data(t0, t0_value);
-			if (dirty[0] & /*galleryItems*/ 256 && t2_value !== (t2_value = /*galleryItems*/ ctx[8].length + "")) set_data(t2, t2_value);
+			if (dirty[0] & /*galleryIndex*/ 8 && t0_value !== (t0_value = /*galleryIndex*/ ctx[3] + 1 + "")) set_data(t0, t0_value);
+			if (dirty[0] & /*galleryItems*/ 32 && t2_value !== (t2_value = /*galleryItems*/ ctx[5].length + "")) set_data(t2, t2_value);
 		},
 		d(detaching) {
 			if (detaching) detach(span);
@@ -1906,7 +2694,7 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (1373:16) {#key currentGalleryImage.image.url}
+// (1695:12) {#key currentGalleryImage.image.url}
 function create_key_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1924,20 +2712,20 @@ function create_key_block(ctx) {
 			this.h();
 		},
 		h() {
-			if (!src_url_equal(img.src, img_src_value = /*currentGalleryImage*/ ctx[10].image.url)) attr(img, "src", img_src_value);
-			attr(img, "alt", img_alt_value = /*currentGalleryImage*/ ctx[10].image.alt || /*currentGalleryImage*/ ctx[10].caption || /*selectedPost*/ ctx[6].title);
-			attr(img, "class", "svelte-f909za");
+			if (!src_url_equal(img.src, img_src_value = /*currentGalleryImage*/ ctx[9].image.url)) attr(img, "src", img_src_value);
+			attr(img, "alt", img_alt_value = /*currentGalleryImage*/ ctx[9].image.alt || /*currentGalleryImage*/ ctx[9].caption || /*selectedPost*/ ctx[2].title);
+			attr(img, "class", "svelte-1ax38ay");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
 			current = true;
 		},
 		p(ctx, dirty) {
-			if (!current || dirty[0] & /*currentGalleryImage*/ 1024 && !src_url_equal(img.src, img_src_value = /*currentGalleryImage*/ ctx[10].image.url)) {
+			if (!current || dirty[0] & /*currentGalleryImage*/ 512 && !src_url_equal(img.src, img_src_value = /*currentGalleryImage*/ ctx[9].image.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (!current || dirty[0] & /*currentGalleryImage, selectedPost*/ 1088 && img_alt_value !== (img_alt_value = /*currentGalleryImage*/ ctx[10].image.alt || /*currentGalleryImage*/ ctx[10].caption || /*selectedPost*/ ctx[6].title)) {
+			if (!current || dirty[0] & /*currentGalleryImage, selectedPost*/ 516 && img_alt_value !== (img_alt_value = /*currentGalleryImage*/ ctx[9].image.alt || /*currentGalleryImage*/ ctx[9].caption || /*selectedPost*/ ctx[2].title)) {
 				attr(img, "alt", img_alt_value);
 			}
 		},
@@ -1964,7 +2752,7 @@ function create_key_block(ctx) {
 	};
 }
 
-// (1381:16) {#if galleryItems.length > 1}
+// (1705:12) {#if galleryItems.length > 1}
 function create_if_block_4(ctx) {
 	let button0;
 	let svg0;
@@ -2032,20 +2820,20 @@ function create_if_block_4(ctx) {
 		},
 		h() {
 			attr(path0, "d", "m15 18-6-6 6-6");
-			attr(path0, "class", "svelte-f909za");
+			attr(path0, "class", "svelte-1ax38ay");
 			attr(svg0, "viewBox", "0 0 24 24");
 			attr(svg0, "aria-hidden", "true");
-			attr(svg0, "class", "svelte-f909za");
+			attr(svg0, "class", "svelte-1ax38ay");
 			attr(button0, "type", "button");
-			attr(button0, "class", "cg-blog-gallery__arrow cg-blog-gallery__arrow--previous svelte-f909za");
+			attr(button0, "class", "cg-blog-gallery__arrow cg-blog-gallery__arrow--previous svelte-1ax38ay");
 			attr(button0, "aria-label", "Vorheriges Bild");
 			attr(path1, "d", "m9 6 6 6-6 6");
-			attr(path1, "class", "svelte-f909za");
+			attr(path1, "class", "svelte-1ax38ay");
 			attr(svg1, "viewBox", "0 0 24 24");
 			attr(svg1, "aria-hidden", "true");
-			attr(svg1, "class", "svelte-f909za");
+			attr(svg1, "class", "svelte-1ax38ay");
 			attr(button1, "type", "button");
-			attr(button1, "class", "cg-blog-gallery__arrow cg-blog-gallery__arrow--next svelte-f909za");
+			attr(button1, "class", "cg-blog-gallery__arrow cg-blog-gallery__arrow--next svelte-1ax38ay");
 			attr(button1, "aria-label", "Nächstes Bild");
 		},
 		m(target, anchor) {
@@ -2059,8 +2847,8 @@ function create_if_block_4(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(button0, "click", /*previousGalleryImage*/ ctx[15]),
-					listen(button1, "click", /*nextGalleryImage*/ ctx[16])
+					listen(button0, "click", /*previousGalleryImage*/ ctx[17]),
+					listen(button1, "click", /*nextGalleryImage*/ ctx[18])
 				];
 
 				mounted = true;
@@ -2077,10 +2865,10 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (1406:14) {#if currentGalleryImage.caption}
+// (1730:10) {#if currentGalleryImage.caption}
 function create_if_block_3(ctx) {
 	let p;
-	let t_value = /*currentGalleryImage*/ ctx[10].caption + "";
+	let t_value = /*currentGalleryImage*/ ctx[9].caption + "";
 	let t;
 
 	return {
@@ -2097,14 +2885,14 @@ function create_if_block_3(ctx) {
 			this.h();
 		},
 		h() {
-			attr(p, "class", "cg-blog-gallery__caption svelte-f909za");
+			attr(p, "class", "cg-blog-gallery__caption svelte-1ax38ay");
 		},
 		m(target, anchor) {
 			insert_hydration(target, p, anchor);
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*currentGalleryImage*/ 1024 && t_value !== (t_value = /*currentGalleryImage*/ ctx[10].caption + "")) set_data(t, t_value);
+			if (dirty[0] & /*currentGalleryImage*/ 512 && t_value !== (t_value = /*currentGalleryImage*/ ctx[9].caption + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -2112,10 +2900,10 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (1412:14) {#if galleryItems.length > 1}
+// (1736:10) {#if galleryItems.length > 1}
 function create_if_block_2(ctx) {
 	let div;
-	let each_value = /*galleryItems*/ ctx[8];
+	let each_value = /*galleryItems*/ ctx[5];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -2144,7 +2932,7 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "cg-blog-gallery__thumbnails svelte-f909za");
+			attr(div, "class", "cg-blog-gallery__thumbnails svelte-1ax38ay");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -2156,8 +2944,8 @@ function create_if_block_2(ctx) {
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*galleryIndex, selectGalleryImage, galleryItems*/ 131456) {
-				each_value = /*galleryItems*/ ctx[8];
+			if (dirty[0] & /*galleryIndex, selectGalleryImage, galleryItems*/ 524328) {
+				each_value = /*galleryItems*/ ctx[5];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -2186,7 +2974,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (1414:18) {#each galleryItems as galleryImage, index}
+// (1738:14) {#each galleryItems as galleryImage, index}
 function create_each_block(ctx) {
 	let button;
 	let img;
@@ -2196,8 +2984,8 @@ function create_each_block(ctx) {
 	let mounted;
 	let dispose;
 
-	function click_handler_3() {
-		return /*click_handler_3*/ ctx[26](/*index*/ ctx[30]);
+	function click_handler_7() {
+		return /*click_handler_7*/ ctx[39](/*index*/ ctx[43]);
 	}
 
 	return {
@@ -2229,19 +3017,19 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			if (!src_url_equal(img.src, img_src_value = /*galleryImage*/ ctx[28].image.url)) attr(img, "src", img_src_value);
+			if (!src_url_equal(img.src, img_src_value = /*galleryImage*/ ctx[41].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", "");
 			attr(img, "loading", "lazy");
-			attr(img, "class", "svelte-f909za");
+			attr(img, "class", "svelte-1ax38ay");
 			attr(button, "type", "button");
-			attr(button, "aria-label", "Bild " + (/*index*/ ctx[30] + 1) + " anzeigen");
+			attr(button, "aria-label", "Bild " + (/*index*/ ctx[43] + 1) + " anzeigen");
 
-			attr(button, "aria-current", button_aria_current_value = /*galleryIndex*/ ctx[7] === /*index*/ ctx[30]
+			attr(button, "aria-current", button_aria_current_value = /*galleryIndex*/ ctx[3] === /*index*/ ctx[43]
 			? "true"
 			: undefined);
 
-			attr(button, "class", "svelte-f909za");
-			toggle_class(button, "active", /*galleryIndex*/ ctx[7] === /*index*/ ctx[30]);
+			attr(button, "class", "svelte-1ax38ay");
+			toggle_class(button, "active", /*galleryIndex*/ ctx[3] === /*index*/ ctx[43]);
 		},
 		m(target, anchor) {
 			insert_hydration(target, button, anchor);
@@ -2249,25 +3037,25 @@ function create_each_block(ctx) {
 			append_hydration(button, t);
 
 			if (!mounted) {
-				dispose = listen(button, "click", click_handler_3);
+				dispose = listen(button, "click", click_handler_7);
 				mounted = true;
 			}
 		},
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
 
-			if (dirty[0] & /*galleryItems*/ 256 && !src_url_equal(img.src, img_src_value = /*galleryImage*/ ctx[28].image.url)) {
+			if (dirty[0] & /*galleryItems*/ 32 && !src_url_equal(img.src, img_src_value = /*galleryImage*/ ctx[41].image.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty[0] & /*galleryIndex*/ 128 && button_aria_current_value !== (button_aria_current_value = /*galleryIndex*/ ctx[7] === /*index*/ ctx[30]
+			if (dirty[0] & /*galleryIndex*/ 8 && button_aria_current_value !== (button_aria_current_value = /*galleryIndex*/ ctx[3] === /*index*/ ctx[43]
 			? "true"
 			: undefined)) {
 				attr(button, "aria-current", button_aria_current_value);
 			}
 
-			if (dirty[0] & /*galleryIndex*/ 128) {
-				toggle_class(button, "active", /*galleryIndex*/ ctx[7] === /*index*/ ctx[30]);
+			if (dirty[0] & /*galleryIndex*/ 8) {
+				toggle_class(button, "active", /*galleryIndex*/ ctx[3] === /*index*/ ctx[43]);
 			}
 		},
 		d(detaching) {
@@ -2280,50 +3068,61 @@ function create_each_block(ctx) {
 
 function create_fragment(ctx) {
 	let section;
-	let div2;
-	let h2;
-	let t0;
-	let t1;
+	let div3;
 	let div1;
 	let div0;
-	let t2;
+	let t0;
 	let label;
+	let span0;
 	let svg;
 	let circle;
 	let path;
+	let t1;
+	let span1;
+	let t2;
 	let t3;
-	let span;
-	let t4;
-	let t5;
 	let input;
+	let t4;
+	let div2;
+	let h2;
+	let t5;
 	let t6;
+	let span2;
+	let t7_value = /*filteredPosts*/ ctx[7].length + "";
 	let t7;
+	let t8;
+
+	let t9_value = (/*filteredPosts*/ ctx[7].length === 1
+	? " Beitrag"
+	: " Beiträge") + "";
+
+	let t9;
+	let t10;
+	let t11;
+	let if_block1_anchor;
 	let current;
 	let mounted;
 	let dispose;
-	let each_value_2 = /*categories*/ ctx[1];
+	let each_value_3 = /*availableCategories*/ ctx[10];
 	let each_blocks = [];
 
-	for (let i = 0; i < each_value_2.length; i += 1) {
-		each_blocks[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+	for (let i = 0; i < each_value_3.length; i += 1) {
+		each_blocks[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
 	}
 
 	function select_block_type(ctx, dirty) {
-		if (/*filteredPosts*/ ctx[9].length > 0) return create_if_block_6;
-		return create_else_block;
+		if (/*paginatedPosts*/ ctx[8].length > 0) return create_if_block_10;
+		return create_else_block_1;
 	}
 
 	let current_block_type = select_block_type(ctx);
 	let if_block0 = current_block_type(ctx);
-	let if_block1 = /*selectedPost*/ ctx[6] && create_if_block(ctx);
+	let if_block1 = /*selectedPost*/ ctx[2] && create_if_block(ctx);
 
 	return {
 		c() {
 			section = element("section");
-			div2 = element("div");
-			h2 = element("h2");
-			t0 = text(/*heading*/ ctx[0]);
-			t1 = space();
+			div3 = element("div");
 			div1 = element("div");
 			div0 = element("div");
 
@@ -2331,33 +3130,39 @@ function create_fragment(ctx) {
 				each_blocks[i].c();
 			}
 
-			t2 = space();
+			t0 = space();
 			label = element("label");
+			span0 = element("span");
 			svg = svg_element("svg");
 			circle = svg_element("circle");
 			path = svg_element("path");
+			t1 = space();
+			span1 = element("span");
+			t2 = text("Beiträge durchsuchen");
 			t3 = space();
-			span = element("span");
-			t4 = text("Beiträge durchsuchen");
-			t5 = space();
 			input = element("input");
+			t4 = space();
+			div2 = element("div");
+			h2 = element("h2");
+			t5 = text(/*activeCategory*/ ctx[0]);
 			t6 = space();
+			span2 = element("span");
+			t7 = text(t7_value);
+			t8 = space();
+			t9 = text(t9_value);
+			t10 = space();
 			if_block0.c();
-			t7 = space();
+			t11 = space();
 			if (if_block1) if_block1.c();
+			if_block1_anchor = empty();
 			this.h();
 		},
 		l(nodes) {
 			section = claim_element(nodes, "SECTION", { class: true, "aria-labelledby": true });
 			var section_nodes = children(section);
-			div2 = claim_element(section_nodes, "DIV", { class: true });
-			var div2_nodes = children(div2);
-			h2 = claim_element(div2_nodes, "H2", { id: true, class: true });
-			var h2_nodes = children(h2);
-			t0 = claim_text(h2_nodes, /*heading*/ ctx[0]);
-			h2_nodes.forEach(detach);
-			t1 = claim_space(div2_nodes);
-			div1 = claim_element(div2_nodes, "DIV", { class: true });
+			div3 = claim_element(section_nodes, "DIV", { class: true });
+			var div3_nodes = children(div3);
+			div1 = claim_element(div3_nodes, "DIV", { class: true });
 			var div1_nodes = children(div1);
 			div0 = claim_element(div1_nodes, "DIV", { class: true, "aria-label": true });
 			var div0_nodes = children(div0);
@@ -2367,28 +3172,25 @@ function create_fragment(ctx) {
 			}
 
 			div0_nodes.forEach(detach);
-			t2 = claim_space(div1_nodes);
+			t0 = claim_space(div1_nodes);
 			label = claim_element(div1_nodes, "LABEL", { class: true });
 			var label_nodes = children(label);
-
-			svg = claim_svg_element(label_nodes, "svg", {
-				viewBox: true,
-				"aria-hidden": true,
-				class: true
-			});
-
+			span0 = claim_element(label_nodes, "SPAN", { class: true, "aria-hidden": true });
+			var span0_nodes = children(span0);
+			svg = claim_svg_element(span0_nodes, "svg", { viewBox: true, class: true });
 			var svg_nodes = children(svg);
 			circle = claim_svg_element(svg_nodes, "circle", { cx: true, cy: true, r: true, class: true });
 			children(circle).forEach(detach);
 			path = claim_svg_element(svg_nodes, "path", { d: true, class: true });
 			children(path).forEach(detach);
 			svg_nodes.forEach(detach);
+			span0_nodes.forEach(detach);
+			t1 = claim_space(label_nodes);
+			span1 = claim_element(label_nodes, "SPAN", { class: true });
+			var span1_nodes = children(span1);
+			t2 = claim_text(span1_nodes, "Beiträge durchsuchen");
+			span1_nodes.forEach(detach);
 			t3 = claim_space(label_nodes);
-			span = claim_element(label_nodes, "SPAN", { class: true });
-			var span_nodes = children(span);
-			t4 = claim_text(span_nodes, "Beiträge durchsuchen");
-			span_nodes.forEach(detach);
-			t5 = claim_space(label_nodes);
 
 			input = claim_element(label_nodes, "INPUT", {
 				type: true,
@@ -2398,45 +3200,61 @@ function create_fragment(ctx) {
 
 			label_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
+			t4 = claim_space(div3_nodes);
+			div2 = claim_element(div3_nodes, "DIV", { class: true });
+			var div2_nodes = children(div2);
+			h2 = claim_element(div2_nodes, "H2", { id: true, class: true });
+			var h2_nodes = children(h2);
+			t5 = claim_text(h2_nodes, /*activeCategory*/ ctx[0]);
+			h2_nodes.forEach(detach);
 			t6 = claim_space(div2_nodes);
-			if_block0.l(div2_nodes);
+			span2 = claim_element(div2_nodes, "SPAN", { class: true });
+			var span2_nodes = children(span2);
+			t7 = claim_text(span2_nodes, t7_value);
+			t8 = claim_space(span2_nodes);
+			t9 = claim_text(span2_nodes, t9_value);
+			span2_nodes.forEach(detach);
 			div2_nodes.forEach(detach);
-			t7 = claim_space(section_nodes);
-			if (if_block1) if_block1.l(section_nodes);
+			t10 = claim_space(div3_nodes);
+			if_block0.l(div3_nodes);
+			div3_nodes.forEach(detach);
 			section_nodes.forEach(detach);
+			t11 = claim_space(nodes);
+			if (if_block1) if_block1.l(nodes);
+			if_block1_anchor = empty();
 			this.h();
 		},
 		h() {
-			attr(h2, "id", "cg-posts-heading");
-			attr(h2, "class", "cg-visually-hidden svelte-f909za");
-			attr(div0, "class", "cg-blog-filters svelte-f909za");
-			attr(div0, "aria-label", "Beiträge nach Kategorie filtern");
-			attr(circle, "cx", "11");
-			attr(circle, "cy", "11");
-			attr(circle, "r", "7");
-			attr(circle, "class", "svelte-f909za");
-			attr(path, "d", "m16 16 4 4");
-			attr(path, "class", "svelte-f909za");
+			attr(div0, "class", "cg-blog__categories svelte-1ax38ay");
+			attr(div0, "aria-label", "Blogkategorien");
+			attr(circle, "cx", "10.5");
+			attr(circle, "cy", "10.5");
+			attr(circle, "r", "6.5");
+			attr(circle, "class", "svelte-1ax38ay");
+			attr(path, "d", "m15.5 15.5 5 5");
+			attr(path, "class", "svelte-1ax38ay");
 			attr(svg, "viewBox", "0 0 24 24");
-			attr(svg, "aria-hidden", "true");
-			attr(svg, "class", "svelte-f909za");
-			attr(span, "class", "cg-visually-hidden svelte-f909za");
+			attr(svg, "class", "svelte-1ax38ay");
+			attr(span0, "class", "cg-blog__search-icon svelte-1ax38ay");
+			attr(span0, "aria-hidden", "true");
+			attr(span1, "class", "cg-blog__search-label svelte-1ax38ay");
 			attr(input, "type", "search");
-			attr(input, "placeholder", /*search_placeholder*/ ctx[3]);
-			attr(input, "class", "svelte-f909za");
-			attr(label, "class", "cg-blog-search svelte-f909za");
-			attr(div1, "class", "cg-blog-toolbar svelte-f909za");
-			attr(div2, "class", "cg-blog-posts__inner svelte-f909za");
-			attr(section, "class", "cg-blog-posts svelte-f909za");
-			attr(section, "aria-labelledby", "cg-posts-heading");
+			attr(input, "placeholder", "Beiträge suchen …");
+			attr(input, "class", "svelte-1ax38ay");
+			attr(label, "class", "cg-blog__search svelte-1ax38ay");
+			attr(div1, "class", "cg-blog__toolbar svelte-1ax38ay");
+			attr(h2, "id", "cg-blog-results-heading");
+			attr(h2, "class", "svelte-1ax38ay");
+			attr(span2, "class", "svelte-1ax38ay");
+			attr(div2, "class", "cg-blog__results-header svelte-1ax38ay");
+			attr(div3, "class", "cg-blog__inner svelte-1ax38ay");
+			attr(section, "class", "cg-blog svelte-1ax38ay");
+			attr(section, "aria-labelledby", "cg-blog-results-heading");
 		},
 		m(target, anchor) {
 			insert_hydration(target, section, anchor);
-			append_hydration(section, div2);
-			append_hydration(div2, h2);
-			append_hydration(h2, t0);
-			append_hydration(div2, t1);
-			append_hydration(div2, div1);
+			append_hydration(section, div3);
+			append_hydration(div3, div1);
 			append_hydration(div1, div0);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -2445,26 +3263,37 @@ function create_fragment(ctx) {
 				}
 			}
 
-			append_hydration(div1, t2);
+			append_hydration(div1, t0);
 			append_hydration(div1, label);
-			append_hydration(label, svg);
+			append_hydration(label, span0);
+			append_hydration(span0, svg);
 			append_hydration(svg, circle);
 			append_hydration(svg, path);
+			append_hydration(label, t1);
+			append_hydration(label, span1);
+			append_hydration(span1, t2);
 			append_hydration(label, t3);
-			append_hydration(label, span);
-			append_hydration(span, t4);
-			append_hydration(label, t5);
 			append_hydration(label, input);
-			set_input_value(input, /*searchTerm*/ ctx[5]);
+			set_input_value(input, /*searchTerm*/ ctx[1]);
+			append_hydration(div3, t4);
+			append_hydration(div3, div2);
+			append_hydration(div2, h2);
+			append_hydration(h2, t5);
 			append_hydration(div2, t6);
-			if_block0.m(div2, null);
-			append_hydration(section, t7);
-			if (if_block1) if_block1.m(section, null);
+			append_hydration(div2, span2);
+			append_hydration(span2, t7);
+			append_hydration(span2, t8);
+			append_hydration(span2, t9);
+			append_hydration(div3, t10);
+			if_block0.m(div3, null);
+			insert_hydration(target, t11, anchor);
+			if (if_block1) if_block1.m(target, anchor);
+			insert_hydration(target, if_block1_anchor, anchor);
 			current = true;
 
 			if (!mounted) {
 				dispose = [
-					listen(input, "input", /*input_input_handler*/ ctx[23]),
+					listen(input, "input", /*input_input_handler*/ ctx[32]),
 					listen(input, "input", /*handleSearch*/ ctx[12])
 				];
 
@@ -2472,19 +3301,17 @@ function create_fragment(ctx) {
 			}
 		},
 		p(ctx, dirty) {
-			if (!current || dirty[0] & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
-
-			if (dirty[0] & /*activeCategory, categories, selectCategory*/ 2066) {
-				each_value_2 = /*categories*/ ctx[1];
+			if (dirty[0] & /*activeCategory, availableCategories, selectCategory*/ 3073) {
+				each_value_3 = /*availableCategories*/ ctx[10];
 				let i;
 
-				for (i = 0; i < each_value_2.length; i += 1) {
-					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+				for (i = 0; i < each_value_3.length; i += 1) {
+					const child_ctx = get_each_context_3(ctx, each_value_3, i);
 
 					if (each_blocks[i]) {
 						each_blocks[i].p(child_ctx, dirty);
 					} else {
-						each_blocks[i] = create_each_block_2(child_ctx);
+						each_blocks[i] = create_each_block_3(child_ctx);
 						each_blocks[i].c();
 						each_blocks[i].m(div0, null);
 					}
@@ -2494,16 +3321,19 @@ function create_fragment(ctx) {
 					each_blocks[i].d(1);
 				}
 
-				each_blocks.length = each_value_2.length;
+				each_blocks.length = each_value_3.length;
 			}
 
-			if (!current || dirty[0] & /*search_placeholder*/ 8) {
-				attr(input, "placeholder", /*search_placeholder*/ ctx[3]);
+			if (dirty[0] & /*searchTerm*/ 2 && input.value !== /*searchTerm*/ ctx[1]) {
+				set_input_value(input, /*searchTerm*/ ctx[1]);
 			}
 
-			if (dirty[0] & /*searchTerm*/ 32 && input.value !== /*searchTerm*/ ctx[5]) {
-				set_input_value(input, /*searchTerm*/ ctx[5]);
-			}
+			if (!current || dirty[0] & /*activeCategory*/ 1) set_data(t5, /*activeCategory*/ ctx[0]);
+			if ((!current || dirty[0] & /*filteredPosts*/ 128) && t7_value !== (t7_value = /*filteredPosts*/ ctx[7].length + "")) set_data(t7, t7_value);
+
+			if ((!current || dirty[0] & /*filteredPosts*/ 128) && t9_value !== (t9_value = (/*filteredPosts*/ ctx[7].length === 1
+			? " Beitrag"
+			: " Beiträge") + "")) set_data(t9, t9_value);
 
 			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block0) {
 				if_block0.p(ctx, dirty);
@@ -2513,22 +3343,22 @@ function create_fragment(ctx) {
 
 				if (if_block0) {
 					if_block0.c();
-					if_block0.m(div2, null);
+					if_block0.m(div3, null);
 				}
 			}
 
-			if (/*selectedPost*/ ctx[6]) {
+			if (/*selectedPost*/ ctx[2]) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 
-					if (dirty[0] & /*selectedPost*/ 64) {
+					if (dirty[0] & /*selectedPost*/ 4) {
 						transition_in(if_block1, 1);
 					}
 				} else {
 					if_block1 = create_if_block(ctx);
 					if_block1.c();
 					transition_in(if_block1, 1);
-					if_block1.m(section, null);
+					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
 				}
 			} else if (if_block1) {
 				group_outros();
@@ -2553,15 +3383,25 @@ function create_fragment(ctx) {
 			if (detaching) detach(section);
 			destroy_each(each_blocks, detaching);
 			if_block0.d();
-			if (if_block1) if_block1.d();
+			if (detaching) detach(t11);
+			if (if_block1) if_block1.d(detaching);
+			if (detaching) detach(if_block1_anchor);
 			mounted = false;
 			run_all(dispose);
 		}
 	};
 }
 
+const postsPerPage = 9;
+
+/*
+  Neuesten Beitrag an den separaten Hero senden.
+*/
 function publishLatestPost(post) {
-	if (typeof window === "undefined" || !post) return;
+	if (typeof window === "undefined" || !post) {
+		return;
+	}
+
 	window.__cgLatestBlogPost = post;
 	window.dispatchEvent(new CustomEvent("cg-blog-latest-post", { detail: post }));
 }
@@ -2593,7 +3433,11 @@ function renderMarks(text, marks = []) {
 				const href = escapeHTML(mark.attrs?.href || "#");
 
 				return `
-        <a href="${href}" target="_blank" rel="noopener">
+        <a
+          href="${href}"
+          target="_blank"
+          rel="noopener"
+        >
           ${output}
         </a>
       `;
@@ -2662,11 +3506,17 @@ function renderPostContent(content) {
 }
 
 function instance($$self, $$props, $$invalidate) {
+	let preparedPosts;
 	let sortedPosts;
 	let latestPost;
+	let availableCategories;
 	let galleryItems;
 	let currentGalleryImage;
 	let filteredPosts;
+	let totalPages;
+	let firstVisiblePost;
+	let lastVisiblePost;
+	let paginatedPosts;
 	let { props } = $$props;
 	let { posts } = $$props;
 	let { heading } = $$props;
@@ -2678,20 +3528,47 @@ function instance($$self, $$props, $$invalidate) {
 	let selectedPost = null;
 	let galleryIndex = 0;
 	let previousBodyOverflow = "";
+	let currentPage = 1;
 
 	function selectCategory(category) {
-		$$invalidate(4, activeCategory = category);
+		$$invalidate(0, activeCategory = category);
+		$$invalidate(4, currentPage = 1);
 		closeArticle();
 	}
 
 	function handleSearch() {
+		$$invalidate(4, currentPage = 1);
 		closeArticle();
+	}
+
+	function resetFilters() {
+		$$invalidate(0, activeCategory = "Alle Beiträge");
+		$$invalidate(1, searchTerm = "");
+		$$invalidate(4, currentPage = 1);
+		closeArticle();
+	}
+
+	function goToPage(page) {
+		const targetPage = Math.min(Math.max(page, 1), totalPages);
+		if (targetPage === currentPage) return;
+		$$invalidate(4, currentPage = targetPage);
+		closeArticle();
+
+		if (typeof document !== "undefined") {
+			requestAnimationFrame(() => {
+				const blogResults = document.getElementById("cg-blog-results");
+
+				if (blogResults) {
+					blogResults.scrollIntoView({ behavior: "smooth", block: "start" });
+				}
+			});
+		}
 	}
 
 	function openArticle(post) {
 		if (!post) return;
-		$$invalidate(6, selectedPost = post);
-		$$invalidate(7, galleryIndex = 0);
+		$$invalidate(2, selectedPost = post);
+		$$invalidate(3, galleryIndex = 0);
 
 		if (typeof document !== "undefined") {
 			previousBodyOverflow = document.body.style.overflow;
@@ -2700,8 +3577,8 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	function closeArticle() {
-		$$invalidate(6, selectedPost = null);
-		$$invalidate(7, galleryIndex = 0);
+		$$invalidate(2, selectedPost = null);
+		$$invalidate(3, galleryIndex = 0);
 
 		if (typeof document !== "undefined") {
 			document.body.style.overflow = previousBodyOverflow;
@@ -2711,7 +3588,7 @@ function instance($$self, $$props, $$invalidate) {
 	function previousGalleryImage() {
 		if (galleryItems.length < 2) return;
 
-		$$invalidate(7, galleryIndex = galleryIndex === 0
+		$$invalidate(3, galleryIndex = galleryIndex === 0
 		? galleryItems.length - 1
 		: galleryIndex - 1);
 	}
@@ -2719,13 +3596,13 @@ function instance($$self, $$props, $$invalidate) {
 	function nextGalleryImage() {
 		if (galleryItems.length < 2) return;
 
-		$$invalidate(7, galleryIndex = galleryIndex === galleryItems.length - 1
+		$$invalidate(3, galleryIndex = galleryIndex === galleryItems.length - 1
 		? 0
 		: galleryIndex + 1);
 	}
 
 	function selectGalleryImage(index) {
-		$$invalidate(7, galleryIndex = index);
+		$$invalidate(3, galleryIndex = index);
 	}
 
 	onMount(() => {
@@ -2745,20 +3622,12 @@ function instance($$self, $$props, $$invalidate) {
 			}
 		}
 
-		/*
-  Empfängt den Klick aus dem separaten Hero
-  und öffnet den übergebenen Beitrag.
-*/
 		function handleHeroPostOpen(event) {
 			if (event.detail) {
 				openArticle(event.detail);
 			}
 		}
 
-		/*
-  Falls der Hero später geladen wird, kann er
-  den neuesten Beitrag noch einmal anfordern.
-*/
 		function handleLatestPostRequest() {
 			if (latestPost) {
 				publishLatestPost(latestPost);
@@ -2786,49 +3655,83 @@ function instance($$self, $$props, $$invalidate) {
 		};
 	});
 
-	const click_handler = category => selectCategory(category.label);
+	const click_handler = category => selectCategory(category);
 
 	function input_input_handler() {
 		searchTerm = this.value;
-		$$invalidate(5, searchTerm);
+		$$invalidate(1, searchTerm);
 	}
 
 	const click_handler_1 = post => openArticle(post);
 	const click_handler_2 = post => openArticle(post);
-	const click_handler_3 = index => selectGalleryImage(index);
+	const click_handler_3 = post => openArticle(post);
+	const click_handler_4 = () => goToPage(currentPage - 1);
+	const click_handler_5 = index => goToPage(index + 1);
+	const click_handler_6 = () => goToPage(currentPage + 1);
+	const click_handler_7 = index => selectGalleryImage(index);
 
 	$$self.$$set = $$props => {
-		if ('props' in $$props) $$invalidate(18, props = $$props.props);
-		if ('posts' in $$props) $$invalidate(19, posts = $$props.posts);
-		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
-		if ('categories' in $$props) $$invalidate(1, categories = $$props.categories);
-		if ('empty_message' in $$props) $$invalidate(2, empty_message = $$props.empty_message);
-		if ('search_placeholder' in $$props) $$invalidate(3, search_placeholder = $$props.search_placeholder);
+		if ('props' in $$props) $$invalidate(20, props = $$props.props);
+		if ('posts' in $$props) $$invalidate(21, posts = $$props.posts);
+		if ('heading' in $$props) $$invalidate(22, heading = $$props.heading);
+		if ('categories' in $$props) $$invalidate(23, categories = $$props.categories);
+		if ('empty_message' in $$props) $$invalidate(24, empty_message = $$props.empty_message);
+		if ('search_placeholder' in $$props) $$invalidate(25, search_placeholder = $$props.search_placeholder);
 	};
 
 	$$self.$$.update = () => {
-		if ($$self.$$.dirty[0] & /*posts*/ 524288) {
-			$$invalidate(21, sortedPosts = [...posts || []].sort((postA, postB) => {
+		if ($$self.$$.dirty[0] & /*posts*/ 2097152) {
+			/*
+  date_label wird automatisch zusätzlich als date
+  bereitgestellt. Dadurch funktionieren der Blog
+  und der separate Hero mit demselben Datum.
+*/
+			$$invalidate(30, preparedPosts = (posts || []).map(post => ({ ...post, date: post.date_label || "" })));
+		}
+
+		if ($$self.$$.dirty[0] & /*preparedPosts*/ 1073741824) {
+			/*
+  sort_date bestimmt die Reihenfolge.
+  Der neueste Beitrag steht an erster Stelle.
+*/
+			$$invalidate(29, sortedPosts = [...preparedPosts].sort((postA, postB) => {
 				const dateA = String(postA.sort_date || "");
 				const dateB = String(postB.sort_date || "");
 				return dateB.localeCompare(dateA);
 			}));
 		}
 
-		if ($$self.$$.dirty[0] & /*sortedPosts*/ 2097152) {
-			$$invalidate(20, latestPost = sortedPosts[0] || null);
+		if ($$self.$$.dirty[0] & /*sortedPosts*/ 536870912) {
+			$$invalidate(26, latestPost = sortedPosts[0] || null);
 		}
 
-		if ($$self.$$.dirty[0] & /*selectedPost*/ 64) {
-			$$invalidate(8, galleryItems = selectedPost?.gallery || []);
+		if ($$self.$$.dirty[0] & /*preparedPosts*/ 1073741824) {
+			/*
+  Kategorien aus den Beiträgen erzeugen.
+*/
+			$$invalidate(10, availableCategories = [
+				"Alle Beiträge",
+				...Array.from(new Set(preparedPosts.map(post => post.category).filter(Boolean)))
+			]);
 		}
 
-		if ($$self.$$.dirty[0] & /*galleryItems, galleryIndex*/ 384) {
-			$$invalidate(10, currentGalleryImage = galleryItems[galleryIndex] || null);
+		if ($$self.$$.dirty[0] & /*selectedPost*/ 4) {
+			/*
+  Galerie des aktuell geöffneten Beitrags.
+  Unvollständige Galerieeinträge werden entfernt.
+*/
+			$$invalidate(5, galleryItems = (selectedPost?.gallery || []).filter(item => item?.image?.url));
 		}
 
-		if ($$self.$$.dirty[0] & /*sortedPosts, activeCategory, searchTerm*/ 2097200) {
-			$$invalidate(9, filteredPosts = sortedPosts.filter(post => {
+		if ($$self.$$.dirty[0] & /*galleryItems, galleryIndex*/ 40) {
+			$$invalidate(9, currentGalleryImage = galleryItems[galleryIndex] || null);
+		}
+
+		if ($$self.$$.dirty[0] & /*sortedPosts, activeCategory, searchTerm*/ 536870915) {
+			/*
+  Kategorie und Suchbegriff anwenden.
+*/
+			$$invalidate(7, filteredPosts = sortedPosts.filter(post => {
 				const matchesCategory = activeCategory === "Alle Beiträge" || post.category === activeCategory;
 				const term = searchTerm.trim().toLocaleLowerCase("de");
 				const searchableText = [post.title, post.teaser, post.category].filter(Boolean).join(" ").toLocaleLowerCase("de");
@@ -2836,11 +3739,32 @@ function instance($$self, $$props, $$invalidate) {
 			}));
 		}
 
-		if ($$self.$$.dirty[0] & /*latestPost*/ 1048576) {
+		if ($$self.$$.dirty[0] & /*filteredPosts*/ 128) {
 			/*
-  Auch Änderungen in der Primo-Vorschau werden
-  an den Hero weitergegeben.
+  Pagination mit neun Beiträgen pro Seite.
 */
+			$$invalidate(6, totalPages = Math.max(1, Math.ceil(filteredPosts.length / postsPerPage)));
+		}
+
+		if ($$self.$$.dirty[0] & /*currentPage, totalPages*/ 80) {
+			if (currentPage > totalPages) {
+				$$invalidate(4, currentPage = totalPages);
+			}
+		}
+
+		if ($$self.$$.dirty[0] & /*currentPage*/ 16) {
+			$$invalidate(28, firstVisiblePost = (currentPage - 1) * postsPerPage);
+		}
+
+		if ($$self.$$.dirty[0] & /*firstVisiblePost*/ 268435456) {
+			$$invalidate(27, lastVisiblePost = firstVisiblePost + postsPerPage);
+		}
+
+		if ($$self.$$.dirty[0] & /*filteredPosts, firstVisiblePost, lastVisiblePost*/ 402653312) {
+			$$invalidate(8, paginatedPosts = filteredPosts.slice(firstVisiblePost, lastVisiblePost));
+		}
+
+		if ($$self.$$.dirty[0] & /*latestPost*/ 67108864) {
 			if (latestPost && typeof window !== "undefined") {
 				publishLatestPost(latestPost);
 			}
@@ -2848,19 +3772,21 @@ function instance($$self, $$props, $$invalidate) {
 	};
 
 	return [
-		heading,
-		categories,
-		empty_message,
-		search_placeholder,
 		activeCategory,
 		searchTerm,
 		selectedPost,
 		galleryIndex,
+		currentPage,
 		galleryItems,
+		totalPages,
 		filteredPosts,
+		paginatedPosts,
 		currentGalleryImage,
+		availableCategories,
 		selectCategory,
 		handleSearch,
+		resetFilters,
+		goToPage,
 		openArticle,
 		closeArticle,
 		previousGalleryImage,
@@ -2868,13 +3794,24 @@ function instance($$self, $$props, $$invalidate) {
 		selectGalleryImage,
 		props,
 		posts,
+		heading,
+		categories,
+		empty_message,
+		search_placeholder,
 		latestPost,
+		lastVisiblePost,
+		firstVisiblePost,
 		sortedPosts,
+		preparedPosts,
 		click_handler,
 		input_input_handler,
 		click_handler_1,
 		click_handler_2,
-		click_handler_3
+		click_handler_3,
+		click_handler_4,
+		click_handler_5,
+		click_handler_6,
+		click_handler_7
 	];
 }
 
@@ -2889,12 +3826,12 @@ class Component extends SvelteComponent {
 			create_fragment,
 			safe_not_equal,
 			{
-				props: 18,
-				posts: 19,
-				heading: 0,
-				categories: 1,
-				empty_message: 2,
-				search_placeholder: 3
+				props: 20,
+				posts: 21,
+				heading: 22,
+				categories: 23,
+				empty_message: 24,
+				search_placeholder: 25
 			},
 			null,
 			[-1, -1]
