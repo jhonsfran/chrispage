@@ -571,7 +571,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (442:6) {#if eyebrow}
+// (446:6) {#if eyebrow}
 function create_if_block_5(ctx) {
 	let p;
 	let t;
@@ -590,7 +590,7 @@ function create_if_block_5(ctx) {
 			this.h();
 		},
 		h() {
-			attr(p, "class", "cg-blog-featured-hero__eyebrow svelte-fz334w");
+			attr(p, "class", "cg-blog-featured-hero__eyebrow svelte-1rgeq5l");
 		},
 		m(target, anchor) {
 			insert_hydration(target, p, anchor);
@@ -605,7 +605,7 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (456:6) {#if benefits && benefits.length > 0}
+// (463:6) {#if benefits && benefits.length > 0}
 function create_if_block_4(ctx) {
 	let div;
 	let each_value = /*benefits*/ ctx[2];
@@ -637,7 +637,7 @@ function create_if_block_4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "cg-blog-featured-hero__topics svelte-fz334w");
+			attr(div, "class", "cg-blog-featured-hero__topics svelte-1rgeq5l");
 			attr(div, "aria-label", "Themen des Blogs");
 		},
 		m(target, anchor) {
@@ -680,7 +680,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (461:10) {#each benefits as benefit}
+// (468:10) {#each benefits as benefit}
 function create_each_block(ctx) {
 	let span;
 	let t_value = /*benefit*/ ctx[9].title + "";
@@ -700,7 +700,7 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "svelte-fz334w");
+			attr(span, "class", "svelte-1rgeq5l");
 		},
 		m(target, anchor) {
 			insert_hydration(target, span, anchor);
@@ -715,7 +715,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (530:4) {:else}
+// (537:4) {:else}
 function create_else_block_1(ctx) {
 	let div2;
 	let div0;
@@ -761,12 +761,12 @@ function create_else_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "cg-blog-featured-hero__loading-image svelte-fz334w");
-			attr(span0, "class", "svelte-fz334w");
-			attr(span1, "class", "svelte-fz334w");
-			attr(span2, "class", "svelte-fz334w");
-			attr(div1, "class", "cg-blog-featured-hero__loading-content svelte-fz334w");
-			attr(div2, "class", "cg-blog-featured-hero__loading svelte-fz334w");
+			attr(div0, "class", "cg-blog-featured-hero__loading-image svelte-1rgeq5l");
+			attr(span0, "class", "svelte-1rgeq5l");
+			attr(span1, "class", "svelte-1rgeq5l");
+			attr(span2, "class", "svelte-1rgeq5l");
+			attr(div1, "class", "cg-blog-featured-hero__loading-content svelte-1rgeq5l");
+			attr(div2, "class", "cg-blog-featured-hero__loading svelte-1rgeq5l");
 			attr(div2, "aria-hidden", "true");
 		},
 		m(target, anchor) {
@@ -787,7 +787,7 @@ function create_else_block_1(ctx) {
 	};
 }
 
-// (473:4) {#if latestPost}
+// (480:4) {#if latestPost}
 function create_if_block(ctx) {
 	let article;
 	let button0;
@@ -892,22 +892,22 @@ function create_if_block(ctx) {
 		},
 		h() {
 			attr(button0, "type", "button");
-			attr(button0, "class", "cg-blog-featured-hero__image-button svelte-fz334w");
+			attr(button0, "class", "cg-blog-featured-hero__image-button svelte-1rgeq5l");
 			attr(button0, "aria-label", button0_aria_label_value = "Beitrag öffnen: " + /*latestPost*/ ctx[4].title);
-			attr(div0, "class", "cg-blog-featured-hero__meta svelte-fz334w");
+			attr(div0, "class", "cg-blog-featured-hero__meta svelte-1rgeq5l");
 			attr(button1, "type", "button");
-			attr(button1, "class", "cg-blog-featured-hero__title svelte-fz334w");
+			attr(button1, "class", "cg-blog-featured-hero__title svelte-1rgeq5l");
 			attr(path0, "d", "M5 12h14");
-			attr(path0, "class", "svelte-fz334w");
+			attr(path0, "class", "svelte-1rgeq5l");
 			attr(path1, "d", "m14 7 5 5-5 5");
-			attr(path1, "class", "svelte-fz334w");
+			attr(path1, "class", "svelte-1rgeq5l");
 			attr(svg, "viewBox", "0 0 24 24");
 			attr(svg, "aria-hidden", "true");
-			attr(svg, "class", "svelte-fz334w");
+			attr(svg, "class", "svelte-1rgeq5l");
 			attr(button2, "type", "button");
-			attr(button2, "class", "cg-blog-featured-hero__read svelte-fz334w");
-			attr(div1, "class", "cg-blog-featured-hero__article-content svelte-fz334w");
-			attr(article, "class", "cg-blog-featured-hero__article svelte-fz334w");
+			attr(button2, "class", "cg-blog-featured-hero__read svelte-1rgeq5l");
+			attr(div1, "class", "cg-blog-featured-hero__article-content svelte-1rgeq5l");
+			attr(article, "class", "cg-blog-featured-hero__article svelte-1rgeq5l");
 		},
 		m(target, anchor) {
 			insert_hydration(target, article, anchor);
@@ -995,7 +995,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (486:10) {:else}
+// (493:10) {:else}
 function create_else_block(ctx) {
 	let span;
 	let t;
@@ -1014,7 +1014,7 @@ function create_else_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "cg-blog-featured-hero__placeholder svelte-fz334w");
+			attr(span, "class", "cg-blog-featured-hero__placeholder svelte-1rgeq5l");
 		},
 		m(target, anchor) {
 			insert_hydration(target, span, anchor);
@@ -1027,7 +1027,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (481:10) {#if latestPost.image && latestPost.image.url}
+// (488:10) {#if latestPost.image && latestPost.image.url}
 function create_if_block_3(ctx) {
 	let img;
 	let img_src_value;
@@ -1045,7 +1045,7 @@ function create_if_block_3(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*latestPost*/ ctx[4].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*latestPost*/ ctx[4].image.alt || /*latestPost*/ ctx[4].title);
-			attr(img, "class", "svelte-fz334w");
+			attr(img, "class", "svelte-1rgeq5l");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -1065,7 +1065,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (495:12) {#if latestPost.category}
+// (502:12) {#if latestPost.category}
 function create_if_block_2(ctx) {
 	let span;
 	let t_value = /*latestPost*/ ctx[4].category + "";
@@ -1085,7 +1085,7 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "cg-blog-featured-hero__category svelte-fz334w");
+			attr(span, "class", "cg-blog-featured-hero__category svelte-1rgeq5l");
 		},
 		m(target, anchor) {
 			insert_hydration(target, span, anchor);
@@ -1100,7 +1100,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (501:12) {#if latestPost.date}
+// (508:12) {#if latestPost.date}
 function create_if_block_1(ctx) {
 	let span;
 	let t_value = /*latestPost*/ ctx[4].date + "";
@@ -1120,7 +1120,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "cg-blog-featured-hero__date svelte-fz334w");
+			attr(span, "class", "cg-blog-featured-hero__date svelte-1rgeq5l");
 		},
 		m(target, anchor) {
 			insert_hydration(target, span, anchor);
@@ -1143,12 +1143,15 @@ function create_fragment(ctx) {
 	let h1;
 	let t1;
 	let t2;
-	let p;
+	let span0;
 	let t3;
 	let t4;
+	let p;
 	let t5;
-	let span;
 	let t6;
+	let t7;
+	let span1;
+	let t8;
 	let if_block0 = /*eyebrow*/ ctx[0] && create_if_block_5(ctx);
 	let if_block1 = /*benefits*/ ctx[2] && /*benefits*/ ctx[2].length > 0 && create_if_block_4(ctx);
 
@@ -1170,13 +1173,16 @@ function create_fragment(ctx) {
 			h1 = element("h1");
 			t1 = text(/*heading*/ ctx[1]);
 			t2 = space();
-			p = element("p");
-			t3 = text(/*description*/ ctx[3]);
+			span0 = element("span");
+			t3 = text("Leben");
 			t4 = space();
-			if (if_block1) if_block1.c();
-			t5 = space();
-			span = element("span");
+			p = element("p");
+			t5 = text(/*description*/ ctx[3]);
 			t6 = space();
+			if (if_block1) if_block1.c();
+			t7 = space();
+			span1 = element("span");
+			t8 = space();
 			if_block2.c();
 			this.h();
 		},
@@ -1192,33 +1198,39 @@ function create_fragment(ctx) {
 			h1 = claim_element(div0_nodes, "H1", { id: true, class: true });
 			var h1_nodes = children(h1);
 			t1 = claim_text(h1_nodes, /*heading*/ ctx[1]);
+			t2 = claim_space(h1_nodes);
+			span0 = claim_element(h1_nodes, "SPAN", { class: true });
+			var span0_nodes = children(span0);
+			t3 = claim_text(span0_nodes, "Leben");
+			span0_nodes.forEach(detach);
 			h1_nodes.forEach(detach);
-			t2 = claim_space(div0_nodes);
+			t4 = claim_space(div0_nodes);
 			p = claim_element(div0_nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t3 = claim_text(p_nodes, /*description*/ ctx[3]);
+			t5 = claim_text(p_nodes, /*description*/ ctx[3]);
 			p_nodes.forEach(detach);
-			t4 = claim_space(div0_nodes);
+			t6 = claim_space(div0_nodes);
 			if (if_block1) if_block1.l(div0_nodes);
-			t5 = claim_space(div0_nodes);
-			span = claim_element(div0_nodes, "SPAN", { class: true, "aria-hidden": true });
-			children(span).forEach(detach);
+			t7 = claim_space(div0_nodes);
+			span1 = claim_element(div0_nodes, "SPAN", { class: true, "aria-hidden": true });
+			children(span1).forEach(detach);
 			div0_nodes.forEach(detach);
-			t6 = claim_space(div1_nodes);
+			t8 = claim_space(div1_nodes);
 			if_block2.l(div1_nodes);
 			div1_nodes.forEach(detach);
 			section_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
+			attr(span0, "class", "cg-blog-featured-hero__heading-accent svelte-1rgeq5l");
 			attr(h1, "id", "cg-blog-featured-heading");
-			attr(h1, "class", "svelte-fz334w");
-			attr(p, "class", "cg-blog-featured-hero__description svelte-fz334w");
-			attr(span, "class", "cg-blog-featured-hero__line svelte-fz334w");
-			attr(span, "aria-hidden", "true");
-			attr(div0, "class", "cg-blog-featured-hero__intro svelte-fz334w");
-			attr(div1, "class", "cg-blog-featured-hero__inner svelte-fz334w");
-			attr(section, "class", "cg-blog-featured-hero svelte-fz334w");
+			attr(h1, "class", "svelte-1rgeq5l");
+			attr(p, "class", "cg-blog-featured-hero__description svelte-1rgeq5l");
+			attr(span1, "class", "cg-blog-featured-hero__line svelte-1rgeq5l");
+			attr(span1, "aria-hidden", "true");
+			attr(div0, "class", "cg-blog-featured-hero__intro svelte-1rgeq5l");
+			attr(div1, "class", "cg-blog-featured-hero__inner svelte-1rgeq5l");
+			attr(section, "class", "cg-blog-featured-hero svelte-1rgeq5l");
 			attr(section, "aria-labelledby", "cg-blog-featured-heading");
 		},
 		m(target, anchor) {
@@ -1229,14 +1241,17 @@ function create_fragment(ctx) {
 			append_hydration(div0, t0);
 			append_hydration(div0, h1);
 			append_hydration(h1, t1);
-			append_hydration(div0, t2);
-			append_hydration(div0, p);
-			append_hydration(p, t3);
+			append_hydration(h1, t2);
+			append_hydration(h1, span0);
+			append_hydration(span0, t3);
 			append_hydration(div0, t4);
+			append_hydration(div0, p);
+			append_hydration(p, t5);
+			append_hydration(div0, t6);
 			if (if_block1) if_block1.m(div0, null);
-			append_hydration(div0, t5);
-			append_hydration(div0, span);
-			append_hydration(div1, t6);
+			append_hydration(div0, t7);
+			append_hydration(div0, span1);
+			append_hydration(div1, t8);
 			if_block2.m(div1, null);
 		},
 		p(ctx, [dirty]) {
@@ -1254,7 +1269,7 @@ function create_fragment(ctx) {
 			}
 
 			if (dirty & /*heading*/ 2) set_data(t1, /*heading*/ ctx[1]);
-			if (dirty & /*description*/ 8) set_data(t3, /*description*/ ctx[3]);
+			if (dirty & /*description*/ 8) set_data(t5, /*description*/ ctx[3]);
 
 			if (/*benefits*/ ctx[2] && /*benefits*/ ctx[2].length > 0) {
 				if (if_block1) {
@@ -1262,7 +1277,7 @@ function create_fragment(ctx) {
 				} else {
 					if_block1 = create_if_block_4(ctx);
 					if_block1.c();
-					if_block1.m(div0, t5);
+					if_block1.m(div0, t7);
 				}
 			} else if (if_block1) {
 				if_block1.d(1);
