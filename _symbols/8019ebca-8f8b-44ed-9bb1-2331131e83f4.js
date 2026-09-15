@@ -571,7 +571,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (446:6) {#if eyebrow}
+// (550:6) {#if eyebrow}
 function create_if_block_5(ctx) {
 	let p;
 	let t;
@@ -590,7 +590,7 @@ function create_if_block_5(ctx) {
 			this.h();
 		},
 		h() {
-			attr(p, "class", "cg-blog-featured-hero__eyebrow svelte-1rgeq5l");
+			attr(p, "class", "cg-blog-featured-hero__eyebrow svelte-fdqjr9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, p, anchor);
@@ -605,7 +605,7 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (463:6) {#if benefits && benefits.length > 0}
+// (568:6) {#if benefits && benefits.length > 0}
 function create_if_block_4(ctx) {
 	let div;
 	let each_value = /*benefits*/ ctx[2];
@@ -637,7 +637,7 @@ function create_if_block_4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "cg-blog-featured-hero__topics svelte-1rgeq5l");
+			attr(div, "class", "cg-blog-featured-hero__topics svelte-fdqjr9");
 			attr(div, "aria-label", "Themen des Blogs");
 		},
 		m(target, anchor) {
@@ -680,7 +680,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (468:10) {#each benefits as benefit}
+// (573:10) {#each benefits as benefit}
 function create_each_block(ctx) {
 	let span;
 	let t_value = /*benefit*/ ctx[9].title + "";
@@ -700,7 +700,7 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "svelte-1rgeq5l");
+			attr(span, "class", "svelte-fdqjr9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, span, anchor);
@@ -715,7 +715,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (537:4) {:else}
+// (667:4) {:else}
 function create_else_block_1(ctx) {
 	let div2;
 	let div0;
@@ -761,12 +761,12 @@ function create_else_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "cg-blog-featured-hero__loading-image svelte-1rgeq5l");
-			attr(span0, "class", "svelte-1rgeq5l");
-			attr(span1, "class", "svelte-1rgeq5l");
-			attr(span2, "class", "svelte-1rgeq5l");
-			attr(div1, "class", "cg-blog-featured-hero__loading-content svelte-1rgeq5l");
-			attr(div2, "class", "cg-blog-featured-hero__loading svelte-1rgeq5l");
+			attr(div0, "class", "cg-blog-featured-hero__loading-image svelte-fdqjr9");
+			attr(span0, "class", "svelte-fdqjr9");
+			attr(span1, "class", "svelte-fdqjr9");
+			attr(span2, "class", "svelte-fdqjr9");
+			attr(div1, "class", "cg-blog-featured-hero__loading-content svelte-fdqjr9");
+			attr(div2, "class", "cg-blog-featured-hero__loading svelte-fdqjr9");
 			attr(div2, "aria-hidden", "true");
 		},
 		m(target, anchor) {
@@ -787,25 +787,37 @@ function create_else_block_1(ctx) {
 	};
 }
 
-// (480:4) {#if latestPost}
+// (585:4) {#if latestPost}
 function create_if_block(ctx) {
-	let article;
-	let button0;
-	let button0_aria_label_value;
-	let t0;
-	let div1;
+	let div3;
 	let div0;
+	let span0;
+	let t0;
 	let t1;
-	let t2;
-	let button1;
-	let t3_value = /*latestPost*/ ctx[4].title + "";
-	let t3;
-	let t4;
-	let button2;
-	let t5;
-	let svg;
+	let svg0;
 	let path0;
 	let path1;
+	let t2;
+	let article;
+	let span1;
+	let t3;
+	let t4;
+	let button0;
+	let button0_aria_label_value;
+	let t5;
+	let div2;
+	let div1;
+	let t6;
+	let t7;
+	let button1;
+	let t8_value = /*latestPost*/ ctx[4].title + "";
+	let t8;
+	let t9;
+	let button2;
+	let t10;
+	let svg1;
+	let path2;
+	let path3;
 	let mounted;
 	let dispose;
 
@@ -821,29 +833,64 @@ function create_if_block(ctx) {
 
 	return {
 		c() {
-			article = element("article");
-			button0 = element("button");
-			if_block0.c();
-			t0 = space();
-			div1 = element("div");
+			div3 = element("div");
 			div0 = element("div");
-			if (if_block1) if_block1.c();
+			span0 = element("span");
+			t0 = text("Neuester Beitrag");
 			t1 = space();
-			if (if_block2) if_block2.c();
-			t2 = space();
-			button1 = element("button");
-			t3 = text(t3_value);
-			t4 = space();
-			button2 = element("button");
-			t5 = text("Beitrag lesen\n\n            ");
-			svg = svg_element("svg");
+			svg0 = svg_element("svg");
 			path0 = svg_element("path");
 			path1 = svg_element("path");
+			t2 = space();
+			article = element("article");
+			span1 = element("span");
+			t3 = text("Neuester Beitrag");
+			t4 = space();
+			button0 = element("button");
+			if_block0.c();
+			t5 = space();
+			div2 = element("div");
+			div1 = element("div");
+			if (if_block1) if_block1.c();
+			t6 = space();
+			if (if_block2) if_block2.c();
+			t7 = space();
+			button1 = element("button");
+			t8 = text(t8_value);
+			t9 = space();
+			button2 = element("button");
+			t10 = text("Beitrag lesen\n\n              ");
+			svg1 = svg_element("svg");
+			path2 = svg_element("path");
+			path3 = svg_element("path");
 			this.h();
 		},
 		l(nodes) {
-			article = claim_element(nodes, "ARTICLE", { class: true });
+			div3 = claim_element(nodes, "DIV", { class: true });
+			var div3_nodes = children(div3);
+			div0 = claim_element(div3_nodes, "DIV", { class: true, "aria-hidden": true });
+			var div0_nodes = children(div0);
+			span0 = claim_element(div0_nodes, "SPAN", { class: true });
+			var span0_nodes = children(span0);
+			t0 = claim_text(span0_nodes, "Neuester Beitrag");
+			span0_nodes.forEach(detach);
+			t1 = claim_space(div0_nodes);
+			svg0 = claim_svg_element(div0_nodes, "svg", { viewBox: true, class: true });
+			var svg0_nodes = children(svg0);
+			path0 = claim_svg_element(svg0_nodes, "path", { class: true, d: true });
+			children(path0).forEach(detach);
+			path1 = claim_svg_element(svg0_nodes, "path", { class: true, d: true });
+			children(path1).forEach(detach);
+			svg0_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			t2 = claim_space(div3_nodes);
+			article = claim_element(div3_nodes, "ARTICLE", { class: true });
 			var article_nodes = children(article);
+			span1 = claim_element(article_nodes, "SPAN", { class: true });
+			var span1_nodes = children(span1);
+			t3 = claim_text(span1_nodes, "Neuester Beitrag");
+			span1_nodes.forEach(detach);
+			t4 = claim_space(article_nodes);
 
 			button0 = claim_element(article_nodes, "BUTTON", {
 				type: true,
@@ -854,80 +901,104 @@ function create_if_block(ctx) {
 			var button0_nodes = children(button0);
 			if_block0.l(button0_nodes);
 			button0_nodes.forEach(detach);
-			t0 = claim_space(article_nodes);
-			div1 = claim_element(article_nodes, "DIV", { class: true });
+			t5 = claim_space(article_nodes);
+			div2 = claim_element(article_nodes, "DIV", { class: true });
+			var div2_nodes = children(div2);
+			div1 = claim_element(div2_nodes, "DIV", { class: true });
 			var div1_nodes = children(div1);
-			div0 = claim_element(div1_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
-			if (if_block1) if_block1.l(div0_nodes);
-			t1 = claim_space(div0_nodes);
-			if (if_block2) if_block2.l(div0_nodes);
-			div0_nodes.forEach(detach);
-			t2 = claim_space(div1_nodes);
-			button1 = claim_element(div1_nodes, "BUTTON", { type: true, class: true });
+			if (if_block1) if_block1.l(div1_nodes);
+			t6 = claim_space(div1_nodes);
+			if (if_block2) if_block2.l(div1_nodes);
+			div1_nodes.forEach(detach);
+			t7 = claim_space(div2_nodes);
+			button1 = claim_element(div2_nodes, "BUTTON", { type: true, class: true });
 			var button1_nodes = children(button1);
-			t3 = claim_text(button1_nodes, t3_value);
+			t8 = claim_text(button1_nodes, t8_value);
 			button1_nodes.forEach(detach);
-			t4 = claim_space(div1_nodes);
-			button2 = claim_element(div1_nodes, "BUTTON", { type: true, class: true });
+			t9 = claim_space(div2_nodes);
+			button2 = claim_element(div2_nodes, "BUTTON", { type: true, class: true });
 			var button2_nodes = children(button2);
-			t5 = claim_text(button2_nodes, "Beitrag lesen\n\n            ");
+			t10 = claim_text(button2_nodes, "Beitrag lesen\n\n              ");
 
-			svg = claim_svg_element(button2_nodes, "svg", {
+			svg1 = claim_svg_element(button2_nodes, "svg", {
 				viewBox: true,
 				"aria-hidden": true,
 				class: true
 			});
 
-			var svg_nodes = children(svg);
-			path0 = claim_svg_element(svg_nodes, "path", { d: true, class: true });
-			children(path0).forEach(detach);
-			path1 = claim_svg_element(svg_nodes, "path", { d: true, class: true });
-			children(path1).forEach(detach);
-			svg_nodes.forEach(detach);
+			var svg1_nodes = children(svg1);
+			path2 = claim_svg_element(svg1_nodes, "path", { d: true, class: true });
+			children(path2).forEach(detach);
+			path3 = claim_svg_element(svg1_nodes, "path", { d: true, class: true });
+			children(path3).forEach(detach);
+			svg1_nodes.forEach(detach);
 			button2_nodes.forEach(detach);
-			div1_nodes.forEach(detach);
+			div2_nodes.forEach(detach);
 			article_nodes.forEach(detach);
+			div3_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
+			attr(span0, "class", "svelte-fdqjr9");
+			attr(path0, "class", "cg-blog-featured-hero__annotation-line svelte-fdqjr9");
+			attr(path0, "d", "M120 10 C91 10 76 21 65 36 C54 51 37 57 12 56");
+			attr(path1, "class", "cg-blog-featured-hero__annotation-arrow svelte-fdqjr9");
+			attr(path1, "d", "M23 47 L12 56 L25 62");
+			attr(svg0, "viewBox", "0 0 130 70");
+			attr(svg0, "class", "svelte-fdqjr9");
+			attr(div0, "class", "cg-blog-featured-hero__annotation svelte-fdqjr9");
+			attr(div0, "aria-hidden", "true");
+			attr(span1, "class", "cg-blog-featured-hero__mobile-badge svelte-fdqjr9");
 			attr(button0, "type", "button");
-			attr(button0, "class", "cg-blog-featured-hero__image-button svelte-1rgeq5l");
+			attr(button0, "class", "cg-blog-featured-hero__image-button svelte-fdqjr9");
 			attr(button0, "aria-label", button0_aria_label_value = "Beitrag öffnen: " + /*latestPost*/ ctx[4].title);
-			attr(div0, "class", "cg-blog-featured-hero__meta svelte-1rgeq5l");
+			attr(div1, "class", "cg-blog-featured-hero__meta svelte-fdqjr9");
 			attr(button1, "type", "button");
-			attr(button1, "class", "cg-blog-featured-hero__title svelte-1rgeq5l");
-			attr(path0, "d", "M5 12h14");
-			attr(path0, "class", "svelte-1rgeq5l");
-			attr(path1, "d", "m14 7 5 5-5 5");
-			attr(path1, "class", "svelte-1rgeq5l");
-			attr(svg, "viewBox", "0 0 24 24");
-			attr(svg, "aria-hidden", "true");
-			attr(svg, "class", "svelte-1rgeq5l");
+			attr(button1, "class", "cg-blog-featured-hero__title svelte-fdqjr9");
+			attr(path2, "d", "M5 12h14");
+			attr(path2, "class", "svelte-fdqjr9");
+			attr(path3, "d", "m14 7 5 5-5 5");
+			attr(path3, "class", "svelte-fdqjr9");
+			attr(svg1, "viewBox", "0 0 24 24");
+			attr(svg1, "aria-hidden", "true");
+			attr(svg1, "class", "svelte-fdqjr9");
 			attr(button2, "type", "button");
-			attr(button2, "class", "cg-blog-featured-hero__read svelte-1rgeq5l");
-			attr(div1, "class", "cg-blog-featured-hero__article-content svelte-1rgeq5l");
-			attr(article, "class", "cg-blog-featured-hero__article svelte-1rgeq5l");
+			attr(button2, "class", "cg-blog-featured-hero__read svelte-fdqjr9");
+			attr(div2, "class", "cg-blog-featured-hero__article-content svelte-fdqjr9");
+			attr(article, "class", "cg-blog-featured-hero__article svelte-fdqjr9");
+			attr(div3, "class", "cg-blog-featured-hero__featured svelte-fdqjr9");
 		},
 		m(target, anchor) {
-			insert_hydration(target, article, anchor);
+			insert_hydration(target, div3, anchor);
+			append_hydration(div3, div0);
+			append_hydration(div0, span0);
+			append_hydration(span0, t0);
+			append_hydration(div0, t1);
+			append_hydration(div0, svg0);
+			append_hydration(svg0, path0);
+			append_hydration(svg0, path1);
+			append_hydration(div3, t2);
+			append_hydration(div3, article);
+			append_hydration(article, span1);
+			append_hydration(span1, t3);
+			append_hydration(article, t4);
 			append_hydration(article, button0);
 			if_block0.m(button0, null);
-			append_hydration(article, t0);
-			append_hydration(article, div1);
-			append_hydration(div1, div0);
-			if (if_block1) if_block1.m(div0, null);
-			append_hydration(div0, t1);
-			if (if_block2) if_block2.m(div0, null);
-			append_hydration(div1, t2);
-			append_hydration(div1, button1);
-			append_hydration(button1, t3);
-			append_hydration(div1, t4);
-			append_hydration(div1, button2);
-			append_hydration(button2, t5);
-			append_hydration(button2, svg);
-			append_hydration(svg, path0);
-			append_hydration(svg, path1);
+			append_hydration(article, t5);
+			append_hydration(article, div2);
+			append_hydration(div2, div1);
+			if (if_block1) if_block1.m(div1, null);
+			append_hydration(div1, t6);
+			if (if_block2) if_block2.m(div1, null);
+			append_hydration(div2, t7);
+			append_hydration(div2, button1);
+			append_hydration(button1, t8);
+			append_hydration(div2, t9);
+			append_hydration(div2, button2);
+			append_hydration(button2, t10);
+			append_hydration(button2, svg1);
+			append_hydration(svg1, path2);
+			append_hydration(svg1, path3);
 
 			if (!mounted) {
 				dispose = [
@@ -962,7 +1033,7 @@ function create_if_block(ctx) {
 				} else {
 					if_block1 = create_if_block_2(ctx);
 					if_block1.c();
-					if_block1.m(div0, t1);
+					if_block1.m(div1, t6);
 				}
 			} else if (if_block1) {
 				if_block1.d(1);
@@ -975,17 +1046,17 @@ function create_if_block(ctx) {
 				} else {
 					if_block2 = create_if_block_1(ctx);
 					if_block2.c();
-					if_block2.m(div0, null);
+					if_block2.m(div1, null);
 				}
 			} else if (if_block2) {
 				if_block2.d(1);
 				if_block2 = null;
 			}
 
-			if (dirty & /*latestPost*/ 16 && t3_value !== (t3_value = /*latestPost*/ ctx[4].title + "")) set_data(t3, t3_value);
+			if (dirty & /*latestPost*/ 16 && t8_value !== (t8_value = /*latestPost*/ ctx[4].title + "")) set_data(t8, t8_value);
 		},
 		d(detaching) {
-			if (detaching) detach(article);
+			if (detaching) detach(div3);
 			if_block0.d();
 			if (if_block1) if_block1.d();
 			if (if_block2) if_block2.d();
@@ -995,7 +1066,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (493:10) {:else}
+// (622:12) {:else}
 function create_else_block(ctx) {
 	let span;
 	let t;
@@ -1014,7 +1085,7 @@ function create_else_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "cg-blog-featured-hero__placeholder svelte-1rgeq5l");
+			attr(span, "class", "cg-blog-featured-hero__placeholder svelte-fdqjr9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, span, anchor);
@@ -1027,7 +1098,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (488:10) {#if latestPost.image && latestPost.image.url}
+// (617:12) {#if latestPost.image && latestPost.image.url}
 function create_if_block_3(ctx) {
 	let img;
 	let img_src_value;
@@ -1045,7 +1116,7 @@ function create_if_block_3(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*latestPost*/ ctx[4].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*latestPost*/ ctx[4].image.alt || /*latestPost*/ ctx[4].title);
-			attr(img, "class", "svelte-1rgeq5l");
+			attr(img, "class", "svelte-fdqjr9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -1065,7 +1136,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (502:12) {#if latestPost.category}
+// (631:14) {#if latestPost.category}
 function create_if_block_2(ctx) {
 	let span;
 	let t_value = /*latestPost*/ ctx[4].category + "";
@@ -1085,7 +1156,7 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "cg-blog-featured-hero__category svelte-1rgeq5l");
+			attr(span, "class", "cg-blog-featured-hero__category svelte-fdqjr9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, span, anchor);
@@ -1100,7 +1171,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (508:12) {#if latestPost.date}
+// (637:14) {#if latestPost.date}
 function create_if_block_1(ctx) {
 	let span;
 	let t_value = /*latestPost*/ ctx[4].date + "";
@@ -1120,7 +1191,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "cg-blog-featured-hero__date svelte-1rgeq5l");
+			attr(span, "class", "cg-blog-featured-hero__date svelte-fdqjr9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, span, anchor);
@@ -1222,15 +1293,15 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span0, "class", "cg-blog-featured-hero__heading-accent svelte-1rgeq5l");
+			attr(span0, "class", "cg-blog-featured-hero__heading-accent svelte-fdqjr9");
 			attr(h1, "id", "cg-blog-featured-heading");
-			attr(h1, "class", "svelte-1rgeq5l");
-			attr(p, "class", "cg-blog-featured-hero__description svelte-1rgeq5l");
-			attr(span1, "class", "cg-blog-featured-hero__line svelte-1rgeq5l");
+			attr(h1, "class", "svelte-fdqjr9");
+			attr(p, "class", "cg-blog-featured-hero__description svelte-fdqjr9");
+			attr(span1, "class", "cg-blog-featured-hero__line svelte-fdqjr9");
 			attr(span1, "aria-hidden", "true");
-			attr(div0, "class", "cg-blog-featured-hero__intro svelte-1rgeq5l");
-			attr(div1, "class", "cg-blog-featured-hero__inner svelte-1rgeq5l");
-			attr(section, "class", "cg-blog-featured-hero svelte-1rgeq5l");
+			attr(div0, "class", "cg-blog-featured-hero__intro svelte-fdqjr9");
+			attr(div1, "class", "cg-blog-featured-hero__inner svelte-fdqjr9");
+			attr(section, "class", "cg-blog-featured-hero svelte-fdqjr9");
 			attr(section, "aria-labelledby", "cg-blog-featured-heading");
 		},
 		m(target, anchor) {
