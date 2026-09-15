@@ -896,27 +896,27 @@ function fly(node, { delay = 0, duration = 400, easing = cubicOut, x = 0, y = 0,
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[26] = list[i];
-	child_ctx[28] = i;
+	child_ctx[28] = list[i];
+	child_ctx[30] = i;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[29] = list[i];
+	child_ctx[31] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[32] = list[i];
+	child_ctx[34] = list[i];
 	return child_ctx;
 }
 
-// (1121:8) {#each categories as category}
+// (1208:8) {#each categories as category}
 function create_each_block_2(ctx) {
 	let button;
-	let t0_value = /*category*/ ctx[32].label + "";
+	let t0_value = /*category*/ ctx[34].label + "";
 	let t0;
 	let t1;
 	let button_aria_pressed_value;
@@ -924,7 +924,7 @@ function create_each_block_2(ctx) {
 	let dispose;
 
 	function click_handler() {
-		return /*click_handler*/ ctx[20](/*category*/ ctx[32]);
+		return /*click_handler*/ ctx[22](/*category*/ ctx[34]);
 	}
 
 	return {
@@ -949,9 +949,9 @@ function create_each_block_2(ctx) {
 		},
 		h() {
 			attr(button, "type", "button");
-			attr(button, "aria-pressed", button_aria_pressed_value = /*activeCategory*/ ctx[4] === /*category*/ ctx[32].label);
+			attr(button, "aria-pressed", button_aria_pressed_value = /*activeCategory*/ ctx[4] === /*category*/ ctx[34].label);
 			attr(button, "class", "svelte-f909za");
-			toggle_class(button, "active", /*activeCategory*/ ctx[4] === /*category*/ ctx[32].label);
+			toggle_class(button, "active", /*activeCategory*/ ctx[4] === /*category*/ ctx[34].label);
 		},
 		m(target, anchor) {
 			insert_hydration(target, button, anchor);
@@ -965,14 +965,14 @@ function create_each_block_2(ctx) {
 		},
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
-			if (dirty[0] & /*categories*/ 2 && t0_value !== (t0_value = /*category*/ ctx[32].label + "")) set_data(t0, t0_value);
+			if (dirty[0] & /*categories*/ 2 && t0_value !== (t0_value = /*category*/ ctx[34].label + "")) set_data(t0, t0_value);
 
-			if (dirty[0] & /*activeCategory, categories*/ 18 && button_aria_pressed_value !== (button_aria_pressed_value = /*activeCategory*/ ctx[4] === /*category*/ ctx[32].label)) {
+			if (dirty[0] & /*activeCategory, categories*/ 18 && button_aria_pressed_value !== (button_aria_pressed_value = /*activeCategory*/ ctx[4] === /*category*/ ctx[34].label)) {
 				attr(button, "aria-pressed", button_aria_pressed_value);
 			}
 
 			if (dirty[0] & /*activeCategory, categories*/ 18) {
-				toggle_class(button, "active", /*activeCategory*/ ctx[4] === /*category*/ ctx[32].label);
+				toggle_class(button, "active", /*activeCategory*/ ctx[4] === /*category*/ ctx[34].label);
 			}
 		},
 		d(detaching) {
@@ -983,7 +983,7 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (1207:4) {:else}
+// (1294:4) {:else}
 function create_else_block(ctx) {
 	let div;
 	let p;
@@ -1024,7 +1024,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (1152:4) {#if filteredPosts.length > 0}
+// (1239:4) {#if filteredPosts.length > 0}
 function create_if_block_6(ctx) {
 	let div;
 	let each_value_1 = /*filteredPosts*/ ctx[9];
@@ -1098,7 +1098,7 @@ function create_if_block_6(ctx) {
 	};
 }
 
-// (1154:8) {#each filteredPosts as post}
+// (1241:8) {#each filteredPosts as post}
 function create_each_block_1(ctx) {
 	let article;
 	let button0;
@@ -1113,20 +1113,20 @@ function create_each_block_1(ctx) {
 	let div1;
 	let div0;
 	let span1;
-	let t3_value = /*post*/ ctx[29].category + "";
+	let t3_value = /*post*/ ctx[31].category + "";
 	let t3;
 	let t4;
 	let time;
-	let t5_value = /*post*/ ctx[29].date_label + "";
+	let t5_value = /*post*/ ctx[31].date_label + "";
 	let t5;
 	let time_datetime_value;
 	let t6;
 	let h3;
-	let t7_value = /*post*/ ctx[29].title + "";
+	let t7_value = /*post*/ ctx[31].title + "";
 	let t7;
 	let t8;
 	let p;
-	let t9_value = /*post*/ ctx[29].teaser + "";
+	let t9_value = /*post*/ ctx[31].teaser + "";
 	let t9;
 	let t10;
 	let button1;
@@ -1138,11 +1138,11 @@ function create_each_block_1(ctx) {
 	let dispose;
 
 	function click_handler_1() {
-		return /*click_handler_1*/ ctx[22](/*post*/ ctx[29]);
+		return /*click_handler_1*/ ctx[24](/*post*/ ctx[31]);
 	}
 
 	function click_handler_2() {
-		return /*click_handler_2*/ ctx[23](/*post*/ ctx[29]);
+		return /*click_handler_2*/ ctx[25](/*post*/ ctx[31]);
 	}
 
 	return {
@@ -1253,17 +1253,17 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			if (!src_url_equal(img.src, img_src_value = /*post*/ ctx[29].image.url)) attr(img, "src", img_src_value);
-			attr(img, "alt", img_alt_value = /*post*/ ctx[29].image.alt);
+			if (!src_url_equal(img.src, img_src_value = /*post*/ ctx[31].image.url)) attr(img, "src", img_src_value);
+			attr(img, "alt", img_alt_value = /*post*/ ctx[31].image.alt);
 			attr(img, "loading", "lazy");
 			attr(img, "class", "svelte-f909za");
 			attr(span0, "class", "cg-blog-card__image-overlay svelte-f909za");
 			attr(span0, "aria-hidden", "true");
 			attr(button0, "type", "button");
 			attr(button0, "class", "cg-blog-card__image svelte-f909za");
-			attr(button0, "aria-label", button0_aria_label_value = "Beitrag öffnen: " + /*post*/ ctx[29].title);
+			attr(button0, "aria-label", button0_aria_label_value = "Beitrag öffnen: " + /*post*/ ctx[31].title);
 			attr(span1, "class", "svelte-f909za");
-			attr(time, "datetime", time_datetime_value = /*post*/ ctx[29].date_iso);
+			attr(time, "datetime", time_datetime_value = /*post*/ ctx[31].date_iso);
 			attr(time, "class", "svelte-f909za");
 			attr(div0, "class", "cg-blog-card__meta svelte-f909za");
 			attr(h3, "class", "svelte-f909za");
@@ -1319,27 +1319,27 @@ function create_each_block_1(ctx) {
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
 
-			if (dirty[0] & /*filteredPosts*/ 512 && !src_url_equal(img.src, img_src_value = /*post*/ ctx[29].image.url)) {
+			if (dirty[0] & /*filteredPosts*/ 512 && !src_url_equal(img.src, img_src_value = /*post*/ ctx[31].image.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty[0] & /*filteredPosts*/ 512 && img_alt_value !== (img_alt_value = /*post*/ ctx[29].image.alt)) {
+			if (dirty[0] & /*filteredPosts*/ 512 && img_alt_value !== (img_alt_value = /*post*/ ctx[31].image.alt)) {
 				attr(img, "alt", img_alt_value);
 			}
 
-			if (dirty[0] & /*filteredPosts*/ 512 && button0_aria_label_value !== (button0_aria_label_value = "Beitrag öffnen: " + /*post*/ ctx[29].title)) {
+			if (dirty[0] & /*filteredPosts*/ 512 && button0_aria_label_value !== (button0_aria_label_value = "Beitrag öffnen: " + /*post*/ ctx[31].title)) {
 				attr(button0, "aria-label", button0_aria_label_value);
 			}
 
-			if (dirty[0] & /*filteredPosts*/ 512 && t3_value !== (t3_value = /*post*/ ctx[29].category + "")) set_data(t3, t3_value);
-			if (dirty[0] & /*filteredPosts*/ 512 && t5_value !== (t5_value = /*post*/ ctx[29].date_label + "")) set_data(t5, t5_value);
+			if (dirty[0] & /*filteredPosts*/ 512 && t3_value !== (t3_value = /*post*/ ctx[31].category + "")) set_data(t3, t3_value);
+			if (dirty[0] & /*filteredPosts*/ 512 && t5_value !== (t5_value = /*post*/ ctx[31].date_label + "")) set_data(t5, t5_value);
 
-			if (dirty[0] & /*filteredPosts*/ 512 && time_datetime_value !== (time_datetime_value = /*post*/ ctx[29].date_iso)) {
+			if (dirty[0] & /*filteredPosts*/ 512 && time_datetime_value !== (time_datetime_value = /*post*/ ctx[31].date_iso)) {
 				attr(time, "datetime", time_datetime_value);
 			}
 
-			if (dirty[0] & /*filteredPosts*/ 512 && t7_value !== (t7_value = /*post*/ ctx[29].title + "")) set_data(t7, t7_value);
-			if (dirty[0] & /*filteredPosts*/ 512 && t9_value !== (t9_value = /*post*/ ctx[29].teaser + "")) set_data(t9, t9_value);
+			if (dirty[0] & /*filteredPosts*/ 512 && t7_value !== (t7_value = /*post*/ ctx[31].title + "")) set_data(t7, t7_value);
+			if (dirty[0] & /*filteredPosts*/ 512 && t9_value !== (t9_value = /*post*/ ctx[31].teaser + "")) set_data(t9, t9_value);
 		},
 		d(detaching) {
 			if (detaching) detach(article);
@@ -1349,7 +1349,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (1214:2) {#if selectedPost}
+// (1301:2) {#if selectedPost}
 function create_if_block(ctx) {
 	let div4;
 	let article;
@@ -1681,7 +1681,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (1270:10) {#if galleryItems.length > 0 && currentGalleryImage}
+// (1357:10) {#if galleryItems.length > 0 && currentGalleryImage}
 function create_if_block_1(ctx) {
 	let section;
 	let div0;
@@ -1861,7 +1861,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (1278:16) {#if galleryItems.length > 1}
+// (1365:16) {#if galleryItems.length > 1}
 function create_if_block_5(ctx) {
 	let span;
 	let t0_value = /*galleryIndex*/ ctx[7] + 1 + "";
@@ -1906,7 +1906,7 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (1286:16) {#key currentGalleryImage.image.url}
+// (1373:16) {#key currentGalleryImage.image.url}
 function create_key_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1964,7 +1964,7 @@ function create_key_block(ctx) {
 	};
 }
 
-// (1294:16) {#if galleryItems.length > 1}
+// (1381:16) {#if galleryItems.length > 1}
 function create_if_block_4(ctx) {
 	let button0;
 	let svg0;
@@ -2077,7 +2077,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (1319:14) {#if currentGalleryImage.caption}
+// (1406:14) {#if currentGalleryImage.caption}
 function create_if_block_3(ctx) {
 	let p;
 	let t_value = /*currentGalleryImage*/ ctx[10].caption + "";
@@ -2112,7 +2112,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (1325:14) {#if galleryItems.length > 1}
+// (1412:14) {#if galleryItems.length > 1}
 function create_if_block_2(ctx) {
 	let div;
 	let each_value = /*galleryItems*/ ctx[8];
@@ -2186,7 +2186,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (1327:18) {#each galleryItems as galleryImage, index}
+// (1414:18) {#each galleryItems as galleryImage, index}
 function create_each_block(ctx) {
 	let button;
 	let img;
@@ -2197,7 +2197,7 @@ function create_each_block(ctx) {
 	let dispose;
 
 	function click_handler_3() {
-		return /*click_handler_3*/ ctx[24](/*index*/ ctx[28]);
+		return /*click_handler_3*/ ctx[26](/*index*/ ctx[30]);
 	}
 
 	return {
@@ -2229,19 +2229,19 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			if (!src_url_equal(img.src, img_src_value = /*galleryImage*/ ctx[26].image.url)) attr(img, "src", img_src_value);
+			if (!src_url_equal(img.src, img_src_value = /*galleryImage*/ ctx[28].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", "");
 			attr(img, "loading", "lazy");
 			attr(img, "class", "svelte-f909za");
 			attr(button, "type", "button");
-			attr(button, "aria-label", "Bild " + (/*index*/ ctx[28] + 1) + " anzeigen");
+			attr(button, "aria-label", "Bild " + (/*index*/ ctx[30] + 1) + " anzeigen");
 
-			attr(button, "aria-current", button_aria_current_value = /*galleryIndex*/ ctx[7] === /*index*/ ctx[28]
+			attr(button, "aria-current", button_aria_current_value = /*galleryIndex*/ ctx[7] === /*index*/ ctx[30]
 			? "true"
 			: undefined);
 
 			attr(button, "class", "svelte-f909za");
-			toggle_class(button, "active", /*galleryIndex*/ ctx[7] === /*index*/ ctx[28]);
+			toggle_class(button, "active", /*galleryIndex*/ ctx[7] === /*index*/ ctx[30]);
 		},
 		m(target, anchor) {
 			insert_hydration(target, button, anchor);
@@ -2256,18 +2256,18 @@ function create_each_block(ctx) {
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
 
-			if (dirty[0] & /*galleryItems*/ 256 && !src_url_equal(img.src, img_src_value = /*galleryImage*/ ctx[26].image.url)) {
+			if (dirty[0] & /*galleryItems*/ 256 && !src_url_equal(img.src, img_src_value = /*galleryImage*/ ctx[28].image.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty[0] & /*galleryIndex*/ 128 && button_aria_current_value !== (button_aria_current_value = /*galleryIndex*/ ctx[7] === /*index*/ ctx[28]
+			if (dirty[0] & /*galleryIndex*/ 128 && button_aria_current_value !== (button_aria_current_value = /*galleryIndex*/ ctx[7] === /*index*/ ctx[30]
 			? "true"
 			: undefined)) {
 				attr(button, "aria-current", button_aria_current_value);
 			}
 
 			if (dirty[0] & /*galleryIndex*/ 128) {
-				toggle_class(button, "active", /*galleryIndex*/ ctx[7] === /*index*/ ctx[28]);
+				toggle_class(button, "active", /*galleryIndex*/ ctx[7] === /*index*/ ctx[30]);
 			}
 		},
 		d(detaching) {
@@ -2464,7 +2464,7 @@ function create_fragment(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(input, "input", /*input_input_handler*/ ctx[21]),
+					listen(input, "input", /*input_input_handler*/ ctx[23]),
 					listen(input, "input", /*handleSearch*/ ctx[12])
 				];
 
@@ -2558,6 +2558,12 @@ function create_fragment(ctx) {
 			run_all(dispose);
 		}
 	};
+}
+
+function publishLatestPost(post) {
+	if (typeof window === "undefined" || !post) return;
+	window.__cgLatestBlogPost = post;
+	window.dispatchEvent(new CustomEvent("cg-blog-latest-post", { detail: post }));
 }
 
 function escapeHTML(value = "") {
@@ -2656,6 +2662,8 @@ function renderPostContent(content) {
 }
 
 function instance($$self, $$props, $$invalidate) {
+	let sortedPosts;
+	let latestPost;
 	let galleryItems;
 	let currentGalleryImage;
 	let filteredPosts;
@@ -2681,6 +2689,7 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	function openArticle(post) {
+		if (!post) return;
 		$$invalidate(6, selectedPost = post);
 		$$invalidate(7, galleryIndex = 0);
 
@@ -2692,6 +2701,7 @@ function instance($$self, $$props, $$invalidate) {
 
 	function closeArticle() {
 		$$invalidate(6, selectedPost = null);
+		$$invalidate(7, galleryIndex = 0);
 
 		if (typeof document !== "undefined") {
 			document.body.style.overflow = previousBodyOverflow;
@@ -2735,10 +2745,43 @@ function instance($$self, $$props, $$invalidate) {
 			}
 		}
 
+		/*
+  Empfängt den Klick aus dem separaten Hero
+  und öffnet den übergebenen Beitrag.
+*/
+		function handleHeroPostOpen(event) {
+			if (event.detail) {
+				openArticle(event.detail);
+			}
+		}
+
+		/*
+  Falls der Hero später geladen wird, kann er
+  den neuesten Beitrag noch einmal anfordern.
+*/
+		function handleLatestPostRequest() {
+			if (latestPost) {
+				publishLatestPost(latestPost);
+			}
+		}
+
 		document.addEventListener("keydown", handleKeydown);
+		window.addEventListener("cg-blog-open-post", handleHeroPostOpen);
+		window.addEventListener("cg-blog-request-latest-post", handleLatestPostRequest);
+
+		if (latestPost) {
+			publishLatestPost(latestPost);
+		}
 
 		return () => {
 			document.removeEventListener("keydown", handleKeydown);
+			window.removeEventListener("cg-blog-open-post", handleHeroPostOpen);
+			window.removeEventListener("cg-blog-request-latest-post", handleLatestPostRequest);
+
+			if (window.__cgLatestBlogPost === latestPost) {
+				delete window.__cgLatestBlogPost;
+			}
+
 			document.body.style.overflow = previousBodyOverflow;
 		};
 	});
@@ -2764,6 +2807,18 @@ function instance($$self, $$props, $$invalidate) {
 	};
 
 	$$self.$$.update = () => {
+		if ($$self.$$.dirty[0] & /*posts*/ 524288) {
+			$$invalidate(21, sortedPosts = [...posts || []].sort((postA, postB) => {
+				const dateA = String(postA.sort_date || "");
+				const dateB = String(postB.sort_date || "");
+				return dateB.localeCompare(dateA);
+			}));
+		}
+
+		if ($$self.$$.dirty[0] & /*sortedPosts*/ 2097152) {
+			$$invalidate(20, latestPost = sortedPosts[0] || null);
+		}
+
 		if ($$self.$$.dirty[0] & /*selectedPost*/ 64) {
 			$$invalidate(8, galleryItems = selectedPost?.gallery || []);
 		}
@@ -2772,13 +2827,23 @@ function instance($$self, $$props, $$invalidate) {
 			$$invalidate(10, currentGalleryImage = galleryItems[galleryIndex] || null);
 		}
 
-		if ($$self.$$.dirty[0] & /*posts, activeCategory, searchTerm*/ 524336) {
-			$$invalidate(9, filteredPosts = (posts || []).filter(post => {
+		if ($$self.$$.dirty[0] & /*sortedPosts, activeCategory, searchTerm*/ 2097200) {
+			$$invalidate(9, filteredPosts = sortedPosts.filter(post => {
 				const matchesCategory = activeCategory === "Alle Beiträge" || post.category === activeCategory;
 				const term = searchTerm.trim().toLocaleLowerCase("de");
 				const searchableText = [post.title, post.teaser, post.category].filter(Boolean).join(" ").toLocaleLowerCase("de");
 				return matchesCategory && (term === "" || searchableText.includes(term));
 			}));
+		}
+
+		if ($$self.$$.dirty[0] & /*latestPost*/ 1048576) {
+			/*
+  Auch Änderungen in der Primo-Vorschau werden
+  an den Hero weitergegeben.
+*/
+			if (latestPost && typeof window !== "undefined") {
+				publishLatestPost(latestPost);
+			}
 		}
 	};
 
@@ -2803,6 +2868,8 @@ function instance($$self, $$props, $$invalidate) {
 		selectGalleryImage,
 		props,
 		posts,
+		latestPost,
+		sortedPosts,
 		click_handler,
 		input_input_handler,
 		click_handler_1,
