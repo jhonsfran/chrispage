@@ -1,4 +1,4 @@
-// Für wen ist das geeignet? - Updated September 14, 2026
+// Für wen ist das geeignet? - Updated September 15, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -772,7 +772,7 @@ function create_if_block(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*audiences*/ 4 && t_value !== (t_value = /*item*/ ctx[6].text + "")) set_data(t, t_value);
+			if (dirty & /*audiences*/ 2 && t_value !== (t_value = /*item*/ ctx[6].text + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -858,7 +858,7 @@ function create_each_block(ctx) {
 			append_hydration(div, t3);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*audiences*/ 4 && t1_value !== (t1_value = /*item*/ ctx[6].title + "")) set_data(t1, t1_value);
+			if (dirty & /*audiences*/ 2 && t1_value !== (t1_value = /*item*/ ctx[6].title + "")) set_data(t1, t1_value);
 
 			if (/*item*/ ctx[6].text) {
 				if (if_block1) {
@@ -892,7 +892,7 @@ function create_fragment(ctx) {
 	let t2;
 	let t3;
 	let div1;
-	let each_value = /*audiences*/ ctx[2];
+	let each_value = /*audiences*/ ctx[1];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -908,7 +908,7 @@ function create_fragment(ctx) {
 			t0 = text(/*heading*/ ctx[0]);
 			t1 = space();
 			p = element("p");
-			t2 = text(/*description*/ ctx[1]);
+			t2 = text(/*description*/ ctx[2]);
 			t3 = space();
 			div1 = element("div");
 
@@ -932,7 +932,7 @@ function create_fragment(ctx) {
 			t1 = claim_space(div0_nodes);
 			p = claim_element(div0_nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t2 = claim_text(p_nodes, /*description*/ ctx[1]);
+			t2 = claim_text(p_nodes, /*description*/ ctx[2]);
 			p_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
 			t3 = claim_space(div2_nodes);
@@ -980,10 +980,10 @@ function create_fragment(ctx) {
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
-			if (dirty & /*description*/ 2) set_data(t2, /*description*/ ctx[1]);
+			if (dirty & /*description*/ 4) set_data(t2, /*description*/ ctx[2]);
 
-			if (dirty & /*audiences*/ 4) {
-				each_value = /*audiences*/ ctx[2];
+			if (dirty & /*audiences*/ 2) {
+				each_value = /*audiences*/ ctx[1];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -1018,8 +1018,8 @@ function create_fragment(ctx) {
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
 	let { heading } = $$props;
-	let { description } = $$props;
 	let { audiences } = $$props;
+	let { description } = $$props;
 	let sectionElement;
 
 	onMount(() => {
@@ -1061,11 +1061,11 @@ function instance($$self, $$props, $$invalidate) {
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(4, props = $$props.props);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
-		if ('description' in $$props) $$invalidate(1, description = $$props.description);
-		if ('audiences' in $$props) $$invalidate(2, audiences = $$props.audiences);
+		if ('audiences' in $$props) $$invalidate(1, audiences = $$props.audiences);
+		if ('description' in $$props) $$invalidate(2, description = $$props.description);
 	};
 
-	return [heading, description, audiences, sectionElement, props, section_binding];
+	return [heading, audiences, description, sectionElement, props, section_binding];
 }
 
 class Component extends SvelteComponent {
@@ -1075,8 +1075,8 @@ class Component extends SvelteComponent {
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 4,
 			heading: 0,
-			description: 1,
-			audiences: 2
+			audiences: 1,
+			description: 2
 		});
 	}
 }

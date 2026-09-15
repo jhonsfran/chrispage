@@ -1,4 +1,4 @@
-// Warum Data Literacy? - Updated September 14, 2026
+// Warum Data Literacy? - Updated September 15, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -827,8 +827,8 @@ function create_each_block(ctx) {
 			append_hydration(div, t4);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*cards*/ 4 && t1_value !== (t1_value = /*card*/ ctx[6].title + "")) set_data(t1, t1_value);
-			if (dirty & /*cards*/ 4 && t3_value !== (t3_value = /*card*/ ctx[6].text + "")) set_data(t3, t3_value);
+			if (dirty & /*cards*/ 1 && t1_value !== (t1_value = /*card*/ ctx[6].title + "")) set_data(t1, t1_value);
+			if (dirty & /*cards*/ 1 && t3_value !== (t3_value = /*card*/ ctx[6].text + "")) set_data(t3, t3_value);
 		},
 		d(detaching) {
 			if (detaching) detach(div);
@@ -848,7 +848,7 @@ function create_fragment(ctx) {
 	let t2;
 	let t3;
 	let div1;
-	let each_value = /*cards*/ ctx[2];
+	let each_value = /*cards*/ ctx[0];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -861,10 +861,10 @@ function create_fragment(ctx) {
 			div2 = element("div");
 			div0 = element("div");
 			h2 = element("h2");
-			t0 = text(/*heading*/ ctx[0]);
+			t0 = text(/*heading*/ ctx[1]);
 			t1 = space();
 			p = element("p");
-			t2 = text(/*description*/ ctx[1]);
+			t2 = text(/*description*/ ctx[2]);
 			t3 = space();
 			div1 = element("div");
 
@@ -883,12 +883,12 @@ function create_fragment(ctx) {
 			var div0_nodes = children(div0);
 			h2 = claim_element(div0_nodes, "H2", { id: true, class: true });
 			var h2_nodes = children(h2);
-			t0 = claim_text(h2_nodes, /*heading*/ ctx[0]);
+			t0 = claim_text(h2_nodes, /*heading*/ ctx[1]);
 			h2_nodes.forEach(detach);
 			t1 = claim_space(div0_nodes);
 			p = claim_element(div0_nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t2 = claim_text(p_nodes, /*description*/ ctx[1]);
+			t2 = claim_text(p_nodes, /*description*/ ctx[2]);
 			p_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
 			t3 = claim_space(div2_nodes);
@@ -935,11 +935,11 @@ function create_fragment(ctx) {
 			/*section_binding*/ ctx[5](section);
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
-			if (dirty & /*description*/ 2) set_data(t2, /*description*/ ctx[1]);
+			if (dirty & /*heading*/ 2) set_data(t0, /*heading*/ ctx[1]);
+			if (dirty & /*description*/ 4) set_data(t2, /*description*/ ctx[2]);
 
-			if (dirty & /*cards*/ 4) {
-				each_value = /*cards*/ ctx[2];
+			if (dirty & /*cards*/ 1) {
+				each_value = /*cards*/ ctx[0];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -973,9 +973,9 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
+	let { cards } = $$props;
 	let { heading } = $$props;
 	let { description } = $$props;
-	let { cards } = $$props;
 	let sectionElement;
 
 	onMount(() => {
@@ -1016,12 +1016,12 @@ function instance($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(4, props = $$props.props);
-		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
-		if ('description' in $$props) $$invalidate(1, description = $$props.description);
-		if ('cards' in $$props) $$invalidate(2, cards = $$props.cards);
+		if ('cards' in $$props) $$invalidate(0, cards = $$props.cards);
+		if ('heading' in $$props) $$invalidate(1, heading = $$props.heading);
+		if ('description' in $$props) $$invalidate(2, description = $$props.description);
 	};
 
-	return [heading, description, cards, sectionElement, props, section_binding];
+	return [cards, heading, description, sectionElement, props, section_binding];
 }
 
 class Component extends SvelteComponent {
@@ -1030,9 +1030,9 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 4,
-			heading: 0,
-			description: 1,
-			cards: 2
+			cards: 0,
+			heading: 1,
+			description: 2
 		});
 	}
 }

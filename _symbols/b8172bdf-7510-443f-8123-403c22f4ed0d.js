@@ -1,4 +1,4 @@
-// Abschluss-CTA - Updated September 14, 2026
+// Abschluss-CTA - Updated September 15, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -567,13 +567,13 @@ function create_if_block_2(ctx) {
 	return {
 		c() {
 			p = element("p");
-			t = text(/*eyebrow*/ ctx[0]);
+			t = text(/*eyebrow*/ ctx[2]);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, /*eyebrow*/ ctx[0]);
+			t = claim_text(p_nodes, /*eyebrow*/ ctx[2]);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -585,7 +585,7 @@ function create_if_block_2(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*eyebrow*/ 1) set_data(t, /*eyebrow*/ ctx[0]);
+			if (dirty & /*eyebrow*/ 4) set_data(t, /*eyebrow*/ ctx[2]);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -596,7 +596,7 @@ function create_if_block_2(ctx) {
 // (261:6) {#if cta && cta.url}
 function create_if_block_1(ctx) {
 	let a;
-	let t0_value = /*cta*/ ctx[3].label + "";
+	let t0_value = /*cta*/ ctx[0].label + "";
 	let t0;
 	let t1;
 	let svg;
@@ -638,7 +638,7 @@ function create_if_block_1(ctx) {
 			attr(svg, "aria-hidden", "true");
 			attr(svg, "class", "svelte-qg6c2k");
 			attr(a, "class", "cg-dl-cta__button svelte-qg6c2k");
-			attr(a, "href", a_href_value = /*cta*/ ctx[3].url);
+			attr(a, "href", a_href_value = /*cta*/ ctx[0].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -648,9 +648,9 @@ function create_if_block_1(ctx) {
 			append_hydration(svg, path);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*cta*/ 8 && t0_value !== (t0_value = /*cta*/ ctx[3].label + "")) set_data(t0, t0_value);
+			if (dirty & /*cta*/ 1 && t0_value !== (t0_value = /*cta*/ ctx[0].label + "")) set_data(t0, t0_value);
 
-			if (dirty & /*cta*/ 8 && a_href_value !== (a_href_value = /*cta*/ ctx[3].url)) {
+			if (dirty & /*cta*/ 1 && a_href_value !== (a_href_value = /*cta*/ ctx[0].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -663,7 +663,7 @@ function create_if_block_1(ctx) {
 // (271:6) {#if notes && notes.length > 0}
 function create_if_block(ctx) {
 	let div;
-	let each_value = /*notes*/ ctx[4];
+	let each_value = /*notes*/ ctx[1];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -704,8 +704,8 @@ function create_if_block(ctx) {
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty & /*notes*/ 16) {
-				each_value = /*notes*/ ctx[4];
+			if (dirty & /*notes*/ 2) {
+				each_value = /*notes*/ ctx[1];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -765,7 +765,7 @@ function create_each_block(ctx) {
 			append_hydration(span, t1);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*notes*/ 16 && t1_value !== (t1_value = /*note*/ ctx[8].text + "")) set_data(t1, t1_value);
+			if (dirty & /*notes*/ 2 && t1_value !== (t1_value = /*note*/ ctx[8].text + "")) set_data(t1, t1_value);
 		},
 		d(detaching) {
 			if (detaching) detach(span);
@@ -790,9 +790,9 @@ function create_fragment(ctx) {
 	let t5;
 	let div2;
 	let t6;
-	let if_block0 = /*eyebrow*/ ctx[0] && create_if_block_2(ctx);
-	let if_block1 = /*cta*/ ctx[3] && /*cta*/ ctx[3].url && create_if_block_1(ctx);
-	let if_block2 = /*notes*/ ctx[4] && /*notes*/ ctx[4].length > 0 && create_if_block(ctx);
+	let if_block0 = /*eyebrow*/ ctx[2] && create_if_block_2(ctx);
+	let if_block1 = /*cta*/ ctx[0] && /*cta*/ ctx[0].url && create_if_block_1(ctx);
+	let if_block2 = /*notes*/ ctx[1] && /*notes*/ ctx[1].length > 0 && create_if_block(ctx);
 
 	return {
 		c() {
@@ -806,10 +806,10 @@ function create_fragment(ctx) {
 			if (if_block0) if_block0.c();
 			t1 = space();
 			h2 = element("h2");
-			t2 = text(/*heading*/ ctx[1]);
+			t2 = text(/*heading*/ ctx[3]);
 			t3 = space();
 			p = element("p");
-			t4 = text(/*description*/ ctx[2]);
+			t4 = text(/*description*/ ctx[4]);
 			t5 = space();
 			div2 = element("div");
 			if (if_block1) if_block1.c();
@@ -837,12 +837,12 @@ function create_fragment(ctx) {
 			t1 = claim_space(div1_nodes);
 			h2 = claim_element(div1_nodes, "H2", { id: true, class: true });
 			var h2_nodes = children(h2);
-			t2 = claim_text(h2_nodes, /*heading*/ ctx[1]);
+			t2 = claim_text(h2_nodes, /*heading*/ ctx[3]);
 			h2_nodes.forEach(detach);
 			t3 = claim_space(div1_nodes);
 			p = claim_element(div1_nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t4 = claim_text(p_nodes, /*description*/ ctx[2]);
+			t4 = claim_text(p_nodes, /*description*/ ctx[4]);
 			p_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
 			t5 = claim_space(div3_nodes);
@@ -895,7 +895,7 @@ function create_fragment(ctx) {
 			/*section_binding*/ ctx[7](section);
 		},
 		p(ctx, [dirty]) {
-			if (/*eyebrow*/ ctx[0]) {
+			if (/*eyebrow*/ ctx[2]) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
@@ -908,10 +908,10 @@ function create_fragment(ctx) {
 				if_block0 = null;
 			}
 
-			if (dirty & /*heading*/ 2) set_data(t2, /*heading*/ ctx[1]);
-			if (dirty & /*description*/ 4) set_data(t4, /*description*/ ctx[2]);
+			if (dirty & /*heading*/ 8) set_data(t2, /*heading*/ ctx[3]);
+			if (dirty & /*description*/ 16) set_data(t4, /*description*/ ctx[4]);
 
-			if (/*cta*/ ctx[3] && /*cta*/ ctx[3].url) {
+			if (/*cta*/ ctx[0] && /*cta*/ ctx[0].url) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
@@ -924,7 +924,7 @@ function create_fragment(ctx) {
 				if_block1 = null;
 			}
 
-			if (/*notes*/ ctx[4] && /*notes*/ ctx[4].length > 0) {
+			if (/*notes*/ ctx[1] && /*notes*/ ctx[1].length > 0) {
 				if (if_block2) {
 					if_block2.p(ctx, dirty);
 				} else {
@@ -951,11 +951,11 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
+	let { cta } = $$props;
+	let { notes } = $$props;
 	let { eyebrow } = $$props;
 	let { heading } = $$props;
 	let { description } = $$props;
-	let { cta } = $$props;
-	let { notes } = $$props;
 	let sectionElement;
 
 	onMount(() => {
@@ -996,19 +996,19 @@ function instance($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(6, props = $$props.props);
-		if ('eyebrow' in $$props) $$invalidate(0, eyebrow = $$props.eyebrow);
-		if ('heading' in $$props) $$invalidate(1, heading = $$props.heading);
-		if ('description' in $$props) $$invalidate(2, description = $$props.description);
-		if ('cta' in $$props) $$invalidate(3, cta = $$props.cta);
-		if ('notes' in $$props) $$invalidate(4, notes = $$props.notes);
+		if ('cta' in $$props) $$invalidate(0, cta = $$props.cta);
+		if ('notes' in $$props) $$invalidate(1, notes = $$props.notes);
+		if ('eyebrow' in $$props) $$invalidate(2, eyebrow = $$props.eyebrow);
+		if ('heading' in $$props) $$invalidate(3, heading = $$props.heading);
+		if ('description' in $$props) $$invalidate(4, description = $$props.description);
 	};
 
 	return [
+		cta,
+		notes,
 		eyebrow,
 		heading,
 		description,
-		cta,
-		notes,
 		sectionElement,
 		props,
 		section_binding
@@ -1021,11 +1021,11 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 6,
-			eyebrow: 0,
-			heading: 1,
-			description: 2,
-			cta: 3,
-			notes: 4
+			cta: 0,
+			notes: 1,
+			eyebrow: 2,
+			heading: 3,
+			description: 4
 		});
 	}
 }

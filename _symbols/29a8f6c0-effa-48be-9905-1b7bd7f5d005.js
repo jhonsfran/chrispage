@@ -1,4 +1,4 @@
-// Mögliche Inhalte - Updated September 14, 2026
+// Mögliche Inhalte - Updated September 15, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -931,8 +931,8 @@ function create_each_block(ctx) {
 			append_hydration(div1, t4);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*topics*/ 4 && t1_value !== (t1_value = /*topic*/ ctx[6].title + "")) set_data(t1, t1_value);
-			if (dirty & /*topics*/ 4 && t3_value !== (t3_value = /*topic*/ ctx[6].text + "")) set_data(t3, t3_value);
+			if (dirty & /*topics*/ 2 && t1_value !== (t1_value = /*topic*/ ctx[6].title + "")) set_data(t1, t1_value);
+			if (dirty & /*topics*/ 2 && t3_value !== (t3_value = /*topic*/ ctx[6].text + "")) set_data(t3, t3_value);
 		},
 		d(detaching) {
 			if (detaching) detach(div1);
@@ -952,7 +952,7 @@ function create_fragment(ctx) {
 	let t2;
 	let t3;
 	let div1;
-	let each_value = /*topics*/ ctx[2];
+	let each_value = /*topics*/ ctx[1];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -965,10 +965,10 @@ function create_fragment(ctx) {
 			div2 = element("div");
 			div0 = element("div");
 			h2 = element("h2");
-			t0 = text(/*heading*/ ctx[0]);
+			t0 = text(/*heading*/ ctx[2]);
 			t1 = space();
 			p = element("p");
-			t2 = text(/*note*/ ctx[1]);
+			t2 = text(/*note*/ ctx[0]);
 			t3 = space();
 			div1 = element("div");
 
@@ -987,12 +987,12 @@ function create_fragment(ctx) {
 			var div0_nodes = children(div0);
 			h2 = claim_element(div0_nodes, "H2", { id: true, class: true });
 			var h2_nodes = children(h2);
-			t0 = claim_text(h2_nodes, /*heading*/ ctx[0]);
+			t0 = claim_text(h2_nodes, /*heading*/ ctx[2]);
 			h2_nodes.forEach(detach);
 			t1 = claim_space(div0_nodes);
 			p = claim_element(div0_nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t2 = claim_text(p_nodes, /*note*/ ctx[1]);
+			t2 = claim_text(p_nodes, /*note*/ ctx[0]);
 			p_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
 			t3 = claim_space(div2_nodes);
@@ -1039,11 +1039,11 @@ function create_fragment(ctx) {
 			/*section_binding*/ ctx[5](section);
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
-			if (dirty & /*note*/ 2) set_data(t2, /*note*/ ctx[1]);
+			if (dirty & /*heading*/ 4) set_data(t0, /*heading*/ ctx[2]);
+			if (dirty & /*note*/ 1) set_data(t2, /*note*/ ctx[0]);
 
-			if (dirty & /*topics*/ 4) {
-				each_value = /*topics*/ ctx[2];
+			if (dirty & /*topics*/ 2) {
+				each_value = /*topics*/ ctx[1];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -1077,9 +1077,9 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
-	let { heading } = $$props;
 	let { note } = $$props;
 	let { topics } = $$props;
+	let { heading } = $$props;
 	let sectionElement;
 
 	onMount(() => {
@@ -1120,18 +1120,18 @@ function instance($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(4, props = $$props.props);
-		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
-		if ('note' in $$props) $$invalidate(1, note = $$props.note);
-		if ('topics' in $$props) $$invalidate(2, topics = $$props.topics);
+		if ('note' in $$props) $$invalidate(0, note = $$props.note);
+		if ('topics' in $$props) $$invalidate(1, topics = $$props.topics);
+		if ('heading' in $$props) $$invalidate(2, heading = $$props.heading);
 	};
 
-	return [heading, note, topics, sectionElement, props, section_binding];
+	return [note, topics, heading, sectionElement, props, section_binding];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { props: 4, heading: 0, note: 1, topics: 2 });
+		init(this, options, instance, create_fragment, safe_not_equal, { props: 4, note: 0, topics: 1, heading: 2 });
 	}
 }
 

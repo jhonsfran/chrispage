@@ -1,4 +1,4 @@
-// Trainer und Referenzen - Updated September 14, 2026
+// Trainer und Referenzen - Updated September 15, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -583,19 +583,19 @@ function create_if_block_9(ctx) {
 			this.h();
 		},
 		h() {
-			if (!src_url_equal(img.src, img_src_value = /*speaker_image*/ ctx[0].url)) attr(img, "src", img_src_value);
-			attr(img, "alt", img_alt_value = /*speaker_image*/ ctx[0].alt || /*heading*/ ctx[2]);
+			if (!src_url_equal(img.src, img_src_value = /*speaker_image*/ ctx[6].url)) attr(img, "src", img_src_value);
+			attr(img, "alt", img_alt_value = /*speaker_image*/ ctx[6].alt || /*heading*/ ctx[3]);
 			attr(img, "class", "svelte-t30itk");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*speaker_image*/ 1 && !src_url_equal(img.src, img_src_value = /*speaker_image*/ ctx[0].url)) {
+			if (dirty & /*speaker_image*/ 64 && !src_url_equal(img.src, img_src_value = /*speaker_image*/ ctx[6].url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty & /*speaker_image, heading*/ 5 && img_alt_value !== (img_alt_value = /*speaker_image*/ ctx[0].alt || /*heading*/ ctx[2])) {
+			if (dirty & /*speaker_image, heading*/ 72 && img_alt_value !== (img_alt_value = /*speaker_image*/ ctx[6].alt || /*heading*/ ctx[3])) {
 				attr(img, "alt", img_alt_value);
 			}
 		},
@@ -613,13 +613,13 @@ function create_if_block_8(ctx) {
 	return {
 		c() {
 			p = element("p");
-			t = text(/*eyebrow*/ ctx[1]);
+			t = text(/*eyebrow*/ ctx[2]);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, /*eyebrow*/ ctx[1]);
+			t = claim_text(p_nodes, /*eyebrow*/ ctx[2]);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -631,7 +631,7 @@ function create_if_block_8(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*eyebrow*/ 2) set_data(t, /*eyebrow*/ ctx[1]);
+			if (dirty & /*eyebrow*/ 4) set_data(t, /*eyebrow*/ ctx[2]);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -647,13 +647,13 @@ function create_if_block_7(ctx) {
 	return {
 		c() {
 			p = element("p");
-			t = text(/*description_1*/ ctx[3]);
+			t = text(/*description_1*/ ctx[4]);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, /*description_1*/ ctx[3]);
+			t = claim_text(p_nodes, /*description_1*/ ctx[4]);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -665,7 +665,7 @@ function create_if_block_7(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*description_1*/ 8) set_data(t, /*description_1*/ ctx[3]);
+			if (dirty & /*description_1*/ 16) set_data(t, /*description_1*/ ctx[4]);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -681,13 +681,13 @@ function create_if_block_6(ctx) {
 	return {
 		c() {
 			p = element("p");
-			t = text(/*description_2*/ ctx[4]);
+			t = text(/*description_2*/ ctx[5]);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, /*description_2*/ ctx[4]);
+			t = claim_text(p_nodes, /*description_2*/ ctx[5]);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -699,7 +699,7 @@ function create_if_block_6(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*description_2*/ 16) set_data(t, /*description_2*/ ctx[4]);
+			if (dirty & /*description_2*/ 32) set_data(t, /*description_2*/ ctx[5]);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -710,7 +710,7 @@ function create_if_block_6(ctx) {
 // (300:6) {#if facts && facts.length > 0}
 function create_if_block_4(ctx) {
 	let div;
-	let each_value_1 = /*facts*/ ctx[5];
+	let each_value_1 = /*facts*/ ctx[0];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_1.length; i += 1) {
@@ -751,8 +751,8 @@ function create_if_block_4(ctx) {
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty & /*facts*/ 32) {
-				each_value_1 = /*facts*/ ctx[5];
+			if (dirty & /*facts*/ 1) {
+				each_value_1 = /*facts*/ ctx[0];
 				let i;
 
 				for (i = 0; i < each_value_1.length; i += 1) {
@@ -808,7 +808,7 @@ function create_if_block_5(ctx) {
 			append_hydration(span, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*facts*/ 32 && t_value !== (t_value = /*fact*/ ctx[15].text + "")) set_data(t, t_value);
+			if (dirty & /*facts*/ 1 && t_value !== (t_value = /*fact*/ ctx[15].text + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(span);
@@ -862,7 +862,7 @@ function create_each_block_1(ctx) {
 			append_hydration(div, t2);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*facts*/ 32 && t0_value !== (t0_value = /*fact*/ ctx[15].title + "")) set_data(t0, t0_value);
+			if (dirty & /*facts*/ 1 && t0_value !== (t0_value = /*fact*/ ctx[15].title + "")) set_data(t0, t0_value);
 
 			if (/*fact*/ ctx[15].text) {
 				if (if_block) {
@@ -892,13 +892,13 @@ function create_if_block_3(ctx) {
 	return {
 		c() {
 			p = element("p");
-			t = text(/*references_heading*/ ctx[6]);
+			t = text(/*references_heading*/ ctx[8]);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, /*references_heading*/ ctx[6]);
+			t = claim_text(p_nodes, /*references_heading*/ ctx[8]);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -910,7 +910,7 @@ function create_if_block_3(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*references_heading*/ 64) set_data(t, /*references_heading*/ ctx[6]);
+			if (dirty & /*references_heading*/ 256) set_data(t, /*references_heading*/ ctx[8]);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -955,7 +955,7 @@ function create_if_block_2(ctx) {
 // (328:6) {#if logos && logos.length > 0}
 function create_if_block(ctx) {
 	let div;
-	let each_value = /*logos*/ ctx[8];
+	let each_value = /*logos*/ ctx[1];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -996,8 +996,8 @@ function create_if_block(ctx) {
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty & /*logos*/ 256) {
-				each_value = /*logos*/ ctx[8];
+			if (dirty & /*logos*/ 2) {
+				each_value = /*logos*/ ctx[1];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -1053,7 +1053,7 @@ function create_else_block(ctx) {
 			append_hydration(span, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*logos*/ 256 && t_value !== (t_value = (/*item*/ ctx[12].name || "LOGO") + "")) set_data(t, t_value);
+			if (dirty & /*logos*/ 2 && t_value !== (t_value = (/*item*/ ctx[12].name || "LOGO") + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(span);
@@ -1085,11 +1085,11 @@ function create_if_block_1(ctx) {
 			insert_hydration(target, img, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*logos*/ 256 && !src_url_equal(img.src, img_src_value = /*item*/ ctx[12].logo.url)) {
+			if (dirty & /*logos*/ 2 && !src_url_equal(img.src, img_src_value = /*item*/ ctx[12].logo.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty & /*logos*/ 256 && img_alt_value !== (img_alt_value = /*item*/ ctx[12].logo.alt || /*item*/ ctx[12].name || "Referenzlogo")) {
+			if (dirty & /*logos*/ 2 && img_alt_value !== (img_alt_value = /*item*/ ctx[12].logo.alt || /*item*/ ctx[12].name || "Referenzlogo")) {
 				attr(img, "alt", img_alt_value);
 			}
 		},
@@ -1171,14 +1171,14 @@ function create_fragment(ctx) {
 	let aside;
 	let t7;
 	let t8;
-	let if_block0 = /*speaker_image*/ ctx[0] && /*speaker_image*/ ctx[0].url && create_if_block_9(ctx);
-	let if_block1 = /*eyebrow*/ ctx[1] && create_if_block_8(ctx);
-	let if_block2 = /*description_1*/ ctx[3] && create_if_block_7(ctx);
-	let if_block3 = /*description_2*/ ctx[4] && create_if_block_6(ctx);
-	let if_block4 = /*facts*/ ctx[5] && /*facts*/ ctx[5].length > 0 && create_if_block_4(ctx);
-	let if_block5 = /*references_heading*/ ctx[6] && create_if_block_3(ctx);
+	let if_block0 = /*speaker_image*/ ctx[6] && /*speaker_image*/ ctx[6].url && create_if_block_9(ctx);
+	let if_block1 = /*eyebrow*/ ctx[2] && create_if_block_8(ctx);
+	let if_block2 = /*description_1*/ ctx[4] && create_if_block_7(ctx);
+	let if_block3 = /*description_2*/ ctx[5] && create_if_block_6(ctx);
+	let if_block4 = /*facts*/ ctx[0] && /*facts*/ ctx[0].length > 0 && create_if_block_4(ctx);
+	let if_block5 = /*references_heading*/ ctx[8] && create_if_block_3(ctx);
 	let if_block6 = /*references_text*/ ctx[7] && create_if_block_2(ctx);
-	let if_block7 = /*logos*/ ctx[8] && /*logos*/ ctx[8].length > 0 && create_if_block(ctx);
+	let if_block7 = /*logos*/ ctx[1] && /*logos*/ ctx[1].length > 0 && create_if_block(ctx);
 
 	return {
 		c() {
@@ -1191,7 +1191,7 @@ function create_fragment(ctx) {
 			if (if_block1) if_block1.c();
 			t1 = space();
 			h2 = element("h2");
-			t2 = text(/*heading*/ ctx[2]);
+			t2 = text(/*heading*/ ctx[3]);
 			t3 = space();
 			if (if_block2) if_block2.c();
 			t4 = space();
@@ -1223,7 +1223,7 @@ function create_fragment(ctx) {
 			t1 = claim_space(div1_nodes);
 			h2 = claim_element(div1_nodes, "H2", { id: true, class: true });
 			var h2_nodes = children(h2);
-			t2 = claim_text(h2_nodes, /*heading*/ ctx[2]);
+			t2 = claim_text(h2_nodes, /*heading*/ ctx[3]);
 			h2_nodes.forEach(detach);
 			t3 = claim_space(div1_nodes);
 			if (if_block2) if_block2.l(div1_nodes);
@@ -1282,7 +1282,7 @@ function create_fragment(ctx) {
 			/*section_binding*/ ctx[11](section);
 		},
 		p(ctx, [dirty]) {
-			if (/*speaker_image*/ ctx[0] && /*speaker_image*/ ctx[0].url) {
+			if (/*speaker_image*/ ctx[6] && /*speaker_image*/ ctx[6].url) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
@@ -1295,7 +1295,7 @@ function create_fragment(ctx) {
 				if_block0 = null;
 			}
 
-			if (/*eyebrow*/ ctx[1]) {
+			if (/*eyebrow*/ ctx[2]) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
@@ -1308,9 +1308,9 @@ function create_fragment(ctx) {
 				if_block1 = null;
 			}
 
-			if (dirty & /*heading*/ 4) set_data(t2, /*heading*/ ctx[2]);
+			if (dirty & /*heading*/ 8) set_data(t2, /*heading*/ ctx[3]);
 
-			if (/*description_1*/ ctx[3]) {
+			if (/*description_1*/ ctx[4]) {
 				if (if_block2) {
 					if_block2.p(ctx, dirty);
 				} else {
@@ -1323,7 +1323,7 @@ function create_fragment(ctx) {
 				if_block2 = null;
 			}
 
-			if (/*description_2*/ ctx[4]) {
+			if (/*description_2*/ ctx[5]) {
 				if (if_block3) {
 					if_block3.p(ctx, dirty);
 				} else {
@@ -1336,7 +1336,7 @@ function create_fragment(ctx) {
 				if_block3 = null;
 			}
 
-			if (/*facts*/ ctx[5] && /*facts*/ ctx[5].length > 0) {
+			if (/*facts*/ ctx[0] && /*facts*/ ctx[0].length > 0) {
 				if (if_block4) {
 					if_block4.p(ctx, dirty);
 				} else {
@@ -1349,7 +1349,7 @@ function create_fragment(ctx) {
 				if_block4 = null;
 			}
 
-			if (/*references_heading*/ ctx[6]) {
+			if (/*references_heading*/ ctx[8]) {
 				if (if_block5) {
 					if_block5.p(ctx, dirty);
 				} else {
@@ -1375,7 +1375,7 @@ function create_fragment(ctx) {
 				if_block6 = null;
 			}
 
-			if (/*logos*/ ctx[8] && /*logos*/ ctx[8].length > 0) {
+			if (/*logos*/ ctx[1] && /*logos*/ ctx[1].length > 0) {
 				if (if_block7) {
 					if_block7.p(ctx, dirty);
 				} else {
@@ -1407,15 +1407,15 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
-	let { speaker_image } = $$props;
+	let { facts } = $$props;
+	let { logos } = $$props;
 	let { eyebrow } = $$props;
 	let { heading } = $$props;
 	let { description_1 } = $$props;
 	let { description_2 } = $$props;
-	let { facts } = $$props;
-	let { references_heading } = $$props;
+	let { speaker_image } = $$props;
 	let { references_text } = $$props;
-	let { logos } = $$props;
+	let { references_heading } = $$props;
 	let sectionElement;
 
 	onMount(() => {
@@ -1456,27 +1456,27 @@ function instance($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(10, props = $$props.props);
-		if ('speaker_image' in $$props) $$invalidate(0, speaker_image = $$props.speaker_image);
-		if ('eyebrow' in $$props) $$invalidate(1, eyebrow = $$props.eyebrow);
-		if ('heading' in $$props) $$invalidate(2, heading = $$props.heading);
-		if ('description_1' in $$props) $$invalidate(3, description_1 = $$props.description_1);
-		if ('description_2' in $$props) $$invalidate(4, description_2 = $$props.description_2);
-		if ('facts' in $$props) $$invalidate(5, facts = $$props.facts);
-		if ('references_heading' in $$props) $$invalidate(6, references_heading = $$props.references_heading);
+		if ('facts' in $$props) $$invalidate(0, facts = $$props.facts);
+		if ('logos' in $$props) $$invalidate(1, logos = $$props.logos);
+		if ('eyebrow' in $$props) $$invalidate(2, eyebrow = $$props.eyebrow);
+		if ('heading' in $$props) $$invalidate(3, heading = $$props.heading);
+		if ('description_1' in $$props) $$invalidate(4, description_1 = $$props.description_1);
+		if ('description_2' in $$props) $$invalidate(5, description_2 = $$props.description_2);
+		if ('speaker_image' in $$props) $$invalidate(6, speaker_image = $$props.speaker_image);
 		if ('references_text' in $$props) $$invalidate(7, references_text = $$props.references_text);
-		if ('logos' in $$props) $$invalidate(8, logos = $$props.logos);
+		if ('references_heading' in $$props) $$invalidate(8, references_heading = $$props.references_heading);
 	};
 
 	return [
-		speaker_image,
+		facts,
+		logos,
 		eyebrow,
 		heading,
 		description_1,
 		description_2,
-		facts,
-		references_heading,
+		speaker_image,
 		references_text,
-		logos,
+		references_heading,
 		sectionElement,
 		props,
 		section_binding
@@ -1489,15 +1489,15 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 10,
-			speaker_image: 0,
-			eyebrow: 1,
-			heading: 2,
-			description_1: 3,
-			description_2: 4,
-			facts: 5,
-			references_heading: 6,
+			facts: 0,
+			logos: 1,
+			eyebrow: 2,
+			heading: 3,
+			description_1: 4,
+			description_2: 5,
+			speaker_image: 6,
 			references_text: 7,
-			logos: 8
+			references_heading: 8
 		});
 	}
 }
