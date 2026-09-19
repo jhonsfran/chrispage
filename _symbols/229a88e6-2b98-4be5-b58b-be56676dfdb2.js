@@ -1,4 +1,4 @@
-// google referenzen - Updated September 18, 2026
+// google referenzen - Updated September 19, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -571,13 +571,13 @@ function create_if_block_6(ctx) {
 	return {
 		c() {
 			p = element("p");
-			t = text(/*eyebrow*/ ctx[0]);
+			t = text(/*eyebrow*/ ctx[1]);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, /*eyebrow*/ ctx[0]);
+			t = claim_text(p_nodes, /*eyebrow*/ ctx[1]);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -589,7 +589,7 @@ function create_if_block_6(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*eyebrow*/ 1) set_data(t, /*eyebrow*/ ctx[0]);
+			if (dirty & /*eyebrow*/ 2) set_data(t, /*eyebrow*/ ctx[1]);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -605,13 +605,13 @@ function create_if_block_5(ctx) {
 	return {
 		c() {
 			h2 = element("h2");
-			t = text(/*heading*/ ctx[1]);
+			t = text(/*heading*/ ctx[2]);
 			this.h();
 		},
 		l(nodes) {
 			h2 = claim_element(nodes, "H2", { id: true, class: true });
 			var h2_nodes = children(h2);
-			t = claim_text(h2_nodes, /*heading*/ ctx[1]);
+			t = claim_text(h2_nodes, /*heading*/ ctx[2]);
 			h2_nodes.forEach(detach);
 			this.h();
 		},
@@ -624,7 +624,7 @@ function create_if_block_5(ctx) {
 			append_hydration(h2, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*heading*/ 2) set_data(t, /*heading*/ ctx[1]);
+			if (dirty & /*heading*/ 4) set_data(t, /*heading*/ ctx[2]);
 		},
 		d(detaching) {
 			if (detaching) detach(h2);
@@ -640,13 +640,13 @@ function create_if_block_4(ctx) {
 	return {
 		c() {
 			p = element("p");
-			t = text(/*intro*/ ctx[2]);
+			t = text(/*intro*/ ctx[0]);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, /*intro*/ ctx[2]);
+			t = claim_text(p_nodes, /*intro*/ ctx[0]);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -658,7 +658,7 @@ function create_if_block_4(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*intro*/ 4) set_data(t, /*intro*/ ctx[2]);
+			if (dirty & /*intro*/ 1) set_data(t, /*intro*/ ctx[0]);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -1129,9 +1129,9 @@ function create_fragment(ctx) {
 	let t0;
 	let t1;
 	let t2;
-	let if_block0 = /*eyebrow*/ ctx[0] && create_if_block_6(ctx);
-	let if_block1 = /*heading*/ ctx[1] && create_if_block_5(ctx);
-	let if_block2 = /*intro*/ ctx[2] && create_if_block_4(ctx);
+	let if_block0 = /*eyebrow*/ ctx[1] && create_if_block_6(ctx);
+	let if_block1 = /*heading*/ ctx[2] && create_if_block_5(ctx);
+	let if_block2 = /*intro*/ ctx[0] && create_if_block_4(ctx);
 	let if_block3 = /*references*/ ctx[3] && /*references*/ ctx[3].length > 0 && create_if_block(ctx);
 
 	return {
@@ -1186,7 +1186,7 @@ function create_fragment(ctx) {
 			if (if_block3) if_block3.m(div, null);
 		},
 		p(ctx, [dirty]) {
-			if (/*eyebrow*/ ctx[0]) {
+			if (/*eyebrow*/ ctx[1]) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
@@ -1199,7 +1199,7 @@ function create_fragment(ctx) {
 				if_block0 = null;
 			}
 
-			if (/*heading*/ ctx[1]) {
+			if (/*heading*/ ctx[2]) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
@@ -1212,7 +1212,7 @@ function create_fragment(ctx) {
 				if_block1 = null;
 			}
 
-			if (/*intro*/ ctx[2]) {
+			if (/*intro*/ ctx[0]) {
 				if (if_block2) {
 					if_block2.p(ctx, dirty);
 				} else {
@@ -1252,9 +1252,9 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
+	let { intro } = $$props;
 	let { eyebrow } = $$props;
 	let { heading } = $$props;
-	let { intro } = $$props;
 	let { references } = $$props;
 	let referenceViewport;
 	let canScrollPrevious = false;
@@ -1303,16 +1303,16 @@ function instance($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(9, props = $$props.props);
-		if ('eyebrow' in $$props) $$invalidate(0, eyebrow = $$props.eyebrow);
-		if ('heading' in $$props) $$invalidate(1, heading = $$props.heading);
-		if ('intro' in $$props) $$invalidate(2, intro = $$props.intro);
+		if ('intro' in $$props) $$invalidate(0, intro = $$props.intro);
+		if ('eyebrow' in $$props) $$invalidate(1, eyebrow = $$props.eyebrow);
+		if ('heading' in $$props) $$invalidate(2, heading = $$props.heading);
 		if ('references' in $$props) $$invalidate(3, references = $$props.references);
 	};
 
 	return [
+		intro,
 		eyebrow,
 		heading,
-		intro,
 		references,
 		referenceViewport,
 		canScrollPrevious,
@@ -1332,9 +1332,9 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 9,
-			eyebrow: 0,
-			heading: 1,
-			intro: 2,
+			intro: 0,
+			eyebrow: 1,
+			heading: 2,
 			references: 3
 		});
 	}

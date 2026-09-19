@@ -1,4 +1,4 @@
-// Probleme bei der statistischen Auswertung - Updated September 18, 2026
+// Probleme bei der statistischen Auswertung - Updated September 19, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
@@ -2878,13 +2878,13 @@ function create_if_block_2(ctx) {
 	return {
 		c() {
 			p = element("p");
-			t = text(/*eyebrow*/ ctx[0]);
+			t = text(/*eyebrow*/ ctx[1]);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, /*eyebrow*/ ctx[0]);
+			t = claim_text(p_nodes, /*eyebrow*/ ctx[1]);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -2896,7 +2896,7 @@ function create_if_block_2(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*eyebrow*/ 1) set_data(t, /*eyebrow*/ ctx[0]);
+			if (dirty & /*eyebrow*/ 2) set_data(t, /*eyebrow*/ ctx[1]);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -2912,13 +2912,13 @@ function create_if_block_1(ctx) {
 	return {
 		c() {
 			p = element("p");
-			t = text(/*intro*/ ctx[2]);
+			t = text(/*intro*/ ctx[0]);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, /*intro*/ ctx[2]);
+			t = claim_text(p_nodes, /*intro*/ ctx[0]);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -2930,7 +2930,7 @@ function create_if_block_1(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*intro*/ 4) set_data(t, /*intro*/ ctx[2]);
+			if (dirty & /*intro*/ 1) set_data(t, /*intro*/ ctx[0]);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -3137,8 +3137,8 @@ function create_fragment(ctx) {
 	let t2;
 	let t3;
 	let current;
-	let if_block0 = /*eyebrow*/ ctx[0] && create_if_block_2(ctx);
-	let if_block1 = /*intro*/ ctx[2] && create_if_block_1(ctx);
+	let if_block0 = /*eyebrow*/ ctx[1] && create_if_block_2(ctx);
+	let if_block1 = /*intro*/ ctx[0] && create_if_block_1(ctx);
 	let if_block2 = /*pain_points*/ ctx[3] && /*pain_points*/ ctx[3].length > 0 && create_if_block(ctx);
 
 	return {
@@ -3149,7 +3149,7 @@ function create_fragment(ctx) {
 			if (if_block0) if_block0.c();
 			t0 = space();
 			h2 = element("h2");
-			t1 = text(/*heading*/ ctx[1]);
+			t1 = text(/*heading*/ ctx[2]);
 			t2 = space();
 			if (if_block1) if_block1.c();
 			t3 = space();
@@ -3167,7 +3167,7 @@ function create_fragment(ctx) {
 			t0 = claim_space(div0_nodes);
 			h2 = claim_element(div0_nodes, "H2", { id: true, class: true });
 			var h2_nodes = children(h2);
-			t1 = claim_text(h2_nodes, /*heading*/ ctx[1]);
+			t1 = claim_text(h2_nodes, /*heading*/ ctx[2]);
 			h2_nodes.forEach(detach);
 			t2 = claim_space(div0_nodes);
 			if (if_block1) if_block1.l(div0_nodes);
@@ -3201,7 +3201,7 @@ function create_fragment(ctx) {
 			current = true;
 		},
 		p(ctx, [dirty]) {
-			if (/*eyebrow*/ ctx[0]) {
+			if (/*eyebrow*/ ctx[1]) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
@@ -3214,9 +3214,9 @@ function create_fragment(ctx) {
 				if_block0 = null;
 			}
 
-			if (!current || dirty & /*heading*/ 2) set_data(t1, /*heading*/ ctx[1]);
+			if (!current || dirty & /*heading*/ 4) set_data(t1, /*heading*/ ctx[2]);
 
-			if (/*intro*/ ctx[2]) {
+			if (/*intro*/ ctx[0]) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
@@ -3272,20 +3272,20 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
+	let { intro } = $$props;
 	let { eyebrow } = $$props;
 	let { heading } = $$props;
-	let { intro } = $$props;
 	let { pain_points } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(4, props = $$props.props);
-		if ('eyebrow' in $$props) $$invalidate(0, eyebrow = $$props.eyebrow);
-		if ('heading' in $$props) $$invalidate(1, heading = $$props.heading);
-		if ('intro' in $$props) $$invalidate(2, intro = $$props.intro);
+		if ('intro' in $$props) $$invalidate(0, intro = $$props.intro);
+		if ('eyebrow' in $$props) $$invalidate(1, eyebrow = $$props.eyebrow);
+		if ('heading' in $$props) $$invalidate(2, heading = $$props.heading);
 		if ('pain_points' in $$props) $$invalidate(3, pain_points = $$props.pain_points);
 	};
 
-	return [eyebrow, heading, intro, pain_points, props];
+	return [intro, eyebrow, heading, pain_points, props];
 }
 
 class Component extends SvelteComponent {
@@ -3294,9 +3294,9 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 4,
-			eyebrow: 0,
-			heading: 1,
-			intro: 2,
+			intro: 0,
+			eyebrow: 1,
+			heading: 2,
 			pain_points: 3
 		});
 	}
