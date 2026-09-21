@@ -563,7 +563,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (399:6) {#if eyebrow}
+// (504:6) {#if eyebrow}
 function create_if_block_6(ctx) {
 	let p;
 	let t;
@@ -582,7 +582,7 @@ function create_if_block_6(ctx) {
 			this.h();
 		},
 		h() {
-			attr(p, "class", "cg-references__eyebrow svelte-nsgk4n");
+			attr(p, "class", "cg-references__eyebrow svelte-ea00kg");
 		},
 		m(target, anchor) {
 			insert_hydration(target, p, anchor);
@@ -597,7 +597,7 @@ function create_if_block_6(ctx) {
 	};
 }
 
-// (405:6) {#if heading}
+// (510:6) {#if heading}
 function create_if_block_5(ctx) {
 	let h2;
 	let t;
@@ -617,7 +617,7 @@ function create_if_block_5(ctx) {
 		},
 		h() {
 			attr(h2, "id", "cg-references-heading");
-			attr(h2, "class", "svelte-nsgk4n");
+			attr(h2, "class", "svelte-ea00kg");
 		},
 		m(target, anchor) {
 			insert_hydration(target, h2, anchor);
@@ -632,7 +632,7 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (411:6) {#if intro}
+// (516:6) {#if intro}
 function create_if_block_4(ctx) {
 	let p;
 	let t;
@@ -651,7 +651,7 @@ function create_if_block_4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(p, "class", "cg-references__intro svelte-nsgk4n");
+			attr(p, "class", "cg-references__intro svelte-ea00kg");
 		},
 		m(target, anchor) {
 			insert_hydration(target, p, anchor);
@@ -666,7 +666,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (418:4) {#if references && references.length > 0}
+// (523:4) {#if references && references.length > 0}
 function create_if_block(ctx) {
 	let div1;
 	let t0;
@@ -718,8 +718,8 @@ function create_if_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "cg-references__viewport svelte-nsgk4n");
-			attr(div1, "class", "cg-references__slider svelte-nsgk4n");
+			attr(div0, "class", "cg-references__viewport svelte-ea00kg");
+			attr(div1, "class", "cg-references__slider svelte-ea00kg");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -804,7 +804,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (420:8) {#if references.length > 1}
+// (525:8) {#if references.length > 1}
 function create_if_block_3(ctx) {
 	let button;
 	let svg;
@@ -844,12 +844,12 @@ function create_if_block_3(ctx) {
 		},
 		h() {
 			attr(path, "d", "m15 18-6-6 6-6");
-			attr(path, "class", "svelte-nsgk4n");
+			attr(path, "class", "svelte-ea00kg");
 			attr(svg, "viewBox", "0 0 24 24");
 			attr(svg, "aria-hidden", "true");
-			attr(svg, "class", "svelte-nsgk4n");
+			attr(svg, "class", "svelte-ea00kg");
 			attr(button, "type", "button");
-			attr(button, "class", "cg-references__arrow cg-references__arrow--previous svelte-nsgk4n");
+			attr(button, "class", "cg-references__arrow cg-references__arrow--previous svelte-ea00kg");
 			attr(button, "aria-label", "Vorherige Kundenstimme");
 			button.disabled = button_disabled_value = !/*canScrollPrevious*/ ctx[5];
 		},
@@ -876,7 +876,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (462:16) {#if reference.context}
+// (567:16) {#if reference.context}
 function create_if_block_2(ctx) {
 	let span;
 	let t_value = /*reference*/ ctx[13].context + "";
@@ -896,7 +896,7 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "svelte-nsgk4n");
+			attr(span, "class", "svelte-ea00kg");
 		},
 		m(target, anchor) {
 			insert_hydration(target, span, anchor);
@@ -911,7 +911,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (439:10) {#each references as reference}
+// (544:10) {#each references as reference}
 function create_each_block(ctx) {
 	let article;
 	let div0;
@@ -994,17 +994,17 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "cg-references__quote-mark svelte-nsgk4n");
+			attr(div0, "class", "cg-references__quote-mark svelte-ea00kg");
 			attr(div0, "aria-hidden", "true");
-			attr(p, "class", "svelte-nsgk4n");
-			attr(blockquote, "class", "svelte-nsgk4n");
+			attr(p, "class", "svelte-ea00kg");
+			attr(blockquote, "class", "svelte-ea00kg");
 			attr(span, "aria-hidden", "true");
-			attr(span, "class", "svelte-nsgk4n");
-			attr(div1, "class", "cg-references__stars svelte-nsgk4n");
+			attr(span, "class", "svelte-ea00kg");
+			attr(div1, "class", "cg-references__stars svelte-ea00kg");
 			attr(div1, "aria-label", "5 von 5 Sternen");
-			attr(strong, "class", "svelte-nsgk4n");
-			attr(footer, "class", "cg-references__person svelte-nsgk4n");
-			attr(article, "class", "cg-references__card svelte-nsgk4n");
+			attr(strong, "class", "svelte-ea00kg");
+			attr(footer, "class", "cg-references__person svelte-ea00kg");
+			attr(article, "class", "cg-references__card svelte-ea00kg");
 		},
 		m(target, anchor) {
 			insert_hydration(target, article, anchor);
@@ -1050,7 +1050,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (470:8) {#if references.length > 1}
+// (575:8) {#if references.length > 1}
 function create_if_block_1(ctx) {
 	let button;
 	let svg;
@@ -1090,12 +1090,12 @@ function create_if_block_1(ctx) {
 		},
 		h() {
 			attr(path, "d", "m9 18 6-6-6-6");
-			attr(path, "class", "svelte-nsgk4n");
+			attr(path, "class", "svelte-ea00kg");
 			attr(svg, "viewBox", "0 0 24 24");
 			attr(svg, "aria-hidden", "true");
-			attr(svg, "class", "svelte-nsgk4n");
+			attr(svg, "class", "svelte-ea00kg");
 			attr(button, "type", "button");
-			attr(button, "class", "cg-references__arrow cg-references__arrow--next svelte-nsgk4n");
+			attr(button, "class", "cg-references__arrow cg-references__arrow--next svelte-ea00kg");
 			attr(button, "aria-label", "Nächste Kundenstimme");
 			button.disabled = button_disabled_value = !/*canScrollNext*/ ctx[6];
 		},
@@ -1168,9 +1168,9 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(header, "class", "cg-references__header svelte-nsgk4n");
-			attr(div, "class", "cg-references__container svelte-nsgk4n");
-			attr(section, "class", "cg-references svelte-nsgk4n");
+			attr(header, "class", "cg-references__header svelte-ea00kg");
+			attr(div, "class", "cg-references__container svelte-ea00kg");
+			attr(section, "class", "cg-references svelte-ea00kg");
 			attr(section, "aria-labelledby", "cg-references-heading");
 		},
 		m(target, anchor) {
