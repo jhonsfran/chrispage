@@ -1,4 +1,4 @@
-// Probleme bei der statistischen Auswertung - Updated September 20, 2026
+// Probleme bei der statistischen Auswertung - Updated September 21, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
@@ -2870,7 +2870,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (238:6) {#if eyebrow}
+// (237:6) {#if eyebrow}
 function create_if_block_2(ctx) {
 	let p;
 	let t;
@@ -2889,7 +2889,7 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(p, "class", "cg-pain-points__eyebrow svelte-31yd7j");
+			attr(p, "class", "cg-pain-points__eyebrow svelte-1i6bacu");
 		},
 		m(target, anchor) {
 			insert_hydration(target, p, anchor);
@@ -2904,7 +2904,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (248:6) {#if intro}
+// (247:6) {#if intro}
 function create_if_block_1(ctx) {
 	let p;
 	let t;
@@ -2923,7 +2923,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(p, "class", "cg-pain-points__intro svelte-31yd7j");
+			attr(p, "class", "cg-pain-points__intro svelte-1i6bacu");
 		},
 		m(target, anchor) {
 			insert_hydration(target, p, anchor);
@@ -2938,7 +2938,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (255:4) {#if pain_points && pain_points.length > 0}
+// (254:4) {#if pain_points && pain_points.length > 0}
 function create_if_block(ctx) {
 	let div;
 	let current;
@@ -2975,7 +2975,7 @@ function create_if_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "cg-pain-points__grid svelte-31yd7j");
+			attr(div, "class", "cg-pain-points__grid svelte-1i6bacu");
 			attr(div, "aria-label", "Typische Herausforderungen");
 		},
 		m(target, anchor) {
@@ -3042,7 +3042,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (260:8) {#each pain_points as point}
+// (259:8) {#each pain_points as point}
 function create_each_block(ctx) {
 	let article;
 	let div;
@@ -3090,10 +3090,10 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "cg-pain-points__icon svelte-31yd7j");
+			attr(div, "class", "cg-pain-points__icon svelte-1i6bacu");
 			attr(div, "aria-hidden", "true");
-			attr(p, "class", "svelte-31yd7j");
-			attr(article, "class", "cg-pain-points__card svelte-31yd7j");
+			attr(p, "class", "svelte-1i6bacu");
+			attr(article, "class", "cg-pain-points__card svelte-1i6bacu");
 		},
 		m(target, anchor) {
 			insert_hydration(target, article, anchor);
@@ -3180,10 +3180,10 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(h2, "id", "cg-pain-points-heading");
-			attr(h2, "class", "svelte-31yd7j");
-			attr(div0, "class", "cg-pain-points__content svelte-31yd7j");
-			attr(div1, "class", "cg-pain-points__container svelte-31yd7j");
-			attr(section, "class", "cg-pain-points svelte-31yd7j");
+			attr(h2, "class", "svelte-1i6bacu");
+			attr(div0, "class", "cg-pain-points__content svelte-1i6bacu");
+			attr(div1, "class", "cg-pain-points__container svelte-1i6bacu");
+			attr(section, "class", "cg-pain-points svelte-1i6bacu");
 			attr(section, "aria-labelledby", "cg-pain-points-heading");
 		},
 		m(target, anchor) {
