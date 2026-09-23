@@ -1,4 +1,4 @@
-// New Hero block - Updated September 22, 2026
+// New Hero block - Updated September 24, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -581,16 +581,16 @@ function create_fragment(ctx) {
 			div1 = element("div");
 			h1 = element("h1");
 			span0 = element("span");
-			t1 = text("Professionelle");
+			t1 = text("Statistik &");
 			t2 = space();
 			span1 = element("span");
-			t3 = text("Statistik-Beratung");
+			t3 = text("Datenanalyse-Beratung");
 			t4 = space();
 			span2 = element("span");
 			t5 = text("Daten verstehen.");
 			t6 = space();
 			span3 = element("span");
-			t7 = text("Vorsprung sichern.");
+			t7 = text("Besser entscheiden.");
 			t8 = space();
 			p = element("p");
 			t9 = text(/*short_quote*/ ctx[1]);
@@ -628,12 +628,12 @@ function create_fragment(ctx) {
 			var h1_nodes = children(h1);
 			span0 = claim_element(h1_nodes, "SPAN", { class: true });
 			var span0_nodes = children(span0);
-			t1 = claim_text(span0_nodes, "Professionelle");
+			t1 = claim_text(span0_nodes, "Statistik &");
 			span0_nodes.forEach(detach);
 			t2 = claim_space(h1_nodes);
 			span1 = claim_element(h1_nodes, "SPAN", { class: true });
 			var span1_nodes = children(span1);
-			t3 = claim_text(span1_nodes, "Statistik-Beratung");
+			t3 = claim_text(span1_nodes, "Datenanalyse-Beratung");
 			span1_nodes.forEach(detach);
 			t4 = claim_space(h1_nodes);
 			span2 = claim_element(h1_nodes, "SPAN", { class: true });
@@ -643,7 +643,7 @@ function create_fragment(ctx) {
 			t6 = claim_space(h1_nodes);
 			span3 = claim_element(h1_nodes, "SPAN", { class: true });
 			var span3_nodes = children(span3);
-			t7 = claim_text(span3_nodes, "Vorsprung sichern.");
+			t7 = claim_text(span3_nodes, "Besser entscheiden.");
 			span3_nodes.forEach(detach);
 			h1_nodes.forEach(detach);
 			t8 = claim_space(div1_nodes);
