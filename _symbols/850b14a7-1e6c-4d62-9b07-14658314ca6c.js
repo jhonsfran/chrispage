@@ -3131,18 +3131,30 @@ let Component$1 = class Component extends SvelteComponent {
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[7] = list[i].link;
+	child_ctx[12] = list[i].link;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[7] = list[i].link;
+	child_ctx[15] = list[i];
 	return child_ctx;
 }
 
-// (236:31) 
-function create_if_block_4(ctx) {
+function get_each_context_2(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[12] = list[i].link;
+	return child_ctx;
+}
+
+function get_each_context_3(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[15] = list[i];
+	return child_ctx;
+}
+
+// (330:31) 
+function create_if_block_10(ctx) {
 	let img;
 	let img_src_value;
 	let img_alt_value;
@@ -3159,7 +3171,7 @@ function create_if_block_4(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[0].image.alt || "CGStatistik");
-			attr(img, "class", "svelte-1tb7uha");
+			attr(img, "class", "svelte-1n5rn5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -3179,8 +3191,8 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (234:6) {#if logo.title}
-function create_if_block_3(ctx) {
+// (328:6) {#if logo.title}
+function create_if_block_9(ctx) {
 	let t_value = /*logo*/ ctx[0].title + "";
 	let t;
 
@@ -3203,10 +3215,10 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (245:6) {#each site_nav as { link }}
-function create_each_block_1(ctx) {
+// (372:57) 
+function create_if_block_8(ctx) {
 	let a;
-	let t0_value = /*link*/ ctx[7].label + "";
+	let t0_value = /*link*/ ctx[12].label + "";
 	let t0;
 	let t1;
 	let a_href_value;
@@ -3227,13 +3239,13 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-1tb7uha");
+			attr(a, "class", "link svelte-1n5rn5");
 
-			attr(a, "href", a_href_value = /*link*/ ctx[7].label === "Team"
+			attr(a, "href", a_href_value = /*link*/ ctx[12].label === "Team"
 			? "/team-nachhilfe"
-			: /*link*/ ctx[7].label === "Kontakt"
+			: /*link*/ ctx[12].label === "Kontakt"
 				? "/kontakt-nachhilfe"
-				: /*link*/ ctx[7].url);
+				: /*link*/ ctx[12].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -3241,13 +3253,13 @@ function create_each_block_1(ctx) {
 			append_hydration(a, t1);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 2 && t0_value !== (t0_value = /*link*/ ctx[7].label + "")) set_data(t0, t0_value);
+			if (dirty & /*site_nav*/ 2 && t0_value !== (t0_value = /*link*/ ctx[12].label + "")) set_data(t0, t0_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[7].label === "Team"
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[12].label === "Team"
 			? "/team-nachhilfe"
-			: /*link*/ ctx[7].label === "Kontakt"
+			: /*link*/ ctx[12].label === "Kontakt"
 				? "/kontakt-nachhilfe"
-				: /*link*/ ctx[7].url)) {
+				: /*link*/ ctx[12].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3257,8 +3269,310 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (264:31) 
-function create_if_block_2(ctx) {
+// (353:52) 
+function create_if_block_7(ctx) {
+	let div1;
+	let span;
+	let t0;
+	let t1;
+	let div0;
+	let a;
+	let t2_value = /*link*/ ctx[12].label + "";
+	let t2;
+	let a_href_value;
+	let t3;
+	let t4;
+	let each_value_3 = /*site_nav*/ ctx[1].filter(/*func*/ ctx[4]);
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value_3.length; i += 1) {
+		each_blocks[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
+	}
+
+	return {
+		c() {
+			div1 = element("div");
+			span = element("span");
+			t0 = text("Abschlussarbeit");
+			t1 = space();
+			div0 = element("div");
+			a = element("a");
+			t2 = text(t2_value);
+			t3 = space();
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			t4 = space();
+			this.h();
+		},
+		l(nodes) {
+			div1 = claim_element(nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			span = claim_element(div1_nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t0 = claim_text(span_nodes, "Abschlussarbeit");
+			span_nodes.forEach(detach);
+			t1 = claim_space(div1_nodes);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			a = claim_element(div0_nodes, "A", { class: true, href: true });
+			var a_nodes = children(a);
+			t2 = claim_text(a_nodes, t2_value);
+			a_nodes.forEach(detach);
+			t3 = claim_space(div0_nodes);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(div0_nodes);
+			}
+
+			div0_nodes.forEach(detach);
+			t4 = claim_space(div1_nodes);
+			div1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(span, "class", "nav-group__label svelte-1n5rn5");
+			attr(a, "class", "link svelte-1n5rn5");
+			attr(a, "href", a_href_value = /*link*/ ctx[12].url);
+			attr(div0, "class", "nav-group__links svelte-1n5rn5");
+			attr(div1, "class", "nav-group nav-group--desktop svelte-1n5rn5");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div1, anchor);
+			append_hydration(div1, span);
+			append_hydration(span, t0);
+			append_hydration(div1, t1);
+			append_hydration(div1, div0);
+			append_hydration(div0, a);
+			append_hydration(a, t2);
+			append_hydration(div0, t3);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				if (each_blocks[i]) {
+					each_blocks[i].m(div0, null);
+				}
+			}
+
+			append_hydration(div1, t4);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*site_nav*/ 2 && t2_value !== (t2_value = /*link*/ ctx[12].label + "")) set_data(t2, t2_value);
+
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[12].url)) {
+				attr(a, "href", a_href_value);
+			}
+
+			if (dirty & /*site_nav, isRequestedEvaluationLink*/ 2) {
+				each_value_3 = /*site_nav*/ ctx[1].filter(/*func*/ ctx[4]);
+				let i;
+
+				for (i = 0; i < each_value_3.length; i += 1) {
+					const child_ctx = get_each_context_3(ctx, each_value_3, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+					} else {
+						each_blocks[i] = create_each_block_3(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(div0, null);
+					}
+				}
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value_3.length;
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(div1);
+			destroy_each(each_blocks, detaching);
+		}
+	};
+}
+
+// (340:8) {#if isExamPreparationLink(link.label)}
+function create_if_block_6(ctx) {
+	let div1;
+	let span;
+	let t0;
+	let t1;
+	let div0;
+	let a;
+	let t2_value = /*link*/ ctx[12].label + "";
+	let t2;
+	let a_href_value;
+	let t3;
+
+	return {
+		c() {
+			div1 = element("div");
+			span = element("span");
+			t0 = text("Prüfungsvorbereitung");
+			t1 = space();
+			div0 = element("div");
+			a = element("a");
+			t2 = text(t2_value);
+			t3 = space();
+			this.h();
+		},
+		l(nodes) {
+			div1 = claim_element(nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			span = claim_element(div1_nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t0 = claim_text(span_nodes, "Prüfungsvorbereitung");
+			span_nodes.forEach(detach);
+			t1 = claim_space(div1_nodes);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			a = claim_element(div0_nodes, "A", { class: true, href: true });
+			var a_nodes = children(a);
+			t2 = claim_text(a_nodes, t2_value);
+			a_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			t3 = claim_space(div1_nodes);
+			div1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(span, "class", "nav-group__label svelte-1n5rn5");
+			attr(a, "class", "link svelte-1n5rn5");
+			attr(a, "href", a_href_value = /*link*/ ctx[12].url);
+			attr(div0, "class", "nav-group__links svelte-1n5rn5");
+			attr(div1, "class", "nav-group nav-group--desktop svelte-1n5rn5");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div1, anchor);
+			append_hydration(div1, span);
+			append_hydration(span, t0);
+			append_hydration(div1, t1);
+			append_hydration(div1, div0);
+			append_hydration(div0, a);
+			append_hydration(a, t2);
+			append_hydration(div1, t3);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*site_nav*/ 2 && t2_value !== (t2_value = /*link*/ ctx[12].label + "")) set_data(t2, t2_value);
+
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[12].url)) {
+				attr(a, "href", a_href_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(div1);
+		}
+	};
+}
+
+// (364:14) {#each site_nav.filter((item) => isRequestedEvaluationLink(item.link.label)) as item}
+function create_each_block_3(ctx) {
+	let a;
+	let t0_value = /*item*/ ctx[15].link.label + "";
+	let t0;
+	let t1;
+	let a_href_value;
+
+	return {
+		c() {
+			a = element("a");
+			t0 = text(t0_value);
+			t1 = space();
+			this.h();
+		},
+		l(nodes) {
+			a = claim_element(nodes, "A", { class: true, href: true });
+			var a_nodes = children(a);
+			t0 = claim_text(a_nodes, t0_value);
+			t1 = claim_space(a_nodes);
+			a_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(a, "class", "link svelte-1n5rn5");
+			attr(a, "href", a_href_value = /*item*/ ctx[15].link.url);
+		},
+		m(target, anchor) {
+			insert_hydration(target, a, anchor);
+			append_hydration(a, t0);
+			append_hydration(a, t1);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*site_nav*/ 2 && t0_value !== (t0_value = /*item*/ ctx[15].link.label + "")) set_data(t0, t0_value);
+
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*item*/ ctx[15].link.url)) {
+				attr(a, "href", a_href_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(a);
+		}
+	};
+}
+
+// (339:6) {#each site_nav as { link }}
+function create_each_block_2(ctx) {
+	let show_if;
+	let show_if_1;
+	let show_if_2;
+	let if_block_anchor;
+
+	function select_block_type_1(ctx, dirty) {
+		if (dirty & /*site_nav*/ 2) show_if = null;
+		if (dirty & /*site_nav*/ 2) show_if_1 = null;
+		if (dirty & /*site_nav*/ 2) show_if_2 = null;
+		if (show_if == null) show_if = !!isExamPreparationLink(/*link*/ ctx[12].label);
+		if (show_if) return create_if_block_6;
+		if (show_if_1 == null) show_if_1 = !!isJointEvaluationLink(/*link*/ ctx[12].label);
+		if (show_if_1) return create_if_block_7;
+		if (show_if_2 == null) show_if_2 = !!!isRequestedEvaluationLink(/*link*/ ctx[12].label);
+		if (show_if_2) return create_if_block_8;
+	}
+
+	let current_block_type = select_block_type_1(ctx, -1);
+	let if_block = current_block_type && current_block_type(ctx);
+
+	return {
+		c() {
+			if (if_block) if_block.c();
+			if_block_anchor = empty();
+		},
+		l(nodes) {
+			if (if_block) if_block.l(nodes);
+			if_block_anchor = empty();
+		},
+		m(target, anchor) {
+			if (if_block) if_block.m(target, anchor);
+			insert_hydration(target, if_block_anchor, anchor);
+		},
+		p(ctx, dirty) {
+			if (current_block_type === (current_block_type = select_block_type_1(ctx, dirty)) && if_block) {
+				if_block.p(ctx, dirty);
+			} else {
+				if (if_block) if_block.d(1);
+				if_block = current_block_type && current_block_type(ctx);
+
+				if (if_block) {
+					if_block.c();
+					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+				}
+			}
+		},
+		d(detaching) {
+			if (if_block) {
+				if_block.d(detaching);
+			}
+
+			if (detaching) detach(if_block_anchor);
+		}
+	};
+}
+
+// (392:31) 
+function create_if_block_5(ctx) {
 	let img;
 	let img_src_value;
 	let img_alt_value;
@@ -3275,7 +3589,7 @@ function create_if_block_2(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[0].image.alt || "CGStatistik");
-			attr(img, "class", "svelte-1tb7uha");
+			attr(img, "class", "svelte-1n5rn5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -3295,8 +3609,8 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (262:6) {#if logo.title}
-function create_if_block_1(ctx) {
+// (390:6) {#if logo.title}
+function create_if_block_4(ctx) {
 	let t_value = /*logo*/ ctx[0].title + "";
 	let t;
 
@@ -3319,7 +3633,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (283:4) {#if mobileNavOpen}
+// (411:4) {#if mobileNavOpen}
 function create_if_block(ctx) {
 	let nav;
 	let t;
@@ -3383,10 +3697,10 @@ function create_if_block(ctx) {
 			attr(button, "type", "button");
 			attr(button, "id", "close");
 			attr(button, "aria-label", "Navigation schließen");
-			attr(button, "class", "svelte-1tb7uha");
+			attr(button, "class", "svelte-1n5rn5");
 			attr(nav, "id", "popup");
 			attr(nav, "aria-label", "Mobile Navigation");
-			attr(nav, "class", "svelte-1tb7uha");
+			attr(nav, "class", "svelte-1n5rn5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, nav, anchor);
@@ -3403,12 +3717,12 @@ function create_if_block(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler_2*/ ctx[6]);
+				dispose = listen(button, "click", /*click_handler_5*/ ctx[11]);
 				mounted = true;
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav, mobileNavOpen*/ 6) {
+			if (dirty & /*site_nav, mobileNavOpen, isExamPreparationLink, isRequestedEvaluationLink, isJointEvaluationLink*/ 6) {
 				each_value = /*site_nav*/ ctx[1];
 				let i;
 
@@ -3460,10 +3774,10 @@ function create_if_block(ctx) {
 	};
 }
 
-// (289:8) {#each site_nav as { link }}
-function create_each_block(ctx) {
+// (459:59) 
+function create_if_block_3(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[7].label + "";
+	let t_value = /*link*/ ctx[12].label + "";
 	let t;
 	let a_href_value;
 	let mounted;
@@ -3483,31 +3797,31 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*link*/ ctx[7].label === "Team"
+			attr(a, "href", a_href_value = /*link*/ ctx[12].label === "Team"
 			? "/team-nachhilfe"
-			: /*link*/ ctx[7].label === "Kontakt"
+			: /*link*/ ctx[12].label === "Kontakt"
 				? "/kontakt-nachhilfe"
-				: /*link*/ ctx[7].url);
+				: /*link*/ ctx[12].url);
 
-			attr(a, "class", "svelte-1tb7uha");
+			attr(a, "class", "svelte-1n5rn5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 
 			if (!mounted) {
-				dispose = listen(a, "click", /*click_handler_1*/ ctx[5]);
+				dispose = listen(a, "click", /*click_handler_4*/ ctx[10]);
 				mounted = true;
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[7].label + "")) set_data(t, t_value);
+			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[12].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[7].label === "Team"
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[12].label === "Team"
 			? "/team-nachhilfe"
-			: /*link*/ ctx[7].label === "Kontakt"
+			: /*link*/ ctx[12].label === "Kontakt"
 				? "/kontakt-nachhilfe"
-				: /*link*/ ctx[7].url)) {
+				: /*link*/ ctx[12].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3515,6 +3829,322 @@ function create_each_block(ctx) {
 			if (detaching) detach(a);
 			mounted = false;
 			dispose();
+		}
+	};
+}
+
+// (434:54) 
+function create_if_block_2(ctx) {
+	let div1;
+	let span;
+	let t0;
+	let t1;
+	let div0;
+	let a;
+	let t2_value = /*link*/ ctx[12].label + "";
+	let t2;
+	let a_href_value;
+	let t3;
+	let mounted;
+	let dispose;
+	let each_value_1 = /*site_nav*/ ctx[1].filter(/*func_1*/ ctx[8]);
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value_1.length; i += 1) {
+		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+	}
+
+	return {
+		c() {
+			div1 = element("div");
+			span = element("span");
+			t0 = text("Abschlussarbeit");
+			t1 = space();
+			div0 = element("div");
+			a = element("a");
+			t2 = text(t2_value);
+			t3 = space();
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			this.h();
+		},
+		l(nodes) {
+			div1 = claim_element(nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			span = claim_element(div1_nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t0 = claim_text(span_nodes, "Abschlussarbeit");
+			span_nodes.forEach(detach);
+			t1 = claim_space(div1_nodes);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			a = claim_element(div0_nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			t2 = claim_text(a_nodes, t2_value);
+			a_nodes.forEach(detach);
+			t3 = claim_space(div0_nodes);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(div0_nodes);
+			}
+
+			div0_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(span, "class", "nav-group__label svelte-1n5rn5");
+			attr(a, "href", a_href_value = /*link*/ ctx[12].url);
+			attr(a, "class", "svelte-1n5rn5");
+			attr(div0, "class", "nav-group__links svelte-1n5rn5");
+			attr(div1, "class", "nav-group nav-group--mobile svelte-1n5rn5");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div1, anchor);
+			append_hydration(div1, span);
+			append_hydration(span, t0);
+			append_hydration(div1, t1);
+			append_hydration(div1, div0);
+			append_hydration(div0, a);
+			append_hydration(a, t2);
+			append_hydration(div0, t3);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				if (each_blocks[i]) {
+					each_blocks[i].m(div0, null);
+				}
+			}
+
+			if (!mounted) {
+				dispose = listen(a, "click", /*click_handler_2*/ ctx[7]);
+				mounted = true;
+			}
+		},
+		p(ctx, dirty) {
+			if (dirty & /*site_nav*/ 2 && t2_value !== (t2_value = /*link*/ ctx[12].label + "")) set_data(t2, t2_value);
+
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[12].url)) {
+				attr(a, "href", a_href_value);
+			}
+
+			if (dirty & /*site_nav, isRequestedEvaluationLink, mobileNavOpen*/ 6) {
+				each_value_1 = /*site_nav*/ ctx[1].filter(/*func_1*/ ctx[8]);
+				let i;
+
+				for (i = 0; i < each_value_1.length; i += 1) {
+					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+					} else {
+						each_blocks[i] = create_each_block_1(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(div0, null);
+					}
+				}
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value_1.length;
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(div1);
+			destroy_each(each_blocks, detaching);
+			mounted = false;
+			dispose();
+		}
+	};
+}
+
+// (418:10) {#if isExamPreparationLink(link.label)}
+function create_if_block_1(ctx) {
+	let div1;
+	let span;
+	let t0;
+	let t1;
+	let div0;
+	let a;
+	let t2_value = /*link*/ ctx[12].label + "";
+	let t2;
+	let a_href_value;
+	let mounted;
+	let dispose;
+
+	return {
+		c() {
+			div1 = element("div");
+			span = element("span");
+			t0 = text("Prüfungsvorbereitung");
+			t1 = space();
+			div0 = element("div");
+			a = element("a");
+			t2 = text(t2_value);
+			this.h();
+		},
+		l(nodes) {
+			div1 = claim_element(nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			span = claim_element(div1_nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t0 = claim_text(span_nodes, "Prüfungsvorbereitung");
+			span_nodes.forEach(detach);
+			t1 = claim_space(div1_nodes);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			a = claim_element(div0_nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			t2 = claim_text(a_nodes, t2_value);
+			a_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(span, "class", "nav-group__label svelte-1n5rn5");
+			attr(a, "href", a_href_value = /*link*/ ctx[12].url);
+			attr(a, "class", "svelte-1n5rn5");
+			attr(div0, "class", "nav-group__links svelte-1n5rn5");
+			attr(div1, "class", "nav-group nav-group--mobile svelte-1n5rn5");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div1, anchor);
+			append_hydration(div1, span);
+			append_hydration(span, t0);
+			append_hydration(div1, t1);
+			append_hydration(div1, div0);
+			append_hydration(div0, a);
+			append_hydration(a, t2);
+
+			if (!mounted) {
+				dispose = listen(a, "click", /*click_handler_1*/ ctx[6]);
+				mounted = true;
+			}
+		},
+		p(ctx, dirty) {
+			if (dirty & /*site_nav*/ 2 && t2_value !== (t2_value = /*link*/ ctx[12].label + "")) set_data(t2, t2_value);
+
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[12].url)) {
+				attr(a, "href", a_href_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(div1);
+			mounted = false;
+			dispose();
+		}
+	};
+}
+
+// (448:16) {#each site_nav.filter((item) => isRequestedEvaluationLink(item.link.label)) as item}
+function create_each_block_1(ctx) {
+	let a;
+	let t_value = /*item*/ ctx[15].link.label + "";
+	let t;
+	let a_href_value;
+	let mounted;
+	let dispose;
+
+	return {
+		c() {
+			a = element("a");
+			t = text(t_value);
+			this.h();
+		},
+		l(nodes) {
+			a = claim_element(nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			t = claim_text(a_nodes, t_value);
+			a_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(a, "href", a_href_value = /*item*/ ctx[15].link.url);
+			attr(a, "class", "svelte-1n5rn5");
+		},
+		m(target, anchor) {
+			insert_hydration(target, a, anchor);
+			append_hydration(a, t);
+
+			if (!mounted) {
+				dispose = listen(a, "click", /*click_handler_3*/ ctx[9]);
+				mounted = true;
+			}
+		},
+		p(ctx, dirty) {
+			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*item*/ ctx[15].link.label + "")) set_data(t, t_value);
+
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*item*/ ctx[15].link.url)) {
+				attr(a, "href", a_href_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(a);
+			mounted = false;
+			dispose();
+		}
+	};
+}
+
+// (417:8) {#each site_nav as { link }}
+function create_each_block(ctx) {
+	let show_if;
+	let show_if_1;
+	let show_if_2;
+	let if_block_anchor;
+
+	function select_block_type_3(ctx, dirty) {
+		if (dirty & /*site_nav*/ 2) show_if = null;
+		if (dirty & /*site_nav*/ 2) show_if_1 = null;
+		if (dirty & /*site_nav*/ 2) show_if_2 = null;
+		if (show_if == null) show_if = !!isExamPreparationLink(/*link*/ ctx[12].label);
+		if (show_if) return create_if_block_1;
+		if (show_if_1 == null) show_if_1 = !!isJointEvaluationLink(/*link*/ ctx[12].label);
+		if (show_if_1) return create_if_block_2;
+		if (show_if_2 == null) show_if_2 = !!!isRequestedEvaluationLink(/*link*/ ctx[12].label);
+		if (show_if_2) return create_if_block_3;
+	}
+
+	let current_block_type = select_block_type_3(ctx, -1);
+	let if_block = current_block_type && current_block_type(ctx);
+
+	return {
+		c() {
+			if (if_block) if_block.c();
+			if_block_anchor = empty();
+		},
+		l(nodes) {
+			if (if_block) if_block.l(nodes);
+			if_block_anchor = empty();
+		},
+		m(target, anchor) {
+			if (if_block) if_block.m(target, anchor);
+			insert_hydration(target, if_block_anchor, anchor);
+		},
+		p(ctx, dirty) {
+			if (current_block_type === (current_block_type = select_block_type_3(ctx, dirty)) && if_block) {
+				if_block.p(ctx, dirty);
+			} else {
+				if (if_block) if_block.d(1);
+				if_block = current_block_type && current_block_type(ctx);
+
+				if (if_block) {
+					if_block.c();
+					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+				}
+			}
+		},
+		d(detaching) {
+			if (if_block) {
+				if_block.d(detaching);
+			}
+
+			if (detaching) detach(if_block_anchor);
 		}
 	};
 }
@@ -3537,25 +4167,25 @@ function create_fragment(ctx) {
 	let dispose;
 
 	function select_block_type(ctx, dirty) {
-		if (/*logo*/ ctx[0].title) return create_if_block_3;
-		if (/*logo*/ ctx[0].image.url) return create_if_block_4;
+		if (/*logo*/ ctx[0].title) return create_if_block_9;
+		if (/*logo*/ ctx[0].image.url) return create_if_block_10;
 	}
 
 	let current_block_type = select_block_type(ctx);
 	let if_block0 = current_block_type && current_block_type(ctx);
-	let each_value_1 = /*site_nav*/ ctx[1];
+	let each_value_2 = /*site_nav*/ ctx[1];
 	let each_blocks = [];
 
-	for (let i = 0; i < each_value_1.length; i += 1) {
-		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+	for (let i = 0; i < each_value_2.length; i += 1) {
+		each_blocks[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
 	}
 
-	function select_block_type_1(ctx, dirty) {
-		if (/*logo*/ ctx[0].title) return create_if_block_1;
-		if (/*logo*/ ctx[0].image.url) return create_if_block_2;
+	function select_block_type_2(ctx, dirty) {
+		if (/*logo*/ ctx[0].title) return create_if_block_4;
+		if (/*logo*/ ctx[0].image.url) return create_if_block_5;
 	}
 
-	let current_block_type_1 = select_block_type_1(ctx);
+	let current_block_type_1 = select_block_type_2(ctx);
 	let if_block1 = current_block_type_1 && current_block_type_1(ctx);
 
 	icon = new Component$1({
@@ -3636,20 +4266,20 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/");
-			attr(a0, "class", "logo svelte-1tb7uha");
+			attr(a0, "class", "logo svelte-1n5rn5");
 			attr(nav, "aria-label", "Hauptnavigation");
-			attr(nav, "class", "svelte-1tb7uha");
-			attr(div0, "class", "desktop-nav svelte-1tb7uha");
+			attr(nav, "class", "svelte-1n5rn5");
+			attr(div0, "class", "desktop-nav svelte-1n5rn5");
 			attr(a1, "href", "/");
-			attr(a1, "class", "logo svelte-1tb7uha");
+			attr(a1, "class", "logo svelte-1n5rn5");
 			attr(button, "id", "open");
 			attr(button, "type", "button");
 			attr(button, "aria-label", "Navigation öffnen");
 			attr(button, "aria-expanded", /*mobileNavOpen*/ ctx[2]);
 			attr(button, "aria-controls", "popup");
-			attr(button, "class", "svelte-1tb7uha");
-			attr(div1, "class", "mobile-nav svelte-1tb7uha");
-			attr(header, "class", "section-container svelte-1tb7uha");
+			attr(button, "class", "svelte-1n5rn5");
+			attr(div1, "class", "mobile-nav svelte-1n5rn5");
+			attr(header, "class", "section-container svelte-1n5rn5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, header, anchor);
@@ -3677,7 +4307,7 @@ function create_fragment(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler*/ ctx[4]);
+				dispose = listen(button, "click", /*click_handler*/ ctx[5]);
 				mounted = true;
 			}
 		},
@@ -3694,17 +4324,17 @@ function create_fragment(ctx) {
 				}
 			}
 
-			if (dirty & /*site_nav*/ 2) {
-				each_value_1 = /*site_nav*/ ctx[1];
+			if (dirty & /*site_nav, isExamPreparationLink, isRequestedEvaluationLink, isJointEvaluationLink*/ 2) {
+				each_value_2 = /*site_nav*/ ctx[1];
 				let i;
 
-				for (i = 0; i < each_value_1.length; i += 1) {
-					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+				for (i = 0; i < each_value_2.length; i += 1) {
+					const child_ctx = get_each_context_2(ctx, each_value_2, i);
 
 					if (each_blocks[i]) {
 						each_blocks[i].p(child_ctx, dirty);
 					} else {
-						each_blocks[i] = create_each_block_1(child_ctx);
+						each_blocks[i] = create_each_block_2(child_ctx);
 						each_blocks[i].c();
 						each_blocks[i].m(nav, null);
 					}
@@ -3714,10 +4344,10 @@ function create_fragment(ctx) {
 					each_blocks[i].d(1);
 				}
 
-				each_blocks.length = each_value_1.length;
+				each_blocks.length = each_value_2.length;
 			}
 
-			if (current_block_type_1 === (current_block_type_1 = select_block_type_1(ctx)) && if_block1) {
+			if (current_block_type_1 === (current_block_type_1 = select_block_type_2(ctx)) && if_block1) {
 				if_block1.p(ctx, dirty);
 			} else {
 				if (if_block1) if_block1.d(1);
@@ -3788,14 +4418,38 @@ function create_fragment(ctx) {
 	};
 }
 
+function normalizeNavLabel(label) {
+	return (label || "").trim().toLowerCase();
+}
+
+function isExamPreparationLink(label) {
+	const normalizedLabel = normalizeNavLabel(label);
+	return normalizedLabel === "statistik/mathematik" || normalizedLabel === "statistik/mathe";
+}
+
+function isJointEvaluationLink(label) {
+	const normalizedLabel = normalizeNavLabel(label);
+	return normalizedLabel === "gemeinsame auswertung" || normalizedLabel === "gemeinsam auswerten";
+}
+
+function isRequestedEvaluationLink(label) {
+	const normalizedLabel = normalizeNavLabel(label);
+	return normalizedLabel === "auswertung beauftragen" || normalizedLabel === "auswertung beantragen";
+}
+
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
 	let { logo } = $$props;
 	let { site_nav } = $$props;
 	let mobileNavOpen = false;
+	const func = item => isRequestedEvaluationLink(item.link.label);
 	const click_handler = () => $$invalidate(2, mobileNavOpen = true);
 	const click_handler_1 = () => $$invalidate(2, mobileNavOpen = false);
 	const click_handler_2 = () => $$invalidate(2, mobileNavOpen = false);
+	const func_1 = item => isRequestedEvaluationLink(item.link.label);
+	const click_handler_3 = () => $$invalidate(2, mobileNavOpen = false);
+	const click_handler_4 = () => $$invalidate(2, mobileNavOpen = false);
+	const click_handler_5 = () => $$invalidate(2, mobileNavOpen = false);
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(3, props = $$props.props);
@@ -3808,9 +4462,14 @@ function instance($$self, $$props, $$invalidate) {
 		site_nav,
 		mobileNavOpen,
 		props,
+		func,
 		click_handler,
 		click_handler_1,
-		click_handler_2
+		click_handler_2,
+		func_1,
+		click_handler_3,
+		click_handler_4,
+		click_handler_5
 	];
 }
 
