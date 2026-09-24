@@ -3153,8 +3153,8 @@ function get_each_context_3(ctx, list, i) {
 	return child_ctx;
 }
 
-// (351:31) 
-function create_if_block_8(ctx) {
+// (360:31) 
+function create_if_block_10(ctx) {
 	let img;
 	let img_src_value;
 	let img_alt_value;
@@ -3190,8 +3190,8 @@ function create_if_block_8(ctx) {
 	};
 }
 
-// (349:6) {#if logo.title}
-function create_if_block_7(ctx) {
+// (358:6) {#if logo.title}
+function create_if_block_9(ctx) {
 	let t_value = /*logo*/ ctx[0].title + "";
 	let t;
 
@@ -3214,8 +3214,8 @@ function create_if_block_7(ctx) {
 	};
 }
 
-// (376:57) 
-function create_if_block_6(ctx) {
+// (399:57) 
+function create_if_block_8(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[10].label + "";
 	let t;
@@ -3237,10 +3237,10 @@ function create_if_block_6(ctx) {
 		h() {
 			attr(a, "class", "link svelte-1zdz5m");
 
-			attr(a, "href", a_href_value = /*link*/ ctx[10].label === 'Team'
-			? '/team-nachhilfe'
-			: /*link*/ ctx[10].label === 'Kontakt'
-				? '/kontakt-nachhilfe'
+			attr(a, "href", a_href_value = /*link*/ ctx[10].label === "Team"
+			? "/team-nachhilfe"
+			: /*link*/ ctx[10].label === "Kontakt"
+				? "/kontakt-nachhilfe"
 				: /*link*/ ctx[10].url);
 		},
 		m(target, anchor) {
@@ -3250,10 +3250,10 @@ function create_if_block_6(ctx) {
 		p(ctx, dirty) {
 			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].label === 'Team'
-			? '/team-nachhilfe'
-			: /*link*/ ctx[10].label === 'Kontakt'
-				? '/kontakt-nachhilfe'
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].label === "Team"
+			? "/team-nachhilfe"
+			: /*link*/ ctx[10].label === "Kontakt"
+				? "/kontakt-nachhilfe"
 				: /*link*/ ctx[10].url)) {
 				attr(a, "href", a_href_value);
 			}
@@ -3264,8 +3264,8 @@ function create_if_block_6(ctx) {
 	};
 }
 
-// (358:8) {#if isJointEvaluationLink(link.label)}
-function create_if_block_5(ctx) {
+// (380:52) 
+function create_if_block_7(ctx) {
 	let div1;
 	let span;
 	let t0;
@@ -3384,7 +3384,77 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (369:14) {#each site_nav.filter((item) => isRequestedEvaluationLink(item.link.label)) as item}
+// (367:8) {#if isExamPreparationLink(link.label)}
+function create_if_block_6(ctx) {
+	let div1;
+	let span;
+	let t0;
+	let t1;
+	let div0;
+	let a;
+	let t2_value = /*link*/ ctx[10].label + "";
+	let t2;
+	let a_href_value;
+
+	return {
+		c() {
+			div1 = element("div");
+			span = element("span");
+			t0 = text("Prüfungsvorbereitung");
+			t1 = space();
+			div0 = element("div");
+			a = element("a");
+			t2 = text(t2_value);
+			this.h();
+		},
+		l(nodes) {
+			div1 = claim_element(nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			span = claim_element(div1_nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t0 = claim_text(span_nodes, "Prüfungsvorbereitung");
+			span_nodes.forEach(detach);
+			t1 = claim_space(div1_nodes);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			a = claim_element(div0_nodes, "A", { class: true, href: true });
+			var a_nodes = children(a);
+			t2 = claim_text(a_nodes, t2_value);
+			a_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(span, "class", "nav-group__label svelte-1zdz5m");
+			attr(a, "class", "link svelte-1zdz5m");
+			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
+			attr(div0, "class", "nav-group__links svelte-1zdz5m");
+			attr(div1, "class", "nav-group nav-group--desktop svelte-1zdz5m");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div1, anchor);
+			append_hydration(div1, span);
+			append_hydration(span, t0);
+			append_hydration(div1, t1);
+			append_hydration(div1, div0);
+			append_hydration(div0, a);
+			append_hydration(a, t2);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*site_nav*/ 2 && t2_value !== (t2_value = /*link*/ ctx[10].label + "")) set_data(t2, t2_value);
+
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
+				attr(a, "href", a_href_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(div1);
+		}
+	};
+}
+
+// (391:14) {#each site_nav.filter((item) => isRequestedEvaluationLink(item.link.label)) as item}
 function create_each_block_3(ctx) {
 	let a;
 	let t_value = /*item*/ ctx[13].link.label + "";
@@ -3425,19 +3495,23 @@ function create_each_block_3(ctx) {
 	};
 }
 
-// (357:6) {#each site_nav as { link }}
+// (366:6) {#each site_nav as { link }}
 function create_each_block_2(ctx) {
 	let show_if;
 	let show_if_1;
+	let show_if_2;
 	let if_block_anchor;
 
 	function select_block_type_1(ctx, dirty) {
 		if (dirty & /*site_nav*/ 2) show_if = null;
 		if (dirty & /*site_nav*/ 2) show_if_1 = null;
-		if (show_if == null) show_if = !!isJointEvaluationLink(/*link*/ ctx[10].label);
-		if (show_if) return create_if_block_5;
-		if (show_if_1 == null) show_if_1 = !!!isRequestedEvaluationLink(/*link*/ ctx[10].label);
-		if (show_if_1) return create_if_block_6;
+		if (dirty & /*site_nav*/ 2) show_if_2 = null;
+		if (show_if == null) show_if = !!isExamPreparationLink(/*link*/ ctx[10].label);
+		if (show_if) return create_if_block_6;
+		if (show_if_1 == null) show_if_1 = !!isJointEvaluationLink(/*link*/ ctx[10].label);
+		if (show_if_1) return create_if_block_7;
+		if (show_if_2 == null) show_if_2 = !!!isRequestedEvaluationLink(/*link*/ ctx[10].label);
+		if (show_if_2) return create_if_block_8;
 	}
 
 	let current_block_type = select_block_type_1(ctx, -1);
@@ -3479,8 +3553,8 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (400:31) 
-function create_if_block_4(ctx) {
+// (423:31) 
+function create_if_block_5(ctx) {
 	let img;
 	let img_src_value;
 	let img_alt_value;
@@ -3516,8 +3590,8 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (398:6) {#if logo.title}
-function create_if_block_3(ctx) {
+// (421:6) {#if logo.title}
+function create_if_block_4(ctx) {
 	let t_value = /*logo*/ ctx[0].title + "";
 	let t;
 
@@ -3540,7 +3614,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (413:4) {#if mobileNavOpen}
+// (436:4) {#if mobileNavOpen}
 function create_if_block(ctx) {
 	let nav;
 	let t0;
@@ -3639,7 +3713,7 @@ function create_if_block(ctx) {
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav, isRequestedEvaluationLink, isJointEvaluationLink*/ 2) {
+			if (dirty & /*site_nav, isExamPreparationLink, isRequestedEvaluationLink, isJointEvaluationLink*/ 2) {
 				each_value = /*site_nav*/ ctx[1];
 				let i;
 
@@ -3697,8 +3771,8 @@ function create_if_block(ctx) {
 	};
 }
 
-// (434:59) 
-function create_if_block_2(ctx) {
+// (471:59) 
+function create_if_block_3(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[10].label + "";
 	let t;
@@ -3718,10 +3792,10 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*link*/ ctx[10].label === 'Team'
-			? '/team-nachhilfe'
-			: /*link*/ ctx[10].label === 'Kontakt'
-				? '/kontakt-nachhilfe'
+			attr(a, "href", a_href_value = /*link*/ ctx[10].label === "Team"
+			? "/team-nachhilfe"
+			: /*link*/ ctx[10].label === "Kontakt"
+				? "/kontakt-nachhilfe"
 				: /*link*/ ctx[10].url);
 
 			attr(a, "class", "svelte-1zdz5m");
@@ -3733,10 +3807,10 @@ function create_if_block_2(ctx) {
 		p(ctx, dirty) {
 			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].label === 'Team'
-			? '/team-nachhilfe'
-			: /*link*/ ctx[10].label === 'Kontakt'
-				? '/kontakt-nachhilfe'
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].label === "Team"
+			? "/team-nachhilfe"
+			: /*link*/ ctx[10].label === "Kontakt"
+				? "/kontakt-nachhilfe"
 				: /*link*/ ctx[10].url)) {
 				attr(a, "href", a_href_value);
 			}
@@ -3747,8 +3821,8 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (416:10) {#if isJointEvaluationLink(link.label)}
-function create_if_block_1(ctx) {
+// (452:54) 
+function create_if_block_2(ctx) {
 	let div1;
 	let span;
 	let t0;
@@ -3867,7 +3941,77 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (427:16) {#each site_nav.filter((item) => isRequestedEvaluationLink(item.link.label)) as item}
+// (439:10) {#if isExamPreparationLink(link.label)}
+function create_if_block_1(ctx) {
+	let div1;
+	let span;
+	let t0;
+	let t1;
+	let div0;
+	let a;
+	let t2_value = /*link*/ ctx[10].label + "";
+	let t2;
+	let a_href_value;
+
+	return {
+		c() {
+			div1 = element("div");
+			span = element("span");
+			t0 = text("Prüfungsvorbereitung");
+			t1 = space();
+			div0 = element("div");
+			a = element("a");
+			t2 = text(t2_value);
+			this.h();
+		},
+		l(nodes) {
+			div1 = claim_element(nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			span = claim_element(div1_nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t0 = claim_text(span_nodes, "Prüfungsvorbereitung");
+			span_nodes.forEach(detach);
+			t1 = claim_space(div1_nodes);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			a = claim_element(div0_nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			t2 = claim_text(a_nodes, t2_value);
+			a_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(span, "class", "nav-group__label svelte-1zdz5m");
+			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
+			attr(a, "class", "svelte-1zdz5m");
+			attr(div0, "class", "nav-group__links svelte-1zdz5m");
+			attr(div1, "class", "nav-group nav-group--mobile svelte-1zdz5m");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div1, anchor);
+			append_hydration(div1, span);
+			append_hydration(span, t0);
+			append_hydration(div1, t1);
+			append_hydration(div1, div0);
+			append_hydration(div0, a);
+			append_hydration(a, t2);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*site_nav*/ 2 && t2_value !== (t2_value = /*link*/ ctx[10].label + "")) set_data(t2, t2_value);
+
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
+				attr(a, "href", a_href_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(div1);
+		}
+	};
+}
+
+// (463:16) {#each site_nav.filter((item) => isRequestedEvaluationLink(item.link.label)) as item}
 function create_each_block_1(ctx) {
 	let a;
 	let t_value = /*item*/ ctx[13].link.label + "";
@@ -3908,19 +4052,23 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (415:8) {#each site_nav as { link }}
+// (438:8) {#each site_nav as { link }}
 function create_each_block(ctx) {
 	let show_if;
 	let show_if_1;
+	let show_if_2;
 	let if_block_anchor;
 
 	function select_block_type_3(ctx, dirty) {
 		if (dirty & /*site_nav*/ 2) show_if = null;
 		if (dirty & /*site_nav*/ 2) show_if_1 = null;
-		if (show_if == null) show_if = !!isJointEvaluationLink(/*link*/ ctx[10].label);
+		if (dirty & /*site_nav*/ 2) show_if_2 = null;
+		if (show_if == null) show_if = !!isExamPreparationLink(/*link*/ ctx[10].label);
 		if (show_if) return create_if_block_1;
-		if (show_if_1 == null) show_if_1 = !!!isRequestedEvaluationLink(/*link*/ ctx[10].label);
+		if (show_if_1 == null) show_if_1 = !!isJointEvaluationLink(/*link*/ ctx[10].label);
 		if (show_if_1) return create_if_block_2;
+		if (show_if_2 == null) show_if_2 = !!!isRequestedEvaluationLink(/*link*/ ctx[10].label);
+		if (show_if_2) return create_if_block_3;
 	}
 
 	let current_block_type = select_block_type_3(ctx, -1);
@@ -3985,8 +4133,8 @@ function create_fragment(ctx) {
 	let dispose;
 
 	function select_block_type(ctx, dirty) {
-		if (/*logo*/ ctx[0].title) return create_if_block_7;
-		if (/*logo*/ ctx[0].image.url) return create_if_block_8;
+		if (/*logo*/ ctx[0].title) return create_if_block_9;
+		if (/*logo*/ ctx[0].image.url) return create_if_block_10;
 	}
 
 	let current_block_type = select_block_type(ctx);
@@ -3999,8 +4147,8 @@ function create_fragment(ctx) {
 	}
 
 	function select_block_type_2(ctx, dirty) {
-		if (/*logo*/ ctx[0].title) return create_if_block_3;
-		if (/*logo*/ ctx[0].image.url) return create_if_block_4;
+		if (/*logo*/ ctx[0].title) return create_if_block_4;
+		if (/*logo*/ ctx[0].image.url) return create_if_block_5;
 	}
 
 	let current_block_type_1 = select_block_type_2(ctx);
@@ -4148,7 +4296,7 @@ function create_fragment(ctx) {
 				}
 			}
 
-			if (dirty & /*site_nav, isRequestedEvaluationLink, isJointEvaluationLink*/ 2) {
+			if (dirty & /*site_nav, isExamPreparationLink, isRequestedEvaluationLink, isJointEvaluationLink*/ 2) {
 				each_value_2 = /*site_nav*/ ctx[1];
 				let i;
 
@@ -4246,6 +4394,11 @@ function create_fragment(ctx) {
 
 function normalizeNavLabel(label) {
 	return (label || "").trim().toLowerCase();
+}
+
+function isExamPreparationLink(label) {
+	const normalizedLabel = normalizeNavLabel(label);
+	return normalizedLabel === "statistik/mathematik" || normalizedLabel === "statistik/mathe";
 }
 
 function isJointEvaluationLink(label) {
