@@ -1,4 +1,4 @@
-// New Hero block - Updated September 24, 2026
+// New Hero block - Updated September 28, 2026
 function noop() { }
 function run(fn) {
     return fn();
