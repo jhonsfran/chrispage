@@ -697,19 +697,19 @@ function create_if_block_3(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/statistische-beratung-fuer-unternehmen");
-			attr(a0, "class", "dropdown-item dropdown-overview svelte-10kuw3u");
-			attr(div0, "class", "dropdown-divider svelte-10kuw3u");
+			attr(a0, "class", "dropdown-item dropdown-overview svelte-edw19a");
+			attr(div0, "class", "dropdown-divider svelte-edw19a");
 			attr(a1, "href", "/statistische-beratung-fuer-unternehmen/marketing-optimieren");
-			attr(a1, "class", "dropdown-item svelte-10kuw3u");
+			attr(a1, "class", "dropdown-item svelte-edw19a");
 			attr(a2, "href", "/statistische-beratung-fuer-unternehmen/prozesse-optimieren");
-			attr(a2, "class", "dropdown-item svelte-10kuw3u");
+			attr(a2, "class", "dropdown-item svelte-edw19a");
 			attr(a3, "href", "/statistische-beratung-fuer-unternehmen/erkenntnisse-aus-umfragen");
-			attr(a3, "class", "dropdown-item svelte-10kuw3u");
+			attr(a3, "class", "dropdown-item svelte-edw19a");
 			attr(a4, "href", "/statistische-beratung-fuer-unternehmen/reporting");
-			attr(a4, "class", "dropdown-item svelte-10kuw3u");
+			attr(a4, "class", "dropdown-item svelte-edw19a");
 			attr(a5, "href", "/statistische-beratung-fuer-unternehmen/forecasts-und-prognosen");
-			attr(a5, "class", "dropdown-item svelte-10kuw3u");
-			attr(div1, "class", "dropdown-panel svelte-10kuw3u");
+			attr(a5, "class", "dropdown-item svelte-edw19a");
+			attr(div1, "class", "dropdown-panel svelte-edw19a");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -739,7 +739,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (368:6) {#if logo.image && logo.image.url}
+// (486:6) {#if logo.image && logo.image.url}
 function create_if_block_2(ctx) {
 	let a;
 	let img;
@@ -760,10 +760,10 @@ function create_if_block_2(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "nav-icon svelte-10kuw3u");
+			attr(img, "class", "nav-icon svelte-edw19a");
 			attr(img, "alt", "Logo");
 			attr(a, "href", "/");
-			attr(a, "class", "svelte-10kuw3u");
+			attr(a, "class", "svelte-edw19a");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -780,7 +780,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (385:8) {#if studierendeOpen}
+// (524:8) {#if studierendeOpen}
 function create_if_block_1(ctx) {
 	let div1;
 	let a0;
@@ -788,14 +788,20 @@ function create_if_block_1(ctx) {
 	let t1;
 	let div0;
 	let t2;
-	let a1;
+	let span0;
 	let t3;
 	let t4;
-	let a2;
+	let a1;
 	let t5;
 	let t6;
-	let a3;
+	let span1;
 	let t7;
+	let t8;
+	let a2;
+	let t9;
+	let t10;
+	let a3;
+	let t11;
 
 	return {
 		c() {
@@ -805,14 +811,20 @@ function create_if_block_1(ctx) {
 			t1 = space();
 			div0 = element("div");
 			t2 = space();
-			a1 = element("a");
-			t3 = text("Statistik / Mathematik");
+			span0 = element("span");
+			t3 = text("Prüfungsvorbereitung");
 			t4 = space();
-			a2 = element("a");
-			t5 = text("Statistische Auswertung");
+			a1 = element("a");
+			t5 = text("Statistik/Mathe");
 			t6 = space();
+			span1 = element("span");
+			t7 = text("Abschlussarbeit");
+			t8 = space();
+			a2 = element("a");
+			t9 = text("Gemeinsame Auswertung");
+			t10 = space();
 			a3 = element("a");
-			t7 = text("Datenanalyse");
+			t11 = text("Auswertung beauftragen");
 			this.h();
 		},
 		l(nodes) {
@@ -826,34 +838,46 @@ function create_if_block_1(ctx) {
 			div0 = claim_element(div1_nodes, "DIV", { class: true });
 			children(div0).forEach(detach);
 			t2 = claim_space(div1_nodes);
+			span0 = claim_element(div1_nodes, "SPAN", { class: true });
+			var span0_nodes = children(span0);
+			t3 = claim_text(span0_nodes, "Prüfungsvorbereitung");
+			span0_nodes.forEach(detach);
+			t4 = claim_space(div1_nodes);
 			a1 = claim_element(div1_nodes, "A", { href: true, class: true });
 			var a1_nodes = children(a1);
-			t3 = claim_text(a1_nodes, "Statistik / Mathematik");
+			t5 = claim_text(a1_nodes, "Statistik/Mathe");
 			a1_nodes.forEach(detach);
-			t4 = claim_space(div1_nodes);
+			t6 = claim_space(div1_nodes);
+			span1 = claim_element(div1_nodes, "SPAN", { class: true });
+			var span1_nodes = children(span1);
+			t7 = claim_text(span1_nodes, "Abschlussarbeit");
+			span1_nodes.forEach(detach);
+			t8 = claim_space(div1_nodes);
 			a2 = claim_element(div1_nodes, "A", { href: true, class: true });
 			var a2_nodes = children(a2);
-			t5 = claim_text(a2_nodes, "Statistische Auswertung");
+			t9 = claim_text(a2_nodes, "Gemeinsame Auswertung");
 			a2_nodes.forEach(detach);
-			t6 = claim_space(div1_nodes);
+			t10 = claim_space(div1_nodes);
 			a3 = claim_element(div1_nodes, "A", { href: true, class: true });
 			var a3_nodes = children(a3);
-			t7 = claim_text(a3_nodes, "Datenanalyse");
+			t11 = claim_text(a3_nodes, "Auswertung beauftragen");
 			a3_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
 			attr(a0, "href", "/statistik-beratung-fuer-studierende");
-			attr(a0, "class", "dropdown-item dropdown-overview svelte-10kuw3u");
-			attr(div0, "class", "dropdown-divider svelte-10kuw3u");
+			attr(a0, "class", "dropdown-item dropdown-overview svelte-edw19a");
+			attr(div0, "class", "dropdown-divider svelte-edw19a");
+			attr(span0, "class", "dropdown-section-heading svelte-edw19a");
 			attr(a1, "href", "/statistik_mathematik");
-			attr(a1, "class", "dropdown-item svelte-10kuw3u");
+			attr(a1, "class", "dropdown-item svelte-edw19a");
+			attr(span1, "class", "dropdown-section-heading svelte-edw19a");
 			attr(a2, "href", "/statistische-auswertung");
-			attr(a2, "class", "dropdown-item svelte-10kuw3u");
-			attr(a3, "href", "/datenanalyse");
-			attr(a3, "class", "dropdown-item svelte-10kuw3u");
-			attr(div1, "class", "dropdown-panel svelte-10kuw3u");
+			attr(a2, "class", "dropdown-item svelte-edw19a");
+			attr(a3, "href", "/statistik-beratung-fuer-studierende/auswertung-abschlussarbeit");
+			attr(a3, "class", "dropdown-item svelte-edw19a");
+			attr(div1, "class", "dropdown-panel svelte-edw19a");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -862,14 +886,20 @@ function create_if_block_1(ctx) {
 			append_hydration(div1, t1);
 			append_hydration(div1, div0);
 			append_hydration(div1, t2);
-			append_hydration(div1, a1);
-			append_hydration(a1, t3);
+			append_hydration(div1, span0);
+			append_hydration(span0, t3);
 			append_hydration(div1, t4);
-			append_hydration(div1, a2);
-			append_hydration(a2, t5);
+			append_hydration(div1, a1);
+			append_hydration(a1, t5);
 			append_hydration(div1, t6);
+			append_hydration(div1, span1);
+			append_hydration(span1, t7);
+			append_hydration(div1, t8);
+			append_hydration(div1, a2);
+			append_hydration(a2, t9);
+			append_hydration(div1, t10);
 			append_hydration(div1, a3);
-			append_hydration(a3, t7);
+			append_hydration(a3, t11);
 		},
 		d(detaching) {
 			if (detaching) detach(div1);
@@ -877,9 +907,9 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (405:2) {#if menuOpen}
+// (585:2) {#if menuOpen}
 function create_if_block(ctx) {
-	let div;
+	let div2;
 	let a0;
 	let t0;
 	let t1;
@@ -892,15 +922,32 @@ function create_if_block(ctx) {
 	let a3;
 	let t6;
 	let t7;
-	let a4;
-	let t8_value = /*primary_cta*/ ctx[1].label + "";
+	let div0;
+	let span0;
 	let t8;
+	let t9;
+	let a4;
+	let t10;
+	let t11;
+	let div1;
+	let span1;
+	let t12;
+	let t13;
+	let a5;
+	let t14;
+	let t15;
+	let a6;
+	let t16;
+	let t17;
+	let a7;
+	let t18_value = /*primary_cta*/ ctx[1].label + "";
+	let t18;
 	let mounted;
 	let dispose;
 
 	return {
 		c() {
-			div = element("div");
+			div2 = element("div");
 			a0 = element("a");
 			t0 = text("Für Unternehmen");
 			t1 = space();
@@ -913,69 +960,144 @@ function create_if_block(ctx) {
 			a3 = element("a");
 			t6 = text("Für Studierende");
 			t7 = space();
+			div0 = element("div");
+			span0 = element("span");
+			t8 = text("Prüfungsvorbereitung");
+			t9 = space();
 			a4 = element("a");
-			t8 = text(t8_value);
+			t10 = text("Statistik/Mathe");
+			t11 = space();
+			div1 = element("div");
+			span1 = element("span");
+			t12 = text("Abschlussarbeit");
+			t13 = space();
+			a5 = element("a");
+			t14 = text("Gemeinsame Auswertung");
+			t15 = space();
+			a6 = element("a");
+			t16 = text("Auswertung beauftragen");
+			t17 = space();
+			a7 = element("a");
+			t18 = text(t18_value);
 			this.h();
 		},
 		l(nodes) {
-			div = claim_element(nodes, "DIV", { class: true });
-			var div_nodes = children(div);
-			a0 = claim_element(div_nodes, "A", { class: true, href: true });
+			div2 = claim_element(nodes, "DIV", { class: true });
+			var div2_nodes = children(div2);
+			a0 = claim_element(div2_nodes, "A", { class: true, href: true });
 			var a0_nodes = children(a0);
 			t0 = claim_text(a0_nodes, "Für Unternehmen");
 			a0_nodes.forEach(detach);
-			t1 = claim_space(div_nodes);
-			a1 = claim_element(div_nodes, "A", { class: true, href: true });
+			t1 = claim_space(div2_nodes);
+			a1 = claim_element(div2_nodes, "A", { class: true, href: true });
 			var a1_nodes = children(a1);
 			t2 = claim_text(a1_nodes, "Team");
 			a1_nodes.forEach(detach);
-			t3 = claim_space(div_nodes);
-			a2 = claim_element(div_nodes, "A", { class: true, href: true });
+			t3 = claim_space(div2_nodes);
+			a2 = claim_element(div2_nodes, "A", { class: true, href: true });
 			var a2_nodes = children(a2);
 			t4 = claim_text(a2_nodes, "Kontakt");
 			a2_nodes.forEach(detach);
-			t5 = claim_space(div_nodes);
-			a3 = claim_element(div_nodes, "A", { class: true, href: true });
+			t5 = claim_space(div2_nodes);
+			a3 = claim_element(div2_nodes, "A", { class: true, href: true });
 			var a3_nodes = children(a3);
 			t6 = claim_text(a3_nodes, "Für Studierende");
 			a3_nodes.forEach(detach);
-			t7 = claim_space(div_nodes);
-			a4 = claim_element(div_nodes, "A", { href: true, class: true });
+			t7 = claim_space(div2_nodes);
+			div0 = claim_element(div2_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			span0 = claim_element(div0_nodes, "SPAN", { class: true });
+			var span0_nodes = children(span0);
+			t8 = claim_text(span0_nodes, "Prüfungsvorbereitung");
+			span0_nodes.forEach(detach);
+			t9 = claim_space(div0_nodes);
+			a4 = claim_element(div0_nodes, "A", { class: true, href: true });
 			var a4_nodes = children(a4);
-			t8 = claim_text(a4_nodes, t8_value);
+			t10 = claim_text(a4_nodes, "Statistik/Mathe");
 			a4_nodes.forEach(detach);
-			div_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			t11 = claim_space(div2_nodes);
+			div1 = claim_element(div2_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			span1 = claim_element(div1_nodes, "SPAN", { class: true });
+			var span1_nodes = children(span1);
+			t12 = claim_text(span1_nodes, "Abschlussarbeit");
+			span1_nodes.forEach(detach);
+			t13 = claim_space(div1_nodes);
+			a5 = claim_element(div1_nodes, "A", { class: true, href: true });
+			var a5_nodes = children(a5);
+			t14 = claim_text(a5_nodes, "Gemeinsame Auswertung");
+			a5_nodes.forEach(detach);
+			t15 = claim_space(div1_nodes);
+			a6 = claim_element(div1_nodes, "A", { class: true, href: true });
+			var a6_nodes = children(a6);
+			t16 = claim_text(a6_nodes, "Auswertung beauftragen");
+			a6_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			t17 = claim_space(div2_nodes);
+			a7 = claim_element(div2_nodes, "A", { href: true, class: true });
+			var a7_nodes = children(a7);
+			t18 = claim_text(a7_nodes, t18_value);
+			a7_nodes.forEach(detach);
+			div2_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(a0, "class", "mobile-link svelte-10kuw3u");
+			attr(a0, "class", "mobile-link svelte-edw19a");
 			attr(a0, "href", "/statistische-beratung-fuer-unternehmen");
-			attr(a1, "class", "mobile-link svelte-10kuw3u");
+			attr(a1, "class", "mobile-link svelte-edw19a");
 			attr(a1, "href", "/team");
-			attr(a2, "class", "mobile-link svelte-10kuw3u");
+			attr(a2, "class", "mobile-link svelte-edw19a");
 			attr(a2, "href", "/kontakt");
-			attr(a3, "class", "mobile-link svelte-10kuw3u");
+			attr(a3, "class", "mobile-link mobile-link--overview svelte-edw19a");
 			attr(a3, "href", "/statistik-beratung-fuer-studierende");
-			attr(a4, "href", "/kontakt");
-			attr(a4, "class", "mobile-button svelte-10kuw3u");
-			attr(div, "class", "mobile-menu svelte-10kuw3u");
+			attr(span0, "class", "mobile-menu-heading svelte-edw19a");
+			attr(a4, "class", "mobile-sublink svelte-edw19a");
+			attr(a4, "href", "/statistik_mathematik");
+			attr(div0, "class", "mobile-menu-section svelte-edw19a");
+			attr(span1, "class", "mobile-menu-heading svelte-edw19a");
+			attr(a5, "class", "mobile-sublink svelte-edw19a");
+			attr(a5, "href", "/statistische-auswertung");
+			attr(a6, "class", "mobile-sublink svelte-edw19a");
+			attr(a6, "href", "/statistik-beratung-fuer-studierende/auswertung-abschlussarbeit");
+			attr(div1, "class", "mobile-menu-section svelte-edw19a");
+			attr(a7, "href", "/kontakt");
+			attr(a7, "class", "mobile-button svelte-edw19a");
+			attr(div2, "class", "mobile-menu svelte-edw19a");
 		},
 		m(target, anchor) {
-			insert_hydration(target, div, anchor);
-			append_hydration(div, a0);
+			insert_hydration(target, div2, anchor);
+			append_hydration(div2, a0);
 			append_hydration(a0, t0);
-			append_hydration(div, t1);
-			append_hydration(div, a1);
+			append_hydration(div2, t1);
+			append_hydration(div2, a1);
 			append_hydration(a1, t2);
-			append_hydration(div, t3);
-			append_hydration(div, a2);
+			append_hydration(div2, t3);
+			append_hydration(div2, a2);
 			append_hydration(a2, t4);
-			append_hydration(div, t5);
-			append_hydration(div, a3);
+			append_hydration(div2, t5);
+			append_hydration(div2, a3);
 			append_hydration(a3, t6);
-			append_hydration(div, t7);
-			append_hydration(div, a4);
-			append_hydration(a4, t8);
+			append_hydration(div2, t7);
+			append_hydration(div2, div0);
+			append_hydration(div0, span0);
+			append_hydration(span0, t8);
+			append_hydration(div0, t9);
+			append_hydration(div0, a4);
+			append_hydration(a4, t10);
+			append_hydration(div2, t11);
+			append_hydration(div2, div1);
+			append_hydration(div1, span1);
+			append_hydration(span1, t12);
+			append_hydration(div1, t13);
+			append_hydration(div1, a5);
+			append_hydration(a5, t14);
+			append_hydration(div1, t15);
+			append_hydration(div1, a6);
+			append_hydration(a6, t16);
+			append_hydration(div2, t17);
+			append_hydration(div2, a7);
+			append_hydration(a7, t18);
 
 			if (!mounted) {
 				dispose = [
@@ -983,17 +1105,20 @@ function create_if_block(ctx) {
 					listen(a1, "click", /*click_handler_2*/ ctx[16]),
 					listen(a2, "click", /*click_handler_3*/ ctx[17]),
 					listen(a3, "click", /*click_handler_4*/ ctx[18]),
-					listen(a4, "click", /*click_handler_5*/ ctx[19])
+					listen(a4, "click", /*click_handler_5*/ ctx[19]),
+					listen(a5, "click", /*click_handler_6*/ ctx[20]),
+					listen(a6, "click", /*click_handler_7*/ ctx[21]),
+					listen(a7, "click", /*click_handler_8*/ ctx[22])
 				];
 
 				mounted = true;
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty & /*primary_cta*/ 2 && t8_value !== (t8_value = /*primary_cta*/ ctx[1].label + "")) set_data(t8, t8_value);
+			if (dirty & /*primary_cta*/ 2 && t18_value !== (t18_value = /*primary_cta*/ ctx[1].label + "")) set_data(t18, t18_value);
 		},
 		d(detaching) {
-			if (detaching) detach(div);
+			if (detaching) detach(div2);
 			mounted = false;
 			run_all(dispose);
 		}
@@ -1066,7 +1191,7 @@ function create_fragment(ctx) {
 			div1 = element("div");
 			div0 = element("div");
 			a1 = element("a");
-			t1 = text("Für Unternehmen\n            ");
+			t1 = text("Für Unternehmen\n\n            ");
 			span0 = element("span");
 			t2 = text("▾");
 			t3 = space();
@@ -1084,7 +1209,7 @@ function create_fragment(ctx) {
 			t9 = space();
 			div4 = element("div");
 			a4 = element("a");
-			t10 = text("Für Studierende\n          ");
+			t10 = text("Für Studierende\n\n          ");
 			span1 = element("span");
 			t11 = text("▾");
 			t12 = space();
@@ -1124,7 +1249,7 @@ function create_fragment(ctx) {
 			var div0_nodes = children(div0);
 			a1 = claim_element(div0_nodes, "A", { class: true, href: true });
 			var a1_nodes = children(a1);
-			t1 = claim_text(a1_nodes, "Für Unternehmen\n            ");
+			t1 = claim_text(a1_nodes, "Für Unternehmen\n\n            ");
 			span0 = claim_element(a1_nodes, "SPAN", { class: true });
 			var span0_nodes = children(span0);
 			t2 = claim_text(span0_nodes, "▾");
@@ -1157,7 +1282,7 @@ function create_fragment(ctx) {
 			var div4_nodes = children(div4);
 			a4 = claim_element(div4_nodes, "A", { class: true, href: true });
 			var a4_nodes = children(a4);
-			t10 = claim_text(a4_nodes, "Für Studierende\n          ");
+			t10 = claim_text(a4_nodes, "Für Studierende\n\n          ");
 			span1 = claim_element(a4_nodes, "SPAN", { class: true });
 			var span1_nodes = children(span1);
 			t11 = claim_text(span1_nodes, "▾");
@@ -1173,7 +1298,14 @@ function create_fragment(ctx) {
 			a5_nodes.forEach(detach);
 			div5_nodes.forEach(detach);
 			t15 = claim_space(div6_nodes);
-			button = claim_element(div6_nodes, "BUTTON", { class: true });
+
+			button = claim_element(div6_nodes, "BUTTON", {
+				class: true,
+				type: true,
+				"aria-label": true,
+				"aria-expanded": true
+			});
+
 			var button_nodes = children(button);
 			span2 = claim_element(button_nodes, "SPAN", { class: true });
 			children(span2).forEach(detach);
@@ -1197,40 +1329,43 @@ function create_fragment(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = "https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/1767266774000Logos%20Christoph_NEW2026_white.svg")) attr(img, "src", img_src_value);
-			attr(img, "class", "nav-left-logo svelte-10kuw3u");
+			attr(img, "class", "nav-left-logo svelte-edw19a");
 			attr(img, "alt", "Christoph Gross Logo");
 			attr(a0, "href", "/");
-			attr(a0, "class", "nav-left-logo-link svelte-10kuw3u");
-			attr(span0, "class", "arrow svelte-10kuw3u");
+			attr(a0, "class", "nav-left-logo-link svelte-edw19a");
+			attr(span0, "class", "arrow svelte-edw19a");
 			toggle_class(span0, "open", /*unternehmensOpen*/ ctx[3]);
-			attr(a1, "class", "link dropdown-trigger svelte-10kuw3u");
+			attr(a1, "class", "link dropdown-trigger svelte-edw19a");
 			attr(a1, "href", "/statistische-beratung-fuer-unternehmen");
-			attr(div0, "class", "dropdown-wrapper svelte-10kuw3u");
-			attr(a2, "class", "link svelte-10kuw3u");
+			attr(div0, "class", "dropdown-wrapper svelte-edw19a");
+			attr(a2, "class", "link svelte-edw19a");
 			attr(a2, "href", "/team");
-			attr(div1, "class", "nav-left svelte-10kuw3u");
-			attr(div2, "class", "nav-left-group svelte-10kuw3u");
-			attr(div3, "class", "nav-center svelte-10kuw3u");
-			attr(a3, "class", "link svelte-10kuw3u");
+			attr(div1, "class", "nav-left svelte-edw19a");
+			attr(div2, "class", "nav-left-group svelte-edw19a");
+			attr(div3, "class", "nav-center svelte-edw19a");
+			attr(a3, "class", "link svelte-edw19a");
 			attr(a3, "href", "/kontakt");
-			attr(span1, "class", "arrow svelte-10kuw3u");
+			attr(span1, "class", "arrow svelte-edw19a");
 			toggle_class(span1, "open", /*studierendeOpen*/ ctx[4]);
-			attr(a4, "class", "link dropdown-trigger svelte-10kuw3u");
+			attr(a4, "class", "link dropdown-trigger svelte-edw19a");
 			attr(a4, "href", "/statistik-beratung-fuer-studierende");
-			attr(div4, "class", "dropdown-wrapper svelte-10kuw3u");
+			attr(div4, "class", "dropdown-wrapper svelte-edw19a");
 			attr(a5, "href", "/kontakt");
-			attr(a5, "class", "button svelte-10kuw3u");
-			attr(div5, "class", "nav-right svelte-10kuw3u");
-			attr(span2, "class", "svelte-10kuw3u");
+			attr(a5, "class", "button svelte-edw19a");
+			attr(div5, "class", "nav-right svelte-edw19a");
+			attr(span2, "class", "svelte-edw19a");
 			toggle_class(span2, "open", /*menuOpen*/ ctx[2]);
-			attr(span3, "class", "svelte-10kuw3u");
+			attr(span3, "class", "svelte-edw19a");
 			toggle_class(span3, "open", /*menuOpen*/ ctx[2]);
-			attr(span4, "class", "svelte-10kuw3u");
+			attr(span4, "class", "svelte-edw19a");
 			toggle_class(span4, "open", /*menuOpen*/ ctx[2]);
-			attr(button, "class", "hamburger svelte-10kuw3u");
-			attr(div6, "class", "nav-wrapper svelte-10kuw3u");
-			attr(header, "class", "header svelte-10kuw3u");
-			attr(div7, "class", "main-content svelte-10kuw3u");
+			attr(button, "class", "hamburger svelte-edw19a");
+			attr(button, "type", "button");
+			attr(button, "aria-label", "Navigation öffnen oder schließen");
+			attr(button, "aria-expanded", /*menuOpen*/ ctx[2]);
+			attr(div6, "class", "nav-wrapper svelte-edw19a");
+			attr(header, "class", "header svelte-edw19a");
+			attr(div7, "class", "main-content svelte-edw19a");
 		},
 		m(target, anchor) {
 			insert_hydration(target, header, anchor);
@@ -1356,6 +1491,10 @@ function create_fragment(ctx) {
 				toggle_class(span4, "open", /*menuOpen*/ ctx[2]);
 			}
 
+			if (!current || dirty & /*menuOpen*/ 4) {
+				attr(button, "aria-expanded", /*menuOpen*/ ctx[2]);
+			}
+
 			if (/*menuOpen*/ ctx[2]) {
 				if (if_block3) {
 					if_block3.p(ctx, dirty);
@@ -1447,6 +1586,9 @@ function instance($$self, $$props, $$invalidate) {
 	const click_handler_3 = () => $$invalidate(2, menuOpen = false);
 	const click_handler_4 = () => $$invalidate(2, menuOpen = false);
 	const click_handler_5 = () => $$invalidate(2, menuOpen = false);
+	const click_handler_6 = () => $$invalidate(2, menuOpen = false);
+	const click_handler_7 = () => $$invalidate(2, menuOpen = false);
+	const click_handler_8 = () => $$invalidate(2, menuOpen = false);
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(5, props = $$props.props);
@@ -1477,7 +1619,10 @@ function instance($$self, $$props, $$invalidate) {
 		click_handler_2,
 		click_handler_3,
 		click_handler_4,
-		click_handler_5
+		click_handler_5,
+		click_handler_6,
+		click_handler_7,
+		click_handler_8
 	];
 }
 
