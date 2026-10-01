@@ -1,4 +1,4 @@
-// Flexible Formate - Updated September 28, 2026
+// Flexible Formate - Updated October 1, 2026
 function noop() { }
 function run(fn) {
     return fn();
