@@ -1,4 +1,4 @@
-// Site Navigation Google Ads - Updated October 1, 2026
+// Site Navigation Google Ads - Updated October 2, 2026
 function noop() { }
 const identity = x => x;
 function assign(tar, src) {
