@@ -1,4 +1,4 @@
-// Site Navigation - Updated October 7, 2026
+// Site Navigation - Updated October 8, 2026
 function noop() { }
 const identity = x => x;
 function assign(tar, src) {
@@ -3153,7 +3153,7 @@ function get_each_context_3(ctx, list, i) {
 	return child_ctx;
 }
 
-// (360:31) 
+// (361:31) 
 function create_if_block_10(ctx) {
 	let img;
 	let img_src_value;
@@ -3190,7 +3190,7 @@ function create_if_block_10(ctx) {
 	};
 }
 
-// (358:6) {#if logo.title}
+// (359:6) {#if logo.title}
 function create_if_block_9(ctx) {
 	let t_value = /*logo*/ ctx[0].title + "";
 	let t;
@@ -3214,7 +3214,7 @@ function create_if_block_9(ctx) {
 	};
 }
 
-// (399:57) 
+// (400:57) 
 function create_if_block_8(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[10].label + "";
@@ -3264,7 +3264,7 @@ function create_if_block_8(ctx) {
 	};
 }
 
-// (380:52) 
+// (381:52) 
 function create_if_block_7(ctx) {
 	let div1;
 	let span;
@@ -3384,7 +3384,7 @@ function create_if_block_7(ctx) {
 	};
 }
 
-// (367:8) {#if isExamPreparationLink(link.label)}
+// (368:8) {#if isExamPreparationLink(link.label)}
 function create_if_block_6(ctx) {
 	let div1;
 	let span;
@@ -3454,7 +3454,7 @@ function create_if_block_6(ctx) {
 	};
 }
 
-// (391:14) {#each site_nav.filter((item) => isRequestedEvaluationLink(item.link.label)) as item}
+// (392:14) {#each site_nav.filter((item) => isRequestedEvaluationLink(item.link.label)) as item}
 function create_each_block_3(ctx) {
 	let a;
 	let t_value = /*item*/ ctx[13].link.label + "";
@@ -3495,7 +3495,7 @@ function create_each_block_3(ctx) {
 	};
 }
 
-// (366:6) {#each site_nav as { link }}
+// (367:6) {#each site_nav as { link }}
 function create_each_block_2(ctx) {
 	let show_if;
 	let show_if_1;
@@ -3553,7 +3553,7 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (423:31) 
+// (424:31) 
 function create_if_block_5(ctx) {
 	let img;
 	let img_src_value;
@@ -3590,7 +3590,7 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (421:6) {#if logo.title}
+// (422:6) {#if logo.title}
 function create_if_block_4(ctx) {
 	let t_value = /*logo*/ ctx[0].title + "";
 	let t;
@@ -3614,7 +3614,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (436:4) {#if mobileNavOpen}
+// (437:4) {#if mobileNavOpen}
 function create_if_block(ctx) {
 	let nav;
 	let t0;
@@ -3771,7 +3771,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (471:59) 
+// (472:59) 
 function create_if_block_3(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[10].label + "";
@@ -3821,7 +3821,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (452:54) 
+// (453:54) 
 function create_if_block_2(ctx) {
 	let div1;
 	let span;
@@ -3941,7 +3941,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (439:10) {#if isExamPreparationLink(link.label)}
+// (440:10) {#if isExamPreparationLink(link.label)}
 function create_if_block_1(ctx) {
 	let div1;
 	let span;
@@ -4011,7 +4011,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (463:16) {#each site_nav.filter((item) => isRequestedEvaluationLink(item.link.label)) as item}
+// (464:16) {#each site_nav.filter((item) => isRequestedEvaluationLink(item.link.label)) as item}
 function create_each_block_1(ctx) {
 	let a;
 	let t_value = /*item*/ ctx[13].link.label + "";
@@ -4052,7 +4052,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (438:8) {#each site_nav as { link }}
+// (439:8) {#each site_nav as { link }}
 function create_each_block(ctx) {
 	let show_if;
 	let show_if_1;
@@ -4408,7 +4408,7 @@ function isJointEvaluationLink(label) {
 
 function isRequestedEvaluationLink(label) {
 	const normalizedLabel = normalizeNavLabel(label);
-	return normalizedLabel === "auswertung beauftragen" || normalizedLabel === "auswertung beantragen";
+	return normalizedLabel === "auswertung zum fixpreis" || normalizedLabel === "auswertung beauftragen" || normalizedLabel === "auswertung beantragen";
 }
 
 function instance($$self, $$props, $$invalidate) {
