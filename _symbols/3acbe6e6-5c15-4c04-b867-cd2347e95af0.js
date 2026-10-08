@@ -3171,7 +3171,7 @@ function create_if_block_10(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[0].image.alt);
-			attr(img, "class", "svelte-aeyzl3");
+			attr(img, "class", "svelte-1srwtmj");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -3236,7 +3236,7 @@ function create_if_block_8(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-aeyzl3");
+			attr(a, "class", "link svelte-1srwtmj");
 
 			attr(a, "href", a_href_value = /*link*/ ctx[15].label === "Team"
 			? "/team-nachhilfe"
@@ -3326,11 +3326,11 @@ function create_if_block_7(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "nav-group__label svelte-aeyzl3");
-			attr(a, "class", "link svelte-aeyzl3");
+			attr(span, "class", "nav-group__label svelte-1srwtmj");
+			attr(a, "class", "link svelte-1srwtmj");
 			attr(a, "href", a_href_value = /*link*/ ctx[15].url);
-			attr(div0, "class", "nav-group__links svelte-aeyzl3");
-			attr(div1, "class", "nav-group nav-group--desktop svelte-aeyzl3");
+			attr(div0, "class", "nav-group__links svelte-1srwtmj");
+			attr(div1, "class", "nav-group nav-group--desktop svelte-1srwtmj");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -3427,11 +3427,11 @@ function create_if_block_6(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "nav-group__label svelte-aeyzl3");
-			attr(a, "class", "link svelte-aeyzl3");
+			attr(span, "class", "nav-group__label svelte-1srwtmj");
+			attr(a, "class", "link svelte-1srwtmj");
 			attr(a, "href", a_href_value = /*link*/ ctx[15].url);
-			attr(div0, "class", "nav-group__links svelte-aeyzl3");
-			attr(div1, "class", "nav-group nav-group--desktop svelte-aeyzl3");
+			attr(div0, "class", "nav-group__links svelte-1srwtmj");
+			attr(div1, "class", "nav-group nav-group--desktop svelte-1srwtmj");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -3476,7 +3476,7 @@ function create_each_block_3(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-aeyzl3");
+			attr(a, "class", "link svelte-1srwtmj");
 			attr(a, "href", a_href_value = /*item*/ ctx[18].link.url);
 		},
 		m(target, anchor) {
@@ -3572,7 +3572,7 @@ function create_if_block_5(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[0].image.alt);
-			attr(img, "class", "svelte-aeyzl3");
+			attr(img, "class", "svelte-1srwtmj");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -3691,14 +3691,14 @@ function create_if_block(ctx) {
 		},
 		h() {
 			attr(a, "href", a_href_value = /*primary_cta*/ ctx[2].url);
-			attr(a, "class", "button svelte-aeyzl3");
+			attr(a, "class", "button svelte-1srwtmj");
 			attr(button, "type", "button");
 			attr(button, "id", "close");
 			attr(button, "aria-label", "Navigation schließen");
-			attr(button, "class", "svelte-aeyzl3");
+			attr(button, "class", "svelte-1srwtmj");
 			attr(nav, "id", "popup");
 			attr(nav, "aria-label", "Mobile Navigation");
-			attr(nav, "class", "svelte-aeyzl3");
+			attr(nav, "class", "svelte-1srwtmj");
 		},
 		m(target, anchor) {
 			insert_hydration(target, nav, anchor);
@@ -3814,7 +3814,7 @@ function create_if_block_3(ctx) {
 				? "/kontakt-nachhilfe"
 				: /*link*/ ctx[15].url);
 
-			attr(a, "class", "svelte-aeyzl3");
+			attr(a, "class", "svelte-1srwtmj");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -3907,11 +3907,11 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "nav-group__label svelte-aeyzl3");
+			attr(span, "class", "nav-group__label svelte-1srwtmj");
 			attr(a, "href", a_href_value = /*link*/ ctx[15].url);
-			attr(a, "class", "svelte-aeyzl3");
-			attr(div0, "class", "nav-group__links svelte-aeyzl3");
-			attr(div1, "class", "nav-group nav-group--mobile svelte-aeyzl3");
+			attr(a, "class", "svelte-1srwtmj");
+			attr(div0, "class", "nav-group__links svelte-1srwtmj");
+			attr(div1, "class", "nav-group nav-group--mobile svelte-1srwtmj");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -4017,11 +4017,11 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "nav-group__label svelte-aeyzl3");
+			attr(span, "class", "nav-group__label svelte-1srwtmj");
 			attr(a, "href", a_href_value = /*link*/ ctx[15].url);
-			attr(a, "class", "svelte-aeyzl3");
-			attr(div0, "class", "nav-group__links svelte-aeyzl3");
-			attr(div1, "class", "nav-group nav-group--mobile svelte-aeyzl3");
+			attr(a, "class", "svelte-1srwtmj");
+			attr(div0, "class", "nav-group__links svelte-1srwtmj");
+			attr(div1, "class", "nav-group nav-group--mobile svelte-1srwtmj");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -4076,7 +4076,7 @@ function create_each_block_1(ctx) {
 		},
 		h() {
 			attr(a, "href", a_href_value = /*item*/ ctx[18].link.url);
-			attr(a, "class", "svelte-aeyzl3");
+			attr(a, "class", "svelte-1srwtmj");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -4290,21 +4290,21 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/statistik-beratung-fuer-studierende");
-			attr(a0, "class", "logo svelte-aeyzl3");
+			attr(a0, "class", "logo svelte-1srwtmj");
 			attr(a1, "href", a1_href_value = /*primary_cta*/ ctx[2].url);
-			attr(a1, "class", "button svelte-aeyzl3");
-			attr(nav, "class", "svelte-aeyzl3");
-			attr(div0, "class", "desktop-nav svelte-aeyzl3");
+			attr(a1, "class", "button svelte-1srwtmj");
+			attr(nav, "class", "svelte-1srwtmj");
+			attr(div0, "class", "desktop-nav svelte-1srwtmj");
 			attr(a2, "href", "/statistik-beratung-fuer-studierende");
-			attr(a2, "class", "logo svelte-aeyzl3");
+			attr(a2, "class", "logo svelte-1srwtmj");
 			attr(button, "id", "open");
 			attr(button, "type", "button");
 			attr(button, "aria-label", "Navigation öffnen");
 			attr(button, "aria-expanded", /*mobileNavOpen*/ ctx[3]);
 			attr(button, "aria-controls", "popup");
-			attr(button, "class", "svelte-aeyzl3");
-			attr(div1, "class", "mobile-nav svelte-aeyzl3");
-			attr(header, "class", "section-container svelte-aeyzl3");
+			attr(button, "class", "svelte-1srwtmj");
+			attr(div1, "class", "mobile-nav svelte-1srwtmj");
+			attr(header, "class", "section-container svelte-1srwtmj");
 		},
 		m(target, anchor) {
 			insert_hydration(target, header, anchor);
