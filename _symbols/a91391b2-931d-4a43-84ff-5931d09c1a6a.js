@@ -643,7 +643,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (513:10) {#if unternehmensOpen}
+// (535:10) {#if unternehmensOpen}
 function create_if_block_3(ctx) {
 	let div1;
 	let a0;
@@ -772,7 +772,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (531:6) {#if logo.image && logo.image.url}
+// (591:6) {#if logo.image && logo.image.url}
 function create_if_block_2(ctx) {
 	let a;
 	let img;
@@ -818,7 +818,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (550:8) {#if studierendeOpen}
+// (630:8) {#if studierendeOpen}
 function create_if_block_1(ctx) {
 	let div1;
 	let a0;
@@ -862,7 +862,7 @@ function create_if_block_1(ctx) {
 			t9 = text("Gemeinsame Auswertung");
 			t10 = space();
 			a3 = element("a");
-			t11 = text("Auswertung beauftragen");
+			t11 = text("Auswertung zum Fixpreis");
 			this.h();
 		},
 		l(nodes) {
@@ -898,7 +898,7 @@ function create_if_block_1(ctx) {
 			t10 = claim_space(div1_nodes);
 			a3 = claim_element(div1_nodes, "A", { href: true, class: true });
 			var a3_nodes = children(a3);
-			t11 = claim_text(a3_nodes, "Auswertung beauftragen");
+			t11 = claim_text(a3_nodes, "Auswertung zum Fixpreis");
 			a3_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
 			this.h();
@@ -945,7 +945,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (604:1) {#if menuOpen}
+// (692:2) {#if menuOpen}
 function create_if_block(ctx) {
 	let div2;
 	let a0;
@@ -1013,7 +1013,7 @@ function create_if_block(ctx) {
 			t14 = text("Gemeinsame Auswertung");
 			t15 = space();
 			a6 = element("a");
-			t16 = text("Auswertung beauftragen");
+			t16 = text("Auswertung zum Fixpreis");
 			t17 = space();
 			a7 = element("a");
 			t18 = text(t18_value);
@@ -1069,7 +1069,7 @@ function create_if_block(ctx) {
 			t15 = claim_space(div1_nodes);
 			a6 = claim_element(div1_nodes, "A", { class: true, href: true });
 			var a6_nodes = children(a6);
-			t16 = claim_text(a6_nodes, "Auswertung beauftragen");
+			t16 = claim_text(a6_nodes, "Auswertung zum Fixpreis");
 			a6_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
 			t17 = claim_space(div2_nodes);
@@ -1097,7 +1097,7 @@ function create_if_block(ctx) {
 			attr(a5, "class", "mobile-sublink svelte-8eaz89");
 			attr(a5, "href", "/statistische-auswertung");
 			attr(a6, "class", "mobile-sublink svelte-8eaz89");
-			attr(a6, "href", "/datenanalyse");
+			attr(a6, "href", "/statistik-beratung-fuer-studierende/auswertung-abschlussarbeit");
 			attr(div1, "class", "mobile-menu-section svelte-8eaz89");
 			attr(a7, "href", "/kontakt");
 			attr(a7, "class", "mobile-button svelte-8eaz89");
@@ -1237,7 +1237,7 @@ function create_fragment(ctx) {
 			div3 = element("div");
 			div2 = element("div");
 			a1 = element("a");
-			t2 = text("Für Unternehmen\n            ");
+			t2 = text("Für Unternehmen\n\n            ");
 			span0 = element("span");
 			t3 = text("▾");
 			t4 = space();
@@ -1255,7 +1255,7 @@ function create_fragment(ctx) {
 			t10 = space();
 			div6 = element("div");
 			a4 = element("a");
-			t11 = text("Für Studierende\n          ");
+			t11 = text("Für Studierende\n\n          ");
 			span1 = element("span");
 			t12 = text("▾");
 			t13 = space();
@@ -1303,7 +1303,7 @@ function create_fragment(ctx) {
 			var div2_nodes = children(div2);
 			a1 = claim_element(div2_nodes, "A", { class: true, href: true });
 			var a1_nodes = children(a1);
-			t2 = claim_text(a1_nodes, "Für Unternehmen\n            ");
+			t2 = claim_text(a1_nodes, "Für Unternehmen\n\n            ");
 			span0 = claim_element(a1_nodes, "SPAN", { class: true });
 			var span0_nodes = children(span0);
 			t3 = claim_text(span0_nodes, "▾");
@@ -1336,7 +1336,7 @@ function create_fragment(ctx) {
 			var div6_nodes = children(div6);
 			a4 = claim_element(div6_nodes, "A", { class: true, href: true });
 			var a4_nodes = children(a4);
-			t11 = claim_text(a4_nodes, "Für Studierende\n          ");
+			t11 = claim_text(a4_nodes, "Für Studierende\n\n          ");
 			span1 = claim_element(a4_nodes, "SPAN", { class: true });
 			var span1_nodes = children(span1);
 			t12 = claim_text(span1_nodes, "▾");
@@ -1352,7 +1352,14 @@ function create_fragment(ctx) {
 			a5_nodes.forEach(detach);
 			div7_nodes.forEach(detach);
 			t16 = claim_space(div8_nodes);
-			button = claim_element(div8_nodes, "BUTTON", { class: true });
+
+			button = claim_element(div8_nodes, "BUTTON", {
+				class: true,
+				type: true,
+				"aria-label": true,
+				"aria-expanded": true
+			});
+
 			var button_nodes = children(button);
 			span2 = claim_element(button_nodes, "SPAN", { class: true });
 			children(span2).forEach(detach);
@@ -1412,6 +1419,9 @@ function create_fragment(ctx) {
 			attr(span4, "class", "svelte-8eaz89");
 			toggle_class(span4, "open", /*menuOpen*/ ctx[3]);
 			attr(button, "class", "hamburger svelte-8eaz89");
+			attr(button, "type", "button");
+			attr(button, "aria-label", "Navigation öffnen oder schließen");
+			attr(button, "aria-expanded", /*menuOpen*/ ctx[3]);
 			attr(div8, "class", "nav-wrapper svelte-8eaz89");
 			attr(header, "class", "header svelte-8eaz89");
 			toggle_class(header, "active", /*introDone*/ ctx[2]);
@@ -1565,6 +1575,10 @@ function create_fragment(ctx) {
 				toggle_class(span4, "open", /*menuOpen*/ ctx[3]);
 			}
 
+			if (!current || dirty & /*menuOpen*/ 8) {
+				attr(button, "aria-expanded", /*menuOpen*/ ctx[3]);
+			}
+
 			if (/*menuOpen*/ ctx[3]) {
 				if (if_block4) {
 					if_block4.p(ctx, dirty);
@@ -1664,7 +1678,7 @@ function instance($$self, $$props, $$invalidate) {
 		800
 	);
 
-	const keydown_handler = e => e.key === 'Enter' && handleIntro();
+	const keydown_handler = e => e.key === "Enter" && handleIntro();
 
 	const mouseenter_handler = () => {
 		$$invalidate(4, unternehmensOpen = true);

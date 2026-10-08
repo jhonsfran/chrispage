@@ -824,7 +824,7 @@ function create_if_block_1(ctx) {
 			t9 = text("Gemeinsame Auswertung");
 			t10 = space();
 			a3 = element("a");
-			t11 = text("Auswertung beauftragen");
+			t11 = text("Auswertung zum Fixpreis");
 			this.h();
 		},
 		l(nodes) {
@@ -860,7 +860,7 @@ function create_if_block_1(ctx) {
 			t10 = claim_space(div1_nodes);
 			a3 = claim_element(div1_nodes, "A", { href: true, class: true });
 			var a3_nodes = children(a3);
-			t11 = claim_text(a3_nodes, "Auswertung beauftragen");
+			t11 = claim_text(a3_nodes, "Auswertung zum Fixpreis");
 			a3_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
 			this.h();
@@ -975,7 +975,7 @@ function create_if_block(ctx) {
 			t14 = text("Gemeinsame Auswertung");
 			t15 = space();
 			a6 = element("a");
-			t16 = text("Auswertung beauftragen");
+			t16 = text("Auswertung zum Fixpreis");
 			t17 = space();
 			a7 = element("a");
 			t18 = text(t18_value);
@@ -1031,7 +1031,7 @@ function create_if_block(ctx) {
 			t15 = claim_space(div1_nodes);
 			a6 = claim_element(div1_nodes, "A", { class: true, href: true });
 			var a6_nodes = children(a6);
-			t16 = claim_text(a6_nodes, "Auswertung beauftragen");
+			t16 = claim_text(a6_nodes, "Auswertung zum Fixpreis");
 			a6_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
 			t17 = claim_space(div2_nodes);
