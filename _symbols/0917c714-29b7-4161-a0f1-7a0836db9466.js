@@ -1,4 +1,4 @@
-// Welche fragen möchtest du mit daten beantworten? - Updated October 9, 2026
+// Welche fragen möchtest du mit daten beantworten? - Updated October 13, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
@@ -2886,13 +2886,13 @@ function create_if_block_9(ctx) {
 	return {
 		c() {
 			p = element("p");
-			t = text(/*eyebrow*/ ctx[0]);
+			t = text(/*eyebrow*/ ctx[2]);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, /*eyebrow*/ ctx[0]);
+			t = claim_text(p_nodes, /*eyebrow*/ ctx[2]);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -2904,7 +2904,7 @@ function create_if_block_9(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*eyebrow*/ 1) set_data(t, /*eyebrow*/ ctx[0]);
+			if (dirty & /*eyebrow*/ 4) set_data(t, /*eyebrow*/ ctx[2]);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -2920,13 +2920,13 @@ function create_if_block_8(ctx) {
 	return {
 		c() {
 			h2 = element("h2");
-			t = text(/*heading*/ ctx[1]);
+			t = text(/*heading*/ ctx[3]);
 			this.h();
 		},
 		l(nodes) {
 			h2 = claim_element(nodes, "H2", { id: true, class: true });
 			var h2_nodes = children(h2);
-			t = claim_text(h2_nodes, /*heading*/ ctx[1]);
+			t = claim_text(h2_nodes, /*heading*/ ctx[3]);
 			h2_nodes.forEach(detach);
 			this.h();
 		},
@@ -2939,7 +2939,7 @@ function create_if_block_8(ctx) {
 			append_hydration(h2, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*heading*/ 2) set_data(t, /*heading*/ ctx[1]);
+			if (dirty & /*heading*/ 8) set_data(t, /*heading*/ ctx[3]);
 		},
 		d(detaching) {
 			if (detaching) detach(h2);
@@ -2955,13 +2955,13 @@ function create_if_block_7(ctx) {
 	return {
 		c() {
 			p = element("p");
-			t = text(/*intro*/ ctx[2]);
+			t = text(/*intro*/ ctx[1]);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, /*intro*/ ctx[2]);
+			t = claim_text(p_nodes, /*intro*/ ctx[1]);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -2973,7 +2973,7 @@ function create_if_block_7(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*intro*/ 4) set_data(t, /*intro*/ ctx[2]);
+			if (dirty & /*intro*/ 2) set_data(t, /*intro*/ ctx[1]);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -2985,7 +2985,7 @@ function create_if_block_7(ctx) {
 function create_if_block_6(ctx) {
 	let a;
 	let span0;
-	let t0_value = /*all_projects*/ ctx[3].label + "";
+	let t0_value = /*all_projects*/ ctx[4].label + "";
 	let t0;
 	let t1;
 	let span1;
@@ -3022,7 +3022,7 @@ function create_if_block_6(ctx) {
 			attr(span1, "aria-hidden", "true");
 			attr(span1, "class", "svelte-mtvqno");
 			attr(a, "class", "cg-question-examples__all-link svelte-mtvqno");
-			attr(a, "href", a_href_value = /*all_projects*/ ctx[3].url);
+			attr(a, "href", a_href_value = /*all_projects*/ ctx[4].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -3033,9 +3033,9 @@ function create_if_block_6(ctx) {
 			append_hydration(span1, t2);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*all_projects*/ 8 && t0_value !== (t0_value = /*all_projects*/ ctx[3].label + "")) set_data(t0, t0_value);
+			if (dirty & /*all_projects*/ 16 && t0_value !== (t0_value = /*all_projects*/ ctx[4].label + "")) set_data(t0, t0_value);
 
-			if (dirty & /*all_projects*/ 8 && a_href_value !== (a_href_value = /*all_projects*/ ctx[3].url)) {
+			if (dirty & /*all_projects*/ 16 && a_href_value !== (a_href_value = /*all_projects*/ ctx[4].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3049,7 +3049,7 @@ function create_if_block_6(ctx) {
 function create_if_block(ctx) {
 	let div;
 	let current;
-	let each_value = /*cards*/ ctx[4];
+	let each_value = /*cards*/ ctx[0];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -3096,8 +3096,8 @@ function create_if_block(ctx) {
 			current = true;
 		},
 		p(ctx, dirty) {
-			if (dirty & /*cards*/ 16) {
-				each_value = /*cards*/ ctx[4];
+			if (dirty & /*cards*/ 1) {
+				each_value = /*cards*/ ctx[0];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -3191,11 +3191,11 @@ function create_if_block_5(ctx) {
 			append_hydration(div, img);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*cards*/ 16 && !src_url_equal(img.src, img_src_value = /*card*/ ctx[6].image.url)) {
+			if (dirty & /*cards*/ 1 && !src_url_equal(img.src, img_src_value = /*card*/ ctx[6].image.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty & /*cards*/ 16 && img_alt_value !== (img_alt_value = /*card*/ ctx[6].image.alt || /*card*/ ctx[6].title || "")) {
+			if (dirty & /*cards*/ 1 && img_alt_value !== (img_alt_value = /*card*/ ctx[6].image.alt || /*card*/ ctx[6].title || "")) {
 				attr(img, "alt", img_alt_value);
 			}
 		},
@@ -3243,7 +3243,7 @@ function create_if_block_4(ctx) {
 		},
 		p(ctx, dirty) {
 			const icon_changes = {};
-			if (dirty & /*cards*/ 16) icon_changes.icon = /*card*/ ctx[6].icon;
+			if (dirty & /*cards*/ 1) icon_changes.icon = /*card*/ ctx[6].icon;
 			icon.$set(icon_changes);
 		},
 		i(local) {
@@ -3289,7 +3289,7 @@ function create_if_block_3(ctx) {
 			append_hydration(h3, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*cards*/ 16 && t_value !== (t_value = /*card*/ ctx[6].title + "")) set_data(t, t_value);
+			if (dirty & /*cards*/ 1 && t_value !== (t_value = /*card*/ ctx[6].title + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(h3);
@@ -3324,7 +3324,7 @@ function create_if_block_2(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*cards*/ 16 && t_value !== (t_value = /*card*/ ctx[6].text + "")) set_data(t, t_value);
+			if (dirty & /*cards*/ 1 && t_value !== (t_value = /*card*/ ctx[6].text + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -3384,9 +3384,9 @@ function create_if_block_1(ctx) {
 			append_hydration(span1, t2);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*cards*/ 16 && t0_value !== (t0_value = /*card*/ ctx[6].link.label + "")) set_data(t0, t0_value);
+			if (dirty & /*cards*/ 1 && t0_value !== (t0_value = /*card*/ ctx[6].link.label + "")) set_data(t0, t0_value);
 
-			if (dirty & /*cards*/ 16 && a_href_value !== (a_href_value = /*card*/ ctx[6].link.url)) {
+			if (dirty & /*cards*/ 1 && a_href_value !== (a_href_value = /*card*/ ctx[6].link.url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3484,7 +3484,7 @@ function create_each_block(ctx) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 
-					if (dirty & /*cards*/ 16) {
+					if (dirty & /*cards*/ 1) {
 						transition_in(if_block1, 1);
 					}
 				} else {
@@ -3572,11 +3572,11 @@ function create_fragment(ctx) {
 	let t2;
 	let t3;
 	let current;
-	let if_block0 = /*eyebrow*/ ctx[0] && create_if_block_9(ctx);
-	let if_block1 = /*heading*/ ctx[1] && create_if_block_8(ctx);
-	let if_block2 = /*intro*/ ctx[2] && create_if_block_7(ctx);
-	let if_block3 = /*all_projects*/ ctx[3] && /*all_projects*/ ctx[3].label && create_if_block_6(ctx);
-	let if_block4 = /*cards*/ ctx[4] && /*cards*/ ctx[4].length > 0 && create_if_block(ctx);
+	let if_block0 = /*eyebrow*/ ctx[2] && create_if_block_9(ctx);
+	let if_block1 = /*heading*/ ctx[3] && create_if_block_8(ctx);
+	let if_block2 = /*intro*/ ctx[1] && create_if_block_7(ctx);
+	let if_block3 = /*all_projects*/ ctx[4] && /*all_projects*/ ctx[4].label && create_if_block_6(ctx);
+	let if_block4 = /*cards*/ ctx[0] && /*cards*/ ctx[0].length > 0 && create_if_block(ctx);
 
 	return {
 		c() {
@@ -3643,7 +3643,7 @@ function create_fragment(ctx) {
 			current = true;
 		},
 		p(ctx, [dirty]) {
-			if (/*eyebrow*/ ctx[0]) {
+			if (/*eyebrow*/ ctx[2]) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
@@ -3656,7 +3656,7 @@ function create_fragment(ctx) {
 				if_block0 = null;
 			}
 
-			if (/*heading*/ ctx[1]) {
+			if (/*heading*/ ctx[3]) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
@@ -3669,7 +3669,7 @@ function create_fragment(ctx) {
 				if_block1 = null;
 			}
 
-			if (/*intro*/ ctx[2]) {
+			if (/*intro*/ ctx[1]) {
 				if (if_block2) {
 					if_block2.p(ctx, dirty);
 				} else {
@@ -3682,7 +3682,7 @@ function create_fragment(ctx) {
 				if_block2 = null;
 			}
 
-			if (/*all_projects*/ ctx[3] && /*all_projects*/ ctx[3].label) {
+			if (/*all_projects*/ ctx[4] && /*all_projects*/ ctx[4].label) {
 				if (if_block3) {
 					if_block3.p(ctx, dirty);
 				} else {
@@ -3695,11 +3695,11 @@ function create_fragment(ctx) {
 				if_block3 = null;
 			}
 
-			if (/*cards*/ ctx[4] && /*cards*/ ctx[4].length > 0) {
+			if (/*cards*/ ctx[0] && /*cards*/ ctx[0].length > 0) {
 				if (if_block4) {
 					if_block4.p(ctx, dirty);
 
-					if (dirty & /*cards*/ 16) {
+					if (dirty & /*cards*/ 1) {
 						transition_in(if_block4, 1);
 					}
 				} else {
@@ -3740,22 +3740,22 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
+	let { cards } = $$props;
+	let { intro } = $$props;
 	let { eyebrow } = $$props;
 	let { heading } = $$props;
-	let { intro } = $$props;
 	let { all_projects } = $$props;
-	let { cards } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(5, props = $$props.props);
-		if ('eyebrow' in $$props) $$invalidate(0, eyebrow = $$props.eyebrow);
-		if ('heading' in $$props) $$invalidate(1, heading = $$props.heading);
-		if ('intro' in $$props) $$invalidate(2, intro = $$props.intro);
-		if ('all_projects' in $$props) $$invalidate(3, all_projects = $$props.all_projects);
-		if ('cards' in $$props) $$invalidate(4, cards = $$props.cards);
+		if ('cards' in $$props) $$invalidate(0, cards = $$props.cards);
+		if ('intro' in $$props) $$invalidate(1, intro = $$props.intro);
+		if ('eyebrow' in $$props) $$invalidate(2, eyebrow = $$props.eyebrow);
+		if ('heading' in $$props) $$invalidate(3, heading = $$props.heading);
+		if ('all_projects' in $$props) $$invalidate(4, all_projects = $$props.all_projects);
 	};
 
-	return [eyebrow, heading, intro, all_projects, cards, props];
+	return [cards, intro, eyebrow, heading, all_projects, props];
 }
 
 class Component extends SvelteComponent {
@@ -3764,11 +3764,11 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 5,
-			eyebrow: 0,
-			heading: 1,
-			intro: 2,
-			all_projects: 3,
-			cards: 4
+			cards: 0,
+			intro: 1,
+			eyebrow: 2,
+			heading: 3,
+			all_projects: 4
 		});
 	}
 }
