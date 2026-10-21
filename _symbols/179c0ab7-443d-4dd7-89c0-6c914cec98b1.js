@@ -1,4 +1,4 @@
-// Multi-Gallery - Updated October 13, 2026
+// Multi-Gallery - Updated October 21, 2026
 function noop() { }
 function run(fn) {
     return fn();

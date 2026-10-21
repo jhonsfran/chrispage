@@ -1,4 +1,4 @@
-// Unser Vorgehen - Updated October 13, 2026
+// Unser Vorgehen - Updated October 21, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -565,13 +565,13 @@ function create_if_block_5(ctx) {
 	return {
 		c() {
 			p = element("p");
-			t = text(/*eyebrow*/ ctx[0]);
+			t = text(/*eyebrow*/ ctx[1]);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, /*eyebrow*/ ctx[0]);
+			t = claim_text(p_nodes, /*eyebrow*/ ctx[1]);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -583,7 +583,7 @@ function create_if_block_5(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*eyebrow*/ 1) set_data(t, /*eyebrow*/ ctx[0]);
+			if (dirty & /*eyebrow*/ 2) set_data(t, /*eyebrow*/ ctx[1]);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -599,13 +599,13 @@ function create_if_block_4(ctx) {
 	return {
 		c() {
 			h2 = element("h2");
-			t = text(/*heading*/ ctx[1]);
+			t = text(/*heading*/ ctx[2]);
 			this.h();
 		},
 		l(nodes) {
 			h2 = claim_element(nodes, "H2", { id: true, class: true });
 			var h2_nodes = children(h2);
-			t = claim_text(h2_nodes, /*heading*/ ctx[1]);
+			t = claim_text(h2_nodes, /*heading*/ ctx[2]);
 			h2_nodes.forEach(detach);
 			this.h();
 		},
@@ -618,7 +618,7 @@ function create_if_block_4(ctx) {
 			append_hydration(h2, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*heading*/ 2) set_data(t, /*heading*/ ctx[1]);
+			if (dirty & /*heading*/ 4) set_data(t, /*heading*/ ctx[2]);
 		},
 		d(detaching) {
 			if (detaching) detach(h2);
@@ -630,7 +630,7 @@ function create_if_block_4(ctx) {
 function create_if_block(ctx) {
 	let ol;
 	let ol_style_value;
-	let each_value = /*steps*/ ctx[2];
+	let each_value = /*steps*/ ctx[0];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -660,7 +660,7 @@ function create_if_block(ctx) {
 		},
 		h() {
 			attr(ol, "class", "cg-process__steps svelte-xemq2d");
-			attr(ol, "style", ol_style_value = `--step-count: ${/*steps*/ ctx[2].length};`);
+			attr(ol, "style", ol_style_value = `--step-count: ${/*steps*/ ctx[0].length};`);
 		},
 		m(target, anchor) {
 			insert_hydration(target, ol, anchor);
@@ -672,8 +672,8 @@ function create_if_block(ctx) {
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty & /*steps*/ 4) {
-				each_value = /*steps*/ ctx[2];
+			if (dirty & /*steps*/ 1) {
+				each_value = /*steps*/ ctx[0];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -695,7 +695,7 @@ function create_if_block(ctx) {
 				each_blocks.length = each_value.length;
 			}
 
-			if (dirty & /*steps*/ 4 && ol_style_value !== (ol_style_value = `--step-count: ${/*steps*/ ctx[2].length};`)) {
+			if (dirty & /*steps*/ 1 && ol_style_value !== (ol_style_value = `--step-count: ${/*steps*/ ctx[0].length};`)) {
 				attr(ol, "style", ol_style_value);
 			}
 		},
@@ -765,7 +765,7 @@ function create_if_block_2(ctx) {
 			append_hydration(h3, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*steps*/ 4 && t_value !== (t_value = /*step*/ ctx[8].title + "")) set_data(t, t_value);
+			if (dirty & /*steps*/ 1 && t_value !== (t_value = /*step*/ ctx[8].title + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(h3);
@@ -800,7 +800,7 @@ function create_if_block_1(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*steps*/ 4 && t_value !== (t_value = /*step*/ ctx[8].text + "")) set_data(t, t_value);
+			if (dirty & /*steps*/ 1 && t_value !== (t_value = /*step*/ ctx[8].text + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -819,7 +819,7 @@ function create_each_block(ctx) {
 	let div;
 	let t3;
 	let t4;
-	let if_block0 = /*index*/ ctx[10] < /*steps*/ ctx[2].length - 1 && create_if_block_3();
+	let if_block0 = /*index*/ ctx[10] < /*steps*/ ctx[0].length - 1 && create_if_block_3();
 	let if_block1 = /*step*/ ctx[8].title && create_if_block_2(ctx);
 	let if_block2 = /*step*/ ctx[8].text && create_if_block_1(ctx);
 
@@ -878,7 +878,7 @@ function create_each_block(ctx) {
 			append_hydration(li, t4);
 		},
 		p(ctx, dirty) {
-			if (/*index*/ ctx[10] < /*steps*/ ctx[2].length - 1) {
+			if (/*index*/ ctx[10] < /*steps*/ ctx[0].length - 1) {
 				if (if_block0) ; else {
 					if_block0 = create_if_block_3();
 					if_block0.c();
@@ -930,9 +930,9 @@ function create_fragment(ctx) {
 	let header;
 	let t0;
 	let t1;
-	let if_block0 = /*eyebrow*/ ctx[0] && create_if_block_5(ctx);
-	let if_block1 = /*heading*/ ctx[1] && create_if_block_4(ctx);
-	let if_block2 = /*steps*/ ctx[2] && /*steps*/ ctx[2].length > 0 && create_if_block(ctx);
+	let if_block0 = /*eyebrow*/ ctx[1] && create_if_block_5(ctx);
+	let if_block1 = /*heading*/ ctx[2] && create_if_block_4(ctx);
+	let if_block2 = /*steps*/ ctx[0] && /*steps*/ ctx[0].length > 0 && create_if_block(ctx);
 
 	return {
 		c() {
@@ -983,7 +983,7 @@ function create_fragment(ctx) {
 			/*section_binding*/ ctx[7](section);
 		},
 		p(ctx, [dirty]) {
-			if (/*eyebrow*/ ctx[0]) {
+			if (/*eyebrow*/ ctx[1]) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
@@ -996,7 +996,7 @@ function create_fragment(ctx) {
 				if_block0 = null;
 			}
 
-			if (/*heading*/ ctx[1]) {
+			if (/*heading*/ ctx[2]) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
@@ -1009,7 +1009,7 @@ function create_fragment(ctx) {
 				if_block1 = null;
 			}
 
-			if (/*steps*/ ctx[2] && /*steps*/ ctx[2].length > 0) {
+			if (/*steps*/ ctx[0] && /*steps*/ ctx[0].length > 0) {
 				if (if_block2) {
 					if_block2.p(ctx, dirty);
 				} else {
@@ -1044,9 +1044,9 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
+	let { steps } = $$props;
 	let { eyebrow } = $$props;
 	let { heading } = $$props;
-	let { steps } = $$props;
 	let sectionElement;
 	let animationReady = false;
 	let isVisible = false;
@@ -1086,15 +1086,15 @@ function instance($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(6, props = $$props.props);
-		if ('eyebrow' in $$props) $$invalidate(0, eyebrow = $$props.eyebrow);
-		if ('heading' in $$props) $$invalidate(1, heading = $$props.heading);
-		if ('steps' in $$props) $$invalidate(2, steps = $$props.steps);
+		if ('steps' in $$props) $$invalidate(0, steps = $$props.steps);
+		if ('eyebrow' in $$props) $$invalidate(1, eyebrow = $$props.eyebrow);
+		if ('heading' in $$props) $$invalidate(2, heading = $$props.heading);
 	};
 
 	return [
+		steps,
 		eyebrow,
 		heading,
-		steps,
 		sectionElement,
 		animationReady,
 		isVisible,
@@ -1109,9 +1109,9 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 6,
-			eyebrow: 0,
-			heading: 1,
-			steps: 2
+			steps: 0,
+			eyebrow: 1,
+			heading: 2
 		});
 	}
 }
