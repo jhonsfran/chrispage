@@ -614,8 +614,6 @@ class SvelteComponent {
 function create_if_block_5(ctx) {
 	let img;
 	let img_src_value;
-	let mounted;
-	let dispose;
 
 	return {
 		c() {
@@ -635,38 +633,26 @@ function create_if_block_5(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "intro-icon svelte-9ivjem");
+			attr(img, "class", "intro-icon svelte-uspnva");
 			attr(img, "alt", "");
 			attr(img, "loading", "eager");
 			attr(img, "fetchpriority", "high");
-			toggle_class(img, "loaded", /*introLogoLoaded*/ ctx[7]);
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
-
-			if (!mounted) {
-				dispose = listen(img, "load", /*load_handler*/ ctx[15]);
-				mounted = true;
-			}
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*logo*/ 1 && !src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) {
+			if (dirty & /*logo*/ 1 && !src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) {
 				attr(img, "src", img_src_value);
-			}
-
-			if (dirty[0] & /*introLogoLoaded*/ 128) {
-				toggle_class(img, "loaded", /*introLogoLoaded*/ ctx[7]);
 			}
 		},
 		d(detaching) {
 			if (detaching) detach(img);
-			mounted = false;
-			dispose();
 		}
 	};
 }
 
-// (574:10) {#if unternehmensOpen}
+// (553:10) {#if unternehmensOpen}
 function create_if_block_4(ctx) {
 	let div1;
 	let a0;
@@ -753,19 +739,19 @@ function create_if_block_4(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/statistische-beratung-fuer-unternehmen");
-			attr(a0, "class", "dropdown-item dropdown-overview svelte-9ivjem");
-			attr(div0, "class", "dropdown-divider svelte-9ivjem");
+			attr(a0, "class", "dropdown-item dropdown-overview svelte-uspnva");
+			attr(div0, "class", "dropdown-divider svelte-uspnva");
 			attr(a1, "href", "/statistische-beratung-fuer-unternehmen/marketing-optimieren");
-			attr(a1, "class", "dropdown-item svelte-9ivjem");
+			attr(a1, "class", "dropdown-item svelte-uspnva");
 			attr(a2, "href", "/statistische-beratung-fuer-unternehmen/prozesse-optimieren");
-			attr(a2, "class", "dropdown-item svelte-9ivjem");
+			attr(a2, "class", "dropdown-item svelte-uspnva");
 			attr(a3, "href", "/statistische-beratung-fuer-unternehmen/erkenntnisse-aus-umfragen");
-			attr(a3, "class", "dropdown-item svelte-9ivjem");
+			attr(a3, "class", "dropdown-item svelte-uspnva");
 			attr(a4, "href", "/statistische-beratung-fuer-unternehmen/reporting");
-			attr(a4, "class", "dropdown-item svelte-9ivjem");
+			attr(a4, "class", "dropdown-item svelte-uspnva");
 			attr(a5, "href", "/statistische-beratung-fuer-unternehmen/forecasts-und-prognosen");
-			attr(a5, "class", "dropdown-item svelte-9ivjem");
-			attr(div1, "class", "dropdown-panel svelte-9ivjem");
+			attr(a5, "class", "dropdown-item svelte-uspnva");
+			attr(div1, "class", "dropdown-panel svelte-uspnva");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -795,7 +781,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (646:10) {#if teamOpen}
+// (625:10) {#if teamOpen}
 function create_if_block_3(ctx) {
 	let div1;
 	let a0;
@@ -838,11 +824,11 @@ function create_if_block_3(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/team");
-			attr(a0, "class", "dropdown-item dropdown-overview svelte-9ivjem");
-			attr(div0, "class", "dropdown-divider svelte-9ivjem");
+			attr(a0, "class", "dropdown-item dropdown-overview svelte-uspnva");
+			attr(div0, "class", "dropdown-divider svelte-uspnva");
 			attr(a1, "href", "/news");
-			attr(a1, "class", "dropdown-item svelte-9ivjem");
-			attr(div1, "class", "dropdown-panel svelte-9ivjem");
+			attr(a1, "class", "dropdown-item svelte-uspnva");
+			attr(div1, "class", "dropdown-panel svelte-uspnva");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -860,13 +846,11 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (671:6) {#if logo.image && logo.image.url}
+// (649:6) {#if logo.image && logo.image.url}
 function create_if_block_2(ctx) {
 	let a;
 	let img;
 	let img_src_value;
-	let mounted;
-	let dispose;
 
 	return {
 		c() {
@@ -896,47 +880,35 @@ function create_if_block_2(ctx) {
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "nav-icon svelte-9ivjem");
+			attr(img, "class", "nav-icon svelte-uspnva");
 			attr(img, "alt", "");
 			attr(img, "loading", "eager");
 			attr(img, "fetchpriority", "high");
 			toggle_class(img, "active", /*introDone*/ ctx[2]);
-			toggle_class(img, "loaded", /*navLogoLoaded*/ ctx[8]);
 			attr(a, "href", "/");
 			attr(a, "aria-label", "Zur Startseite");
-			attr(a, "class", "svelte-9ivjem");
+			attr(a, "class", "svelte-uspnva");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, img);
-
-			if (!mounted) {
-				dispose = listen(img, "load", /*load_handler_1*/ ctx[21]);
-				mounted = true;
-			}
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*logo*/ 1 && !src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) {
+			if (dirty & /*logo*/ 1 && !src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty[0] & /*introDone*/ 4) {
+			if (dirty & /*introDone*/ 4) {
 				toggle_class(img, "active", /*introDone*/ ctx[2]);
-			}
-
-			if (dirty[0] & /*navLogoLoaded*/ 256) {
-				toggle_class(img, "loaded", /*navLogoLoaded*/ ctx[8]);
 			}
 		},
 		d(detaching) {
 			if (detaching) detach(a);
-			mounted = false;
-			dispose();
 		}
 	};
 }
 
-// (715:8) {#if studierendeOpen}
+// (691:8) {#if studierendeOpen}
 function create_if_block_1(ctx) {
 	let div1;
 	let a0;
@@ -1023,17 +995,17 @@ function create_if_block_1(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/statistik-beratung-fuer-studierende");
-			attr(a0, "class", "dropdown-item dropdown-overview svelte-9ivjem");
-			attr(div0, "class", "dropdown-divider svelte-9ivjem");
-			attr(span0, "class", "dropdown-section-heading svelte-9ivjem");
+			attr(a0, "class", "dropdown-item dropdown-overview svelte-uspnva");
+			attr(div0, "class", "dropdown-divider svelte-uspnva");
+			attr(span0, "class", "dropdown-section-heading svelte-uspnva");
 			attr(a1, "href", "/statistik_mathematik");
-			attr(a1, "class", "dropdown-item svelte-9ivjem");
-			attr(span1, "class", "dropdown-section-heading svelte-9ivjem");
+			attr(a1, "class", "dropdown-item svelte-uspnva");
+			attr(span1, "class", "dropdown-section-heading svelte-uspnva");
 			attr(a2, "href", "/statistische-auswertung");
-			attr(a2, "class", "dropdown-item svelte-9ivjem");
+			attr(a2, "class", "dropdown-item svelte-uspnva");
 			attr(a3, "href", "/statistik-beratung-fuer-studierende/auswertung-abschlussarbeit");
-			attr(a3, "class", "dropdown-item svelte-9ivjem");
-			attr(div1, "class", "dropdown-panel svelte-9ivjem");
+			attr(a3, "class", "dropdown-item svelte-uspnva");
+			attr(div1, "class", "dropdown-panel svelte-uspnva");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -1063,7 +1035,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (777:2) {#if menuOpen}
+// (753:2) {#if menuOpen}
 function create_if_block(ctx) {
 	let div2;
 	let a0;
@@ -1210,29 +1182,29 @@ function create_if_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a0, "class", "mobile-link svelte-9ivjem");
+			attr(a0, "class", "mobile-link svelte-uspnva");
 			attr(a0, "href", "/statistische-beratung-fuer-unternehmen");
-			attr(a1, "class", "mobile-link svelte-9ivjem");
+			attr(a1, "class", "mobile-link svelte-uspnva");
 			attr(a1, "href", "/team");
-			attr(a2, "class", "mobile-sublink svelte-9ivjem");
+			attr(a2, "class", "mobile-sublink svelte-uspnva");
 			attr(a2, "href", "/news");
-			attr(a3, "class", "mobile-link svelte-9ivjem");
+			attr(a3, "class", "mobile-link svelte-uspnva");
 			attr(a3, "href", "/kontakt");
-			attr(a4, "class", "mobile-link mobile-link--overview svelte-9ivjem");
+			attr(a4, "class", "mobile-link mobile-link--overview svelte-uspnva");
 			attr(a4, "href", "/statistik-beratung-fuer-studierende");
-			attr(span0, "class", "mobile-menu-heading svelte-9ivjem");
-			attr(a5, "class", "mobile-sublink svelte-9ivjem");
+			attr(span0, "class", "mobile-menu-heading svelte-uspnva");
+			attr(a5, "class", "mobile-sublink svelte-uspnva");
 			attr(a5, "href", "/statistik_mathematik");
-			attr(div0, "class", "mobile-menu-section svelte-9ivjem");
-			attr(span1, "class", "mobile-menu-heading svelte-9ivjem");
-			attr(a6, "class", "mobile-sublink svelte-9ivjem");
+			attr(div0, "class", "mobile-menu-section svelte-uspnva");
+			attr(span1, "class", "mobile-menu-heading svelte-uspnva");
+			attr(a6, "class", "mobile-sublink svelte-uspnva");
 			attr(a6, "href", "/statistische-auswertung");
-			attr(a7, "class", "mobile-sublink svelte-9ivjem");
+			attr(a7, "class", "mobile-sublink svelte-uspnva");
 			attr(a7, "href", "/statistik-beratung-fuer-studierende/auswertung-abschlussarbeit");
-			attr(div1, "class", "mobile-menu-section svelte-9ivjem");
+			attr(div1, "class", "mobile-menu-section svelte-uspnva");
 			attr(a8, "href", "/kontakt");
-			attr(a8, "class", "mobile-button svelte-9ivjem");
-			attr(div2, "class", "mobile-menu svelte-9ivjem");
+			attr(a8, "class", "mobile-button svelte-uspnva");
+			attr(div2, "class", "mobile-menu svelte-uspnva");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div2, anchor);
@@ -1273,22 +1245,22 @@ function create_if_block(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(a0, "click", /*click_handler_1*/ ctx[25]),
-					listen(a1, "click", /*click_handler_2*/ ctx[26]),
-					listen(a2, "click", /*click_handler_3*/ ctx[27]),
-					listen(a3, "click", /*click_handler_4*/ ctx[28]),
-					listen(a4, "click", /*click_handler_5*/ ctx[29]),
-					listen(a5, "click", /*click_handler_6*/ ctx[30]),
-					listen(a6, "click", /*click_handler_7*/ ctx[31]),
-					listen(a7, "click", /*click_handler_8*/ ctx[32]),
-					listen(a8, "click", /*click_handler_9*/ ctx[33])
+					listen(a0, "click", /*click_handler_1*/ ctx[21]),
+					listen(a1, "click", /*click_handler_2*/ ctx[22]),
+					listen(a2, "click", /*click_handler_3*/ ctx[23]),
+					listen(a3, "click", /*click_handler_4*/ ctx[24]),
+					listen(a4, "click", /*click_handler_5*/ ctx[25]),
+					listen(a5, "click", /*click_handler_6*/ ctx[26]),
+					listen(a6, "click", /*click_handler_7*/ ctx[27]),
+					listen(a7, "click", /*click_handler_8*/ ctx[28]),
+					listen(a8, "click", /*click_handler_9*/ ctx[29])
 				];
 
 				mounted = true;
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*primary_cta*/ 2 && t20_value !== (t20_value = /*primary_cta*/ ctx[1].label + "")) set_data(t20, t20_value);
+			if (dirty & /*primary_cta*/ 2 && t20_value !== (t20_value = /*primary_cta*/ ctx[1].label + "")) set_data(t20, t20_value);
 		},
 		d(detaching) {
 			if (detaching) detach(div2);
@@ -1359,8 +1331,8 @@ function create_fragment(ctx) {
 	let if_block3 = /*logo*/ ctx[0].image && /*logo*/ ctx[0].image.url && create_if_block_2(ctx);
 	let if_block4 = /*studierendeOpen*/ ctx[6] && create_if_block_1();
 	let if_block5 = /*menuOpen*/ ctx[3] && create_if_block(ctx);
-	const default_slot_template = /*#slots*/ ctx[14].default;
-	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[13], null);
+	const default_slot_template = /*#slots*/ ctx[12].default;
+	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[11], null);
 
 	return {
 		c() {
@@ -1542,54 +1514,54 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "intro-content svelte-9ivjem");
-			attr(div1, "class", "intro svelte-9ivjem");
+			attr(div0, "class", "intro-content svelte-uspnva");
+			attr(div1, "class", "intro svelte-uspnva");
 			attr(div1, "role", "button");
 			attr(div1, "tabindex", "0");
 			attr(div1, "aria-label", "Intro schließen");
 			toggle_class(div1, "hide", /*introDone*/ ctx[2]);
 			if (!src_url_equal(img.src, img_src_value = "https://nxdvajxwcfktiptiprwh.supabase.co/storage/v1/object/public/images/962f92e4-4c84-49f1-b9bf-603b11bceef4/1767266774000Logos%20Christoph_NEW2026_white.svg")) attr(img, "src", img_src_value);
-			attr(img, "class", "nav-left-logo svelte-9ivjem");
+			attr(img, "class", "nav-left-logo svelte-uspnva");
 			attr(img, "alt", "Christoph Groß Logo");
 			attr(a0, "href", "/");
-			attr(a0, "class", "nav-left-logo-link svelte-9ivjem");
-			attr(span0, "class", "arrow svelte-9ivjem");
+			attr(a0, "class", "nav-left-logo-link svelte-uspnva");
+			attr(span0, "class", "arrow svelte-uspnva");
 			toggle_class(span0, "open", /*unternehmensOpen*/ ctx[4]);
-			attr(a1, "class", "link dropdown-trigger svelte-9ivjem");
+			attr(a1, "class", "link dropdown-trigger svelte-uspnva");
 			attr(a1, "href", "/statistische-beratung-fuer-unternehmen");
-			attr(div2, "class", "dropdown-wrapper svelte-9ivjem");
-			attr(span1, "class", "arrow svelte-9ivjem");
+			attr(div2, "class", "dropdown-wrapper svelte-uspnva");
+			attr(span1, "class", "arrow svelte-uspnva");
 			toggle_class(span1, "open", /*teamOpen*/ ctx[5]);
-			attr(a2, "class", "link dropdown-trigger svelte-9ivjem");
+			attr(a2, "class", "link dropdown-trigger svelte-uspnva");
 			attr(a2, "href", "/team");
-			attr(div3, "class", "dropdown-wrapper svelte-9ivjem");
-			attr(div4, "class", "nav-left svelte-9ivjem");
-			attr(div5, "class", "nav-left-group svelte-9ivjem");
-			attr(div6, "class", "nav-center svelte-9ivjem");
-			attr(a3, "class", "link svelte-9ivjem");
+			attr(div3, "class", "dropdown-wrapper svelte-uspnva");
+			attr(div4, "class", "nav-left svelte-uspnva");
+			attr(div5, "class", "nav-left-group svelte-uspnva");
+			attr(div6, "class", "nav-center svelte-uspnva");
+			attr(a3, "class", "link svelte-uspnva");
 			attr(a3, "href", "/kontakt");
-			attr(span2, "class", "arrow svelte-9ivjem");
+			attr(span2, "class", "arrow svelte-uspnva");
 			toggle_class(span2, "open", /*studierendeOpen*/ ctx[6]);
-			attr(a4, "class", "link dropdown-trigger svelte-9ivjem");
+			attr(a4, "class", "link dropdown-trigger svelte-uspnva");
 			attr(a4, "href", "/statistik-beratung-fuer-studierende");
-			attr(div7, "class", "dropdown-wrapper svelte-9ivjem");
+			attr(div7, "class", "dropdown-wrapper svelte-uspnva");
 			attr(a5, "href", "/kontakt");
-			attr(a5, "class", "button svelte-9ivjem");
-			attr(div8, "class", "nav-right svelte-9ivjem");
-			attr(span3, "class", "svelte-9ivjem");
+			attr(a5, "class", "button svelte-uspnva");
+			attr(div8, "class", "nav-right svelte-uspnva");
+			attr(span3, "class", "svelte-uspnva");
 			toggle_class(span3, "open", /*menuOpen*/ ctx[3]);
-			attr(span4, "class", "svelte-9ivjem");
+			attr(span4, "class", "svelte-uspnva");
 			toggle_class(span4, "open", /*menuOpen*/ ctx[3]);
-			attr(span5, "class", "svelte-9ivjem");
+			attr(span5, "class", "svelte-uspnva");
 			toggle_class(span5, "open", /*menuOpen*/ ctx[3]);
-			attr(button, "class", "hamburger svelte-9ivjem");
+			attr(button, "class", "hamburger svelte-uspnva");
 			attr(button, "type", "button");
 			attr(button, "aria-label", "Navigation öffnen oder schließen");
 			attr(button, "aria-expanded", /*menuOpen*/ ctx[3]);
-			attr(div9, "class", "nav-wrapper svelte-9ivjem");
-			attr(header, "class", "header svelte-9ivjem");
+			attr(div9, "class", "nav-wrapper svelte-uspnva");
+			attr(header, "class", "header svelte-uspnva");
 			toggle_class(header, "active", /*introDone*/ ctx[2]);
-			attr(div10, "class", "main-content svelte-9ivjem");
+			attr(div10, "class", "main-content svelte-uspnva");
 			toggle_class(div10, "visible", /*introDone*/ ctx[2]);
 		},
 		m(target, anchor) {
@@ -1657,21 +1629,21 @@ function create_fragment(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(div1, "click", /*handleIntro*/ ctx[9]),
-					listen(div1, "keydown", /*keydown_handler*/ ctx[16]),
-					listen(div2, "mouseenter", /*mouseenter_handler*/ ctx[17]),
-					listen(div2, "mouseleave", /*mouseleave_handler*/ ctx[18]),
-					listen(div3, "mouseenter", /*mouseenter_handler_1*/ ctx[19]),
-					listen(div3, "mouseleave", /*mouseleave_handler_1*/ ctx[20]),
-					listen(div7, "mouseenter", /*mouseenter_handler_2*/ ctx[22]),
-					listen(div7, "mouseleave", /*mouseleave_handler_2*/ ctx[23]),
-					listen(button, "click", /*click_handler*/ ctx[24])
+					listen(div1, "click", /*handleIntro*/ ctx[7]),
+					listen(div1, "keydown", /*keydown_handler*/ ctx[13]),
+					listen(div2, "mouseenter", /*mouseenter_handler*/ ctx[14]),
+					listen(div2, "mouseleave", /*mouseleave_handler*/ ctx[15]),
+					listen(div3, "mouseenter", /*mouseenter_handler_1*/ ctx[16]),
+					listen(div3, "mouseleave", /*mouseleave_handler_1*/ ctx[17]),
+					listen(div7, "mouseenter", /*mouseenter_handler_2*/ ctx[18]),
+					listen(div7, "mouseleave", /*mouseleave_handler_2*/ ctx[19]),
+					listen(button, "click", /*click_handler*/ ctx[20])
 				];
 
 				mounted = true;
 			}
 		},
-		p(ctx, dirty) {
+		p(ctx, [dirty]) {
 			if (/*logo*/ ctx[0].image && /*logo*/ ctx[0].image.url) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
@@ -1685,11 +1657,11 @@ function create_fragment(ctx) {
 				if_block0 = null;
 			}
 
-			if (!current || dirty[0] & /*introDone*/ 4) {
+			if (!current || dirty & /*introDone*/ 4) {
 				toggle_class(div1, "hide", /*introDone*/ ctx[2]);
 			}
 
-			if (!current || dirty[0] & /*unternehmensOpen*/ 16) {
+			if (!current || dirty & /*unternehmensOpen*/ 16) {
 				toggle_class(span0, "open", /*unternehmensOpen*/ ctx[4]);
 			}
 
@@ -1704,7 +1676,7 @@ function create_fragment(ctx) {
 				if_block1 = null;
 			}
 
-			if (!current || dirty[0] & /*teamOpen*/ 32) {
+			if (!current || dirty & /*teamOpen*/ 32) {
 				toggle_class(span1, "open", /*teamOpen*/ ctx[5]);
 			}
 
@@ -1732,7 +1704,7 @@ function create_fragment(ctx) {
 				if_block3 = null;
 			}
 
-			if (!current || dirty[0] & /*studierendeOpen*/ 64) {
+			if (!current || dirty & /*studierendeOpen*/ 64) {
 				toggle_class(span2, "open", /*studierendeOpen*/ ctx[6]);
 			}
 
@@ -1747,21 +1719,21 @@ function create_fragment(ctx) {
 				if_block4 = null;
 			}
 
-			if ((!current || dirty[0] & /*primary_cta*/ 2) && t17_value !== (t17_value = /*primary_cta*/ ctx[1].label + "")) set_data(t17, t17_value);
+			if ((!current || dirty & /*primary_cta*/ 2) && t17_value !== (t17_value = /*primary_cta*/ ctx[1].label + "")) set_data(t17, t17_value);
 
-			if (!current || dirty[0] & /*menuOpen*/ 8) {
+			if (!current || dirty & /*menuOpen*/ 8) {
 				toggle_class(span3, "open", /*menuOpen*/ ctx[3]);
 			}
 
-			if (!current || dirty[0] & /*menuOpen*/ 8) {
+			if (!current || dirty & /*menuOpen*/ 8) {
 				toggle_class(span4, "open", /*menuOpen*/ ctx[3]);
 			}
 
-			if (!current || dirty[0] & /*menuOpen*/ 8) {
+			if (!current || dirty & /*menuOpen*/ 8) {
 				toggle_class(span5, "open", /*menuOpen*/ ctx[3]);
 			}
 
-			if (!current || dirty[0] & /*menuOpen*/ 8) {
+			if (!current || dirty & /*menuOpen*/ 8) {
 				attr(button, "aria-expanded", /*menuOpen*/ ctx[3]);
 			}
 
@@ -1778,26 +1750,26 @@ function create_fragment(ctx) {
 				if_block5 = null;
 			}
 
-			if (!current || dirty[0] & /*introDone*/ 4) {
+			if (!current || dirty & /*introDone*/ 4) {
 				toggle_class(header, "active", /*introDone*/ ctx[2]);
 			}
 
 			if (default_slot) {
-				if (default_slot.p && (!current || dirty[0] & /*$$scope*/ 8192)) {
+				if (default_slot.p && (!current || dirty & /*$$scope*/ 2048)) {
 					update_slot_base(
 						default_slot,
 						default_slot_template,
 						ctx,
-						/*$$scope*/ ctx[13],
+						/*$$scope*/ ctx[11],
 						!current
-						? get_all_dirty_from_scope(/*$$scope*/ ctx[13])
-						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[13], dirty, null),
+						? get_all_dirty_from_scope(/*$$scope*/ ctx[11])
+						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[11], dirty, null),
 						null
 					);
 				}
 			}
 
-			if (!current || dirty[0] & /*introDone*/ 4) {
+			if (!current || dirty & /*introDone*/ 4) {
 				toggle_class(div10, "visible", /*introDone*/ ctx[2]);
 			}
 		},
@@ -1841,8 +1813,6 @@ function instance($$self, $$props, $$invalidate) {
 	let unternehmensOpen = false;
 	let teamOpen = false;
 	let studierendeOpen = false;
-	let introLogoLoaded = false;
-	let navLogoLoaded = false;
 
 	function handleIntro() {
 		if (!introDone) {
@@ -1869,7 +1839,6 @@ function instance($$self, $$props, $$invalidate) {
 		800
 	);
 
-	const load_handler = () => $$invalidate(7, introLogoLoaded = true);
 	const keydown_handler = e => e.key === "Enter" && handleIntro();
 
 	const mouseenter_handler = () => {
@@ -1887,7 +1856,6 @@ function instance($$self, $$props, $$invalidate) {
 	};
 
 	const mouseleave_handler_1 = () => $$invalidate(5, teamOpen = false);
-	const load_handler_1 = () => $$invalidate(8, navLogoLoaded = true);
 
 	const mouseenter_handler_2 = () => {
 		$$invalidate(6, studierendeOpen = true);
@@ -1908,12 +1876,12 @@ function instance($$self, $$props, $$invalidate) {
 	const click_handler_9 = () => $$invalidate(3, menuOpen = false);
 
 	$$self.$$set = $$props => {
-		if ('props' in $$props) $$invalidate(10, props = $$props.props);
+		if ('props' in $$props) $$invalidate(8, props = $$props.props);
 		if ('logo' in $$props) $$invalidate(0, logo = $$props.logo);
-		if ('leftlogo' in $$props) $$invalidate(11, leftlogo = $$props.leftlogo);
-		if ('site_nav' in $$props) $$invalidate(12, site_nav = $$props.site_nav);
+		if ('leftlogo' in $$props) $$invalidate(9, leftlogo = $$props.leftlogo);
+		if ('site_nav' in $$props) $$invalidate(10, site_nav = $$props.site_nav);
 		if ('primary_cta' in $$props) $$invalidate(1, primary_cta = $$props.primary_cta);
-		if ('$$scope' in $$props) $$invalidate(13, $$scope = $$props.$$scope);
+		if ('$$scope' in $$props) $$invalidate(11, $$scope = $$props.$$scope);
 	};
 
 	return [
@@ -1924,21 +1892,17 @@ function instance($$self, $$props, $$invalidate) {
 		unternehmensOpen,
 		teamOpen,
 		studierendeOpen,
-		introLogoLoaded,
-		navLogoLoaded,
 		handleIntro,
 		props,
 		leftlogo,
 		site_nav,
 		$$scope,
 		slots,
-		load_handler,
 		keydown_handler,
 		mouseenter_handler,
 		mouseleave_handler,
 		mouseenter_handler_1,
 		mouseleave_handler_1,
-		load_handler_1,
 		mouseenter_handler_2,
 		mouseleave_handler_2,
 		click_handler,
@@ -1958,22 +1922,13 @@ class Component extends SvelteComponent {
 	constructor(options) {
 		super();
 
-		init(
-			this,
-			options,
-			instance,
-			create_fragment,
-			safe_not_equal,
-			{
-				props: 10,
-				logo: 0,
-				leftlogo: 11,
-				site_nav: 12,
-				primary_cta: 1
-			},
-			null,
-			[-1, -1]
-		);
+		init(this, options, instance, create_fragment, safe_not_equal, {
+			props: 8,
+			logo: 0,
+			leftlogo: 9,
+			site_nav: 10,
+			primary_cta: 1
+		});
 	}
 }
 
