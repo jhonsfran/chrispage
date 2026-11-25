@@ -1,4 +1,4 @@
-// Wirkungsanalyse FAQ - Updated November 24, 2026
+// Wirkungsanalyse FAQ - Updated November 25, 2026
 function noop() { }
 function run(fn) {
     return fn();
@@ -552,13 +552,13 @@ function create_if_block_2(ctx) {
 	return {
 		c() {
 			h2 = element("h2");
-			t = text(/*heading*/ ctx[0]);
+			t = text(/*heading*/ ctx[1]);
 			this.h();
 		},
 		l(nodes) {
 			h2 = claim_element(nodes, "H2", { id: true, class: true });
 			var h2_nodes = children(h2);
-			t = claim_text(h2_nodes, /*heading*/ ctx[0]);
+			t = claim_text(h2_nodes, /*heading*/ ctx[1]);
 			h2_nodes.forEach(detach);
 			this.h();
 		},
@@ -571,7 +571,7 @@ function create_if_block_2(ctx) {
 			append_hydration(h2, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*heading*/ 1) set_data(t, /*heading*/ ctx[0]);
+			if (dirty & /*heading*/ 2) set_data(t, /*heading*/ ctx[1]);
 		},
 		d(detaching) {
 			if (detaching) detach(h2);
@@ -582,7 +582,7 @@ function create_if_block_2(ctx) {
 // (338:4) {#if faqs && faqs.length > 0}
 function create_if_block(ctx) {
 	let div;
-	let each_value = /*faqs*/ ctx[1];
+	let each_value = /*faqs*/ ctx[0];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -623,8 +623,8 @@ function create_if_block(ctx) {
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty & /*openIndex, faqs, toggleFaq*/ 14) {
-				each_value = /*faqs*/ ctx[1];
+			if (dirty & /*openIndex, faqs, toggleFaq*/ 13) {
+				each_value = /*faqs*/ ctx[0];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -687,7 +687,7 @@ function create_if_block_1(ctx) {
 			append_hydration(p, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*faqs*/ 2 && t_value !== (t_value = /*faq*/ ctx[6].answer + "")) set_data(t, t_value);
+			if (dirty & /*faqs*/ 1 && t_value !== (t_value = /*faq*/ ctx[6].answer + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(div);
@@ -831,7 +831,7 @@ function create_each_block(ctx) {
 		},
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
-			if (dirty & /*faqs*/ 2 && t0_value !== (t0_value = /*faq*/ ctx[6].question + "")) set_data(t0, t0_value);
+			if (dirty & /*faqs*/ 1 && t0_value !== (t0_value = /*faq*/ ctx[6].question + "")) set_data(t0, t0_value);
 
 			if (dirty & /*openIndex*/ 4 && button_aria_expanded_value !== (button_aria_expanded_value = /*openIndex*/ ctx[2] === /*index*/ ctx[8])) {
 				attr(button, "aria-expanded", button_aria_expanded_value);
@@ -871,8 +871,8 @@ function create_fragment(ctx) {
 	let section;
 	let div;
 	let t;
-	let if_block0 = /*heading*/ ctx[0] && create_if_block_2(ctx);
-	let if_block1 = /*faqs*/ ctx[1] && /*faqs*/ ctx[1].length > 0 && create_if_block(ctx);
+	let if_block0 = /*heading*/ ctx[1] && create_if_block_2(ctx);
+	let if_block1 = /*faqs*/ ctx[0] && /*faqs*/ ctx[0].length > 0 && create_if_block(ctx);
 
 	return {
 		c() {
@@ -908,7 +908,7 @@ function create_fragment(ctx) {
 			if (if_block1) if_block1.m(div, null);
 		},
 		p(ctx, [dirty]) {
-			if (/*heading*/ ctx[0]) {
+			if (/*heading*/ ctx[1]) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
@@ -921,7 +921,7 @@ function create_fragment(ctx) {
 				if_block0 = null;
 			}
 
-			if (/*faqs*/ ctx[1] && /*faqs*/ ctx[1].length > 0) {
+			if (/*faqs*/ ctx[0] && /*faqs*/ ctx[0].length > 0) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
@@ -946,8 +946,8 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
-	let { heading } = $$props;
 	let { faqs } = $$props;
+	let { heading } = $$props;
 	let openIndex = null;
 
 	function toggleFaq(index) {
@@ -958,17 +958,17 @@ function instance($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(4, props = $$props.props);
-		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
-		if ('faqs' in $$props) $$invalidate(1, faqs = $$props.faqs);
+		if ('faqs' in $$props) $$invalidate(0, faqs = $$props.faqs);
+		if ('heading' in $$props) $$invalidate(1, heading = $$props.heading);
 	};
 
-	return [heading, faqs, openIndex, toggleFaq, props, click_handler];
+	return [faqs, heading, openIndex, toggleFaq, props, click_handler];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { props: 4, heading: 0, faqs: 1 });
+		init(this, options, instance, create_fragment, safe_not_equal, { props: 4, faqs: 0, heading: 1 });
 	}
 }
 
