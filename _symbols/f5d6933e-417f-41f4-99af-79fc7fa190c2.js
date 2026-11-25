@@ -923,7 +923,7 @@ function get_each_context_3(ctx, list, i) {
 	return child_ctx;
 }
 
-// (1474:8) {#each availableCategories as category}
+// (1483:8) {#each availableCategories as category}
 function create_each_block_3(ctx) {
 	let button;
 	let t0_value = /*category*/ ctx[49] + "";
@@ -993,7 +993,7 @@ function create_each_block_3(ctx) {
 	};
 }
 
-// (1649:4) {:else}
+// (1658:4) {:else}
 function create_else_block_1(ctx) {
 	let div;
 	let svg;
@@ -1107,7 +1107,7 @@ function create_else_block_1(ctx) {
 	};
 }
 
-// (1519:4) {#if paginatedPosts.length > 0}
+// (1528:4) {#if paginatedPosts.length > 0}
 function create_if_block_10(ctx) {
 	let div;
 	let t;
@@ -1212,7 +1212,7 @@ function create_if_block_10(ctx) {
 	};
 }
 
-// (1538:14) {:else}
+// (1547:14) {:else}
 function create_else_block(ctx) {
 	let span;
 	let t;
@@ -1244,7 +1244,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (1532:14) {#if post.image && post.image.url}
+// (1541:14) {#if post.image && post.image.url}
 function create_if_block_15(ctx) {
 	let img;
 	let img_src_value;
@@ -1289,7 +1289,7 @@ function create_if_block_15(ctx) {
 	};
 }
 
-// (1547:16) {#if post.category}
+// (1556:16) {#if post.category}
 function create_if_block_14(ctx) {
 	let span;
 	let t_value = /*post*/ ctx[46].category + "";
@@ -1324,7 +1324,7 @@ function create_if_block_14(ctx) {
 	};
 }
 
-// (1553:16) {#if post.date}
+// (1562:16) {#if post.date}
 function create_if_block_13(ctx) {
 	let time;
 	let t_value = /*post*/ ctx[46].date + "";
@@ -1365,22 +1365,19 @@ function create_if_block_13(ctx) {
 	};
 }
 
-// (1571:14) {#if post.teaser}
+// (1580:14) {#if post.teaser}
 function create_if_block_12(ctx) {
 	let p;
-	let t_value = /*post*/ ctx[46].teaser + "";
-	let t;
+	let raw_value = renderTeaser(/*post*/ ctx[46].teaser) + "";
 
 	return {
 		c() {
 			p = element("p");
-			t = text(t_value);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, t_value);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -1389,18 +1386,17 @@ function create_if_block_12(ctx) {
 		},
 		m(target, anchor) {
 			insert_hydration(target, p, anchor);
-			append_hydration(p, t);
+			p.innerHTML = raw_value;
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*paginatedPosts*/ 256 && t_value !== (t_value = /*post*/ ctx[46].teaser + "")) set_data(t, t_value);
-		},
+			if (dirty[0] & /*paginatedPosts*/ 256 && raw_value !== (raw_value = renderTeaser(/*post*/ ctx[46].teaser) + "")) p.innerHTML = raw_value;		},
 		d(detaching) {
 			if (detaching) detach(p);
 		}
 	};
 }
 
-// (1524:8) {#each paginatedPosts as post}
+// (1533:8) {#each paginatedPosts as post}
 function create_each_block_2(ctx) {
 	let article;
 	let button0;
@@ -1643,7 +1639,7 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (1593:6) {#if totalPages > 1}
+// (1602:6) {#if totalPages > 1}
 function create_if_block_11(ctx) {
 	let nav;
 	let button0;
@@ -1720,13 +1716,7 @@ function create_if_block_11(ctx) {
 			});
 
 			var button0_nodes = children(button0);
-
-			svg0 = claim_svg_element(button0_nodes, "svg", {
-				viewBox: true,
-				"aria-hidden": true,
-				class: true
-			});
-
+			svg0 = claim_svg_element(button0_nodes, "svg", { viewBox: true, class: true });
 			var svg0_nodes = children(svg0);
 			path0 = claim_svg_element(svg0_nodes, "path", { d: true, class: true });
 			children(path0).forEach(detach);
@@ -1787,7 +1777,6 @@ function create_if_block_11(ctx) {
 			attr(path0, "d", "m15 18-6-6 6-6");
 			attr(path0, "class", "svelte-ktcz30");
 			attr(svg0, "viewBox", "0 0 24 24");
-			attr(svg0, "aria-hidden", "true");
 			attr(svg0, "class", "svelte-ktcz30");
 			attr(span0, "class", "svelte-ktcz30");
 			attr(button0, "type", "button");
@@ -1895,7 +1884,7 @@ function create_if_block_11(ctx) {
 	};
 }
 
-// (1613:12) {#each Array(totalPages) as _, index}
+// (1622:12) {#each Array(totalPages) as _, index}
 function create_each_block_1(ctx) {
 	let button;
 	let t0_value = /*index*/ ctx[43] + 1 + "";
@@ -1972,7 +1961,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (1673:0) {#if selectedPost}
+// (1682:0) {#if selectedPost}
 function create_if_block(ctx) {
 	let div4;
 	let article;
@@ -2313,7 +2302,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (1699:8) {#if selectedPost.image && selectedPost.image.url}
+// (1708:8) {#if selectedPost.image && selectedPost.image.url}
 function create_if_block_9(ctx) {
 	let div;
 	let img;
@@ -2358,7 +2347,7 @@ function create_if_block_9(ctx) {
 	};
 }
 
-// (1710:12) {#if selectedPost.category}
+// (1719:12) {#if selectedPost.category}
 function create_if_block_8(ctx) {
 	let span;
 	let t_value = /*selectedPost*/ ctx[2].category + "";
@@ -2393,7 +2382,7 @@ function create_if_block_8(ctx) {
 	};
 }
 
-// (1716:12) {#if selectedPost.date}
+// (1725:12) {#if selectedPost.date}
 function create_if_block_7(ctx) {
 	let time;
 	let t_value = /*selectedPost*/ ctx[2].date + "";
@@ -2434,22 +2423,19 @@ function create_if_block_7(ctx) {
 	};
 }
 
-// (1730:10) {#if selectedPost.teaser}
+// (1739:10) {#if selectedPost.teaser}
 function create_if_block_6(ctx) {
 	let p;
-	let t_value = /*selectedPost*/ ctx[2].teaser + "";
-	let t;
+	let raw_value = renderTeaser(/*selectedPost*/ ctx[2].teaser) + "";
 
 	return {
 		c() {
 			p = element("p");
-			t = text(t_value);
 			this.h();
 		},
 		l(nodes) {
 			p = claim_element(nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t = claim_text(p_nodes, t_value);
 			p_nodes.forEach(detach);
 			this.h();
 		},
@@ -2458,18 +2444,17 @@ function create_if_block_6(ctx) {
 		},
 		m(target, anchor) {
 			insert_hydration(target, p, anchor);
-			append_hydration(p, t);
+			p.innerHTML = raw_value;
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*selectedPost*/ 4 && t_value !== (t_value = /*selectedPost*/ ctx[2].teaser + "")) set_data(t, t_value);
-		},
+			if (dirty[0] & /*selectedPost*/ 4 && raw_value !== (raw_value = renderTeaser(/*selectedPost*/ ctx[2].teaser) + "")) p.innerHTML = raw_value;		},
 		d(detaching) {
 			if (detaching) detach(p);
 		}
 	};
 }
 
-// (1742:6) {#if galleryItems.length > 0 && currentGalleryImage}
+// (1751:6) {#if galleryItems.length > 0 && currentGalleryImage}
 function create_if_block_1(ctx) {
 	let section;
 	let div0;
@@ -2649,7 +2634,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (1750:12) {#if galleryItems.length > 1}
+// (1759:12) {#if galleryItems.length > 1}
 function create_if_block_5(ctx) {
 	let span;
 	let t0_value = /*galleryIndex*/ ctx[3] + 1 + "";
@@ -2694,7 +2679,7 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (1758:12) {#key currentGalleryImage.image.url}
+// (1767:12) {#key currentGalleryImage.image.url}
 function create_key_block(ctx) {
 	let img;
 	let img_src_value;
@@ -2752,7 +2737,7 @@ function create_key_block(ctx) {
 	};
 }
 
-// (1768:12) {#if galleryItems.length > 1}
+// (1777:12) {#if galleryItems.length > 1}
 function create_if_block_4(ctx) {
 	let button0;
 	let svg0;
@@ -2865,7 +2850,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (1793:10) {#if currentGalleryImage.caption}
+// (1802:10) {#if currentGalleryImage.caption}
 function create_if_block_3(ctx) {
 	let p;
 	let t_value = /*currentGalleryImage*/ ctx[9].caption + "";
@@ -2900,7 +2885,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (1799:10) {#if galleryItems.length > 1}
+// (1808:10) {#if galleryItems.length > 1}
 function create_if_block_2(ctx) {
 	let div;
 	let each_value = /*galleryItems*/ ctx[5];
@@ -2974,7 +2959,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (1801:14) {#each galleryItems as galleryImage, index}
+// (1810:14) {#each galleryItems as galleryImage, index}
 function create_each_block(ctx) {
 	let button;
 	let img;
@@ -3408,6 +3393,14 @@ function publishLatestPost(post) {
 
 function escapeHTML(value = "") {
 	return String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
+}
+
+/*
+  Formatiert **fette Stellen** im Teaser.
+  Der übrige Text wird vorher als HTML maskiert.
+*/
+function renderTeaser(value) {
+	return escapeHTML(value || "").replace(/\*\*([^*\n]+)\*\*/g, "<strong>$1</strong>");
 }
 
 function renderMarks(text, marks = []) {
